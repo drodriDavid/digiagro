@@ -104,7 +104,9 @@
   const tarjetasPr = PROYECTOS.map(p => {
     const a = p.u ? crea("a", "proyecto") : crea("article", "proyecto");
     if (p.u) { a.href = p.u; a.rel = "noopener"; }
-    a.append(crea("span", "pr-marco", p.m), crea("h3", "", p.t), crea("p", "", p.d));
+    a.dataset.ambito = p.a;
+    a.append(crea("span", "pr-marco", p.m), crea("h3", "", p.t));
+    if (p.d) a.append(crea("p", "", p.d));
     if (p.u) a.append(crea("span", "enlace", "Web del proyecto"));
     $("lista-proyectos").append(a); revela(a);
     return { a, p };
@@ -146,8 +148,7 @@
   }
 
   /* Vídeos: solo se reproducen mientras se ven */
-  const heroV = $("hero-video");
-  const vids = [heroV, ...document.querySelectorAll("video[data-auto]")];
+  const vids = [...document.querySelectorAll("video[data-auto]")];
   if (quieto) vids.forEach(v => v.removeAttribute("autoplay"));
   else if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const p = e.target.play(); if (p) p.catch(() => {}); } else e.target.pause(); }), { threshold: 0.25 });

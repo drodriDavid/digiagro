@@ -7,21 +7,20 @@
 <meta name="description" content="DIGIAGRO es la Unidad de Transformación Digital e Inteligencia Artificial del INUO, en la Universidad de Jaén. Teledetección, inteligencia artificial y gemelos digitales para el olivar.">
 <meta name="color-scheme" content="light">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d2b24'/%3E%3Cpath d='M16 7l10 18H6z' fill='%23a8e600'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2311163a'/%3E%3Cpath d='M16 7l10 18H6z' fill='%23a8e600'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sora:wght@200;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <a class="saltar" href="#unidad">Saltar al contenido</a>
 
 <header class="nav" id="nav">
-  <a class="marca" href="#inicio" aria-label="DIGIAGRO, inicio"><span aria-hidden="true">DIGI<i></i>GRO</span></a>
+  <a class="marca" href="#inicio" aria-label="DIGIAGRO, inicio"><span aria-hidden="true">DIGI<b>A</b>GRO</span></a>
   <button class="nav-boton" id="nav-boton" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú"><span></span><span></span></button>
   <nav id="nav-menu" aria-label="Secciones">
     <a href="#unidad">La unidad</a>
-    <a href="#laboratorio">Olivar 3D</a>
     <a href="#lineas">Líneas</a>
     <a href="#herramientas">Herramientas</a>
     <a href="#flota">Flota</a>
@@ -31,32 +30,40 @@
   </nav>
 </header>
 
-<section class="hero" id="inicio">
-  <video class="hero-video" id="hero-video" muted loop playsinline preload="metadata" poster="assets/video/banda-olivar.jpg" aria-hidden="true">
-    <source src="assets/video/banda-olivar.mp4" type="video/mp4">
-  </video>
-  <div class="hero-velo"></div>
-  <div class="hero-contenido">
+<section class="portada" id="inicio">
+  <canvas id="olivar" aria-label="Nube de puntos real de una finca de olivar que cambia de color según la capa elegida"></canvas>
+  <p class="cargando" id="cargando">Cargando nube de puntos real</p>
+  <div class="lab-texto">
     <h1><span>Dibujamos el futuro del olivar</span> <strong>con los datos que medimos hoy en campo</strong></h1>
     <p>Somos la Unidad de Transformación Digital e Inteligencia Artificial del INUO, en la Universidad de Jaén.</p>
-    <div class="acciones">
-      <a class="boton boton-lima" href="#laboratorio">Explorar el olivar en 3D</a>
-      <a class="boton boton-vidrio" href="#unidad">Conocer la unidad</a>
+  </div>
+  <div class="lab-controles">
+    <div class="lab-sensores" role="group" aria-label="Elegir capa">
+      <button type="button" data-sensor="rgb" aria-pressed="true">RGB</button>
+      <button type="button" data-sensor="ndvi" aria-pressed="false">NDVI</button>
+      <button type="button" data-sensor="ndre" aria-pressed="false">NDRE</button>
+      <button type="button" data-sensor="lidar" aria-pressed="false">LiDAR</button>
+      <button type="button" data-sensor="ids" aria-pressed="false">Individuos IA</button>
     </div>
+    <p class="lab-sensor-texto" id="sensor-texto" aria-live="polite"></p>
+    <div class="leyenda" id="leyenda"></div>
+    <p class="lab-nota">Datos reales de vuelo con dron. Arrastra para girar y toca un olivo.</p>
   </div>
-  <div class="hero-logos">
-    <a href="https://www.ujaen.es/" rel="noopener"><img src="assets/logos-blanco/uja_logo.png" alt="Universidad de Jaén"></a>
-    <a href="https://inuouja.com/" rel="noopener"><img src="assets/logos-blanco/inuo_logo.png" alt="INUO"></a>
-    <a href="https://drodridavid.github.io/aerolab/" rel="noopener"><img src="assets/logos-blanco/aerolab_logo.png" alt="AeroLab"></a>
-    <a href="https://gggj.ujaen.es/" rel="noopener"><img src="assets/logos-blanco/gggj_logo.png" alt="Grupo de Informática Gráfica y Geomática"></a>
-  </div>
+  <div class="ficha" id="ficha" hidden></div>
 </section>
 
 <div class="cifras" id="cifras">
   <div><b data-cifra="lineas">6</b><span>líneas de investigación</span></div>
-  <div><b data-cifra="proyectos">10</b><span>proyectos</span></div>
+  <div><b data-cifra="proyectos">20</b><span>proyectos</span></div>
   <div><b data-cifra="equipos">17</b><span>drones y sensores</span></div>
-  <div><b data-cifra="personas">17</b><span>personas</span></div>
+  <div><b data-cifra="personas">20</b><span>personas</span></div>
+</div>
+
+<div class="logos-tira">
+  <a href="https://www.ujaen.es/" rel="noopener"><img src="assets/logos/uja_h.png" alt="Universidad de Jaén"></a>
+  <a href="https://inuouja.com/" rel="noopener"><img src="assets/logos/inuo.svg" alt="INUO"></a>
+  <a href="https://drodridavid.github.io/aerolab/" rel="noopener"><img src="assets/logos/aerolab.svg" alt="AeroLab"></a>
+  <a href="https://gggj.ujaen.es/" rel="noopener"><img src="assets/logos/gggj_logo.png" alt="Grupo de Informática Gráfica y Geomática"></a>
 </div>
 
 <main>
@@ -75,29 +82,6 @@
     <div class="servicios" id="servicios"></div>
   </section>
 
-  <section class="laboratorio" id="laboratorio">
-    <div class="lab-panel">
-      <canvas id="olivar" aria-label="Olivar sintético en tres dimensiones que cambia de color según el sensor elegido"></canvas>
-      <div class="lab-texto">
-        <h2 class="titular"><span>Un olivar,</span> <strong>cinco miradas</strong></h2>
-        <p>Cada sensor cuenta algo distinto de la misma finca. Cambia de sensor, gira el olivar y toca un individuo para ver su ficha.</p>
-      </div>
-      <div class="lab-controles">
-        <div class="lab-sensores" role="group" aria-label="Elegir sensor">
-          <button type="button" data-sensor="rgb" aria-pressed="true">RGB</button>
-          <button type="button" data-sensor="ms" aria-pressed="false">Multiespectral</button>
-          <button type="button" data-sensor="term" aria-pressed="false">Térmico</button>
-          <button type="button" data-sensor="lidar" aria-pressed="false">LiDAR</button>
-          <button type="button" data-sensor="hiper" aria-pressed="false">Hiperespectral</button>
-        </div>
-        <p class="lab-sensor-texto" id="sensor-texto" aria-live="polite"></p>
-        <div class="leyenda" id="leyenda"></div>
-      </div>
-      <p class="lab-nota">Olivar sintético, con datos de ejemplo.</p>
-      <div class="ficha" id="ficha" hidden></div>
-    </div>
-  </section>
-
   <section class="seccion lineas" id="lineas">
     <div class="lineas-grid">
       <div class="lineas-izq rv">
@@ -109,6 +93,7 @@
   </section>
 
   <section class="banda" aria-label="Nuestra convicción">
+    <video data-auto muted loop playsinline preload="none" poster="assets/video/banda-olivar.jpg" aria-hidden="true"><source src="assets/video/banda-olivar.mp4" type="video/mp4"></video>
     <p>La agricultura inteligente es clave para un modelo más <strong>sostenible, eficiente y resiliente</strong>.</p>
   </section>
 
@@ -182,7 +167,7 @@
 <footer class="pie" id="contacto">
   <div class="pie-grid">
     <div>
-      <a class="marca" href="#inicio" aria-label="DIGIAGRO, inicio"><span aria-hidden="true">DIGI<i></i>GRO</span></a>
+      <a class="marca" href="#inicio" aria-label="DIGIAGRO, inicio"><span aria-hidden="true">DIGI<b>A</b>GRO</span></a>
       <p>Unidad de Transformación Digital e Inteligencia Artificial del INUO.</p>
     </div>
     <div>

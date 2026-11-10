@@ -19,19 +19,29 @@ const LINEAS = [
 ];
 
 const PROYECTOS = [
-  { t: "LivingSoiLL", d: "Living Lab andaluz sobre salud del suelo en el olivar, dentro de la Misión Suelo de la Unión Europea.", m: "HORIZON-MISS-2023-SOIL-01-01", a: "europa", u: "https://livingsoill.eu/" },
-  { t: "SOIL O-LIVE", d: "Suelos sanos en el olivar mediterráneo.", m: "2023–2027", a: "europa" },
+  { t: "LivingSoiLL", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
+  { t: "SOIL O-LIVE", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa" },
   { t: "Digital Agriculture Technologies for Irrigation Efficiency", d: "Tecnologías digitales para mejorar la eficiencia del riego.", m: "PRIMA S2 2020, 2021–2024", a: "europa" },
   { t: "Harmonization of UAS techniques", d: "Armonización de técnicas con aeronaves no tripuladas para vigilar ecosistemas agrícolas y naturales.", m: "COST CA16219, 2017–2022", a: "europa" },
-  { t: "Espacio de Datos Federado de Suelos", d: "Espacio de datos de suelos liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72", a: "espana", u: "https://soildataspace.es/home" },
-  { t: "SERGIoT", d: "Estrategia de gemelos digitales para gestionar invernaderos de forma eficiente.", m: "CPP2023-010458", a: "espana" },
-  { t: "Digitalización multisensorial y modelado 3D", d: "Simulación del escenario actual y futuro de entornos naturales.", m: "PID2022-137938OA-I00", a: "espana" },
-  { t: "El olivar y su gemelo digital", d: "Hacia una digitalización integral del olivar.", m: "Diputación de Jaén, 2021", a: "andalucia" },
-  { t: "Predicción temprana de la cosecha del olivar", d: "Prototipo de sistema de predicción.", m: "GOPO-JA-20-0006", a: "andalucia" },
-  { t: "GEU", d: "Integración, procesamiento y análisis de imágenes hiperespectrales y termográficas en entornos naturales.", m: "Inicio de la línea multisensor", a: "otros" },
+  { t: "Espacio de Datos Federado de Suelos", d: "Espacio de datos de suelos liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
+  { t: "SERGIoT", d: "Estrategia de gemelos digitales para gestionar invernaderos de forma eficiente.", m: "CPP2023-010458, 2024–2027", a: "espana" },
+  { t: "Digitalización multisensorial, modelado 3D y simulación", d: "Escenario actual y futuro de entornos naturales.", m: "PID2022-137938OA-I00, 2023–2026", a: "espana" },
+  { t: "Digitalización 3D de entornos rurales", d: "A partir de datos multisensoriales y multiescala.", m: "TED2021-132120B-I00, 2022–2024", a: "espana" },
+  { t: "Copernicus para la auscultación de presas", d: "Vigilancia terrestre y radar satelital para medir movimientos de presas, grandes balsas y áreas adyacentes.", m: "Proyectos I+D+i 2021", a: "espana" },
+  { t: "NaturEYE", d: "", m: "Programa Estatal de Retos", a: "espana" },
+  { t: "RURAL-ENGINE", d: "", m: "Financiación nacional", a: "espana" },
+  { t: "Informática gráfica para datos 3D y 4D", d: "Realidad virtual y aumentada aplicadas a infraestructuras urbanas y arqueología.", m: "TIN2017-84968-R, 2018–2021", a: "espana" },
+  { t: "Hacia un SIG 3D del subsuelo", d: "Aportaciones para las ciudades inteligentes.", m: "TIN2014-58218-R, 2015–2018", a: "espana" },
+  { t: "Predicción temprana de la cosecha del olivar", d: "Prototipo de sistema de predicción.", m: "GOPO-JA-20-0006, 2021–2024", a: "andalucia" },
+  { t: "GEU", d: "Integración, procesamiento y análisis de imágenes hiperespectrales y termográficas en entornos naturales.", m: "Junta de Andalucía 1381202, 2021–2023", a: "andalucia" },
+  { t: "Herramientas 3D para la red de agua en alta", d: "El caso del pantano del Rumblar.", m: "PYC20 RE 005 UJA, 2021–2023", a: "andalucia" },
+  { t: "Predic I", d: "", m: "Financiación regional", a: "andalucia" },
+  { t: "El olivar y su gemelo digital", d: "Hacia una digitalización integral del olivar.", m: "Diputación de Jaén, EBM/IEG 2021", a: "andalucia" },
+  { t: "PDental", d: "Inteligencia artificial y geometría computacional para el ámbito clínico dental.", m: "Contrato con Medicalfit", a: "otros", u: "https://3hs.medicalfit.com/" },
+  { t: "Evaluación interactiva de videojuegos", d: "Herramienta parametrizable para evaluar la jugabilidad.", m: "Innovación docente UJA, 2022–2023", a: "otros" },
 ];
 
-const AMBITOS = [["todos", "Todos"], ["europa", "Europeos"], ["espana", "Nacionales"], ["andalucia", "Andaluces"]];
+const AMBITOS = [["todos", "Todos"], ["europa", "Europeos"], ["espana", "Nacionales"], ["andalucia", "Andaluces"], ["otros", "Otros"]];
 
 const PUBLICACIONES = [
   { a: "Latorre-Hortelano, P., Jurado-Rodríguez, D., Garrido Almonacid, A., Parras Rosa, M., Jurado, J. M.", y: 2026, t: "A multi-scale inventory for sustainable olive farming using remote sensing and data fusion", r: "Smart Agricultural Technology", doi: "10.1016/j.atech.2026.102230" },
@@ -48,9 +58,11 @@ const PERSONAS = [
   { n: "Juan Manuel Jurado Rodríguez", c: "Responsable de la unidad", d: true },
   { n: "Julio Antonio Calero González" }, { n: "Andressa De Sousa Cardoso" }, { n: "Juan José Cubillas Mercado" },
   { n: "Luis René Domínguez Fuentes" }, { n: "Carlos Enríquez Turiño" }, { n: "Francisco Ramón Feito Higueruela" },
-  { n: "Juan Roberto Jiménez Pérez" }, { n: "David Jurado Rodríguez" }, { n: "Pablo Latorre Hortelano" },
-  { n: "Juan Manuel Martín García" }, { n: "Lidia Ortega Alvarado" }, { n: "Gema Parra Cabrera" },
-  { n: "Francisco Daniel Pérez Cano" }, { n: "María Isabel Ramos Galán" }, { n: "Antonio Miguel Ruiz Armenteros" },
+  { n: "Juan Francisco García Reyes" }, { n: "Juan Roberto Jiménez Pérez" }, { n: "David Jurado Rodríguez" },
+  { n: "Pablo Latorre Hortelano" }, { n: "Juan Manuel Martín García" }, { n: "Lidia Ortega Alvarado" },
+  { n: "Gema Parra Cabrera" }, { n: "Francisco Daniel Pérez Cano" }, { n: "María Isabel Ramos Galán" },
+  { n: "Antonio Miguel Ruiz Armenteros" },
+  { n: "Sinia Belamri", c: "Doctoranda" }, { n: "Nelly Chávez Rincón", c: "Doctoranda" },
   { n: "Gloria Paterna Sánchez", c: "Gestión de proyectos" },
 ];
 

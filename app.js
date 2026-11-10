@@ -81,7 +81,12 @@
     const r = crea("span", "retrato");
     if (p.f) { const im = crea("img"); im.src = p.f; im.alt = ""; im.loading = "lazy"; r.append(im); }
     else { r.textContent = partes[0][0] + partes[partes.length - 2][0]; r.setAttribute("aria-hidden", "true"); }
-    d.append(r, crea("b", "", p.n)); if (p.c) d.append(crea("span", "", p.c));
+    const tx = crea("div", "persona-texto");
+    tx.append(crea("b", "", p.n));
+    if (p.c) tx.append(crea("span", "persona-cargo", p.c));
+    if (p.a) tx.append(crea("em", "persona-area", p.a));
+    if (p.t) tx.append(crea("p", "persona-desc", p.t));
+    d.append(r, tx);
     $("lista-personas").append(d); revela(d);
   });
 

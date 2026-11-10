@@ -319,19 +319,21 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 @media (max-width: 600px) { .lineas-compactas { grid-template-columns: minmax(0, 1fr); } }
 
 
-/* Miembros: fichas iguales, con foto redonda y aro verde, como en los cuadernos */
-.personas { display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); gap: 12px; }
-.persona { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px 14px 16px; background: #fff; border: 1px solid var(--linea); border-radius: 12px; }
-.retrato { position: relative; display: grid; place-items: center; flex: none; width: 112px; height: 112px; margin-bottom: 12px; border-radius: 50%; overflow: hidden; background: #fff; color: var(--verde); font-size: 2rem; font-weight: 900; }
-.retrato::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 0 5px var(--verde); pointer-events: none; }
+/* Miembros: ficha horizontal con foto redonda y aro verde, cargo, área y descripción breve */
+.personas { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+.persona { display: flex; align-items: flex-start; gap: 18px; padding: 20px; background: #fff; border: 1px solid var(--linea); border-radius: 12px; }
+.retrato { position: relative; display: grid; place-items: center; flex: none; width: 92px; height: 92px; border-radius: 50%; overflow: hidden; background: #fff; color: var(--verde); font-size: 1.7rem; font-weight: 900; }
+.retrato::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 0 4px var(--verde); pointer-events: none; }
 .retrato img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.persona b { display: block; color: #1f2a23; font-size: .9375rem; font-weight: 700; line-height: 1.3; overflow-wrap: anywhere; }
-.persona span:not(.retrato) { margin-top: 8px; padding: 3px 10px; border-radius: 999px; background: #e4f3e9; color: var(--verde); font-size: .78rem; font-weight: 700; line-height: 1.3; }
+.persona-texto { min-width: 0; }
+.persona b { display: block; color: #1f2a23; font-size: 1rem; font-weight: 700; line-height: 1.3; }
+.persona-cargo { display: block; margin-top: 3px; color: var(--verde); font-size: .84rem; font-weight: 700; line-height: 1.35; }
+.persona-area { display: block; margin-top: 2px; color: var(--gris); font-size: .8rem; font-style: normal; line-height: 1.35; }
+.persona-desc { margin: 8px 0 0; color: #3a463e; font-size: .875rem; line-height: 1.5; }
 @media (max-width: 600px) {
-  .personas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .persona { padding: 14px 8px 12px; }
-  .retrato { width: 92px; height: 92px; font-size: 1.65rem; }
-  .persona b { font-size: .8125rem; }
+  .personas { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .persona { gap: 14px; padding: 16px; }
+  .retrato { width: 72px; height: 72px; font-size: 1.35rem; }
 }
 
 /* La unidad: qué es, sobre el olivar, y su responsable en pequeño */

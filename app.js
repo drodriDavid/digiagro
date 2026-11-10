@@ -86,7 +86,8 @@
     if (p.c) tx.append(crea("span", "persona-cargo", p.c));
     if (p.a) tx.append(crea("em", "persona-area", p.a));
     d.append(r, tx);
-    $("lista-personas").append(d); revela(d);
+    const enFormacion = /doctorado|predoctoral/i.test(p.c || "");
+    $(enFormacion ? "lista-doctorandos" : "lista-personas").append(d); revela(d);
   });
 
   /* Cifras */

@@ -258,7 +258,7 @@ const PERSONAS = [
   {"n": "Carlos Enríquez Turiño", "f": "assets/equipo/carlos-enriquez.webp", "c": "Profesor Titular", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría"},
   {"n": "Francisco Ramón Feito Higueruela", "f": "assets/equipo/francisco-feito.webp", "c": "Catedrático de Universidad", "a": "Lenguajes y Sistemas Informáticos"},
   {"n": "Juan Roberto Jiménez Pérez", "f": "assets/equipo/juan-roberto-jimenez.webp", "c": "Profesor Titular", "a": "Lenguajes y Sistemas Informáticos"},
-  {"n": "David Jurado Rodríguez", "f": "assets/equipo/david-jurado.webp", "c": "Profesor", "a": "Lenguajes y Sistemas Informáticos"},
+  {"n": "David Jurado Rodríguez", "f": "assets/equipo/david-jurado.webp", "c": "Investigador doctor", "a": "Lenguajes y Sistemas Informáticos"},
   {"n": "Pablo Latorre Hortelano", "f": "assets/equipo/pablo-latorre.webp", "c": "Estudiante de doctorado", "a": "Informática"},
   {"n": "Juan Manuel Martín García", "f": "assets/equipo/juan-manuel-martin.webp", "c": "Profesor Titular", "a": "Edafología y Química Agrícola"},
   {"n": "Lidia Ortega Alvarado", "f": "assets/equipo/lidia-ortega.webp", "c": "Profesora Titular", "a": "Lenguajes y Sistemas Informáticos"},

@@ -320,6 +320,8 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 
 
 /* Miembros: ficha horizontal con foto redonda y aro verde, cargo, área y descripción breve */
+.grupo-equipo { margin: 34px 0 14px; color: var(--verde); font-size: 1.15rem; font-weight: 900; }
+.titular + .grupo-equipo { margin-top: 0; }
 .personas { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
 .persona { display: flex; align-items: flex-start; gap: 18px; padding: 20px; background: #fff; border: 1px solid var(--linea); border-radius: 12px; }
 .retrato { position: relative; display: grid; place-items: center; flex: none; width: 92px; height: 92px; border-radius: 50%; overflow: hidden; background: #fff; color: var(--verde); font-size: 1.7rem; font-weight: 900; }

@@ -6,19 +6,25 @@
 <title>DIGIAGRO | Unidad de Transformación Digital e Inteligencia Artificial del INUO</title>
 <meta name="description" content="DIGIAGRO es la Unidad de Transformación Digital e Inteligencia Artificial del INUO, en la Universidad de Jaén. Liderada por Juan Manuel Jurado. Teledetección, inteligencia artificial y gemelos digitales para el olivar.">
 <meta name="color-scheme" content="light">
+<meta name="theme-color" content="#007336">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23007336'/%3E%3Cpath d='M16 7l10 18H6z' fill='%238fd400'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23007336'/%3E%3Cpath d='M9 24C9 13 15 8 24 8c0 10-5 16-15 16z' fill='%238fd400'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sora:wght@200;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <a class="saltar" href="#unidad">Saltar al contenido</a>
 
+<div class="franja">
+  <a href="https://www.ujaen.es/" rel="noopener"><img src="assets/logos-blanco/uja_logo.png" alt="Universidad de Jaén"></a>
+  <a href="https://inuouja.com/" rel="noopener"><img src="assets/logos-blanco/inuo_logo.png" alt="INUO, Instituto Universitario de Investigación en Olivar y Aceites de Oliva"></a>
+</div>
+
 <header class="nav" id="nav">
-  <a class="marca" href="#inicio" aria-label="DIGIAGRO, inicio"><span aria-hidden="true">DIGI<b>A</b>GRO</span></a>
-  <button class="nav-boton" id="nav-boton" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú"><span></span><span></span></button>
+  <a class="marca" href="#inicio">DIGI<b>A</b>GRO</a>
+  <button class="nav-boton" id="nav-boton" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   <nav id="nav-menu" aria-label="Secciones">
     <a href="#unidad">La unidad</a>
     <a href="#lineas">Líneas</a>
@@ -29,22 +35,23 @@
     <a href="#sensores">Sensores</a>
     <a href="#vuelos">Vuelos</a>
     <a href="#equipo">Equipo</a>
-    <a class="boton boton-lima boton-nav" href="#contacto">Contacto</a>
   </nav>
 </header>
 
 <section class="hero" id="inicio">
   <video class="hero-video" data-auto autoplay muted loop playsinline preload="auto" poster="assets/video/portada.jpg" aria-hidden="true">
+    <source media="(max-width: 760px)" src="assets/video/portada-movil.mp4" type="video/mp4">
     <source src="assets/video/portada.mp4" type="video/mp4">
   </video>
   <div class="hero-velo"></div>
+  <img class="hero-hoja" src="assets/hoja.svg" alt="">
   <div class="hero-contenido">
-    <h1 class="sigla">DIGI<b>A</b>GRO</h1>
+    <h1>DIGIAGRO</h1>
     <p class="nombre-unidad">Unidad de Transformación Digital e Inteligencia Artificial del INUO</p>
-    <p class="lema">Liderada por <b>Juan Manuel Jurado</b>. Dibujamos el futuro del olivar con los datos que medimos hoy en campo.</p>
+    <p class="lema">Liderada por <b>Juan Manuel Jurado</b></p>
     <div class="acciones">
-      <a class="boton boton-lima" href="#unidad">Conocer la unidad</a>
-      <a class="boton boton-vidrio" href="#vuelos">Ver los vuelos</a>
+      <a class="boton" href="#unidad">Conocer la unidad</a>
+      <a class="boton boton-claro" href="#vuelos">Ver los vuelos</a>
     </div>
   </div>
 </section>
@@ -56,123 +63,103 @@
   <div><b data-cifra="personas">19</b><span>personas</span></div>
 </div>
 
-<div class="logos-tira">
-  <a href="https://www.ujaen.es/" rel="noopener"><img src="assets/logos/uja_h.png" alt="Universidad de Jaén"></a>
-  <a href="https://inuouja.com/" rel="noopener"><img src="assets/logos/inuo.svg" alt="INUO"></a>
-  <a href="https://drodridavid.github.io/aerolab/" rel="noopener"><img src="assets/logos/aerolab.svg" alt="AeroLab"></a>
-  <a href="https://gggj.ujaen.es/" rel="noopener"><img src="assets/logos/gggj_logo.png" alt="Grupo de Informática Gráfica y Geomática"></a>
-</div>
-
 <main>
-  <section class="seccion unidad" id="unidad">
-    <div class="dos rv">
-      <h2 class="titular"><span>Una unidad del INUO</span> <strong>para la transformación digital del olivar</strong></h2>
-      <div class="texto">
-        <p class="entrada">Desarrollamos soluciones tecnológicas para monitorizar agroecosistemas, procesar datos geoespaciales y simular su evolución.</p>
-        <p>La unidad se creó en marzo de 2025 dentro del Instituto Universitario de Investigación en Olivar y Aceites de Oliva. Trabajamos para demostrar qué prácticas agrícolas innovadoras son viables y cómo ayudan a las explotaciones a resistir fenómenos agroclimáticos adversos.</p>
-        <ul class="pastillas" aria-label="Disciplinas">
-          <li>Inteligencia artificial</li><li>Geomática</li><li>Informática gráfica</li><li>Computación ubicua</li><li>Ciencias ambientales</li>
-        </ul>
-      </div>
-    </div>
+  <section class="seccion" id="unidad">
+    <h2 class="titular rv">La unidad</h2>
+    <p class="intro rv">Dibujamos el futuro del olivar con los datos que medimos hoy en campo. Desarrollamos soluciones tecnológicas para monitorizar agroecosistemas, procesar datos geoespaciales y simular su evolución.</p>
+    <ul class="pastillas rv" aria-label="Disciplinas">
+      <li>Inteligencia artificial</li><li>Geomática</li><li>Informática gráfica</li><li>Computación ubicua</li><li>Ciencias ambientales</li>
+    </ul>
     <aside class="direccion rv" aria-label="Responsable de la unidad">
-      <img class="inicial" src="assets/equipo/juan-manuel-jurado.webp" alt="Juan Manuel Jurado Rodríguez">
+      <img src="assets/equipo/juan-manuel-jurado.webp" alt="Juan Manuel Jurado Rodríguez">
       <div>
         <span class="cargo">Responsable de la unidad</span>
         <h3>Juan Manuel Jurado Rodríguez</h3>
-        <p>Profesor Titular de la Universidad de Jaén. Coordina el Living Lab andaluz de LivingSoiLL y el Espacio de Datos de Suelos, y es vicepresidente de Eurographics en España. <a href="mailto:jjurado@ujaen.es">jjurado@ujaen.es</a></p>
+        <p>Profesor Titular de la Universidad de Jaén. Coordina el Living Lab andaluz de LivingSoiLL y el Espacio de Datos de Suelos, y es vicepresidente de Eurographics en España.</p>
+        <a class="boton boton-claro" href="mailto:jjurado@ujaen.es">Contactar</a>
       </div>
     </aside>
     <h3 class="sub rv">Qué ofrecemos</h3>
     <div class="servicios" id="servicios"></div>
   </section>
 
-  <section class="seccion lineas" id="lineas">
-    <div class="lineas-grid">
-      <div class="lineas-izq rv">
-        <h2 class="titular"><span>Seis líneas</span> <strong>de investigación</strong></h2>
-        <div class="lineas-imagen"><video id="linea-img" src="assets/video/olivos-cenital.mp4" poster="assets/video/olivos-cenital.jpg" autoplay muted loop playsinline aria-hidden="true"></video></div>
-      </div>
-      <div class="acordeon rv" id="acordeon"></div>
-    </div>
+  <section class="seccion gris" id="lineas">
+    <h2 class="titular rv">Líneas de investigación</h2>
+    <div class="mosaico-lineas" id="lista-lineas"></div>
   </section>
 
   <section class="banda" aria-label="Nuestra convicción">
     <video data-auto muted loop playsinline preload="none" poster="assets/video/balsa.jpg" aria-hidden="true"><source src="assets/video/balsa.mp4" type="video/mp4"></video>
-    <p>La agricultura inteligente es clave para un modelo más <strong>sostenible, eficiente y resiliente</strong>.</p>
+    <img class="hero-hoja" src="assets/hoja.svg" alt="">
+    <p>La agricultura inteligente es clave para un modelo más sostenible, eficiente y resiliente</p>
   </section>
 
-  <section class="seccion proyectos" id="proyectos">
-    <div class="cabeza rv">
-      <h2 class="titular"><span>Proyectos</span> <strong>en los que trabajamos</strong></h2>
-      <div class="filtros" id="filtros-proyectos" role="group" aria-label="Filtrar proyectos"></div>
-    </div>
-    <div class="tarjetas-proyecto" id="lista-proyectos"></div>
+  <section class="seccion" id="proyectos">
+    <h2 class="titular rv">Proyectos</h2>
+    <div class="filtros" id="filtros-proyectos" role="group" aria-label="Filtrar proyectos"></div>
+    <div class="lista-proyectos" id="lista-proyectos"></div>
   </section>
 
-  <section class="seccion publicaciones" id="publicaciones">
-    <div class="cabeza rv">
-      <h2 class="titular"><span>Publicaciones</span> <strong>científicas</strong></h2>
-      <div class="filtros" id="filtros-pubs" role="group" aria-label="Filtrar publicaciones"></div>
-    </div>
+  <section class="seccion gris" id="publicaciones">
+    <h2 class="titular rv">Publicaciones</h2>
+    <div class="filtros" id="filtros-pubs" role="group" aria-label="Filtrar publicaciones"></div>
     <ol class="pubs" id="lista-publicaciones"></ol>
   </section>
 
-  <section class="seccion software" id="software">
-    <h2 class="titular rv"><span>Software</span> <strong>propio y de trabajo</strong></h2>
+  <section class="seccion" id="software">
+    <h2 class="titular rv">Software</h2>
     <article class="zig rv">
-      <div class="zig-texto">
+      <div>
         <h3>SAVIA</h3>
         <p>Plataforma web que convierte cada vuelo multisensor en el inventario por individuo, el vigor, la erosión y el balance de carbono de la finca. Es la evolución de GEU, nuestra aplicación de escritorio.</p>
-        <a class="enlace" href="https://savia.ujaen.es" rel="noopener">Entrar en SAVIA</a>
+        <a class="boton boton-claro" href="https://savia.ujaen.es" rel="noopener">Entrar en SAVIA</a>
       </div>
-      <div class="navegador"><video data-auto muted loop playsinline preload="none" poster="assets/video/f-espectral.jpg"><source src="assets/video/f-espectral.mp4" type="video/mp4"></video></div>
+      <video data-auto muted loop playsinline preload="none" poster="assets/video/f-espectral.jpg"><source src="assets/video/f-espectral.mp4" type="video/mp4"></video>
     </article>
     <article class="zig zig-inv rv">
-      <div class="zig-texto">
+      <div>
         <h3>AeroLab</h3>
         <p>Inventario de nuestros drones y sensores, con la galería de vuelos y los resultados de cada campaña.</p>
-        <a class="enlace" href="https://drodridavid.github.io/aerolab/" rel="noopener">Visitar AeroLab</a>
+        <a class="boton boton-claro" href="https://drodridavid.github.io/aerolab/" rel="noopener">Visitar AeroLab</a>
       </div>
-      <div class="navegador"><video data-auto muted loop playsinline preload="none" poster="assets/video/fotovoltaica.jpg"><source src="assets/video/fotovoltaica.mp4" type="video/mp4"></video></div>
+      <video data-auto muted loop playsinline preload="none" poster="assets/video/fotovoltaica.jpg"><source src="assets/video/fotovoltaica.mp4" type="video/mp4"></video>
     </article>
     <h3 class="sub rv">Herramientas de trabajo</h3>
     <div class="herramientas-lista" id="herramientas-lista"></div>
   </section>
 
-  <section class="seccion plataformas" id="plataformas">
-    <h2 class="titular rv"><span>Plataformas</span> <strong>aéreas</strong></h2>
+  <section class="seccion gris" id="plataformas">
+    <h2 class="titular rv">Plataformas aéreas</h2>
     <div class="equipos" id="aeronaves"></div>
   </section>
 
-  <section class="seccion sensores" id="sensores">
-    <div class="cabeza rv">
-      <h2 class="titular"><span>Sensores</span> <strong>embarcados</strong></h2>
-      <div class="filtros" id="filtros-sensores" role="group" aria-label="Filtrar sensores"></div>
-    </div>
+  <section class="seccion" id="sensores">
+    <h2 class="titular rv">Sensores</h2>
+    <div class="filtros" id="filtros-sensores" role="group" aria-label="Filtrar sensores"></div>
     <div class="equipos" id="lista-sensores"></div>
   </section>
 
-  <section class="seccion vuelos" id="vuelos">
-    <h2 class="titular rv"><span>En</span> <strong>vuelo</strong></h2>
-    <div class="carrusel" id="vuelos-lista" aria-label="Vídeos de vuelos"></div>
+  <section class="seccion gris" id="vuelos">
+    <h2 class="titular rv">Vuelos</h2>
+    <div class="galeria" id="vuelos-lista" aria-label="Vídeos de vuelos"></div>
   </section>
 
-  <section class="seccion equipo" id="equipo">
-    <h2 class="titular centrado rv"><span>Las personas</span> <strong>de la unidad</strong></h2>
+  <section class="seccion" id="equipo">
+    <h2 class="titular rv">Miembros de la unidad</h2>
     <div class="personas" id="lista-personas"></div>
   </section>
 </main>
 
 <footer class="pie" id="contacto">
+  <img class="pie-hoja" src="assets/hoja.svg" alt="">
   <div class="pie-grid">
     <div>
-      <a class="marca" href="#inicio" aria-label="DIGIAGRO, inicio"><span aria-hidden="true">DIGI<b>A</b>GRO</span></a>
+      <a class="marca" href="#inicio">DIGI<b>A</b>GRO</a>
       <p>Unidad de Transformación Digital e Inteligencia Artificial del INUO.</p>
     </div>
     <div>
-      <h2>Hablemos</h2>
-      <p><a class="pie-correo" href="mailto:jjurado@ujaen.es">jjurado@ujaen.es</a></p>
+      <h2>Contacto</h2>
+      <p><a href="mailto:jjurado@ujaen.es">jjurado@ujaen.es</a></p>
       <p>Universidad de Jaén, Campus Las Lagunillas<br>23071 Jaén</p>
     </div>
     <div class="pie-logos">

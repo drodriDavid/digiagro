@@ -1,52 +1,16 @@
-/* Interacción de la web: pinta el contenido, filtros, acordeón, diálogos y animaciones al desplazarse. */
+/* Interacción de la web: pinta el contenido, filtros, diálogos y vídeos. */
 (function () {
   const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = id => document.getElementById(id);
   const crea = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
   const AEROLAB = "https://drodridavid.github.io/aerolab/assets/video/promo/";
+  const ETIQUETAS = { europa: "Europeo", espana: "Nacional", andalucia: "Andaluz", otros: "Otros" };
 
-  /* Aparición al desplazarse */
   const aparece = "IntersectionObserver" in window && !quieto
-    ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); aparece.unobserve(e.target); } }), { threshold: 0.08, rootMargin: "0px 0px -6% 0px" })
+    ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); aparece.unobserve(e.target); } }), { threshold: 0.06, rootMargin: "0px 0px -5% 0px" })
     : null;
   const revela = e => { e.classList.add("rv"); if (aparece) aparece.observe(e); else e.classList.add("visible"); };
 
-  /* Servicios */
-  SERVICIOS.forEach(s => {
-    const a = crea("article", "servicio");
-    a.innerHTML = `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${s.i}"/></svg>`;
-    a.append(crea("h4", "", s.t), crea("p", "", s.d));
-    $("servicios").append(a); revela(a);
-  });
-
-  /* Acordeón de líneas: la imagen acompaña a la línea abierta */
-  const imagen = $("linea-img");
-  const filas = LINEAS.map((l, i) => {
-    const f = crea("div", "fila");
-    const b = crea("button", "fila-boton");
-    b.type = "button"; b.id = "lb" + i; b.setAttribute("aria-controls", "lp" + i);
-    b.append(crea("span", "", l.t));
-    b.insertAdjacentHTML("beforeend", '<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 10.5l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-    const p = crea("div", "fila-panel"); p.id = "lp" + i; p.setAttribute("role", "region"); p.setAttribute("aria-labelledby", b.id);
-    const interior = crea("div"); interior.append(crea("p", "", l.d)); p.append(interior);
-    b.addEventListener("click", () => abre(i));
-    f.append(b, p); $("acordeon").append(f);
-    return { f, b };
-  });
-  function abre(i) {
-    filas.forEach((x, j) => { x.f.classList.toggle("abierta", j === i); x.b.setAttribute("aria-expanded", String(j === i)); });
-    if (imagen.getAttribute("src") !== LINEAS[i].img) {
-      imagen.classList.add("cambia");
-      setTimeout(() => {
-        imagen.poster = LINEAS[i].img.replace(".mp4", ".jpg"); imagen.src = LINEAS[i].img;
-        if (!quieto) { const p = imagen.play(); if (p) p.catch(() => {}); }
-        imagen.classList.remove("cambia");
-      }, quieto ? 0 : 200);
-    }
-  }
-  abre(0);
-
-  /* Filtros genéricos con estado accesible */
   function filtros(cont, opciones, alElegir) {
     const bs = opciones.map(([v, t], i) => {
       const b = crea("button", "filtro", t); b.type = "button"; b.setAttribute("aria-pressed", String(i === 0));
@@ -55,7 +19,23 @@
     });
   }
 
-  /* Flota */
+  /* Servicios */
+  SERVICIOS.forEach(s => {
+    const a = crea("article", "servicio");
+    a.innerHTML = `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${s.i}"/></svg>`;
+    a.append(crea("h4", "", s.t), crea("p", "", s.d));
+    $("servicios").append(a); revela(a);
+  });
+
+  /* Líneas: mosaicos de vídeo */
+  LINEAS.forEach(l => {
+    const a = crea("article", "linea"); a.tabIndex = 0;
+    const v = crea("video"); v.muted = true; v.loop = true; v.playsInline = true; v.preload = "none"; v.dataset.auto = ""; v.poster = l.img.replace(".mp4", ".jpg"); v.src = l.img; v.setAttribute("aria-hidden", "true");
+    const t = crea("div", "linea-texto"); t.append(crea("h3", "", l.t), crea("p", "", l.d));
+    a.append(v, t); $("lista-lineas").append(a); revela(a);
+  });
+
+  /* Diálogo */
   const dlg = $("dialogo"), cuerpo = $("dialogo-cuerpo");
   function abreDialogo(pinta, clase) {
     cuerpo.replaceChildren(); dlg.className = "dialogo " + (clase || ""); pinta(cuerpo);
@@ -66,6 +46,7 @@
   dlg.addEventListener("click", e => { if (e.target === dlg) cierra(); });
   dlg.addEventListener("close", () => { const v = cuerpo.querySelector("video"); if (v) v.pause(); });
 
+  /* Plataformas y sensores */
   const tarjetaEquipo = e => {
     const b = crea("button", "equipo-tarjeta"); b.type = "button";
     const im = crea("img"); im.src = e.img; im.alt = ""; im.loading = "lazy";
@@ -95,11 +76,11 @@
     $("herramientas-lista").append(a);
   });
 
-  /* Vídeos de vuelo */
+  /* Vuelos */
   VUELOS.forEach(v => {
     const b = crea("button", "vuelo"); b.type = "button"; b.setAttribute("aria-label", "Ver vídeo: " + v.t);
     b.style.backgroundImage = `url(${AEROLAB}${v.f}.jpg)`;
-    b.insertAdjacentHTML("beforeend", '<svg viewBox="0 0 48 48" width="52" height="52" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#a8e600"/><path d="M19 15l15 9-15 9z" fill="#0d2b24"/></svg>');
+    b.insertAdjacentHTML("beforeend", '<svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#8fd400"/><path d="M19 15l15 9-15 9z" fill="#0b3d24"/></svg>');
     b.append(crea("span", "", v.t));
     b.addEventListener("click", () => abreDialogo(c => {
       const video = crea("video"); video.src = `${AEROLAB}${v.f}.mp4`; video.controls = true; video.autoplay = true; video.playsInline = true; video.muted = true; video.poster = `${AEROLAB}${v.f}.jpg`;
@@ -112,11 +93,13 @@
   const tarjetasPr = PROYECTOS.map(p => {
     const a = p.u ? crea("a", "proyecto") : crea("article", "proyecto");
     if (p.u) { a.href = p.u; a.rel = "noopener"; }
-    a.dataset.ambito = p.a;
-    a.append(crea("span", "pr-marco", p.m), crea("h3", "", p.t));
-    if (p.d) a.append(crea("p", "", p.d));
-    if (p.u) a.append(crea("span", "enlace", "Web del proyecto"));
-    $("lista-proyectos").append(a); revela(a);
+    a.append(crea("span", "etiqueta", ETIQUETAS[p.a]));
+    if (p.img) { const i = crea("img"); i.src = p.img; i.alt = ""; i.loading = "lazy"; a.append(i); }
+    const t = crea("div", "proyecto-texto");
+    t.append(crea("h3", "", p.t));
+    if (p.d) t.append(crea("p", "", p.d));
+    t.append(crea("span", "pr-marco", p.m));
+    a.append(t); $("lista-proyectos").append(a);
     return { a, p };
   });
   filtros($("filtros-proyectos"), AMBITOS, f => tarjetasPr.forEach(({ a, p }) => { a.hidden = f !== "todos" && p.a !== f; }));
@@ -124,7 +107,7 @@
   /* Publicaciones */
   const filasPub = PUBLICACIONES.map(p => {
     const li = crea("li"), a = crea("a"); a.href = "https://doi.org/" + p.doi; a.rel = "noopener";
-    a.append(crea("span", "pub-ano", p.y), crea("b", "", p.t), crea("span", "pub-datos", `${p.a.replace(/.$/, "")}. ${p.r}`));
+    a.append(crea("span", "pub-ano", p.y), crea("b", "", p.t), crea("span", "pub-datos", `${p.a.replace(/\.$/, "")}. ${p.r}`));
     li.append(a); $("lista-publicaciones").append(li);
     return { li, p };
   });
@@ -133,12 +116,12 @@
   /* Personas */
   PERSONAS.forEach(p => {
     const partes = p.n.split(" ");
-    const iniciales = partes[0][0] + partes[partes.length - 2][0];
-    const d = crea("div", "persona" + (p.d ? " destacada" : ""));
-    const av = crea("span", "avatar", iniciales); av.setAttribute("aria-hidden", "true");
-    if (p.f) { const im = crea("img"); im.src = p.f; im.alt = ""; im.loading = "lazy"; av.textContent = ""; av.append(im); }
-    const t = crea("div"); t.append(crea("b", "", p.n)); if (p.c) t.append(crea("span", "", p.c));
-    d.append(av, t); $("lista-personas").append(d); revela(d);
+    const d = crea("div", "persona");
+    const r = crea("span", "retrato");
+    if (p.f) { const im = crea("img"); im.src = p.f; im.alt = ""; im.loading = "lazy"; r.append(im); }
+    else { r.textContent = partes[0][0] + partes[partes.length - 2][0]; r.setAttribute("aria-hidden", "true"); }
+    d.append(r, crea("b", "", p.n)); if (p.c) d.append(crea("span", "", p.c));
+    $("lista-personas").append(d); revela(d);
   });
 
   /* Cifras */
@@ -160,19 +143,17 @@
 
   /* Vídeos: solo se reproducen mientras se ven */
   const vids = [...document.querySelectorAll("video[data-auto]")];
-  if (quieto) vids.forEach(v => v.removeAttribute("autoplay"));
-  else if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const p = e.target.play(); if (p) p.catch(() => {}); } else e.target.pause(); }), { threshold: 0.25 });
+  vids.forEach(v => { v.muted = true; });
+  if (!quieto && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { const p = e.target.play(); if (p) p.catch(() => {}); } else e.target.pause();
+    }), { threshold: 0.2 });
     vids.forEach(v => io.observe(v));
   }
 
-  /* Navegación: se vuelve sólida al salir de la portada y marca la sección actual */
+  /* Navegación */
   const nav = $("nav"), menu = $("nav-menu"), botonMenu = $("nav-boton");
-  const alDesplazar = () => nav.classList.toggle("solida", scrollY > innerHeight * 0.6);
-  addEventListener("scroll", alDesplazar, { passive: true }); alDesplazar();
-  botonMenu.addEventListener("click", () => {
-    const a = nav.classList.toggle("abierto"); botonMenu.setAttribute("aria-expanded", String(a));
-  });
+  botonMenu.addEventListener("click", () => { const a = nav.classList.toggle("abierto"); botonMenu.setAttribute("aria-expanded", String(a)); });
   menu.addEventListener("click", e => { if (e.target.tagName === "A") { nav.classList.remove("abierto"); botonMenu.setAttribute("aria-expanded", "false"); } });
   const enlaces = [...menu.querySelectorAll('a[href^="#"]')];
   if ("IntersectionObserver" in window) {

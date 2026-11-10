@@ -19,11 +19,11 @@ const LINEAS = [
 ];
 
 const PROYECTOS = [
-  { t: "LivingSoiLL", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
-  { t: "SOIL O-LIVE", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa" },
+  { t: "LivingSoiLL", img: "assets/video/olivos-cenital.jpg", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
+  { t: "SOIL O-LIVE", img: "assets/video/cubierta.jpg", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa" },
+  { t: "Espacio de Datos Federado de Suelos", img: "assets/video/balsa.jpg", d: "Espacio de datos de suelos liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
   { t: "Digital Agriculture Technologies for Irrigation Efficiency", d: "Tecnologías digitales para mejorar la eficiencia del riego.", m: "PRIMA S2 2020, 2021–2024", a: "europa" },
   { t: "Harmonization of UAS techniques", d: "Armonización de técnicas con aeronaves no tripuladas para vigilar ecosistemas agrícolas y naturales.", m: "COST CA16219, 2017–2022", a: "europa" },
-  { t: "Espacio de Datos Federado de Suelos", d: "Espacio de datos de suelos liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
   { t: "SERGIoT", d: "Estrategia de gemelos digitales para gestionar invernaderos de forma eficiente.", m: "CPP2023-010458, 2024–2027", a: "espana" },
   { t: "Digitalización multisensorial, modelado 3D y simulación", d: "Escenario actual y futuro de entornos naturales.", m: "PID2022-137938OA-I00, 2023–2026", a: "espana" },
   { t: "Digitalización 3D de entornos rurales", d: "A partir de datos multisensoriales y multiescala.", m: "TED2021-132120B-I00, 2022–2024", a: "espana" },

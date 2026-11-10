@@ -1,12 +1,12 @@
 /* Contenido editable de la web. Para añadir un proyecto, publicación o persona basta con añadir una línea. */
 
 const LINEAS = [
-  { t: "Ver lo invisible del olivar", d: "Fundimos LiDAR, hiperespectral, térmico, radar y satélite en una sola representación del territorio, para anticipar el estrés del cultivo antes de que sea visible y saber cuánto fiarse de cada medida.", img: "assets/savia/fusion.jpg" },
-  { t: "Un gemelo digital de cada olivar", d: "Réplicas 3D y 4D de la finca, individuo a individuo, que ensayan riego, cubierta o cambio climático antes de aplicarlos en campo y con la fidelidad que exige cada decisión.", img: "assets/savia/olivar-3d.jpg" },
-  { t: "Inteligencia artificial que sabe cuándo no sabe", d: "Modelos que reconocen los límites de sus propias predicciones cuando cambian la finca, el año o el sensor: la condición para que el campo pueda confiar en la IA.", img: "assets/video/f-daso.jpg" },
-  { t: "Agentes de IA sobre datos soberanos", d: "Agentes que razonan sobre espacios de datos federados, del suelo a la almazara, y aprenden de miles de fincas sin que ningún productor pierda el control de su información.", img: "assets/video/balsa.jpg" },
-  { t: "Drones y sensores que deciden solos", d: "Plataformas autónomas que eligen dónde volar, qué medir y cuánto procesar a bordo, para cubrir territorios enteros con la mínima energía y tener el dato en el momento.", img: "assets/video/olivos-cenital.jpg" },
-  { t: "Un olivar que regenera el suelo y fija carbono", d: "Cartografiamos salud del suelo, erosión y balance de carbono de la finca a la cuenca, para convertir el olivar andaluz en un sumidero verificable frente al cambio climático.", img: "assets/savia/erosion-mapa.jpg" },
+  { t: "Teledetección multisensor y fusión de datos", d: "Integración de datos LiDAR, multiespectrales, hiperespectrales, térmicos y satelitales para la caracterización del olivar, la detección temprana de estrés y la estimación de la incertidumbre asociada a cada fuente.", img: "assets/savia/fusion.jpg" },
+  { t: "Gemelos digitales y modelado 3D/4D de cultivos leñosos", d: "Reconstrucción tridimensional y multitemporal a escala de individuo para el análisis estructural, la dasometría y la simulación de escenarios de manejo y cambio climático.", img: "assets/savia/olivar-3d.jpg" },
+  { t: "Inteligencia artificial y aprendizaje automático robusto", d: "Modelos de aprendizaje profundo para clasificación, segmentación y predicción, con cuantificación de la incertidumbre y capacidad de generalización entre parcelas, campañas y sensores.", img: "assets/video/f-daso.jpg" },
+  { t: "Espacios de datos federados e interoperabilidad", d: "Arquitecturas para el intercambio soberano de datos agroambientales, basadas en estándares abiertos, principios FAIR y agentes de IA para la consulta y el análisis de información distribuida.", img: "assets/video/balsa.jpg" },
+  { t: "Sistemas aéreos no tripulados y computación ubicua", d: "Planificación de vuelos, integración de sensores y procesamiento embarcado en plataformas UAV y redes de sensores IoT para la monitorización agronómica a escala de finca y territorio.", img: "assets/video/olivos-cenital.jpg" },
+  { t: "Salud del suelo, erosión y balance de carbono", d: "Cartografía de indicadores de calidad del suelo, modelización de la erosión hídrica y estimación del secuestro de carbono para la evaluación de la sostenibilidad del olivar.", img: "assets/savia/erosion-mapa.jpg" },
 ];
 
 const PROYECTOS = [

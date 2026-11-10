@@ -12,13 +12,6 @@
     : null;
   const revela = e => { e.classList.add("rv"); if (aparece) aparece.observe(e); else e.classList.add("visible"); };
 
-  function filtros(cont, opciones, alElegir) {
-    const bs = opciones.map(([v, t], i) => {
-      const b = crea("button", "filtro", t); b.type = "button"; b.setAttribute("aria-pressed", String(i === 0));
-      b.addEventListener("click", () => { bs.forEach(x => x.setAttribute("aria-pressed", String(x === b))); alElegir(v); });
-      cont.append(b); return b;
-    });
-  }
 
   /* Líneas */
   LINEAS.forEach(l => {
@@ -62,7 +55,7 @@
   });
 
   /* Proyectos: filas con logotipo */
-  const tarjetasPr = PROYECTOS.map(p => {
+  PROYECTOS.forEach(p => {
     const a = p.u ? crea("a", "fila-proyecto") : crea("article", "fila-proyecto");
     if (p.u) { a.href = p.u; a.rel = "noopener"; }
     const l = crea("div", "fp-logo");
@@ -70,9 +63,7 @@
     const t = crea("div", "fp-texto"); t.append(crea("h3", "", p.t)); if (p.d) t.append(crea("p", "", p.d));
     const m = crea("div", "fp-meta"); m.append(crea("span", "fp-tipo", ETIQUETAS[p.a]), crea("span", "", p.m)); if (p.u) m.append(crea("span", "pr-url", dominio(p.u)));
     a.append(l, t, m); $("lista-proyectos").append(a);
-    return { a, p };
   });
-  filtros($("filtros-proyectos"), AMBITOS, f => tarjetasPr.forEach(({ a, p }) => { a.hidden = f !== "todos" && p.a !== f; }));
 
   /* Publicaciones */
   const filasPub = PUBLICACIONES.map(p => {

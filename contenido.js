@@ -10,19 +10,11 @@ const LINEAS = [
 ];
 
 const PROYECTOS = [
-  { t: "LivingSoiLL", logo: "assets/proyectos/livingsoill.png", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
-  { t: "SOIL O-LIVE", logo: "assets/proyectos/soil-o-live.png", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa", u: "https://soilolive.eu/" },
   { t: "Soil DataSpace", logo: "assets/proyectos/soil-dataspace.png", d: "Espacio de Datos Federado de Suelos, liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
-  { t: "Digital Agriculture Technologies for Irrigation Efficiency", logo: "assets/proyectos/prima.png", d: "Tecnologías digitales para mejorar la eficiencia del riego.", m: "PRIMA S2 2020, 2021–2024", a: "europa" },
-  { t: "Harmonization of UAS techniques", logo: "assets/proyectos/cost.svg", d: "Armonización de técnicas con aeronaves no tripuladas para vigilar ecosistemas agrícolas y naturales.", m: "COST CA16219, 2017–2022", a: "europa", u: "https://www.cost.eu/actions/CA16219/" },
-  { t: "SERGIoT", logo: "assets/proyectos/aei.svg", d: "Estrategia de gemelos digitales para gestionar invernaderos de forma eficiente.", m: "CPP2023-010458, 2024–2027", a: "espana" },
-  { t: "Digitalización 3D de entornos rurales", logo: "assets/proyectos/aei.svg", d: "A partir de datos multisensoriales y multiescala.", m: "TED2021-132120B-I00, 2022–2024", a: "espana" },
-  { t: "Digitalización multisensorial, modelado 3D y simulación", logo: "assets/proyectos/aei.svg", d: "Escenario actual y futuro de entornos naturales.", m: "PID2022-137938OA-I00, 2023–2026", a: "espana" },
-  { t: "Predicción temprana de la cosecha del olivar", d: "Prototipo de sistema de predicción.", m: "GOPO-JA-20-0006, 2021–2024", a: "andalucia" },
-  { t: "El olivar y su gemelo digital", logo: "assets/proyectos/diputacion-jaen.jpg", d: "Hacia una digitalización integral del olivar.", m: "Diputación de Jaén, EBM/IEG 2021", a: "andalucia" },
+  { t: "SOIL O-LIVE", logo: "assets/proyectos/soil-o-live.png", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa", u: "https://soilolive.eu/" },
+  { t: "LivingSoiLL", logo: "assets/proyectos/livingsoill.png", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
 ];
 
-const AMBITOS = [["todos", "Todos"], ["europa", "Europeos"], ["espana", "Nacionales"], ["andalucia", "Andaluces"]];
 
 const PUBLICACIONES = [
  {

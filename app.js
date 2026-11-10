@@ -4,6 +4,7 @@
   const $ = id => document.getElementById(id);
   const crea = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
   const AEROLAB = "https://drodridavid.github.io/aerolab/assets/video/promo/";
+  const dominio = u => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/(home)?$/, "");
   const ETIQUETAS = { europa: "Europeo", espana: "Nacional", andalucia: "Andaluz", otros: "Otros" };
 
   const aparece = "IntersectionObserver" in window && !quieto
@@ -99,6 +100,7 @@
     t.append(crea("h3", "", p.t));
     if (p.d) t.append(crea("p", "", p.d));
     t.append(crea("span", "pr-marco", p.m));
+    if (p.u) t.append(crea("span", "pr-url", dominio(p.u)));
     a.append(t); $("lista-proyectos").append(a);
     return { a, p };
   });
@@ -111,7 +113,13 @@
     li.append(a); $("lista-publicaciones").append(li);
     return { li, p };
   });
-  filtros($("filtros-pubs"), TEMAS, f => filasPub.forEach(({ li, p }) => { li.hidden = f !== "todos" && p.tema !== f; }));
+
+  /* Enlaces */
+  ENLACES.forEach(e => {
+    const a = crea("a", "enlace-tarjeta"); a.href = e.u; a.rel = "noopener";
+    a.append(crea("b", "", e.n), crea("span", "eq-lema", e.d), crea("span", "pr-url", dominio(e.u)));
+    $("lista-enlaces").append(a);
+  });
 
   /* Personas */
   PERSONAS.forEach(p => {

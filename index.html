@@ -4,11 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DIGIAGRO | Unidad de Transformación Digital e Inteligencia Artificial del INUO</title>
-<meta name="description" content="DIGIAGRO es la Unidad de Transformación Digital e Inteligencia Artificial del INUO, en la Universidad de Jaén. Liderada por Juan Manuel Jurado. Teledetección, inteligencia artificial y gemelos digitales para el olivar.">
+<meta name="description" content="DIGIAGRO es la Unidad de Transformación Digital e Inteligencia Artificial del INUO, en la Universidad de Jaén. Teledetección, inteligencia artificial y gemelos digitales para el olivar.">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#007336">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23007336'/%3E%3Cpath d='M9 24C9 13 15 8 24 8c0 10-5 16-15 16z' fill='%238fd400'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/iconos/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/iconos/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="DIGIAGRO">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -35,11 +40,13 @@
     <a href="#sensores">Sensores</a>
     <a href="#vuelos">Vuelos</a>
     <a href="#equipo">Equipo</a>
+    <a href="#enlaces">Enlaces</a>
   </nav>
 </header>
 
 <section class="hero" id="inicio">
   <video class="hero-video" data-auto autoplay muted loop playsinline preload="auto" poster="assets/video/portada.jpg" aria-hidden="true">
+    <source media="(min-width: 1500px)" src="assets/video/portada-4k.mp4" type="video/mp4">
     <source media="(max-width: 760px)" src="assets/video/portada-movil.mp4" type="video/mp4">
     <source src="assets/video/portada.mp4" type="video/mp4">
   </video>
@@ -48,7 +55,7 @@
   <div class="hero-contenido">
     <h1>DIGIAGRO</h1>
     <p class="nombre-unidad">Unidad de Transformación Digital e Inteligencia Artificial del INUO</p>
-    <p class="lema">Liderada por <b>Juan Manuel Jurado</b></p>
+    <p class="lema">Dibujamos el futuro del olivar con los datos que medimos hoy en campo</p>
     <div class="acciones">
       <a class="boton" href="#unidad">Conocer la unidad</a>
       <a class="boton boton-claro" href="#vuelos">Ver los vuelos</a>
@@ -66,7 +73,7 @@
 <main>
   <section class="seccion" id="unidad">
     <h2 class="titular rv">La unidad</h2>
-    <p class="intro rv">Dibujamos el futuro del olivar con los datos que medimos hoy en campo. Desarrollamos soluciones tecnológicas para monitorizar agroecosistemas, procesar datos geoespaciales y simular su evolución.</p>
+    <p class="intro rv">Desarrollamos soluciones tecnológicas para monitorizar agroecosistemas, procesar datos geoespaciales y simular su evolución.</p>
     <ul class="pastillas rv" aria-label="Disciplinas">
       <li>Inteligencia artificial</li><li>Geomática</li><li>Informática gráfica</li><li>Computación ubicua</li><li>Ciencias ambientales</li>
     </ul>
@@ -102,7 +109,6 @@
 
   <section class="seccion gris" id="publicaciones">
     <h2 class="titular rv">Publicaciones</h2>
-    <div class="filtros" id="filtros-pubs" role="group" aria-label="Filtrar publicaciones"></div>
     <ol class="pubs" id="lista-publicaciones"></ol>
   </section>
 
@@ -148,6 +154,11 @@
     <h2 class="titular rv">Miembros de la unidad</h2>
     <div class="personas" id="lista-personas"></div>
   </section>
+
+  <section class="seccion gris" id="enlaces">
+    <h2 class="titular rv">Enlaces</h2>
+    <div class="enlaces" id="lista-enlaces"></div>
+  </section>
 </main>
 
 <footer class="pie" id="contacto">
@@ -166,7 +177,7 @@
       <a href="https://www.ujaen.es/" rel="noopener"><img src="assets/logos-blanco/uja_logo.png" alt="Universidad de Jaén" loading="lazy"></a>
       <a href="https://inuouja.com/" rel="noopener"><img src="assets/logos-blanco/inuo_logo.png" alt="INUO" loading="lazy"></a>
       <a href="https://drodridavid.github.io/aerolab/" rel="noopener"><img src="assets/logos-blanco/aerolab_logo.png" alt="AeroLab" loading="lazy"></a>
-      <a href="https://gggj.ujaen.es/" rel="noopener"><img src="assets/logos-blanco/gggj_logo.png" alt="Grupo de Informática Gráfica y Geomática" loading="lazy"></a>
+      <img src="assets/logos-blanco/gggj_logo.png" alt="Grupo de Informática Gráfica y Geomática" loading="lazy">
     </div>
   </div>
 </footer>

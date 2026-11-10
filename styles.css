@@ -205,6 +205,13 @@ a.herramienta:hover { background: #dfe7da; }
 .dialogo-video video { width: 100%; }
 .pie-video { color: #fff; padding: 12px 18px; font-weight: 700; }
 
+.pr-url { color: var(--verde); font-size: .875rem; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; margin-top: 4px; overflow-wrap: anywhere; }
+.enlaces { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 12px; }
+.enlace-tarjeta { display: flex; flex-direction: column; padding: 18px 20px; background: #fff; box-shadow: var(--sombra); text-decoration: none; transition: transform .2s; }
+.enlace-tarjeta:hover { transform: translateY(-3px); }
+.enlace-tarjeta b { color: var(--verde); font-size: 1.125rem; font-weight: 900; text-transform: uppercase; }
+.enlace-tarjeta .pr-url { margin-top: auto; padding-top: 8px; }
+
 @media (prefers-reduced-motion: no-preference) {
   .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
   .js .rv.visible { opacity: 1; transform: none; }

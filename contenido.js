@@ -1,12 +1,12 @@
 /* Contenido editable de la web. Para añadir un proyecto, publicación o persona basta con añadir una línea. */
 
 const LINEAS = [
-  { t: "Observación multisensor del territorio", d: "Fusión de LiDAR, hiperespectral, multiespectral, térmico, satélite, radar y sensores IoT, con una medida de fiabilidad para cada dato observado.", img: "assets/video/olivos-cenital.jpg" },
-  { t: "Representación 3D y 4D de ecosistemas", d: "Reconstrucción y visualización de olivares y entornos naturales, también en las zonas que el sensor no llegó a ver, preservando su estructura.", img: "assets/savia/inventario.jpg" },
-  { t: "Aprendizaje federado y espacios de datos", d: "Inteligencia artificial que aprende de la diversidad real entre fincas sin que los datos salgan de su origen, sobre espacios de datos federados.", img: "assets/savia/indices.jpg" },
-  { t: "Percepción activa con energía limitada", d: "Drones y nodos de campo que deciden dónde observar, qué medir y cuánto procesar a bordo según la energía disponible.", img: "assets/video/balsa.jpg" },
-  { t: "Gemelos digitales para decidir", d: "Simulación de cada explotación con la fidelidad que exige la decisión, y plataformas que trasladan el resultado a agricultores y técnicos.", img: "assets/savia/carbono.jpg" },
-  { t: "Salud del suelo, carbono y resiliencia", d: "Erosión, balance de carbono, biodiversidad y agua, para diseñar un manejo que regenere el suelo y haga el olivar más resistente al cambio climático.", img: "assets/savia/erosion.jpg" },
+  { t: "Ver lo invisible del olivar", d: "Fundimos LiDAR, hiperespectral, térmico, radar y satélite en una sola representación del territorio, para anticipar el estrés del cultivo antes de que sea visible y saber cuánto fiarse de cada medida.", img: "assets/savia/fusion.jpg" },
+  { t: "Un gemelo digital de cada olivar", d: "Réplicas 3D y 4D de la finca, individuo a individuo, que ensayan riego, cubierta o cambio climático antes de aplicarlos en campo y con la fidelidad que exige cada decisión.", img: "assets/savia/olivar-3d.jpg" },
+  { t: "Inteligencia artificial que sabe cuándo no sabe", d: "Modelos que reconocen los límites de sus propias predicciones cuando cambian la finca, el año o el sensor: la condición para que el campo pueda confiar en la IA.", img: "assets/video/f-daso.jpg" },
+  { t: "Agentes de IA sobre datos soberanos", d: "Agentes que razonan sobre espacios de datos federados, del suelo a la almazara, y aprenden de miles de fincas sin que ningún productor pierda el control de su información.", img: "assets/video/balsa.jpg" },
+  { t: "Drones y sensores que deciden solos", d: "Plataformas autónomas que eligen dónde volar, qué medir y cuánto procesar a bordo, para cubrir territorios enteros con la mínima energía y tener el dato en el momento.", img: "assets/video/olivos-cenital.jpg" },
+  { t: "Un olivar que regenera el suelo y fija carbono", d: "Cartografiamos salud del suelo, erosión y balance de carbono de la finca a la cuenca, para convertir el olivar andaluz en un sumidero verificable frente al cambio climático.", img: "assets/savia/erosion-mapa.jpg" },
 ];
 
 const PROYECTOS = [

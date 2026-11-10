@@ -19,17 +19,16 @@ const LINEAS = [
 ];
 
 const PROYECTOS = [
-  { t: "LivingSoiLL", img: "assets/video/olivos-cenital.jpg", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
-  { t: "SOIL O-LIVE", img: "assets/video/cubierta.jpg", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa", u: "https://soilolive.eu/" },
-  { t: "Soil DataSpace", img: "assets/video/balsa.jpg", d: "Espacio de Datos Federado de Suelos, liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
-  { t: "Digital Agriculture Technologies for Irrigation Efficiency", d: "Tecnologías digitales para mejorar la eficiencia del riego.", m: "PRIMA S2 2020, 2021–2024", a: "europa" },
-  { t: "Harmonization of UAS techniques", d: "Armonización de técnicas con aeronaves no tripuladas para vigilar ecosistemas agrícolas y naturales.", m: "COST CA16219, 2017–2022", a: "europa", u: "https://www.cost.eu/actions/CA16219/" },
-  { t: "SERGIoT", d: "Estrategia de gemelos digitales para gestionar invernaderos de forma eficiente.", m: "CPP2023-010458, 2024–2027", a: "espana" },
-  { t: "Digitalización 3D de entornos rurales", d: "A partir de datos multisensoriales y multiescala.", m: "TED2021-132120B-I00, 2022–2024", a: "espana" },
-  { t: "Digitalización multisensorial, modelado 3D y simulación", d: "Escenario actual y futuro de entornos naturales.", m: "PID2022-137938OA-I00, 2023–2026", a: "espana" },
+  { t: "LivingSoiLL", logo: "assets/proyectos/livingsoill.png", img: "assets/video/olivos-cenital.jpg", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
+  { t: "SOIL O-LIVE", logo: "assets/proyectos/soil-o-live.png", img: "assets/video/cubierta.jpg", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa", u: "https://soilolive.eu/" },
+  { t: "Soil DataSpace", logo: "assets/proyectos/soil-dataspace.png", img: "assets/video/balsa.jpg", d: "Espacio de Datos Federado de Suelos, liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
+  { t: "Digital Agriculture Technologies for Irrigation Efficiency", logo: "assets/proyectos/prima.png", d: "Tecnologías digitales para mejorar la eficiencia del riego.", m: "PRIMA S2 2020, 2021–2024", a: "europa" },
+  { t: "Harmonization of UAS techniques", logo: "assets/proyectos/cost.svg", d: "Armonización de técnicas con aeronaves no tripuladas para vigilar ecosistemas agrícolas y naturales.", m: "COST CA16219, 2017–2022", a: "europa", u: "https://www.cost.eu/actions/CA16219/" },
+  { t: "SERGIoT", logo: "assets/proyectos/aei.svg", d: "Estrategia de gemelos digitales para gestionar invernaderos de forma eficiente.", m: "CPP2023-010458, 2024–2027", a: "espana" },
+  { t: "Digitalización 3D de entornos rurales", logo: "assets/proyectos/aei.svg", d: "A partir de datos multisensoriales y multiescala.", m: "TED2021-132120B-I00, 2022–2024", a: "espana" },
+  { t: "Digitalización multisensorial, modelado 3D y simulación", logo: "assets/proyectos/aei.svg", d: "Escenario actual y futuro de entornos naturales.", m: "PID2022-137938OA-I00, 2023–2026", a: "espana" },
   { t: "Predicción temprana de la cosecha del olivar", d: "Prototipo de sistema de predicción.", m: "GOPO-JA-20-0006, 2021–2024", a: "andalucia" },
-  { t: "El olivar y su gemelo digital", d: "Hacia una digitalización integral del olivar.", m: "Diputación de Jaén, EBM/IEG 2021", a: "andalucia" },
-  { t: "GEU", d: "Integración, procesamiento y análisis de imágenes hiperespectrales y termográficas en entornos naturales.", m: "Junta de Andalucía 1381202, 2021–2023", a: "andalucia" },
+  { t: "El olivar y su gemelo digital", logo: "assets/proyectos/diputacion-jaen.jpg", d: "Hacia una digitalización integral del olivar.", m: "Diputación de Jaén, EBM/IEG 2021", a: "andalucia" },
 ];
 
 const AMBITOS = [["todos", "Todos"], ["europa", "Europeos"], ["espana", "Nacionales"], ["andalucia", "Andaluces"]];
@@ -311,4 +310,26 @@ const ENLACES = [
   { n: "SAVIA", d: "Análisis de vuelos multisensor", u: "https://savia.ujaen.es/" },
   { n: "AeroLab", d: "Inventario de drones y sensores", u: "https://drodridavid.github.io/aerolab/" },
   { n: "CEATIC", d: "Centro de Estudios Avanzados en TIC", u: "https://www.ujaen.es/centros/ceatic/" },
+];
+
+const PASOS = [
+  { t: "Capturamos", d: "Drones, satélites, sensores IoT y estaciones meteorológicas.", i: "M4 8h6M14 8h6M7 8v3l5 3 5-3V8M12 14v3M9 21l3-4 3 4" },
+  { t: "Integramos", d: "Fusionamos cada capa de información sobre la misma geometría.", i: "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5M3 17l9 5 9-5" },
+  { t: "Analizamos", d: "Inteligencia artificial y modelos predictivos para cada explotación.", i: "M4 19V5M4 19h16M8 15l3-4 3 2 5-7" },
+  { t: "Decidimos", d: "Recomendaciones claras para quien gestiona la finca.", i: "M9 12l2 2 4-4M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" },
+];
+
+const HITOS = [
+  { y: 2017, t: "Armonización europea", d: "Acción COST sobre técnicas con drones en ecosistemas agrícolas." },
+  { y: 2021, t: "Riego y cosecha", d: "Tecnologías digitales para el riego y predicción temprana de la cosecha." },
+  { y: 2022, t: "Entornos rurales en 3D", d: "Digitalización multisensorial y multiescala." },
+  { y: 2023, t: "Suelos del olivar", d: "Comienza SOIL O-LIVE en el marco de Horizonte Europa." },
+  { y: 2024, t: "Living Lab andaluz", d: "Arranca LivingSoiLL y los gemelos digitales de SERGIoT." },
+  { y: 2025, t: "Nace la unidad", d: "Se crea en el INUO. Se inicia Soil DataSpace." },
+];
+
+const SELLOS = [
+  ["assets/logos/inuo.svg", "INUO"], ["assets/logos/uja_h.png", "Universidad de Jaén"], ["assets/proyectos/comision-europea.svg", "Comisión Europea"],
+  ["assets/proyectos/livingsoill.png", "LivingSoiLL"], ["assets/proyectos/soil-o-live.png", "SOIL O-LIVE"], ["assets/proyectos/soil-dataspace.png", "Soil DataSpace"],
+  ["assets/proyectos/prima.png", "PRIMA"], ["assets/proyectos/cost.svg", "COST"], ["assets/proyectos/aei.svg", "Agencia Estatal de Investigación"], ["assets/proyectos/diputacion-jaen.jpg", "Diputación de Jaén"],
 ];

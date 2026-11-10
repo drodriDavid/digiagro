@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="progreso" id="progreso" aria-hidden="true"></div>
 <a class="saltar" href="#unidad">Saltar al contenido</a>
 
 <div class="franja">
@@ -40,7 +41,6 @@
     <a href="#sensores">Sensores</a>
     <a href="#vuelos">Vuelos</a>
     <a href="#equipo">Equipo</a>
-    <a href="#enlaces">Enlaces</a>
   </nav>
 </header>
 
@@ -61,6 +61,7 @@
       <a class="boton boton-claro" href="#vuelos">Ver los vuelos</a>
     </div>
   </div>
+  <a class="bajar" href="#unidad" aria-label="Bajar a la unidad"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
 </section>
 
 <div class="cifras" id="cifras">
@@ -68,6 +69,10 @@
   <div><b data-cifra="proyectos">20</b><span>proyectos</span></div>
   <div><b data-cifra="equipos">17</b><span>drones y sensores</span></div>
   <div><b data-cifra="personas">19</b><span>personas</span></div>
+</div>
+
+<div class="sellos" aria-label="Instituciones y programas">
+  <div class="sellos-pista" id="sellos"></div>
 </div>
 
 <main>
@@ -95,10 +100,14 @@
     <div class="lineas-filas" id="lista-lineas"></div>
   </section>
 
-  <section class="banda" aria-label="Nuestra convicción">
+  <section class="banda" aria-labelledby="titulo-metodo">
     <video data-auto muted loop playsinline preload="none" poster="assets/video/balsa.jpg" aria-hidden="true"><source src="assets/video/balsa.mp4" type="video/mp4"></video>
     <img class="hero-hoja" src="assets/hoja.svg" alt="">
-    <p>La agricultura inteligente es clave para un modelo más sostenible, eficiente y resiliente</p>
+    <div class="banda-contenido">
+      <h2 id="titulo-metodo">Del dato a la decisión</h2>
+      <p>La agricultura inteligente es clave para un modelo más sostenible, eficiente y resiliente</p>
+      <ol class="pasos" id="lista-pasos"></ol>
+    </div>
   </section>
 
   <section class="seccion" id="proyectos">
@@ -107,17 +116,23 @@
     <div class="lista-proyectos" id="lista-proyectos"></div>
   </section>
 
-  <section class="seccion gris" id="publicaciones">
-    <h2 class="titular rv">Publicaciones</h2>
-    <ol class="pubs" id="lista-publicaciones"></ol>
+  <section class="seccion gris" id="trayectoria">
+    <h2 class="titular rv">Trayectoria</h2>
+    <ol class="hitos" id="lista-hitos"></ol>
   </section>
 
-  <section class="seccion" id="software">
+  <section class="seccion" id="publicaciones">
+    <h2 class="titular rv">Publicaciones</h2>
+    <ol class="pubs" id="lista-publicaciones"></ol>
+    <div class="centro"><button class="boton boton-claro" id="mas-pubs" type="button">Ver todas las publicaciones</button></div>
+  </section>
+
+  <section class="seccion gris" id="software">
     <h2 class="titular rv">Software</h2>
     <article class="zig rv">
       <div>
         <h3>SAVIA</h3>
-        <p>Plataforma web que convierte cada vuelo multisensor en el inventario por individuo, el vigor, la erosión y el balance de carbono de la finca. Es la evolución de GEU, nuestra aplicación de escritorio.</p>
+        <p>Plataforma web que convierte cada vuelo multisensor en el inventario por individuo, el vigor, la erosión y el balance de carbono de la finca.</p>
         <a class="boton boton-claro" href="https://savia.ujaen.es" rel="noopener">Entrar en SAVIA</a>
       </div>
       <video data-auto muted loop playsinline preload="none" poster="assets/video/f-espectral.jpg"><source src="assets/video/f-espectral.mp4" type="video/mp4"></video>
@@ -134,30 +149,38 @@
     <div class="herramientas-lista" id="herramientas-lista"></div>
   </section>
 
-  <section class="seccion gris" id="plataformas">
+  <section class="seccion" id="plataformas">
     <h2 class="titular rv">Plataformas aéreas</h2>
     <div class="equipos" id="aeronaves"></div>
   </section>
 
-  <section class="seccion" id="sensores">
+  <section class="seccion gris" id="sensores">
     <h2 class="titular rv">Sensores</h2>
     <div class="filtros" id="filtros-sensores" role="group" aria-label="Filtrar sensores"></div>
     <div class="equipos" id="lista-sensores"></div>
   </section>
 
-  <section class="seccion gris" id="vuelos">
+  <section class="seccion" id="vuelos">
     <h2 class="titular rv">Vuelos</h2>
     <div class="galeria" id="vuelos-lista" aria-label="Vídeos de vuelos"></div>
   </section>
 
-  <section class="seccion" id="equipo">
+  <section class="seccion gris" id="equipo">
     <h2 class="titular rv">Miembros de la unidad</h2>
     <div class="personas" id="lista-personas"></div>
   </section>
 
-  <section class="seccion gris" id="enlaces">
+  <section class="seccion" id="enlaces">
     <h2 class="titular rv">Enlaces</h2>
     <div class="enlaces" id="lista-enlaces"></div>
+  </section>
+  <section class="llamada" aria-label="Colabora con nosotros">
+    <img class="hero-hoja" src="assets/hoja.svg" alt="">
+    <div>
+      <h2>Llevemos la digitalización a tu explotación</h2>
+      <p>Hablemos de tu finca, tu cooperativa o tu próximo proyecto de investigación.</p>
+      <a class="boton boton-luz" href="mailto:jjurado@ujaen.es">Escríbenos</a>
+    </div>
   </section>
 </main>
 

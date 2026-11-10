@@ -95,7 +95,8 @@
     const a = p.u ? crea("a", "proyecto") : crea("article", "proyecto");
     if (p.u) { a.href = p.u; a.rel = "noopener"; }
     a.append(crea("span", "etiqueta", ETIQUETAS[p.a]));
-    if (p.img) { const i = crea("img"); i.src = p.img; i.alt = ""; i.loading = "lazy"; a.append(i); }
+    if (p.img) { const i = crea("img", "pr-foto"); i.src = p.img; i.alt = ""; i.loading = "lazy"; a.append(i); }
+    if (p.logo) { const f = crea("div", "pr-logo"), i = crea("img"); i.src = p.logo; i.alt = "Logotipo de " + p.t; i.loading = "lazy"; f.append(i); a.append(f); }
     const t = crea("div", "proyecto-texto");
     t.append(crea("h3", "", p.t));
     if (p.d) t.append(crea("p", "", p.d));
@@ -113,6 +114,29 @@
     li.append(a); $("lista-publicaciones").append(li);
     return { li, p };
   });
+
+  /* Mostrar solo parte de las publicaciones al principio */
+  const VISIBLES = 8, masPubs = $("mas-pubs");
+  filasPub.forEach(({ li }, i) => { li.hidden = i >= VISIBLES; });
+  masPubs.addEventListener("click", () => { filasPub.forEach(({ li }) => { li.hidden = false; }); masPubs.parentElement.hidden = true; });
+
+  /* Método, trayectoria y sellos */
+  PASOS.forEach(p => {
+    const li = crea("li", "paso");
+    li.innerHTML = `<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${p.i}"/></svg>`;
+    li.append(crea("h3", "", p.t), crea("p", "", p.d)); $("lista-pasos").append(li); revela(li);
+  });
+  HITOS.forEach(h => {
+    const li = crea("li", "hito"); li.append(crea("b", "", h.y), crea("h3", "", h.t), crea("p", "", h.d)); $("lista-hitos").append(li); revela(li);
+  });
+  [SELLOS, SELLOS].forEach((lista, vuelta) => lista.forEach(([src, alt]) => {
+    const i = crea("img"); i.src = src; i.alt = vuelta ? "" : alt; i.loading = "eager"; $("sellos").append(i);
+  }));
+
+  /* Barra de progreso */
+  const barra = $("progreso");
+  const avance = () => { const h = document.documentElement; barra.style.transform = `scaleX(${h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)})`; };
+  addEventListener("scroll", avance, { passive: true }); avance();
 
   /* Enlaces */
   ENLACES.forEach(e => {

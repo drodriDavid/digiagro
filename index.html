@@ -42,26 +42,24 @@
   </nav>
 </header>
 
-<section class="portal" id="inicio">
-  <div class="intro-fijo">
-    <video class="hero-video" data-auto autoplay muted loop playsinline preload="auto" poster="assets/video/portada.jpg" aria-hidden="true">
+<section class="hero" id="inicio">
+  <video class="hero-video" data-auto autoplay muted loop playsinline preload="auto" poster="assets/video/portada.jpg" aria-hidden="true">
     <source media="(min-width: 1500px)" src="assets/video/portada-4k.mp4" type="video/mp4">
     <source media="(max-width: 760px)" src="assets/video/portada-movil.mp4" type="video/mp4">
     <source src="assets/video/portada.mp4" type="video/mp4">
-    </video>
-    <div class="intro-velo" id="intro-velo"></div>
-    <div class="intro-mascara" id="intro-mascara" aria-hidden="true"><div class="intro-palabra" id="intro-palabra">DIG<span id="intro-foco">I</span>AGRO</div></div>
-    <div class="intro-contenido" id="intro-contenido">
-      <h1>DIGIAGRO</h1>
-      <p class="nombre-unidad">Unidad de Transformación Digital e Inteligencia Artificial del INUO</p>
-      <p class="lema">Dibujamos el futuro del olivar con los datos que medimos hoy en campo</p>
-      <div class="acciones">
-        <a class="boton boton-luz" href="#unidad">Conocer la unidad</a>
-        <a class="boton boton-claro" href="#vuelos">Ver los vuelos</a>
-      </div>
+  </video>
+  <div class="hero-velo"></div>
+  <img class="hero-hoja" src="assets/hoja.svg" alt="">
+  <div class="hero-contenido">
+    <h1>DIGIAGRO</h1>
+    <p class="nombre-unidad">Unidad de Transformación Digital e Inteligencia Artificial del INUO</p>
+    <p class="lema">Dibujamos el futuro del olivar con los datos que medimos hoy en campo</p>
+    <div class="acciones">
+      <a class="boton" href="#unidad">Conocer la unidad</a>
+      <a class="boton boton-claro" href="#vuelos">Ver los vuelos</a>
     </div>
-    <p class="intro-aviso" id="intro-aviso">Desliza para entrar en el olivar</p>
   </div>
+  <a class="bajar" href="#unidad" aria-label="Bajar a la unidad"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
 </section>
 
 <div class="cifras" id="cifras">
@@ -74,12 +72,8 @@
 <main>
   <section class="seccion" id="unidad">
     <h2 class="titular rv">La unidad</h2>
-    <p class="intro rv">Desarrollamos soluciones tecnológicas para monitorizar agroecosistemas, procesar datos geoespaciales y simular su evolución.</p>
-    <ul class="pastillas rv" aria-label="Disciplinas">
-      <li>Inteligencia artificial</li><li>Geomática</li><li>Informática gráfica</li><li>Computación ubicua</li><li>Ciencias ambientales</li>
-    </ul>
     <aside class="direccion rv" aria-label="Responsable de la unidad">
-      <img src="assets/equipo/juan-manuel-jurado.webp" alt="Juan Manuel Jurado Rodríguez">
+      <img src="assets/equipo/juan-manuel-jurado-grande.webp" width="2359" height="2560" alt="Juan Manuel Jurado Rodríguez">
       <div>
         <span class="cargo">Responsable de la unidad</span>
         <h3>Juan Manuel Jurado Rodríguez</h3>
@@ -87,8 +81,10 @@
         <a class="boton boton-claro" href="mailto:jjurado@ujaen.es">Contactar</a>
       </div>
     </aside>
-    <h3 class="sub rv">Qué ofrecemos</h3>
-    <div class="servicios" id="servicios"></div>
+    <p class="intro rv">Desarrollamos soluciones tecnológicas para monitorizar agroecosistemas, procesar datos geoespaciales y simular su evolución.</p>
+    <ul class="pastillas rv" aria-label="Disciplinas">
+      <li>Inteligencia artificial</li><li>Geomática</li><li>Informática gráfica</li><li>Computación ubicua</li><li>Ciencias ambientales</li>
+    </ul>
   </section>
 
   <section class="seccion gris" id="software">
@@ -102,12 +98,15 @@
           <a class="boton boton-claro" href="https://savia.ujaen.es" rel="noopener">Entrar en SAVIA</a>
         </div>
       </header>
+      <div class="savia-palabra rv" aria-hidden="true">
+        <video data-auto muted loop playsinline preload="none" poster="assets/video/f-espectral.jpg"><source src="assets/video/f-espectral.mp4" type="video/mp4"></video>
+        <div class="savia-mascara">SAVIA</div>
+      </div>
       <div class="savia-galeria">
-        <video class="savia-grande" data-auto muted loop playsinline preload="none" poster="assets/video/f-espectral.jpg"><source src="assets/video/f-espectral.mp4" type="video/mp4"></video>
-        <figure><img src="assets/savia/carbono.jpg" alt="Balance de carbono de una finca en SAVIA" loading="lazy"><figcaption>Balance de carbono</figcaption></figure>
-        <figure><img src="assets/savia/erosion.jpg" alt="Informe de erosión en SAVIA" loading="lazy"><figcaption>Informe de erosión</figcaption></figure>
-        <figure><img src="assets/savia/inventario.jpg" alt="Inventario de olivos en SAVIA" loading="lazy"><figcaption>Inventario por individuo</figcaption></figure>
-        <figure><img src="assets/savia/indices.jpg" alt="Índices espectrales en SAVIA" loading="lazy"><figcaption>Índices espectrales</figcaption></figure>
+        <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-sam.jpg"><source src="assets/video/f-sam.mp4" type="video/mp4"></video><figcaption>Cada olivo, identificado</figcaption></figure>
+        <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-sost.jpg"><source src="assets/video/f-sost.mp4" type="video/mp4"></video><figcaption>Sostenibilidad por individuo</figcaption></figure>
+        <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-daso.jpg"><source src="assets/video/f-daso.mp4" type="video/mp4"></video><figcaption>Vigor y dasometría</figcaption></figure>
+        <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-carbono.jpg"><source src="assets/video/f-carbono.mp4" type="video/mp4"></video><figcaption>Balance de carbono</figcaption></figure>
       </div>
     </article>
     <article class="plataforma rv">
@@ -119,16 +118,16 @@
           <a class="boton boton-claro" href="https://drodridavid.github.io/aerolab/" rel="noopener">Ver todo el equipamiento</a>
         </div>
       </header>
-      <div class="muestra" id="muestra-equipos"></div>
+      <h4 class="grupo-equipos">UAV</h4>
+      <div class="muestra" id="muestra-uav"></div>
+      <h4 class="grupo-equipos">Sensores</h4>
+      <div class="muestra" id="muestra-sensores"></div>
     </article>
   </section>
 
-  <section class="lineas" id="lineas">
-    <h2 class="titular">Líneas de investigación</h2>
-    <div class="ls-grid">
-      <div class="ls-medio"><video id="ls-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
-      <div class="ls-lista" id="lista-lineas"></div>
-    </div>
+  <section class="seccion" id="lineas">
+    <h2 class="titular rv">Líneas de investigación</h2>
+    <div class="lineas-compactas" id="lista-lineas"></div>
   </section>
 
   <section class="banda" aria-labelledby="titulo-metodo">

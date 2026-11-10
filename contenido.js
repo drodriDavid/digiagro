@@ -1,27 +1,18 @@
 /* Contenido editable de la web. Para añadir un proyecto, publicación o persona basta con añadir una línea. */
 
-const SERVICIOS = [
-  { t: "Agricultura de precisión", img: "assets/ofrecemos/precision.jpg", c: "g1", d: "Soluciones digitales para el olivar y asesoramiento para digitalizar explotaciones.", i: "M12 3v18M12 8c-3-3-6-3-8-2 0 4 3 6 8 6M12 12c3-3 6-3 8-2 0 4-3 6-8 6" },
-  { t: "Monitorización remota", img: "assets/ofrecemos/monitorizacion.jpg", c: "g2", d: "Sistemas de seguimiento desplegados en campo y en almazaras.", i: "M5 12a7 7 0 0 1 14 0M8.5 12a3.5 3.5 0 0 1 7 0M12 12v9" },
-  { t: "Gemelos digitales", img: "assets/ofrecemos/gemelos.jpg", c: "g3", d: "Réplicas de explotaciones oleícolas para simular y planificar.", i: "M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM12 12l8-4.5M12 12v9M12 12L4 7.5" },
-  { t: "Formación especializada", img: "assets/ofrecemos/formacion.jpg", c: "g4", d: "Capacitación en herramientas digitales aplicadas a la agricultura.", i: "M3 9l9-5 9 5-9 5-9-5zM7 11.5V16c3 2.5 7 2.5 10 0v-4.5" },
-  { t: "Sostenibilidad", img: "assets/ofrecemos/sostenibilidad.jpg", c: "g5", d: "Evaluación y diseño de estrategias de resiliencia agroambiental.", i: "M4 19c0-9 6-15 16-15 0 10-6 16-15 16M4 20c3-6 6-9 11-12" },
-  { t: "Salud del suelo", img: "assets/ofrecemos/suelo.jpg", c: "g6", d: "Diagnóstico de erosión, biodiversidad, estructura y retención de agua.", i: "M3 8h18M3 13c3-2 6 2 9 0s6 2 9 0M3 18c3-2 6 2 9 0s6 2 9 0M12 8V3" },
-];
-
 const LINEAS = [
-  { t: "Teledetección para observar el territorio", d: "Observación, procesamiento y fusión de imágenes de satélite, drones, radar, sensores IoT y estaciones meteorológicas para conocer el estado de los cultivos y su entorno.", img: "assets/video/olivos-cenital.mp4" },
-  { t: "Modelado predictivo y simulación", d: "Inteligencia artificial para predecir escenarios de producción, riesgos climáticos y la respuesta del cultivo a distintas prácticas agrícolas.", img: "assets/video/parcelas.mp4" },
-  { t: "Sistemas de apoyo a la decisión", d: "Plataformas que ayudan a agricultores y técnicos a elegir cómo manejar la finca a partir de datos geoespaciales y series temporales.", img: "assets/video/explotacion.mp4" },
-  { t: "Visualización avanzada y análisis geoespacial", d: "Visualización 4D, realidad aumentada y sistemas de información geográfica para representar el estado del olivar y sus proyecciones futuras.", img: "assets/video/infraestructura.mp4" },
-  { t: "Impacto ambiental y resiliencia", d: "Estudio del efecto de las prácticas agrícolas en el suelo, el agua y la biodiversidad para diseñar estrategias frente al cambio climático.", img: "assets/video/balsa.mp4" },
-  { t: "Salud del suelo y servicios ecosistémicos", d: "Análisis de parámetros edáficos, biodiversidad y funciones ecológicas para regenerar el suelo, capturar carbono y equilibrar el agroecosistema.", img: "assets/video/cubierta.mp4" },
+  { t: "Teledetección para observar el territorio", d: "Observación, procesamiento y fusión de imágenes de satélite, drones, radar, sensores IoT y estaciones meteorológicas para conocer el estado de los cultivos y su entorno.", img: "assets/video/olivos-cenital.jpg" },
+  { t: "Modelado predictivo y simulación", d: "Inteligencia artificial para predecir escenarios de producción, riesgos climáticos y la respuesta del cultivo a distintas prácticas agrícolas.", img: "assets/savia/indices.jpg" },
+  { t: "Sistemas de apoyo a la decisión", d: "Plataformas que ayudan a agricultores y técnicos a elegir cómo manejar la finca a partir de datos geoespaciales y series temporales.", img: "assets/savia/carbono.jpg" },
+  { t: "Visualización avanzada y análisis geoespacial", d: "Visualización 4D, realidad aumentada y sistemas de información geográfica para representar el estado del olivar y sus proyecciones futuras.", img: "assets/savia/inventario.jpg" },
+  { t: "Impacto ambiental y resiliencia", d: "Estudio del efecto de las prácticas agrícolas en el suelo, el agua y la biodiversidad para diseñar estrategias frente al cambio climático.", img: "assets/video/balsa.jpg" },
+  { t: "Salud del suelo y servicios ecosistémicos", d: "Análisis de parámetros edáficos, biodiversidad y funciones ecológicas para regenerar el suelo, capturar carbono y equilibrar el agroecosistema.", img: "assets/savia/erosion.jpg" },
 ];
 
 const PROYECTOS = [
-  { t: "LivingSoiLL", logo: "assets/proyectos/livingsoill.png", img: "assets/video/olivos-cenital.jpg", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
-  { t: "SOIL O-LIVE", logo: "assets/proyectos/soil-o-live.png", img: "assets/video/cubierta.jpg", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa", u: "https://soilolive.eu/" },
-  { t: "Soil DataSpace", logo: "assets/proyectos/soil-dataspace.png", img: "assets/video/balsa.jpg", d: "Espacio de Datos Federado de Suelos, liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
+  { t: "LivingSoiLL", logo: "assets/proyectos/livingsoill.png", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
+  { t: "SOIL O-LIVE", logo: "assets/proyectos/soil-o-live.png", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa", u: "https://soilolive.eu/" },
+  { t: "Soil DataSpace", logo: "assets/proyectos/soil-dataspace.png", d: "Espacio de Datos Federado de Suelos, liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
   { t: "Digital Agriculture Technologies for Irrigation Efficiency", logo: "assets/proyectos/prima.png", d: "Tecnologías digitales para mejorar la eficiencia del riego.", m: "PRIMA S2 2020, 2021–2024", a: "europa" },
   { t: "Harmonization of UAS techniques", logo: "assets/proyectos/cost.svg", d: "Armonización de técnicas con aeronaves no tripuladas para vigilar ecosistemas agrícolas y naturales.", m: "COST CA16219, 2017–2022", a: "europa", u: "https://www.cost.eu/actions/CA16219/" },
   { t: "SERGIoT", logo: "assets/proyectos/aei.svg", d: "Estrategia de gemelos digitales para gestionar invernaderos de forma eficiente.", m: "CPP2023-010458, 2024–2027", a: "espana" },
@@ -270,7 +261,7 @@ const PUBLICACIONES = [
 const PERSONAS = [
   { n: "Juan Manuel Jurado Rodríguez", f: "assets/equipo/juan-manuel-jurado.webp", c: "Responsable de la unidad", d: true },
   { n: "Julio Antonio Calero González", f: "assets/equipo/julio-calero.webp" }, { n: "Andressa De Sousa Cardoso" }, { n: "Juan José Cubillas Mercado" },
-  { n: "Luis René Domínguez Fuentes", f: "assets/equipo/luis-rene-dominguez.webp" }, { n: "Carlos Enríquez Turiño" }, { n: "Francisco Ramón Feito Higueruela", f: "assets/equipo/francisco-feito.webp" },
+  { n: "Luis René Domínguez Fuentes", f: "assets/equipo/luis-rene-dominguez.webp" }, { n: "Carlos Enríquez Turiño", f: "assets/equipo/carlos-enriquez.webp" }, { n: "Francisco Ramón Feito Higueruela", f: "assets/equipo/francisco-feito.webp" },
   { n: "Juan Roberto Jiménez Pérez", f: "assets/equipo/juan-roberto-jimenez.webp" }, { n: "David Jurado Rodríguez", f: "assets/equipo/david-jurado.webp" },
   { n: "Pablo Latorre Hortelano", f: "assets/equipo/pablo-latorre.webp" }, { n: "Juan Manuel Martín García", f: "assets/equipo/juan-manuel-martin.webp" }, { n: "Lidia Ortega Alvarado", f: "assets/equipo/lidia-ortega.webp" },
   { n: "Gema Parra Cabrera", f: "assets/equipo/gema-parra.webp" }, { n: "Francisco Daniel Pérez Cano", f: "assets/equipo/francisco-daniel-perez.webp" }, { n: "María Isabel Ramos Galán", f: "assets/equipo/maria-isabel-ramos.webp" },

@@ -257,7 +257,7 @@ const PERSONAS = [
   { n: "Pablo Latorre Hortelano", f: "assets/equipo/pablo-latorre.webp", c: "Estudiante de doctorado" }, { n: "Juan Manuel Martín García", f: "assets/equipo/juan-manuel-martin.webp" }, { n: "Lidia Ortega Alvarado", f: "assets/equipo/lidia-ortega.webp" },
   { n: "Gema Parra Cabrera", f: "assets/equipo/gema-parra.webp" }, { n: "Francisco Daniel Pérez Cano", f: "assets/equipo/francisco-daniel-perez.webp" }, { n: "María Isabel Ramos Galán", f: "assets/equipo/maria-isabel-ramos.webp" },
   { n: "Antonio Miguel Ruiz Armenteros", f: "assets/equipo/antonio-miguel-ruiz.webp" },
-  { n: "Elena Carmona Vallecillo" }, { n: "Rubén Sanabria Díaz" },
+  { n: "Elena Carmona Vallecillo", c: "Estudiante de doctorado" }, { n: "Rubén Sanabria Díaz", c: "Estudiante de doctorado" },
   { n: "Gloria Paterna Sánchez", f: "assets/equipo/gloria-paterna.webp", c: "Gestión de proyectos" },
 ];
 

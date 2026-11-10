@@ -22,42 +22,38 @@
   <nav id="nav-menu" aria-label="Secciones">
     <a href="#unidad">La unidad</a>
     <a href="#lineas">Líneas</a>
-    <a href="#herramientas">Herramientas</a>
-    <a href="#flota">Flota</a>
     <a href="#proyectos">Proyectos</a>
+    <a href="#publicaciones">Publicaciones</a>
+    <a href="#software">Software</a>
+    <a href="#plataformas">Plataformas aéreas</a>
+    <a href="#sensores">Sensores</a>
+    <a href="#vuelos">Vuelos</a>
     <a href="#equipo">Equipo</a>
     <a class="boton boton-lima boton-nav" href="#contacto">Contacto</a>
   </nav>
 </header>
 
-<section class="portada" id="inicio">
-  <canvas id="olivar" aria-label="Nube de puntos real de una finca de olivar que cambia de color según la capa elegida"></canvas>
-  <p class="cargando" id="cargando">Cargando nube de puntos real</p>
-  <div class="lab-texto">
+<section class="hero" id="inicio">
+  <video class="hero-video" data-auto autoplay muted loop playsinline preload="auto" poster="assets/video/portada.jpg" aria-hidden="true">
+    <source src="assets/video/portada.mp4" type="video/mp4">
+  </video>
+  <div class="hero-velo"></div>
+  <div class="hero-contenido">
     <h1 class="sigla">DIGI<b>A</b>GRO</h1>
     <p class="nombre-unidad">Unidad de Transformación Digital e Inteligencia Artificial del INUO</p>
     <p class="lema">Liderada por <b>Juan Manuel Jurado</b>. Dibujamos el futuro del olivar con los datos que medimos hoy en campo.</p>
-  </div>
-  <div class="lab-controles">
-    <div class="lab-sensores" role="group" aria-label="Elegir capa">
-      <button type="button" data-sensor="rgb" aria-pressed="true">RGB</button>
-      <button type="button" data-sensor="ndvi" aria-pressed="false">NDVI</button>
-      <button type="button" data-sensor="ndre" aria-pressed="false">NDRE</button>
-      <button type="button" data-sensor="lidar" aria-pressed="false">LiDAR</button>
-      <button type="button" data-sensor="ids" aria-pressed="false">Individuos IA</button>
+    <div class="acciones">
+      <a class="boton boton-lima" href="#unidad">Conocer la unidad</a>
+      <a class="boton boton-vidrio" href="#vuelos">Ver los vuelos</a>
     </div>
-    <p class="lab-sensor-texto" id="sensor-texto" aria-live="polite"></p>
-    <div class="leyenda" id="leyenda"></div>
-    <p class="lab-nota">Datos reales de vuelo con dron. Arrastra para girar y toca un olivo.</p>
   </div>
-  <div class="ficha" id="ficha" hidden></div>
 </section>
 
 <div class="cifras" id="cifras">
   <div><b data-cifra="lineas">6</b><span>líneas de investigación</span></div>
   <div><b data-cifra="proyectos">20</b><span>proyectos</span></div>
   <div><b data-cifra="equipos">17</b><span>drones y sensores</span></div>
-  <div><b data-cifra="personas">20</b><span>personas</span></div>
+  <div><b data-cifra="personas">19</b><span>personas</span></div>
 </div>
 
 <div class="logos-tira">
@@ -80,7 +76,7 @@
       </div>
     </div>
     <aside class="direccion rv" aria-label="Responsable de la unidad">
-      <span class="inicial" aria-hidden="true">JJ</span>
+      <img class="inicial" src="assets/equipo/juan-manuel-jurado.webp" alt="Juan Manuel Jurado Rodríguez">
       <div>
         <span class="cargo">Responsable de la unidad</span>
         <h3>Juan Manuel Jurado Rodríguez</h3>
@@ -95,61 +91,15 @@
     <div class="lineas-grid">
       <div class="lineas-izq rv">
         <h2 class="titular"><span>Seis líneas</span> <strong>de investigación</strong></h2>
-        <div class="lineas-imagen"><img id="linea-img" src="assets/img/nube-olivar.jpg" alt=""></div>
+        <div class="lineas-imagen"><video id="linea-img" src="assets/video/olivos-cenital.mp4" poster="assets/video/olivos-cenital.jpg" autoplay muted loop playsinline aria-hidden="true"></video></div>
       </div>
       <div class="acordeon rv" id="acordeon"></div>
     </div>
   </section>
 
   <section class="banda" aria-label="Nuestra convicción">
-    <video data-auto muted loop playsinline preload="none" poster="assets/video/banda-olivar.jpg" aria-hidden="true"><source src="assets/video/banda-olivar.mp4" type="video/mp4"></video>
+    <video data-auto muted loop playsinline preload="none" poster="assets/video/balsa.jpg" aria-hidden="true"><source src="assets/video/balsa.mp4" type="video/mp4"></video>
     <p>La agricultura inteligente es clave para un modelo más <strong>sostenible, eficiente y resiliente</strong>.</p>
-  </section>
-
-  <section class="seccion herramientas" id="herramientas">
-    <h2 class="titular centrado rv"><span>Del vuelo</span> <strong>a la decisión</strong></h2>
-
-    <article class="zig rv">
-      <div class="zig-texto">
-        <h3>AeroLab captura cada finca desde el aire</h3>
-        <p>Nuestro laboratorio de teledetección vuela con cámaras RGB, multiespectrales, térmicas, hiperespectrales y LiDAR, y convierte cada vuelo en ortomosaicos, modelos 3D y nubes de puntos.</p>
-        <a class="enlace" href="https://drodridavid.github.io/aerolab/" rel="noopener">Visitar AeroLab</a>
-      </div>
-      <div class="navegador"><div class="barra"><i></i><i></i><i></i><span>drodridavid.github.io/aerolab</span></div>
-        <img src="assets/img/nube-olivar.jpg" alt="Nube de puntos 3D de una finca de olivar" loading="lazy">
-      </div>
-    </article>
-
-    <article class="zig zig-inv rv">
-      <div class="zig-texto">
-        <h3>SAVIA reconoce cada olivo, uno a uno</h3>
-        <p>En el navegador, la inteligencia artificial delimita cada copa y la proyecta sobre la nube 3D. De ahí salen el inventario por individuo, el vigor, la erosión y el balance de carbono.</p>
-        <a class="enlace" href="https://savia.ujaen.es" rel="noopener">Entrar en SAVIA</a>
-      </div>
-      <div class="navegador"><div class="barra"><i></i><i></i><i></i><span>savia.ujaen.es</span></div>
-        <video data-auto muted loop playsinline preload="none" poster="assets/video/f-sam.jpg"><source src="assets/video/f-sam.mp4" type="video/mp4"></video>
-      </div>
-    </article>
-
-    <article class="zig rv">
-      <div class="zig-texto">
-        <h3>Todos los sensores, en un único modelo</h3>
-        <p>Fusionamos las capas de cada vuelo sobre la misma geometría 3D para analizar a la vez forma, vigor y temperatura. GEU, nuestra aplicación de escritorio, abrió este camino.</p>
-      </div>
-      <div class="navegador"><div class="barra"><i></i><i></i><i></i><span>savia.ujaen.es</span></div>
-        <video data-auto muted loop playsinline preload="none" poster="assets/video/f-fusion.jpg"><source src="assets/video/f-fusion.mp4" type="video/mp4"></video>
-      </div>
-    </article>
-  </section>
-
-  <section class="seccion flota" id="flota">
-    <div class="cabeza rv">
-      <h2 class="titular"><span>Nuestra flota</span> <strong>y sensores</strong></h2>
-      <div class="filtros" id="filtros-equipos" role="group" aria-label="Filtrar equipos"></div>
-    </div>
-    <div class="equipos" id="equipos"></div>
-    <h3 class="sub rv">En vuelo</h3>
-    <div class="carrusel" id="vuelos" tabindex="0" aria-label="Vídeos de vuelos"></div>
   </section>
 
   <section class="seccion proyectos" id="proyectos">
@@ -161,10 +111,51 @@
   </section>
 
   <section class="seccion publicaciones" id="publicaciones">
-    <div class="dos">
-      <h2 class="titular rv"><span>Publicaciones</span> <strong>destacadas</strong></h2>
-      <ol class="pubs rv" id="lista-publicaciones"></ol>
+    <div class="cabeza rv">
+      <h2 class="titular"><span>Publicaciones</span> <strong>científicas</strong></h2>
+      <div class="filtros" id="filtros-pubs" role="group" aria-label="Filtrar publicaciones"></div>
     </div>
+    <ol class="pubs" id="lista-publicaciones"></ol>
+  </section>
+
+  <section class="seccion software" id="software">
+    <h2 class="titular rv"><span>Software</span> <strong>propio y de trabajo</strong></h2>
+    <article class="zig rv">
+      <div class="zig-texto">
+        <h3>SAVIA</h3>
+        <p>Plataforma web que convierte cada vuelo multisensor en el inventario por individuo, el vigor, la erosión y el balance de carbono de la finca. Es la evolución de GEU, nuestra aplicación de escritorio.</p>
+        <a class="enlace" href="https://savia.ujaen.es" rel="noopener">Entrar en SAVIA</a>
+      </div>
+      <div class="navegador"><video data-auto muted loop playsinline preload="none" poster="assets/video/f-espectral.jpg"><source src="assets/video/f-espectral.mp4" type="video/mp4"></video></div>
+    </article>
+    <article class="zig zig-inv rv">
+      <div class="zig-texto">
+        <h3>AeroLab</h3>
+        <p>Inventario de nuestros drones y sensores, con la galería de vuelos y los resultados de cada campaña.</p>
+        <a class="enlace" href="https://drodridavid.github.io/aerolab/" rel="noopener">Visitar AeroLab</a>
+      </div>
+      <div class="navegador"><video data-auto muted loop playsinline preload="none" poster="assets/video/fotovoltaica.jpg"><source src="assets/video/fotovoltaica.mp4" type="video/mp4"></video></div>
+    </article>
+    <h3 class="sub rv">Herramientas de trabajo</h3>
+    <div class="herramientas-lista" id="herramientas-lista"></div>
+  </section>
+
+  <section class="seccion plataformas" id="plataformas">
+    <h2 class="titular rv"><span>Plataformas</span> <strong>aéreas</strong></h2>
+    <div class="equipos" id="aeronaves"></div>
+  </section>
+
+  <section class="seccion sensores" id="sensores">
+    <div class="cabeza rv">
+      <h2 class="titular"><span>Sensores</span> <strong>embarcados</strong></h2>
+      <div class="filtros" id="filtros-sensores" role="group" aria-label="Filtrar sensores"></div>
+    </div>
+    <div class="equipos" id="lista-sensores"></div>
+  </section>
+
+  <section class="seccion vuelos" id="vuelos">
+    <h2 class="titular rv"><span>En</span> <strong>vuelo</strong></h2>
+    <div class="carrusel" id="vuelos-lista" aria-label="Vídeos de vuelos"></div>
   </section>
 
   <section class="seccion equipo" id="equipo">
@@ -203,6 +194,5 @@
 <script src="contenido.js"></script>
 <script src="equipos.js"></script>
 <script src="app.js"></script>
-<script src="olivar.js"></script>
 </body>
 </html>

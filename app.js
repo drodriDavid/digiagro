@@ -37,7 +37,11 @@
     filas.forEach((x, j) => { x.f.classList.toggle("abierta", j === i); x.b.setAttribute("aria-expanded", String(j === i)); });
     if (imagen.getAttribute("src") !== LINEAS[i].img) {
       imagen.classList.add("cambia");
-      setTimeout(() => { imagen.src = LINEAS[i].img; imagen.classList.remove("cambia"); }, quieto ? 0 : 200);
+      setTimeout(() => {
+        imagen.poster = LINEAS[i].img.replace(".mp4", ".jpg"); imagen.src = LINEAS[i].img;
+        if (!quieto) { const p = imagen.play(); if (p) p.catch(() => {}); }
+        imagen.classList.remove("cambia");
+      }, quieto ? 0 : 200);
     }
   }
   abre(0);
@@ -62,10 +66,10 @@
   dlg.addEventListener("click", e => { if (e.target === dlg) cierra(); });
   dlg.addEventListener("close", () => { const v = cuerpo.querySelector("video"); if (v) v.pause(); });
 
-  const tarjetasEq = EQUIPOS.map(e => {
+  const tarjetaEquipo = e => {
     const b = crea("button", "equipo-tarjeta"); b.type = "button";
     const im = crea("img"); im.src = e.img; im.alt = ""; im.loading = "lazy";
-    b.append(im, crea("span", "eq-tipo", e.tipo === "drone" ? "Aeronave" : "Sensor"), crea("b", "", e.nombre), crea("span", "eq-lema", e.lema));
+    b.append(im, crea("b", "", e.nombre), crea("span", "eq-lema", e.lema));
     b.addEventListener("click", () => abreDialogo(c => {
       const g = crea("div", "ficha-eq");
       const i = crea("img"); i.src = e.img; i.alt = e.nombre;
@@ -75,16 +79,20 @@
       e.datos.forEach(([k, v]) => { dl.append(crea("dt", "", k), crea("dd", "", v)); });
       t.append(dl); g.append(i, t); c.append(g);
     }));
-    $("equipos").append(b);
-    return { b, e };
-  });
-  const cumple = (e, f) => {
-    if (f === "todos") return true;
-    if (f === "drone" || f === "sensor") return e.tipo === f;
-    return (e.nombre + " " + e.lema + " " + e.rasgos.join(" ")).toLowerCase().includes(f);
+    return b;
   };
-  filtros($("filtros-equipos"), [["todos", "Todo"], ["drone", "Aeronaves"], ["sensor", "Sensores"], ["multiespectral", "Multiespectral"], ["térmica", "Térmica"], ["lidar", "LiDAR"], ["hiperespectral", "Hiperespectral"]], f => {
-    tarjetasEq.forEach(({ b, e }) => { b.hidden = !cumple(e, f); });
+  EQUIPOS.filter(e => e.tipo === "drone").forEach(e => $("aeronaves").append(tarjetaEquipo(e)));
+  const tarjetasSen = EQUIPOS.filter(e => e.tipo === "sensor").map(e => { const b = tarjetaEquipo(e); $("lista-sensores").append(b); return { b, e }; });
+  filtros($("filtros-sensores"), [["todos", "Todos"], ["multiespectral", "Multiespectral"], ["térmica", "Térmico"], ["lidar", "LiDAR"], ["hiperespectral", "Hiperespectral"]], f => {
+    tarjetasSen.forEach(({ b, e }) => { b.hidden = f !== "todos" && !(e.nombre + " " + e.lema + " " + e.rasgos.join(" ")).toLowerCase().includes(f); });
+  });
+
+  /* Software de trabajo */
+  SOFTWARE.forEach(h => {
+    const a = h.u ? crea("a", "herramienta") : crea("div", "herramienta");
+    if (h.u) { a.href = h.u; a.rel = "noopener"; }
+    a.append(crea("span", "pr-marco", h.c), crea("b", "", h.n), crea("span", "eq-lema", h.d));
+    $("herramientas-lista").append(a);
   });
 
   /* Vídeos de vuelo */
@@ -97,7 +105,7 @@
       const video = crea("video"); video.src = `${AEROLAB}${v.f}.mp4`; video.controls = true; video.autoplay = true; video.playsInline = true; video.muted = true; video.poster = `${AEROLAB}${v.f}.jpg`;
       c.append(video, crea("p", "pie-video", v.t));
     }, "dialogo-video"));
-    $("vuelos").append(b);
+    $("vuelos-lista").append(b);
   });
 
   /* Proyectos */
@@ -114,11 +122,13 @@
   filtros($("filtros-proyectos"), AMBITOS, f => tarjetasPr.forEach(({ a, p }) => { a.hidden = f !== "todos" && p.a !== f; }));
 
   /* Publicaciones */
-  PUBLICACIONES.forEach(p => {
+  const filasPub = PUBLICACIONES.map(p => {
     const li = crea("li"), a = crea("a"); a.href = "https://doi.org/" + p.doi; a.rel = "noopener";
-    a.append(crea("span", "pub-ano", p.y), crea("b", "", p.t), crea("span", "pub-datos", `${p.a} ${p.r}`));
+    a.append(crea("span", "pub-ano", p.y), crea("b", "", p.t), crea("span", "pub-datos", `${p.a.replace(/.$/, "")}. ${p.r}`));
     li.append(a); $("lista-publicaciones").append(li);
+    return { li, p };
   });
+  filtros($("filtros-pubs"), TEMAS, f => filasPub.forEach(({ li, p }) => { li.hidden = f !== "todos" && p.tema !== f; }));
 
   /* Personas */
   PERSONAS.forEach(p => {
@@ -126,6 +136,7 @@
     const iniciales = partes[0][0] + partes[partes.length - 2][0];
     const d = crea("div", "persona" + (p.d ? " destacada" : ""));
     const av = crea("span", "avatar", iniciales); av.setAttribute("aria-hidden", "true");
+    if (p.f) { const im = crea("img"); im.src = p.f; im.alt = ""; im.loading = "lazy"; av.textContent = ""; av.append(im); }
     const t = crea("div"); t.append(crea("b", "", p.n)); if (p.c) t.append(crea("span", "", p.c));
     d.append(av, t); $("lista-personas").append(d); revela(d);
   });

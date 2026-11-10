@@ -15,7 +15,7 @@
   /* Líneas */
   LINEAS.forEach(l => {
     const a = crea("article", "linea-compacta");
-    const f = crea("figure", "lc-img"); const i = crea("img"); i.src = l.img; i.alt = ""; i.loading = "lazy"; f.append(i);
+    const f = crea("figure", "lc-img"); const i = crea("img"); i.src = l.img; i.srcset = l.img.replace(/\.jpg$/, "-1600.jpg") + " 1600w, " + l.img + " 3840w"; i.sizes = "(max-width: 600px) 200vw, 1000px"; i.alt = ""; i.loading = "lazy"; f.append(i);
     const t = crea("div"); t.append(crea("h3", "", l.t), crea("p", "", l.d));
     a.append(f, t); $("lista-lineas").append(a); revela(a);
   });

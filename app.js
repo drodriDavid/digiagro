@@ -114,7 +114,7 @@
   /* Publicaciones */
   PUBLICACIONES.forEach(p => {
     const li = crea("li"), a = crea("a"); a.href = "https://doi.org/" + p.doi; a.rel = "noopener";
-    a.append(crea("span", "pub-ano", p.y), crea("b", "", p.t), crea("span", "pub-datos", `${p.a}. ${p.r}`));
+    a.append(crea("span", "pub-ano", p.y), crea("b", "", p.t), crea("span", "pub-datos", `${p.a} ${p.r}`));
     li.append(a); $("lista-publicaciones").append(li);
   });
 

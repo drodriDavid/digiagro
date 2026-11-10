@@ -252,12 +252,12 @@ const PUBLICACIONES = [
 const PERSONAS = [
   { n: "Juan Manuel Jurado Rodríguez", f: "assets/equipo/juan-manuel-jurado.webp", c: "Responsable de la unidad", d: true },
   { n: "Julio Antonio Calero González", f: "assets/equipo/julio-calero.webp" }, { n: "Andressa De Sousa Cardoso" }, { n: "Juan José Cubillas Mercado" },
-  { n: "Luis René Domínguez Fuentes", f: "assets/equipo/luis-rene-dominguez.webp" }, { n: "Carlos Enríquez Turiño", f: "assets/equipo/carlos-enriquez.webp" }, { n: "Francisco Ramón Feito Higueruela", f: "assets/equipo/francisco-feito.webp" },
+  { n: "Luis René Domínguez Fuentes", f: "assets/equipo/luis-rene-dominguez.webp", c: "Estudiante de doctorado" }, { n: "Carlos Enríquez Turiño", f: "assets/equipo/carlos-enriquez.webp" }, { n: "Francisco Ramón Feito Higueruela", f: "assets/equipo/francisco-feito.webp" },
   { n: "Juan Roberto Jiménez Pérez", f: "assets/equipo/juan-roberto-jimenez.webp" }, { n: "David Jurado Rodríguez", f: "assets/equipo/david-jurado.webp" },
-  { n: "Pablo Latorre Hortelano", f: "assets/equipo/pablo-latorre.webp" }, { n: "Juan Manuel Martín García", f: "assets/equipo/juan-manuel-martin.webp" }, { n: "Lidia Ortega Alvarado", f: "assets/equipo/lidia-ortega.webp" },
+  { n: "Pablo Latorre Hortelano", f: "assets/equipo/pablo-latorre.webp", c: "Estudiante de doctorado" }, { n: "Juan Manuel Martín García", f: "assets/equipo/juan-manuel-martin.webp" }, { n: "Lidia Ortega Alvarado", f: "assets/equipo/lidia-ortega.webp" },
   { n: "Gema Parra Cabrera", f: "assets/equipo/gema-parra.webp" }, { n: "Francisco Daniel Pérez Cano", f: "assets/equipo/francisco-daniel-perez.webp" }, { n: "María Isabel Ramos Galán", f: "assets/equipo/maria-isabel-ramos.webp" },
   { n: "Antonio Miguel Ruiz Armenteros", f: "assets/equipo/antonio-miguel-ruiz.webp" },
-  { n: "Sinia Belamri", c: "Doctoranda" }, { n: "Nelly Chávez Rincón", c: "Doctoranda" },
+  { n: "Elena Carmona Vallecillo" }, { n: "Rubén Sanabria Díaz" },
   { n: "Gloria Paterna Sánchez", f: "assets/equipo/gloria-paterna.webp", c: "Gestión de proyectos" },
 ];
 

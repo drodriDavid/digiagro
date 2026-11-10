@@ -68,7 +68,7 @@
       C.ndvi.set(rampa(NDVI, ndvi[i] / 255), j);
       C.ndre.set(rampa(NDVI, ndre[i] / 255), j);
       if (ids[i]) C.ids.set(tono(ids[i]), j);
-      else { const v = (r[i] + g[i] + b[i]) / 3 * 0.42 + 26; C.ids[j] = v; C.ids[j + 1] = v; C.ids[j + 2] = v * 1.25; }
+      else { const v = (r[i] + g[i] + b[i]) / 3 * 0.42 + 26; C.ids[j] = v; C.ids[j + 1] = v; C.ids[j + 2] = v; }
     }
     for (let i = 0, j = 0; i < nl; i++, j += 3) {
       posL[j] = lx[i]; posL[j + 1] = ly[i]; posL[j + 2] = lz[i];

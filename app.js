@@ -20,21 +20,40 @@
     });
   }
 
-  /* Servicios */
-  SERVICIOS.forEach(s => {
-    const a = crea("article", "servicio");
-    a.innerHTML = `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${s.i}"/></svg>`;
-    a.append(crea("h4", "", s.t), crea("p", "", s.d));
-    $("servicios").append(a); revela(a);
+  /* Servicios: mosaico de fotografías reales */
+  const ofertas = SERVICIOS.map((s, n) => {
+    const a = crea("button", "oferta"); a.type = "button"; a.setAttribute("aria-pressed", String(n === 0));
+    const i = crea("img"); i.src = s.img; i.srcset = `${s.img} 1400w, ${s.img.replace(".jpg", "-4k.jpg")} 3840w`; i.sizes = "(max-width: 900px) 90vw, 60vw"; i.alt = ""; i.loading = "lazy";
+    const t = crea("div"); t.append(crea("h4", "", s.t), crea("p", "", s.d));
+    a.append(i, t); $("servicios").append(a);
+    const abre = () => ofertas.forEach(o => { const si = o === a; o.classList.toggle("abierta", si); o.setAttribute("aria-pressed", String(si)); });
+    a.addEventListener("click", abre); a.addEventListener("mouseenter", abre); a.addEventListener("focus", abre);
+    if (n === 0) a.classList.add("abierta");
+    return a;
   });
 
-  /* Líneas: imagen y texto alternados */
-  LINEAS.forEach(l => {
-    const a = crea("article", "linea-fila");
-    const i = crea("img"); i.src = l.img; i.alt = l.t; i.loading = "lazy"; i.width = 1600; i.height = 1200;
-    const t = crea("div", "linea-texto"); t.append(crea("h3", "", l.t), crea("p", "", l.d));
-    a.append(i, t); $("lista-lineas").append(a); revela(a);
+  /* Líneas: el vídeo fijo cambia con la línea que se está leyendo */
+  const lsVideo = $("ls-video");
+  const lineasEl = LINEAS.map((l, i) => {
+    const a = crea("article", "ls-item"); a.dataset.i = i;
+    a.append(crea("h3", "", l.t), crea("p", "", l.d)); $("lista-lineas").append(a); return a;
   });
+  let lsActual = -1;
+  function lsCambia(i) {
+    if (i === lsActual) return; lsActual = i;
+    lineasEl.forEach((e, j) => e.classList.toggle("activa", j === i));
+    lsVideo.classList.add("cambia");
+    setTimeout(() => {
+      lsVideo.poster = LINEAS[i].img.replace(".mp4", ".jpg"); lsVideo.src = LINEAS[i].img;
+      if (!quieto) { const p = lsVideo.play(); if (p) p.catch(() => {}); }
+      lsVideo.classList.remove("cambia");
+    }, quieto ? 0 : 220);
+  }
+  lsCambia(0);
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) lsCambia(+e.target.dataset.i); }), { rootMargin: "-48% 0px -48% 0px" });
+    lineasEl.forEach(e => io.observe(e));
+  }
 
   /* Diálogo */
   const dlg = $("dialogo"), cuerpo = $("dialogo-cuerpo");
@@ -47,34 +66,13 @@
   dlg.addEventListener("click", e => { if (e.target === dlg) cierra(); });
   dlg.addEventListener("close", () => { const v = cuerpo.querySelector("video"); if (v) v.pause(); });
 
-  /* Plataformas y sensores */
-  const tarjetaEquipo = e => {
-    const b = crea("button", "equipo-tarjeta"); b.type = "button";
-    const im = crea("img"); im.src = e.img; im.alt = ""; im.loading = "lazy";
-    b.append(im, crea("b", "", e.nombre), crea("span", "eq-lema", e.lema));
-    b.addEventListener("click", () => abreDialogo(c => {
-      const g = crea("div", "ficha-eq");
-      const i = crea("img"); i.src = e.img; i.alt = e.nombre;
-      const t = crea("div");
-      t.append(crea("h3", "", e.nombre), crea("p", "", e.texto));
-      const dl = crea("dl");
-      e.datos.forEach(([k, v]) => { dl.append(crea("dt", "", k), crea("dd", "", v)); });
-      t.append(dl); g.append(i, t); c.append(g);
-    }));
-    return b;
-  };
-  EQUIPOS.filter(e => e.tipo === "drone").forEach(e => $("aeronaves").append(tarjetaEquipo(e)));
-  const tarjetasSen = EQUIPOS.filter(e => e.tipo === "sensor").map(e => { const b = tarjetaEquipo(e); $("lista-sensores").append(b); return { b, e }; });
-  filtros($("filtros-sensores"), [["todos", "Todos"], ["multiespectral", "Multiespectral"], ["térmica", "Térmico"], ["lidar", "LiDAR"], ["hiperespectral", "Hiperespectral"]], f => {
-    tarjetasSen.forEach(({ b, e }) => { b.hidden = f !== "todos" && !(e.nombre + " " + e.lema + " " + e.rasgos.join(" ")).toLowerCase().includes(f); });
-  });
-
-  /* Software de trabajo */
-  SOFTWARE.forEach(h => {
-    const a = h.u ? crea("a", "herramienta") : crea("div", "herramienta");
-    if (h.u) { a.href = h.u; a.rel = "noopener"; }
-    a.append(crea("span", "pr-marco", h.c), crea("b", "", h.n), crea("span", "eq-lema", h.d));
-    $("herramientas-lista").append(a);
+  /* Muestra del equipamiento dentro de AeroLab */
+  ["matrice400", "m300", "mavic3m", "p1", "scoutultra", "nanohyperspec"].forEach(id => {
+    const e = EQUIPOS.find(x => x.id === id); if (!e) return;
+    const a = crea("a", "muestra-item"); a.href = "https://drodridavid.github.io/aerolab/"; a.rel = "noopener";
+    const i = crea("img"); i.src = e.img; i.alt = ""; i.loading = "lazy";
+    a.append(i, crea("b", "", e.nombre.replace(/ \(.*\)$/, "")), crea("span", "", e.tipo === "drone" ? "Aeronave" : "Sensor"));
+    $("muestra-equipos").append(a);
   });
 
   /* Vuelos */
@@ -90,19 +88,15 @@
     $("vuelos-lista").append(b);
   });
 
-  /* Proyectos */
+  /* Proyectos: filas con logotipo */
   const tarjetasPr = PROYECTOS.map(p => {
-    const a = p.u ? crea("a", "proyecto") : crea("article", "proyecto");
+    const a = p.u ? crea("a", "fila-proyecto") : crea("article", "fila-proyecto");
     if (p.u) { a.href = p.u; a.rel = "noopener"; }
-    a.append(crea("span", "etiqueta", ETIQUETAS[p.a]));
-    if (p.img) { const i = crea("img", "pr-foto"); i.src = p.img; i.alt = ""; i.loading = "lazy"; a.append(i); }
-    if (p.logo) { const f = crea("div", "pr-logo"), i = crea("img"); i.src = p.logo; i.alt = "Logotipo de " + p.t; i.loading = "lazy"; f.append(i); a.append(f); }
-    const t = crea("div", "proyecto-texto");
-    t.append(crea("h3", "", p.t));
-    if (p.d) t.append(crea("p", "", p.d));
-    t.append(crea("span", "pr-marco", p.m));
-    if (p.u) t.append(crea("span", "pr-url", dominio(p.u)));
-    a.append(t); $("lista-proyectos").append(a);
+    const l = crea("div", "fp-logo");
+    if (p.logo) { const i = crea("img"); i.src = p.logo; i.alt = "Logotipo de " + p.t; i.loading = "lazy"; l.append(i); }
+    const t = crea("div", "fp-texto"); t.append(crea("h3", "", p.t)); if (p.d) t.append(crea("p", "", p.d));
+    const m = crea("div", "fp-meta"); m.append(crea("span", "fp-tipo", ETIQUETAS[p.a]), crea("span", "", p.m)); if (p.u) m.append(crea("span", "pr-url", dominio(p.u)));
+    a.append(l, t, m); $("lista-proyectos").append(a);
     return { a, p };
   });
   filtros($("filtros-proyectos"), AMBITOS, f => tarjetasPr.forEach(({ a, p }) => { a.hidden = f !== "todos" && p.a !== f; }));
@@ -126,9 +120,7 @@
     li.innerHTML = `<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${p.i}"/></svg>`;
     li.append(crea("h3", "", p.t), crea("p", "", p.d)); $("lista-pasos").append(li); revela(li);
   });
-  [SELLOS, SELLOS].forEach((lista, vuelta) => lista.forEach(([src, alt]) => {
-    const i = crea("img"); i.src = src; i.alt = vuelta ? "" : alt; i.loading = "eager"; $("sellos").append(i);
-  }));
+  SELLOS.forEach(([src, alt]) => { const i = crea("img"); i.src = src; i.alt = alt; i.loading = "lazy"; $("sellos").append(i); });
 
   /* Barra de progreso */
   const barra = $("progreso");
@@ -190,6 +182,30 @@
       if (e.isIntersecting) enlaces.forEach(a => a.classList.toggle("activo", a.getAttribute("href") === "#" + e.target.id));
     }), { rootMargin: "-45% 0px -50% 0px" });
     enlaces.forEach(a => { const s = document.querySelector(a.getAttribute("href")); if (s) io.observe(s); });
+  }
+
+  /* Portada: la palabra se abre hasta dejar el vídeo a pantalla completa */
+  const intro = $("inicio"), pal = $("intro-palabra"), foco = $("intro-foco"), masc = $("intro-mascara"), velo = $("intro-velo"), cont = $("intro-contenido"), aviso = $("intro-aviso");
+  if (quieto) document.documentElement.classList.add("sin-intro");
+  else {
+    const origen = () => {
+      pal.style.transform = "none";
+      const a = pal.getBoundingClientRect(), f = foco.getBoundingClientRect();
+      pal.style.transformOrigin = `${f.left + f.width / 2 - a.left}px ${f.top + f.height / 2 - a.top}px`;
+    };
+    const pinta = () => {
+      const q = intro.getBoundingClientRect(), p = Math.min(1, Math.max(0, -q.top / Math.max(1, q.height - innerHeight)));
+      pal.style.transform = `scale(${1 + Math.pow(Math.min(1, p / .7), 3) * 90})`;
+      masc.style.opacity = p < .55 ? 1 : Math.max(0, 1 - (p - .55) / .15);
+      masc.style.visibility = p >= .7 ? "hidden" : "visible";
+      const c = Math.max(0, Math.min(1, (p - .62) / .22));
+      cont.style.opacity = c; cont.style.transform = `translateY(${(1 - c) * 26}px)`; cont.style.pointerEvents = c > .5 ? "auto" : "none"; velo.style.opacity = c;
+      aviso.style.opacity = p < .04 ? 1 : 0;
+    };
+    origen(); pinta();
+    addEventListener("scroll", pinta, { passive: true });
+    addEventListener("resize", () => { origen(); pinta(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { origen(); pinta(); });
   }
 
   document.querySelectorAll(".rv").forEach(e => { if (aparece) aparece.observe(e); else e.classList.add("visible"); });

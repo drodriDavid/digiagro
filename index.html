@@ -33,35 +33,35 @@
   <button class="nav-boton" id="nav-boton" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   <nav id="nav-menu" aria-label="Secciones">
     <a href="#unidad">La unidad</a>
+    <a href="#software">SAVIA y AeroLab</a>
     <a href="#lineas">Líneas</a>
     <a href="#proyectos">Proyectos</a>
     <a href="#publicaciones">Publicaciones</a>
-    <a href="#software">Software</a>
-    <a href="#plataformas">Plataformas aéreas</a>
-    <a href="#sensores">Sensores</a>
     <a href="#vuelos">Vuelos</a>
     <a href="#equipo">Equipo</a>
   </nav>
 </header>
 
-<section class="hero" id="inicio">
-  <video class="hero-video" data-auto autoplay muted loop playsinline preload="auto" poster="assets/video/portada.jpg" aria-hidden="true">
+<section class="portal" id="inicio">
+  <div class="intro-fijo">
+    <video class="hero-video" data-auto autoplay muted loop playsinline preload="auto" poster="assets/video/portada.jpg" aria-hidden="true">
     <source media="(min-width: 1500px)" src="assets/video/portada-4k.mp4" type="video/mp4">
     <source media="(max-width: 760px)" src="assets/video/portada-movil.mp4" type="video/mp4">
     <source src="assets/video/portada.mp4" type="video/mp4">
-  </video>
-  <div class="hero-velo"></div>
-  <img class="hero-hoja" src="assets/hoja.svg" alt="">
-  <div class="hero-contenido">
-    <h1>DIGIAGRO</h1>
-    <p class="nombre-unidad">Unidad de Transformación Digital e Inteligencia Artificial del INUO</p>
-    <p class="lema">Dibujamos el futuro del olivar con los datos que medimos hoy en campo</p>
-    <div class="acciones">
-      <a class="boton" href="#unidad">Conocer la unidad</a>
-      <a class="boton boton-claro" href="#vuelos">Ver los vuelos</a>
+    </video>
+    <div class="intro-velo" id="intro-velo"></div>
+    <div class="intro-mascara" id="intro-mascara" aria-hidden="true"><div class="intro-palabra" id="intro-palabra">DIG<span id="intro-foco">I</span>AGRO</div></div>
+    <div class="intro-contenido" id="intro-contenido">
+      <h1>DIGIAGRO</h1>
+      <p class="nombre-unidad">Unidad de Transformación Digital e Inteligencia Artificial del INUO</p>
+      <p class="lema">Dibujamos el futuro del olivar con los datos que medimos hoy en campo</p>
+      <div class="acciones">
+        <a class="boton boton-luz" href="#unidad">Conocer la unidad</a>
+        <a class="boton boton-claro" href="#vuelos">Ver los vuelos</a>
+      </div>
     </div>
+    <p class="intro-aviso" id="intro-aviso">Desliza para entrar en el olivar</p>
   </div>
-  <a class="bajar" href="#unidad" aria-label="Bajar a la unidad"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
 </section>
 
 <div class="cifras" id="cifras">
@@ -69,10 +69,6 @@
   <div><b data-cifra="proyectos">20</b><span>proyectos</span></div>
   <div><b data-cifra="equipos">17</b><span>drones y sensores</span></div>
   <div><b data-cifra="personas">19</b><span>personas</span></div>
-</div>
-
-<div class="sellos" aria-label="Instituciones y programas">
-  <div class="sellos-pista" id="sellos"></div>
 </div>
 
 <main>
@@ -95,9 +91,44 @@
     <div class="servicios" id="servicios"></div>
   </section>
 
-  <section class="seccion" id="lineas">
-    <h2 class="titular rv">Líneas de investigación</h2>
-    <div class="lineas-filas" id="lista-lineas"></div>
+  <section class="seccion gris" id="software">
+    <h2 class="titular rv">SAVIA y AeroLab</h2>
+    <article class="plataforma rv">
+      <header>
+        <img class="plataforma-logo" src="assets/logos/savia-logo-vertical.png" alt="SAVIA">
+        <div>
+          <h3>SAVIA</h3>
+          <p>Plataforma web que convierte cada vuelo multisensor en el inventario por individuo, el vigor, la erosión y el balance de carbono de la finca.</p>
+          <a class="boton boton-claro" href="https://savia.ujaen.es" rel="noopener">Entrar en SAVIA</a>
+        </div>
+      </header>
+      <div class="savia-galeria">
+        <video class="savia-grande" data-auto muted loop playsinline preload="none" poster="assets/video/f-espectral.jpg"><source src="assets/video/f-espectral.mp4" type="video/mp4"></video>
+        <figure><img src="assets/savia/carbono.jpg" alt="Balance de carbono de una finca en SAVIA" loading="lazy"><figcaption>Balance de carbono</figcaption></figure>
+        <figure><img src="assets/savia/erosion.jpg" alt="Informe de erosión en SAVIA" loading="lazy"><figcaption>Informe de erosión</figcaption></figure>
+        <figure><img src="assets/savia/inventario.jpg" alt="Inventario de olivos en SAVIA" loading="lazy"><figcaption>Inventario por individuo</figcaption></figure>
+        <figure><img src="assets/savia/indices.jpg" alt="Índices espectrales en SAVIA" loading="lazy"><figcaption>Índices espectrales</figcaption></figure>
+      </div>
+    </article>
+    <article class="plataforma rv">
+      <header>
+        <img class="plataforma-logo" src="assets/logos/aerolab.svg" alt="AeroLab">
+        <div>
+          <h3>AeroLab</h3>
+          <p>Nuestro laboratorio de teledetección. Reúne la flota de drones, los sensores multiespectrales, térmicos, hiperespectrales y LiDAR, y la galería de vuelos.</p>
+          <a class="boton boton-claro" href="https://drodridavid.github.io/aerolab/" rel="noopener">Ver todo el equipamiento</a>
+        </div>
+      </header>
+      <div class="muestra" id="muestra-equipos"></div>
+    </article>
+  </section>
+
+  <section class="lineas" id="lineas">
+    <h2 class="titular">Líneas de investigación</h2>
+    <div class="ls-grid">
+      <div class="ls-medio"><video id="ls-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+      <div class="ls-lista" id="lista-lineas"></div>
+    </div>
   </section>
 
   <section class="banda" aria-labelledby="titulo-metodo">
@@ -110,49 +141,16 @@
     </div>
   </section>
 
-  <section class="seccion gris" id="proyectos">
+  <section class="seccion" id="proyectos">
     <h2 class="titular rv">Proyectos</h2>
     <div class="filtros" id="filtros-proyectos" role="group" aria-label="Filtrar proyectos"></div>
     <div class="lista-proyectos" id="lista-proyectos"></div>
   </section>
 
-  <section class="seccion" id="publicaciones">
+  <section class="seccion gris" id="publicaciones">
     <h2 class="titular rv">Publicaciones</h2>
     <ol class="pubs" id="lista-publicaciones"></ol>
     <div class="centro"><button class="boton boton-claro" id="mas-pubs" type="button">Ver todas las publicaciones</button></div>
-  </section>
-
-  <section class="seccion gris" id="software">
-    <h2 class="titular rv">Software</h2>
-    <article class="zig rv">
-      <div>
-        <h3>SAVIA</h3>
-        <p>Plataforma web que convierte cada vuelo multisensor en el inventario por individuo, el vigor, la erosión y el balance de carbono de la finca.</p>
-        <a class="boton boton-claro" href="https://savia.ujaen.es" rel="noopener">Entrar en SAVIA</a>
-      </div>
-      <video data-auto muted loop playsinline preload="none" poster="assets/video/f-espectral.jpg"><source src="assets/video/f-espectral.mp4" type="video/mp4"></video>
-    </article>
-    <article class="zig zig-inv rv">
-      <div>
-        <h3>AeroLab</h3>
-        <p>Inventario de nuestros drones y sensores, con la galería de vuelos y los resultados de cada campaña.</p>
-        <a class="boton boton-claro" href="https://drodridavid.github.io/aerolab/" rel="noopener">Visitar AeroLab</a>
-      </div>
-      <video data-auto muted loop playsinline preload="none" poster="assets/video/fotovoltaica.jpg"><source src="assets/video/fotovoltaica.mp4" type="video/mp4"></video>
-    </article>
-    <h3 class="sub rv">Herramientas de trabajo</h3>
-    <div class="herramientas-lista" id="herramientas-lista"></div>
-  </section>
-
-  <section class="seccion" id="plataformas">
-    <h2 class="titular rv">Plataformas aéreas</h2>
-    <div class="equipos" id="aeronaves"></div>
-  </section>
-
-  <section class="seccion gris" id="sensores">
-    <h2 class="titular rv">Sensores</h2>
-    <div class="filtros" id="filtros-sensores" role="group" aria-label="Filtrar sensores"></div>
-    <div class="equipos" id="lista-sensores"></div>
   </section>
 
   <section class="seccion" id="vuelos">
@@ -169,12 +167,16 @@
     <h2 class="titular rv">Enlaces</h2>
     <div class="enlaces" id="lista-enlaces"></div>
   </section>
+  <section class="seccion" id="instituciones" aria-label="Instituciones y programas">
+    <div class="sellos" id="sellos"></div>
+  </section>
+
   <section class="llamada" aria-label="Colabora con nosotros">
     <img class="hero-hoja" src="assets/hoja.svg" alt="">
     <div>
       <h2>Llevemos la digitalización a tu explotación</h2>
       <p>Hablemos de tu finca, tu cooperativa o tu próximo proyecto de investigación.</p>
-      <a class="boton boton-luz" href="mailto:jjurado@ujaen.es">Escríbenos</a>
+      <a class="boton boton-luz" href="mailto:inuouja@ujaen.es">Escríbenos</a>
     </div>
   </section>
 </main>
@@ -188,7 +190,7 @@
     </div>
     <div>
       <h2>Contacto</h2>
-      <p><a href="mailto:jjurado@ujaen.es">jjurado@ujaen.es</a></p>
+      <p><a href="mailto:inuouja@ujaen.es">inuouja@ujaen.es</a></p>
       <p>Universidad de Jaén, Campus Las Lagunillas<br>23071 Jaén</p>
     </div>
     <div class="pie-logos">

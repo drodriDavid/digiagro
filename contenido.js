@@ -1,21 +1,21 @@
 /* Contenido editable de la web. Para añadir un proyecto, publicación o persona basta con añadir una línea. */
 
 const SERVICIOS = [
-  { t: "Agricultura de precisión", d: "Soluciones digitales para el olivar y asesoramiento para digitalizar explotaciones.", i: "M12 3v18M12 8c-3-3-6-3-8-2 0 4 3 6 8 6M12 12c3-3 6-3 8-2 0 4-3 6-8 6" },
-  { t: "Monitorización remota", d: "Sistemas de seguimiento desplegados en campo y en almazaras.", i: "M5 12a7 7 0 0 1 14 0M8.5 12a3.5 3.5 0 0 1 7 0M12 12v9" },
-  { t: "Gemelos digitales", d: "Réplicas de explotaciones oleícolas para simular y planificar.", i: "M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM12 12l8-4.5M12 12v9M12 12L4 7.5" },
-  { t: "Formación especializada", d: "Capacitación en herramientas digitales aplicadas a la agricultura.", i: "M3 9l9-5 9 5-9 5-9-5zM7 11.5V16c3 2.5 7 2.5 10 0v-4.5" },
-  { t: "Sostenibilidad", d: "Evaluación y diseño de estrategias de resiliencia agroambiental.", i: "M4 19c0-9 6-15 16-15 0 10-6 16-15 16M4 20c3-6 6-9 11-12" },
-  { t: "Salud del suelo", d: "Diagnóstico de erosión, biodiversidad, estructura y retención de agua.", i: "M3 8h18M3 13c3-2 6 2 9 0s6 2 9 0M3 18c3-2 6 2 9 0s6 2 9 0M12 8V3" },
+  { t: "Agricultura de precisión", img: "assets/ofrecemos/precision.jpg", c: "g1", d: "Soluciones digitales para el olivar y asesoramiento para digitalizar explotaciones.", i: "M12 3v18M12 8c-3-3-6-3-8-2 0 4 3 6 8 6M12 12c3-3 6-3 8-2 0 4-3 6-8 6" },
+  { t: "Monitorización remota", img: "assets/ofrecemos/monitorizacion.jpg", c: "g2", d: "Sistemas de seguimiento desplegados en campo y en almazaras.", i: "M5 12a7 7 0 0 1 14 0M8.5 12a3.5 3.5 0 0 1 7 0M12 12v9" },
+  { t: "Gemelos digitales", img: "assets/ofrecemos/gemelos.jpg", c: "g3", d: "Réplicas de explotaciones oleícolas para simular y planificar.", i: "M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM12 12l8-4.5M12 12v9M12 12L4 7.5" },
+  { t: "Formación especializada", img: "assets/ofrecemos/formacion.jpg", c: "g4", d: "Capacitación en herramientas digitales aplicadas a la agricultura.", i: "M3 9l9-5 9 5-9 5-9-5zM7 11.5V16c3 2.5 7 2.5 10 0v-4.5" },
+  { t: "Sostenibilidad", img: "assets/ofrecemos/sostenibilidad.jpg", c: "g5", d: "Evaluación y diseño de estrategias de resiliencia agroambiental.", i: "M4 19c0-9 6-15 16-15 0 10-6 16-15 16M4 20c3-6 6-9 11-12" },
+  { t: "Salud del suelo", img: "assets/ofrecemos/suelo.jpg", c: "g6", d: "Diagnóstico de erosión, biodiversidad, estructura y retención de agua.", i: "M3 8h18M3 13c3-2 6 2 9 0s6 2 9 0M3 18c3-2 6 2 9 0s6 2 9 0M12 8V3" },
 ];
 
 const LINEAS = [
-  { t: "Teledetección para observar el territorio", d: "Observación, procesamiento y fusión de imágenes de satélite, drones, radar, sensores IoT y estaciones meteorológicas para conocer el estado de los cultivos y su entorno.", img: "assets/lineas/teledeteccion.webp" },
-  { t: "Modelado predictivo y simulación", d: "Inteligencia artificial para predecir escenarios de producción, riesgos climáticos y la respuesta del cultivo a distintas prácticas agrícolas.", img: "assets/lineas/modelado.webp" },
-  { t: "Sistemas de apoyo a la decisión", d: "Plataformas que ayudan a agricultores y técnicos a elegir cómo manejar la finca a partir de datos geoespaciales y series temporales.", img: "assets/lineas/decision.webp" },
-  { t: "Visualización avanzada y análisis geoespacial", d: "Visualización 4D, realidad aumentada y sistemas de información geográfica para representar el estado del olivar y sus proyecciones futuras.", img: "assets/lineas/visualizacion.webp" },
-  { t: "Impacto ambiental y resiliencia", d: "Estudio del efecto de las prácticas agrícolas en el suelo, el agua y la biodiversidad para diseñar estrategias frente al cambio climático.", img: "assets/lineas/impacto.webp" },
-  { t: "Salud del suelo y servicios ecosistémicos", d: "Análisis de parámetros edáficos, biodiversidad y funciones ecológicas para regenerar el suelo, capturar carbono y equilibrar el agroecosistema.", img: "assets/lineas/suelo.webp" },
+  { t: "Teledetección para observar el territorio", d: "Observación, procesamiento y fusión de imágenes de satélite, drones, radar, sensores IoT y estaciones meteorológicas para conocer el estado de los cultivos y su entorno.", img: "assets/video/olivos-cenital.mp4" },
+  { t: "Modelado predictivo y simulación", d: "Inteligencia artificial para predecir escenarios de producción, riesgos climáticos y la respuesta del cultivo a distintas prácticas agrícolas.", img: "assets/video/parcelas.mp4" },
+  { t: "Sistemas de apoyo a la decisión", d: "Plataformas que ayudan a agricultores y técnicos a elegir cómo manejar la finca a partir de datos geoespaciales y series temporales.", img: "assets/video/explotacion.mp4" },
+  { t: "Visualización avanzada y análisis geoespacial", d: "Visualización 4D, realidad aumentada y sistemas de información geográfica para representar el estado del olivar y sus proyecciones futuras.", img: "assets/video/infraestructura.mp4" },
+  { t: "Impacto ambiental y resiliencia", d: "Estudio del efecto de las prácticas agrícolas en el suelo, el agua y la biodiversidad para diseñar estrategias frente al cambio climático.", img: "assets/video/balsa.mp4" },
+  { t: "Salud del suelo y servicios ecosistémicos", d: "Análisis de parámetros edáficos, biodiversidad y funciones ecológicas para regenerar el suelo, capturar carbono y equilibrar el agroecosistema.", img: "assets/video/cubierta.mp4" },
 ];
 
 const PROYECTOS = [
@@ -277,16 +277,6 @@ const PERSONAS = [
   { n: "Antonio Miguel Ruiz Armenteros", f: "assets/equipo/antonio-miguel-ruiz.webp" },
   { n: "Sinia Belamri", c: "Doctoranda" }, { n: "Nelly Chávez Rincón", c: "Doctoranda" },
   { n: "Gloria Paterna Sánchez", f: "assets/equipo/gloria-paterna.webp", c: "Gestión de proyectos" },
-];
-
-const SOFTWARE = [
-  { n: "Agisoft Metashape", c: "Fotogrametría", d: "Procesado fotogramétrico y nubes de puntos densas.", u: "https://www.agisoft.com" },
-  { n: "Pix4D", c: "Fotogrametría", d: "Ortomosaicos y modelos a partir de imágenes.", u: "https://www.pix4d.com" },
-  { n: "UgCS", c: "Planificación", d: "Diseño y ejecución de planes de vuelo automatizados.", u: "https://www.sphengineering.com/flight-planning/ugcs" },
-  { n: "ArcGIS", c: "SIG", d: "Sistema de información geográfica y análisis espacial.", u: "https://www.arcgis.com" },
-  { n: "SpatialExplorer", c: "LiDAR", d: "Procesado de datos LiDAR e hiperespectrales.", u: "https://www.phoenixlidar.com" },
-  { n: "HyperSpec III", c: "Hiperespectral", d: "Procesado de imagen hiperespectral.", u: "https://headwallphotonics.com" },
-  { n: "NVI", c: "Análisis", d: "Cálculo de índices de vegetación como NDVI y NDRE." },
 ];
 
 const VUELOS = [

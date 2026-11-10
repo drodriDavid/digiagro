@@ -85,7 +85,6 @@
     tx.append(crea("b", "", p.n));
     if (p.c) tx.append(crea("span", "persona-cargo", p.c));
     if (p.a) tx.append(crea("em", "persona-area", p.a));
-    if (p.t) tx.append(crea("p", "persona-desc", p.t));
     d.append(r, tx);
     $("lista-personas").append(d); revela(d);
   });

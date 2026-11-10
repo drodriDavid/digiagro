@@ -10,12 +10,12 @@ const SERVICIOS = [
 ];
 
 const LINEAS = [
-  { t: "Teledetección para observar el territorio", d: "Observación, procesamiento y fusión de imágenes de satélite, drones, radar, sensores IoT y estaciones meteorológicas para conocer el estado de los cultivos y su entorno.", img: "assets/video/olivos-cenital.mp4" },
-  { t: "Modelado predictivo y simulación", d: "Inteligencia artificial para predecir escenarios de producción, riesgos climáticos y la respuesta del cultivo a distintas prácticas agrícolas.", img: "assets/video/parcelas.mp4" },
-  { t: "Sistemas de apoyo a la decisión", d: "Plataformas que ayudan a agricultores y técnicos a elegir cómo manejar la finca a partir de datos geoespaciales y series temporales.", img: "assets/video/explotacion.mp4" },
-  { t: "Visualización avanzada y análisis geoespacial", d: "Visualización 4D, realidad aumentada y sistemas de información geográfica para representar el estado del olivar y sus proyecciones futuras.", img: "assets/video/infraestructura.mp4" },
-  { t: "Impacto ambiental y resiliencia", d: "Estudio del efecto de las prácticas agrícolas en el suelo, el agua y la biodiversidad para diseñar estrategias frente al cambio climático.", img: "assets/video/balsa.mp4" },
-  { t: "Salud del suelo y servicios ecosistémicos", d: "Análisis de parámetros edáficos, biodiversidad y funciones ecológicas para regenerar el suelo, capturar carbono y equilibrar el agroecosistema.", img: "assets/video/cubierta.mp4" },
+  { t: "Teledetección para observar el territorio", d: "Observación, procesamiento y fusión de imágenes de satélite, drones, radar, sensores IoT y estaciones meteorológicas para conocer el estado de los cultivos y su entorno.", img: "assets/lineas/teledeteccion.webp" },
+  { t: "Modelado predictivo y simulación", d: "Inteligencia artificial para predecir escenarios de producción, riesgos climáticos y la respuesta del cultivo a distintas prácticas agrícolas.", img: "assets/lineas/modelado.webp" },
+  { t: "Sistemas de apoyo a la decisión", d: "Plataformas que ayudan a agricultores y técnicos a elegir cómo manejar la finca a partir de datos geoespaciales y series temporales.", img: "assets/lineas/decision.webp" },
+  { t: "Visualización avanzada y análisis geoespacial", d: "Visualización 4D, realidad aumentada y sistemas de información geográfica para representar el estado del olivar y sus proyecciones futuras.", img: "assets/lineas/visualizacion.webp" },
+  { t: "Impacto ambiental y resiliencia", d: "Estudio del efecto de las prácticas agrícolas en el suelo, el agua y la biodiversidad para diseñar estrategias frente al cambio climático.", img: "assets/lineas/impacto.webp" },
+  { t: "Salud del suelo y servicios ecosistémicos", d: "Análisis de parámetros edáficos, biodiversidad y funciones ecológicas para regenerar el suelo, capturar carbono y equilibrar el agroecosistema.", img: "assets/lineas/suelo.webp" },
 ];
 
 const PROYECTOS = [
@@ -270,8 +270,8 @@ const PUBLICACIONES = [
 
 const PERSONAS = [
   { n: "Juan Manuel Jurado Rodríguez", f: "assets/equipo/juan-manuel-jurado.webp", c: "Responsable de la unidad", d: true },
-  { n: "Julio Antonio Calero González" }, { n: "Andressa De Sousa Cardoso" }, { n: "Juan José Cubillas Mercado" },
-  { n: "Luis René Domínguez Fuentes", f: "assets/equipo/luis-rene-dominguez.webp" }, { n: "Carlos Enríquez Turiño" }, { n: "Francisco Ramón Feito Higueruela" },
+  { n: "Julio Antonio Calero González", f: "assets/equipo/julio-calero.webp" }, { n: "Andressa De Sousa Cardoso" }, { n: "Juan José Cubillas Mercado" },
+  { n: "Luis René Domínguez Fuentes", f: "assets/equipo/luis-rene-dominguez.webp" }, { n: "Carlos Enríquez Turiño" }, { n: "Francisco Ramón Feito Higueruela", f: "assets/equipo/francisco-feito.webp" },
   { n: "Juan Roberto Jiménez Pérez", f: "assets/equipo/juan-roberto-jimenez.webp" }, { n: "David Jurado Rodríguez", f: "assets/equipo/david-jurado.webp" },
   { n: "Pablo Latorre Hortelano", f: "assets/equipo/pablo-latorre.webp" }, { n: "Juan Manuel Martín García", f: "assets/equipo/juan-manuel-martin.webp" }, { n: "Lidia Ortega Alvarado", f: "assets/equipo/lidia-ortega.webp" },
   { n: "Gema Parra Cabrera", f: "assets/equipo/gema-parra.webp" }, { n: "Francisco Daniel Pérez Cano", f: "assets/equipo/francisco-daniel-perez.webp" }, { n: "María Isabel Ramos Galán", f: "assets/equipo/maria-isabel-ramos.webp" },

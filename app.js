@@ -28,12 +28,12 @@
     $("servicios").append(a); revela(a);
   });
 
-  /* Líneas: mosaicos de vídeo */
+  /* Líneas: imagen y texto alternados */
   LINEAS.forEach(l => {
-    const a = crea("article", "linea"); a.tabIndex = 0;
-    const v = crea("video"); v.muted = true; v.loop = true; v.playsInline = true; v.preload = "none"; v.dataset.auto = ""; v.poster = l.img.replace(".mp4", ".jpg"); v.src = l.img; v.setAttribute("aria-hidden", "true");
+    const a = crea("article", "linea-fila");
+    const i = crea("img"); i.src = l.img; i.alt = l.t; i.loading = "lazy"; i.width = 1600; i.height = 1200;
     const t = crea("div", "linea-texto"); t.append(crea("h3", "", l.t), crea("p", "", l.d));
-    a.append(v, t); $("lista-lineas").append(a); revela(a);
+    a.append(i, t); $("lista-lineas").append(a); revela(a);
   });
 
   /* Diálogo */

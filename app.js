@@ -85,6 +85,7 @@
     tx.append(crea("b", "", p.n));
     if (p.c) tx.append(crea("span", "persona-cargo", p.c));
     if (p.a) tx.append(crea("em", "persona-area", p.a));
+    if (p.e) { const m = crea("a", "persona-correo", p.e); m.href = "mailto:" + p.e; tx.append(m); }
     d.append(r, tx);
     const enFormacion = /doctorado|predoctoral/i.test(p.c || "");
     $(enFormacion ? "lista-doctorandos" : "lista-personas").append(d); revela(d);

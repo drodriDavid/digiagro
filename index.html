@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 <div class="progreso" id="progreso" aria-hidden="true"></div>
@@ -72,6 +72,7 @@
   <section class="seccion" id="unidad">
     <h2 class="titular rv">La unidad</h2>
     <div class="unidad-panel rv">
+      <video class="up-fondo" data-auto muted loop playsinline preload="none" poster="assets/video/fondo-olivar.jpg" aria-hidden="true"><source src="assets/video/fondo-olivar.mp4" type="video/mp4"></video>
       <p class="up-lema">Convertimos datos multisensoriales en decisiones para un olivar más sostenible, eficiente y resiliente</p>
       <p class="up-texto">Somos un equipo multidisciplinar del INUO que desarrolla soluciones tecnológicas para monitorizar agroecosistemas, procesar datos geoespaciales y simular cómo evolucionará cada finca.</p>
       <p class="up-rotulo" id="up-areas">Principales áreas de conocimiento</p>
@@ -110,7 +111,7 @@
         <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-sam.jpg"><source src="assets/video/f-sam.mp4" type="video/mp4"></video><figcaption>Inventario individual</figcaption></figure>
         <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-sost.jpg"><source src="assets/video/f-sost.mp4" type="video/mp4"></video><figcaption>Cálculo del índice de sostenibilidad</figcaption></figure>
         <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-daso.jpg"><source src="assets/video/f-daso.mp4" type="video/mp4"></video><figcaption>Vigorosidad y dasometría</figcaption></figure>
-        <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-erosion.jpg"><source src="assets/video/f-erosion.mp4" type="video/mp4"></video><figcaption>Balance de carbono y erosión</figcaption></figure>
+        <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-carbono.jpg"><source src="assets/video/f-carbono.mp4" type="video/mp4"></video><figcaption>Balance de carbono y erosión</figcaption></figure>
       </div>
     </article>
     <article class="plataforma rv">
@@ -148,6 +149,11 @@
     <h2 class="titular rv">Publicaciones</h2>
     <ol class="pubs" id="lista-publicaciones"></ol>
     <div class="centro"><button class="boton boton-claro" id="mas-pubs" type="button">Ver todas las publicaciones</button></div>
+  </section>
+
+  <section class="banda banda-territorio" aria-label="El olivar como laboratorio">
+    <video data-auto muted loop playsinline preload="none" poster="assets/video/fondo-pueblo.jpg" aria-hidden="true"><source src="assets/video/fondo-pueblo.mp4" type="video/mp4"></video>
+    <p>Investigamos sobre el terreno, en las fincas del olivar andaluz</p>
   </section>
 
   <section class="seccion gris" id="equipo">
@@ -196,8 +202,8 @@
     </div>
   </div>
 </footer>
-<script src="contenido.js?v=6"></script>
+<script src="contenido.js?v=7"></script>
 <script src="equipos.js"></script>
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

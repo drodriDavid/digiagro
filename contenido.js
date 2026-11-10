@@ -1,12 +1,12 @@
 /* Contenido editable de la web. Para añadir un proyecto, publicación o persona basta con añadir una línea. */
 
 const LINEAS = [
-  { t: "Teledetección multisensor y fusión de datos", d: "Integración de datos LiDAR, multiespectrales, hiperespectrales, térmicos y satelitales para la caracterización del olivar, la detección temprana de estrés y la estimación de la incertidumbre asociada a cada fuente.", img: "assets/savia/fusion.jpg" },
-  { t: "Gemelos digitales y modelado 3D/4D de cultivos leñosos", d: "Reconstrucción tridimensional y multitemporal a escala de individuo para el análisis estructural, la dasometría y la simulación de escenarios de manejo y cambio climático.", img: "assets/savia/olivar-3d.jpg" },
-  { t: "Inteligencia artificial y aprendizaje automático robusto", d: "Modelos de aprendizaje profundo para clasificación, segmentación y predicción, con cuantificación de la incertidumbre y capacidad de generalización entre parcelas, campañas y sensores.", img: "assets/video/f-daso.jpg" },
-  { t: "Espacios de datos federados e interoperabilidad", d: "Arquitecturas para el intercambio soberano de datos agroambientales, basadas en estándares abiertos, principios FAIR y agentes de IA para la consulta y el análisis de información distribuida.", img: "assets/video/balsa.jpg" },
-  { t: "Sistemas aéreos no tripulados y computación ubicua", d: "Planificación de vuelos, integración de sensores y procesamiento embarcado en plataformas UAV y redes de sensores IoT para la monitorización agronómica a escala de finca y territorio.", img: "assets/video/olivos-cenital.jpg" },
-  { t: "Salud del suelo, erosión y balance de carbono", d: "Cartografía de indicadores de calidad del suelo, modelización de la erosión hídrica y estimación del secuestro de carbono para la evaluación de la sostenibilidad del olivar.", img: "assets/savia/erosion-mapa.jpg" },
+  { t: "Teledetección multisensor y fusión de datos", d: "Integración de datos LiDAR, multiespectrales, hiperespectrales, térmicos y satelitales para la caracterización del olivar, la detección temprana de estrés y la estimación de la incertidumbre asociada a cada fuente.", img: "assets/lineas/teledeteccion.jpg" },
+  { t: "Gemelos digitales y modelado 3D/4D de cultivos leñosos", d: "Reconstrucción tridimensional y multitemporal a escala de individuo para el análisis estructural, la dasometría y la simulación de escenarios de manejo y cambio climático.", img: "assets/lineas/gemelo-3d.jpg" },
+  { t: "Inteligencia artificial y aprendizaje automático", d: "Modelos de aprendizaje profundo para clasificación, segmentación y predicción, con cuantificación de la incertidumbre y capacidad de generalización entre parcelas, campañas y sensores.", img: "assets/lineas/ia-segmentacion.jpg" },
+  { t: "Espacios de datos federados e interoperabilidad", d: "Arquitecturas para el intercambio soberano de datos agroambientales, basadas en estándares abiertos, principios FAIR y agentes de IA para la consulta y el análisis de información distribuida.", img: "assets/lineas/datos-fincas.jpg" },
+  { t: "Sistemas aéreos no tripulados y computación ubicua", d: "Planificación de vuelos, integración de sensores y procesamiento embarcado en plataformas UAV y redes de sensores IoT para la monitorización agronómica a escala de finca y territorio.", img: "assets/lineas/uav.jpg" },
+  { t: "Salud del suelo, erosión y balance de carbono", d: "Cartografía de indicadores de calidad del suelo, modelización de la erosión hídrica y estimación del secuestro de carbono para la evaluación de la sostenibilidad del olivar.", img: "assets/lineas/suelo-erosion.jpg" },
 ];
 
 const PROYECTOS = [
@@ -250,25 +250,25 @@ const PUBLICACIONES = [
 ];
 
 const PERSONAS = [
-  {"n": "Juan Manuel Jurado Rodríguez", "f": "assets/equipo/juan-manuel-jurado.webp", "c": "Responsable de la unidad · Profesor Titular", "a": "Lenguajes y Sistemas Informáticos", "d": true},
-  {"n": "Julio Antonio Calero González", "f": "assets/equipo/julio-calero.webp", "c": "Profesor Titular", "a": "Edafología y Química Agrícola"},
-  {"n": "Andressa De Sousa Cardoso", "c": "Investigadora predoctoral", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría"},
-  {"n": "Juan José Cubillas Mercado", "c": "Profesor", "a": "Lenguajes y Sistemas Informáticos"},
-  {"n": "Luis René Domínguez Fuentes", "f": "assets/equipo/luis-rene-dominguez.webp", "c": "Estudiante de doctorado", "a": "Lenguajes y Sistemas Informáticos"},
-  {"n": "Carlos Enríquez Turiño", "f": "assets/equipo/carlos-enriquez.webp", "c": "Profesor Titular", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría"},
-  {"n": "Francisco Ramón Feito Higueruela", "f": "assets/equipo/francisco-feito.webp", "c": "Catedrático de Universidad", "a": "Lenguajes y Sistemas Informáticos"},
-  {"n": "Juan Roberto Jiménez Pérez", "f": "assets/equipo/juan-roberto-jimenez.webp", "c": "Profesor Titular", "a": "Lenguajes y Sistemas Informáticos"},
-  {"n": "David Jurado Rodríguez", "f": "assets/equipo/david-jurado.webp", "c": "Investigador doctor", "a": "Lenguajes y Sistemas Informáticos"},
-  {"n": "Pablo Latorre Hortelano", "f": "assets/equipo/pablo-latorre.webp", "c": "Estudiante de doctorado", "a": "Informática"},
-  {"n": "Juan Manuel Martín García", "f": "assets/equipo/juan-manuel-martin.webp", "c": "Profesor Titular", "a": "Edafología y Química Agrícola"},
-  {"n": "Lidia Ortega Alvarado", "f": "assets/equipo/lidia-ortega.webp", "c": "Profesora Titular", "a": "Lenguajes y Sistemas Informáticos"},
-  {"n": "Gema Parra Cabrera", "f": "assets/equipo/gema-parra.webp", "c": "Profesora Ayudante Doctora", "a": "Informática · Universidad Politécnica de Madrid"},
-  {"n": "Francisco Daniel Pérez Cano", "f": "assets/equipo/francisco-daniel-perez.webp", "c": "Profesor Ayudante Doctor", "a": "Lenguajes y Sistemas Informáticos"},
-  {"n": "María Isabel Ramos Galán", "f": "assets/equipo/maria-isabel-ramos.webp", "c": "Profesora Titular", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría"},
-  {"n": "Antonio Miguel Ruiz Armenteros", "f": "assets/equipo/antonio-miguel-ruiz.webp", "c": "Catedrático de Universidad", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría"},
+  {"n": "Juan Manuel Jurado Rodríguez", "f": "assets/equipo/juan-manuel-jurado.webp", "c": "Responsable de la unidad · Profesor Titular", "a": "Lenguajes y Sistemas Informáticos", "d": true, "e": "jjurado@ujaen.es"},
+  {"n": "Julio Antonio Calero González", "f": "assets/equipo/julio-calero.webp", "c": "Profesor Titular", "a": "Edafología y Química Agrícola", "e": "jcalero@ujaen.es"},
+  {"n": "Andressa De Sousa Cardoso", "c": "Investigadora predoctoral", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "asousa@ujaen.es"},
+  {"n": "Juan José Cubillas Mercado", "c": "Profesor", "a": "Lenguajes y Sistemas Informáticos", "e": "juanjose.cubillas@unir.net"},
+  {"n": "Luis René Domínguez Fuentes", "f": "assets/equipo/luis-rene-dominguez.webp", "c": "Estudiante de doctorado", "a": "Lenguajes y Sistemas Informáticos", "e": "lrdoming@ujaen.es"},
+  {"n": "Carlos Enríquez Turiño", "f": "assets/equipo/carlos-enriquez.webp", "c": "Profesor Titular", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "cenrique@ujaen.es"},
+  {"n": "Francisco Ramón Feito Higueruela", "f": "assets/equipo/francisco-feito.webp", "c": "Catedrático de Universidad", "a": "Lenguajes y Sistemas Informáticos", "e": "ffeito@ujaen.es"},
+  {"n": "Juan Roberto Jiménez Pérez", "f": "assets/equipo/juan-roberto-jimenez.webp", "c": "Profesor Titular", "a": "Lenguajes y Sistemas Informáticos", "e": "rjimenez@ujaen.es"},
+  {"n": "David Jurado Rodríguez", "f": "assets/equipo/david-jurado.webp", "c": "Investigador doctor", "a": "Lenguajes y Sistemas Informáticos", "e": "drodrigu@ujaen.es"},
+  {"n": "Pablo Latorre Hortelano", "f": "assets/equipo/pablo-latorre.webp", "c": "Estudiante de doctorado", "a": "Informática", "e": "phortela@ujaen.es"},
+  {"n": "Juan Manuel Martín García", "f": "assets/equipo/juan-manuel-martin.webp", "c": "Profesor Titular", "a": "Edafología y Química Agrícola", "e": "jmmartingarcia@ugr.es"},
+  {"n": "Lidia Ortega Alvarado", "f": "assets/equipo/lidia-ortega.webp", "c": "Profesora Titular", "a": "Lenguajes y Sistemas Informáticos", "e": "lidia@ujaen.es"},
+  {"n": "Gema Parra Cabrera", "f": "assets/equipo/gema-parra.webp", "c": "Profesora Ayudante Doctora", "a": "Informática · Universidad Politécnica de Madrid", "e": "gparras@ujaen.es"},
+  {"n": "Francisco Daniel Pérez Cano", "f": "assets/equipo/francisco-daniel-perez.webp", "c": "Profesor Ayudante Doctor", "a": "Lenguajes y Sistemas Informáticos", "e": "fdperez@ujaen.es"},
+  {"n": "María Isabel Ramos Galán", "f": "assets/equipo/maria-isabel-ramos.webp", "c": "Profesora Titular", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "miramos@ujaen.es"},
+  {"n": "Antonio Miguel Ruiz Armenteros", "f": "assets/equipo/antonio-miguel-ruiz.webp", "c": "Catedrático de Universidad", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "amruiz@ujaen.es"},
   {"n": "Elena Carmona Vallecillo", "c": "Estudiante de doctorado", "a": "Informática"},
-  {"n": "Rubén Sanabria Díaz", "c": "Estudiante de doctorado", "a": "Informática"},
-  {"n": "Gloria Paterna Sánchez", "f": "assets/equipo/gloria-paterna.webp", "c": "Gestión de proyectos", "a": "Sociología"},
+  {"n": "Rubén Sanabria Díaz", "c": "Estudiante de doctorado", "a": "Informática", "e": "sanabria@ujaen.es"},
+  {"n": "Gloria Paterna Sánchez", "f": "assets/equipo/gloria-paterna.webp", "c": "Gestión de proyectos", "a": "Sociología", "e": "gpaterna@ujaen.es"},
 ];
 
 const ENLACES = [

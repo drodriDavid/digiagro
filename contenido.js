@@ -1,18 +1,17 @@
 /* Contenido editable de la web. Para añadir un proyecto, publicación o persona basta con añadir una línea. */
 
 const LINEAS = [
-  { t: "Teledetección para observar el territorio", d: "Observación, procesamiento y fusión de imágenes de satélite, drones, radar, sensores IoT y estaciones meteorológicas para conocer el estado de los cultivos y su entorno.", img: "assets/video/olivos-cenital.jpg" },
-  { t: "Modelado predictivo y simulación", d: "Inteligencia artificial para predecir escenarios de producción, riesgos climáticos y la respuesta del cultivo a distintas prácticas agrícolas.", img: "assets/savia/indices.jpg" },
-  { t: "Sistemas de apoyo a la decisión", d: "Plataformas que ayudan a agricultores y técnicos a elegir cómo manejar la finca a partir de datos geoespaciales y series temporales.", img: "assets/savia/carbono.jpg" },
-  { t: "Visualización avanzada y análisis geoespacial", d: "Visualización 4D, realidad aumentada y sistemas de información geográfica para representar el estado del olivar y sus proyecciones futuras.", img: "assets/savia/inventario.jpg" },
-  { t: "Impacto ambiental y resiliencia", d: "Estudio del efecto de las prácticas agrícolas en el suelo, el agua y la biodiversidad para diseñar estrategias frente al cambio climático.", img: "assets/video/balsa.jpg" },
-  { t: "Salud del suelo y servicios ecosistémicos", d: "Análisis de parámetros edáficos, biodiversidad y funciones ecológicas para regenerar el suelo, capturar carbono y equilibrar el agroecosistema.", img: "assets/savia/erosion.jpg" },
+  { t: "Observación multisensor del territorio", d: "Fusión de LiDAR, hiperespectral, multiespectral, térmico, satélite, radar y sensores IoT, con una medida de fiabilidad para cada dato observado.", img: "assets/video/olivos-cenital.jpg" },
+  { t: "Representación 3D y 4D de ecosistemas", d: "Reconstrucción y visualización de olivares y entornos naturales, también en las zonas que el sensor no llegó a ver, preservando su estructura.", img: "assets/savia/inventario.jpg" },
+  { t: "Aprendizaje federado y espacios de datos", d: "Inteligencia artificial que aprende de la diversidad real entre fincas sin que los datos salgan de su origen, sobre espacios de datos federados.", img: "assets/savia/indices.jpg" },
+  { t: "Percepción activa con energía limitada", d: "Drones y nodos de campo que deciden dónde observar, qué medir y cuánto procesar a bordo según la energía disponible.", img: "assets/video/balsa.jpg" },
+  { t: "Gemelos digitales para decidir", d: "Simulación de cada explotación con la fidelidad que exige la decisión, y plataformas que trasladan el resultado a agricultores y técnicos.", img: "assets/savia/carbono.jpg" },
+  { t: "Salud del suelo, carbono y resiliencia", d: "Erosión, balance de carbono, biodiversidad y agua, para diseñar un manejo que regenere el suelo y haga el olivar más resistente al cambio climático.", img: "assets/savia/erosion.jpg" },
 ];
 
 const PROYECTOS = [
-  { t: "Soil DataSpace", logo: "assets/proyectos/soil-dataspace.png", d: "Espacio de Datos Federado de Suelos, liderado por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
-  { t: "SOIL O-LIVE", logo: "assets/proyectos/soil-o-live.png", d: "Biodiversidad y funcionalidad del suelo en el olivar mediterráneo y su influencia en la calidad del aceite.", m: "Horizonte Europa 101091255, 2023–2027", a: "europa", u: "https://soilolive.eu/" },
   { t: "LivingSoiLL", logo: "assets/proyectos/livingsoill.png", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
+  { t: "Espacio de Datos Federado de Suelos", logo: "assets/proyectos/soil-dataspace.png", d: "Soil Data Space: infraestructura federada para compartir datos de suelo de forma soberana, liderada por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
 ];
 
 
@@ -262,27 +261,14 @@ const PERSONAS = [
   { n: "Gloria Paterna Sánchez", f: "assets/equipo/gloria-paterna.webp", c: "Gestión de proyectos" },
 ];
 
-const VUELOS = [
-  { f: "DJI_0251", t: "Agricultura de precisión" },
-  { f: "DJI_0130", t: "Levantamiento topográfico" },
-  { f: "DJI_0024", t: "Generación de modelos 3D" },
-  { f: "DJI_0342", t: "Gestión medioambiental" },
-  { f: "DJI_0126", t: "Gestión de recursos" },
-  { f: "DJI_0346", t: "Plantas solares" },
-  { f: "DJI_0028", t: "Inspección de infraestructuras" },
-  { f: "DJI_0166", t: "Conservación del patrimonio" },
-  { f: "DJI_0107", t: "Monitorización ganadera" },
-];
-
 const ENLACES = [
-  { n: "INUO", d: "Instituto Universitario de Investigación en Olivar y Aceites de Oliva", u: "https://inuouja.com/" },
-  { n: "Universidad de Jaén", d: "Institución de la unidad", u: "https://www.ujaen.es/" },
-  { n: "LivingSoiLL", d: "Living Lab andaluz de salud del suelo", u: "https://livingsoill.eu/" },
-  { n: "Soil DataSpace", d: "Espacio de Datos Federado de Suelos", u: "https://soildataspace.es/home" },
-  { n: "SOIL O-LIVE", d: "Biodiversidad del suelo en el olivar", u: "https://soilolive.eu/" },
-  { n: "SAVIA", d: "Análisis de vuelos multisensor", u: "https://savia.ujaen.es/" },
-  { n: "AeroLab", d: "Inventario de drones y sensores", u: "https://drodridavid.github.io/aerolab/" },
-  { n: "CEATIC", d: "Centro de Estudios Avanzados en TIC", u: "https://www.ujaen.es/centros/ceatic/" },
+  { n: "INUO", l: "assets/logos/inuo.svg", u: "https://inuouja.com/" },
+  { n: "Universidad de Jaén", l: "assets/logos/uja_h.png", u: "https://www.ujaen.es/" },
+  { n: "LivingSoiLL", l: "assets/proyectos/livingsoill.png", u: "https://livingsoill.eu/" },
+  { n: "Espacio de Datos Federado de Suelos", l: "assets/proyectos/soil-dataspace.png", u: "https://soildataspace.es/home" },
+  { n: "SAVIA", l: "assets/logos/savia-logo-vertical.png", u: "https://savia.ujaen.es/" },
+  { n: "AeroLab", l: "assets/logos/aerolab.svg", u: "https://drodridavid.github.io/aerolab/" },
+  { n: "CEATIC", l: "assets/logos/ceatic.png", u: "https://www.ujaen.es/centros/ceatic/" },
 ];
 
 const PASOS = [
@@ -294,6 +280,6 @@ const PASOS = [
 
 const SELLOS = [
   ["assets/logos/inuo.svg", "INUO"], ["assets/logos/uja_h.png", "Universidad de Jaén"], ["assets/proyectos/comision-europea.svg", "Comisión Europea"],
-  ["assets/proyectos/livingsoill.png", "LivingSoiLL"], ["assets/proyectos/soil-o-live.png", "SOIL O-LIVE"], ["assets/proyectos/soil-dataspace.png", "Soil DataSpace"],
+  ["assets/proyectos/livingsoill.png", "LivingSoiLL"], ["assets/proyectos/soil-dataspace.png", "Espacio de Datos Federado de Suelos"],
   ["assets/proyectos/prima.png", "PRIMA"], ["assets/proyectos/cost.svg", "COST"], ["assets/proyectos/aei.svg", "Agencia Estatal de Investigación"], ["assets/proyectos/diputacion-jaen.jpg", "Diputación de Jaén"],
 ];

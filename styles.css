@@ -72,18 +72,8 @@ a { color: inherit; }
 .seccion.gris { background: var(--fondo); }
 .titular { color: var(--titulo); font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.12; font-weight: 900; text-align: center; text-transform: uppercase; padding-bottom: 20px; border-bottom: 1px solid var(--linea); margin-bottom: 34px; }
 .seccion.gris .titular { border-bottom-color: #d0d3cf; }
-.intro { max-width: 52rem; margin-inline: auto; text-align: center; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.5; }
-.pastillas { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 22px; }
-.pastillas li { padding: 5px 14px; background: var(--verde); color: #fff; font-size: .8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
 .sub { color: var(--verde); font-size: 1.375rem; font-weight: 900; text-align: center; text-transform: uppercase; margin: clamp(42px, 5vw, 60px) 0 24px; }
-
-.direccion { display: grid; grid-template-columns: 240px minmax(0, 1fr); margin-top: clamp(38px, 5vw, 56px); background: var(--oscuro); color: #fff; box-shadow: var(--sombra); }
-.direccion > img { width: 100%; height: 100%; min-height: 240px; object-fit: cover; }
-.direccion > div { padding: clamp(24px, 3vw, 38px); align-self: center; }
 .cargo { color: var(--lima); font-weight: 900; font-size: .875rem; text-transform: uppercase; letter-spacing: .05em; }
-.direccion h3 { font-size: clamp(1.5rem, 2.6vw, 2.3rem); line-height: 1.15; font-weight: 900; margin: 4px 0 10px; }
-.direccion p { color: #dbe8df; margin-bottom: 18px; }
-.direccion .boton-claro { color: #fff; }
 
 
 /* Líneas: imágenes sobre blanco alternadas con el texto */
@@ -145,14 +135,7 @@ a.herramienta:hover { background: #dfe7da; }
 .equipo-tarjeta b { color: var(--verde); font-size: 1.0625rem; line-height: 1.22; font-weight: 900; margin-bottom: 4px; }
 #lista-sensores .equipo-tarjeta { background: var(--fondo); box-shadow: none; }
 
-/* Vuelos */
 .galeria { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.vuelo { position: relative; aspect-ratio: 16 / 10; border: 0; padding: 0; background: var(--oscuro) center / cover no-repeat; cursor: pointer; overflow: hidden; }
-.vuelo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0, 70, 34, .82), transparent 58%); transition: background .25s; }
-.vuelo:hover::after { background: linear-gradient(0deg, rgba(0, 90, 42, .85), rgba(0, 90, 42, .25)); }
-.vuelo svg { position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%); z-index: 1; transition: transform .2s; }
-.vuelo:hover svg { transform: translate(-50%, -50%) scale(1.14); }
-.vuelo span { position: absolute; left: 16px; right: 16px; bottom: 12px; z-index: 1; color: #fff; font-weight: 900; text-align: left; text-transform: uppercase; font-size: .9375rem; line-height: 1.2; }
 
 /* Personas */
 
@@ -168,9 +151,6 @@ a.herramienta:hover { background: #dfe7da; }
 .pie-logos img { height: 40px; width: auto; }
 
 /* Diálogo */
-.dialogo { width: min(880px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 0; overflow: auto; color: var(--tinta); }
-.dialogo::backdrop { background: rgba(0, 40, 20, .75); }
-.dialogo-cerrar { position: absolute; right: 10px; top: 10px; z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: var(--verde); color: #fff; cursor: pointer; }
 .ficha-eq { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 26px; padding: 34px; align-items: center; }
 .ficha-eq img { width: 100%; max-height: 300px; object-fit: contain; }
 .ficha-eq h3 { color: var(--verde); font-size: 1.5rem; line-height: 1.15; font-weight: 900; text-transform: uppercase; padding-right: 40px; margin-bottom: 8px; }
@@ -178,16 +158,10 @@ a.herramienta:hover { background: #dfe7da; }
 .ficha-eq dl { display: grid; grid-template-columns: auto 1fr; gap: 5px 16px; font-size: .9375rem; }
 .ficha-eq dt { color: var(--gris); }
 .ficha-eq dd { font-weight: 700; }
-.dialogo-video { width: min(1120px, calc(100vw - 24px)); background: #000; }
-.dialogo-video video { width: 100%; }
 .pie-video { color: #fff; padding: 12px 18px; font-weight: 700; }
 
 .pr-url { color: var(--verde); font-size: .875rem; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; margin-top: 4px; overflow-wrap: anywhere; }
 .enlaces { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 12px; }
-.enlace-tarjeta { display: flex; flex-direction: column; padding: 18px 20px; background: #fff; box-shadow: var(--sombra); text-decoration: none; transition: transform .2s; }
-.enlace-tarjeta:hover { transform: translateY(-3px); }
-.enlace-tarjeta b { color: var(--verde); font-size: 1.125rem; font-weight: 900; text-transform: uppercase; }
-.enlace-tarjeta .pr-url { margin-top: auto; padding-top: 8px; }
 
 /* Progreso y aviso de desplazamiento */
 .progreso { position: fixed; left: 0; top: 0; z-index: 80; width: 100%; height: 4px; background: var(--lima); transform: scaleX(0); transform-origin: left; }
@@ -265,8 +239,6 @@ a.herramienta:hover { background: #dfe7da; }
   .galeria, .lista-proyectos { grid-template-columns: minmax(0, 1fr); }
   .linea-fila, .linea-fila:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
   .linea-fila:nth-child(even) img { order: 0; }
-  .direccion { grid-template-columns: minmax(0, 1fr); }
-  .direccion > img { height: auto; aspect-ratio: 1; }
   .equipos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .equipo-tarjeta { padding: 12px; }
   .equipo-tarjeta img { height: 96px; }
@@ -346,10 +318,6 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 @media (max-width: 900px) { .lineas-compactas { grid-template-columns: repeat(2, minmax(0, 1fr)); } .muestra { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .lineas-compactas { grid-template-columns: minmax(0, 1fr); } }
 
-/* Responsable de la unidad, al inicio y a gran tamaño */
-.direccion { grid-template-columns: minmax(280px, 5fr) minmax(0, 7fr); margin: 0 0 clamp(30px, 4vw, 48px); }
-.direccion > img { aspect-ratio: 1; height: 100%; object-position: 50% 12%; }
-@media (max-width: 760px) { .direccion { grid-template-columns: minmax(0, 1fr); } .direccion > img { height: auto; } }
 
 /* Miembros: fichas iguales, con foto redonda y aro verde, como en los cuadernos */
 .personas { display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); gap: 12px; }
@@ -365,3 +333,25 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
   .retrato { width: 92px; height: 92px; font-size: 1.65rem; }
   .persona b { font-size: .8125rem; }
 }
+
+/* La unidad: qué es, sobre el olivar, y su responsable en pequeño */
+.unidad-panel { color: #fff; padding: clamp(26px, 5vw, 60px); background: linear-gradient(100deg, rgba(0, 62, 30, .96) 38%, rgba(0, 92, 44, .68)), url(assets/video/olivos-cenital.jpg) center / cover; box-shadow: var(--sombra); }
+.up-lema { max-width: 21em; font-size: clamp(1.65rem, 3.5vw, 2.85rem); line-height: 1.12; font-weight: 900; }
+.up-texto { max-width: 42em; margin-top: 16px; font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.45; color: #e6f1ea; }
+.up-disciplinas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.up-disciplinas li { padding: 5px 14px; background: #8fd400; color: #0b3d24; font-size: .8125rem; font-weight: 900; }
+.up-responsable { display: flex; align-items: center; gap: 18px; margin-top: clamp(26px, 4vw, 42px); padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, .28); }
+.up-responsable img { flex: none; width: 92px; height: 92px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 4px #8fd400; }
+.up-responsable div { flex: 1; min-width: 0; }
+.up-responsable span { color: #c9ec73; font-size: .8125rem; font-weight: 700; }
+.up-responsable h3 { font-size: 1.2rem; line-height: 1.2; font-weight: 900; }
+.up-responsable p { color: #dbe8df; font-size: .9375rem; line-height: 1.38; margin-top: 3px; }
+.up-responsable .boton-claro { flex: none; color: #fff; }
+@media (max-width: 760px) { .up-responsable { flex-wrap: wrap; } .up-responsable div { flex-basis: calc(100% - 110px); } }
+
+/* Enlaces: solo logotipos */
+.enlaces { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+.enlace-logo { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 12px; min-height: 142px; padding: 18px; background: #fff; border: 1px solid var(--linea); border-radius: 12px; text-decoration: none; }
+.enlace-logo img { display: block; flex: 1; width: 100%; min-height: 0; max-height: 76px; object-fit: contain; }
+.enlace-logo:hover { border-color: var(--verde); }
+@media (max-width: 600px) { .enlaces { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }

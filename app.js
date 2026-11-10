@@ -3,7 +3,6 @@
   const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = id => document.getElementById(id);
   const crea = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-  const AEROLAB = "https://drodridavid.github.io/aerolab/assets/video/promo/";
   const dominio = u => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/(home)?$/, "");
   const ETIQUETAS = { europa: "Europeo", espana: "Nacional", andalucia: "Andaluz", otros: "Otros" };
 
@@ -21,17 +20,6 @@
     a.append(i, t); $("lista-lineas").append(a); revela(a);
   });
 
-  /* Diálogo */
-  const dlg = $("dialogo"), cuerpo = $("dialogo-cuerpo");
-  function abreDialogo(pinta, clase) {
-    cuerpo.replaceChildren(); dlg.className = "dialogo " + (clase || ""); pinta(cuerpo);
-    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
-  }
-  const cierra = () => { const v = cuerpo.querySelector("video"); if (v) v.pause(); dlg.close(); };
-  $("dialogo-cerrar").addEventListener("click", cierra);
-  dlg.addEventListener("click", e => { if (e.target === dlg) cierra(); });
-  dlg.addEventListener("close", () => { const v = cuerpo.querySelector("video"); if (v) v.pause(); });
-
   /* Muestra del equipamiento dentro de AeroLab */
   [["muestra-uav", ["matrice400", "m300", "mavic3m", "mavic3t"]], ["muestra-sensores", ["p1", "scoutultra", "rededgemx", "nanohyperspec"]]].forEach(([dest, ids]) => ids.forEach(id => {
     const e = EQUIPOS.find(x => x.id === id); if (!e) return;
@@ -40,19 +28,6 @@
     a.append(i, crea("b", "", e.nombre.replace(/ \(.*\)$/, "")), crea("span", "", e.lema));
     $(dest).append(a);
   }));
-
-  /* Vuelos */
-  VUELOS.forEach(v => {
-    const b = crea("button", "vuelo"); b.type = "button"; b.setAttribute("aria-label", "Ver vídeo: " + v.t);
-    b.style.backgroundImage = `url(${AEROLAB}${v.f}.jpg)`;
-    b.insertAdjacentHTML("beforeend", '<svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#8fd400"/><path d="M19 15l15 9-15 9z" fill="#0b3d24"/></svg>');
-    b.append(crea("span", "", v.t));
-    b.addEventListener("click", () => abreDialogo(c => {
-      const video = crea("video"); video.src = `${AEROLAB}${v.f}.mp4`; video.controls = true; video.autoplay = true; video.playsInline = true; video.muted = true; video.poster = `${AEROLAB}${v.f}.jpg`;
-      c.append(video, crea("p", "pie-video", v.t));
-    }, "dialogo-video"));
-    $("vuelos-lista").append(b);
-  });
 
   /* Proyectos: filas con logotipo */
   PROYECTOS.forEach(p => {
@@ -93,8 +68,9 @@
 
   /* Enlaces */
   ENLACES.forEach(e => {
-    const a = crea("a", "enlace-tarjeta"); a.href = e.u; a.rel = "noopener";
-    a.append(crea("b", "", e.n), crea("span", "eq-lema", e.d), crea("span", "pr-url", dominio(e.u)));
+    const a = crea("a", "enlace-logo"); a.href = e.u; a.rel = "noopener"; a.setAttribute("aria-label", e.n);
+    const i = crea("img"); i.src = e.l; i.alt = ""; i.loading = "lazy";
+    a.append(i, crea("span", "pr-url", dominio(e.u)));
     $("lista-enlaces").append(a);
   });
 
@@ -110,7 +86,7 @@
   });
 
   /* Cifras */
-  const valores = { lineas: LINEAS.length, proyectos: PROYECTOS.length, equipos: EQUIPOS.length, personas: PERSONAS.length };
+  const valores = { lineas: LINEAS.length, publicaciones: PUBLICACIONES.length, equipos: EQUIPOS.length, personas: PERSONAS.length };
   const cifras = [...document.querySelectorAll("[data-cifra]")];
   cifras.forEach(b => { b.textContent = valores[b.dataset.cifra]; });
   if (!quieto && "IntersectionObserver" in window) {

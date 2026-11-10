@@ -33,11 +33,10 @@
   <button class="nav-boton" id="nav-boton" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   <nav id="nav-menu" aria-label="Secciones">
     <a href="#unidad">La unidad</a>
-    <a href="#software">SAVIA y AeroLab</a>
     <a href="#lineas">Líneas</a>
+    <a href="#software">SAVIA y AeroLab</a>
     <a href="#proyectos">Proyectos</a>
     <a href="#publicaciones">Publicaciones</a>
-    <a href="#vuelos">Vuelos</a>
     <a href="#equipo">Equipo</a>
   </nav>
 </header>
@@ -56,7 +55,7 @@
     <p class="lema">Dibujamos el futuro del olivar con los datos que medimos hoy en campo</p>
     <div class="acciones">
       <a class="boton" href="#unidad">Conocer la unidad</a>
-      <a class="boton boton-claro" href="#vuelos">Ver los vuelos</a>
+      <a class="boton boton-claro" href="#software">SAVIA y AeroLab</a>
     </div>
   </div>
   <a class="bajar" href="#unidad" aria-label="Bajar a la unidad"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
@@ -64,7 +63,7 @@
 
 <div class="cifras" id="cifras">
   <div><b data-cifra="lineas">6</b><span>líneas de investigación</span></div>
-  <div><b data-cifra="proyectos">20</b><span>proyectos destacados</span></div>
+  <div><b data-cifra="publicaciones">33</b><span>publicaciones</span></div>
   <div><b data-cifra="equipos">17</b><span>drones y sensores</span></div>
   <div><b data-cifra="personas">19</b><span>personas</span></div>
 </div>
@@ -72,19 +71,27 @@
 <main>
   <section class="seccion" id="unidad">
     <h2 class="titular rv">La unidad</h2>
-    <aside class="direccion rv" aria-label="Responsable de la unidad">
-      <img src="assets/equipo/juan-manuel-jurado-grande.webp" width="2359" height="2560" alt="Juan Manuel Jurado Rodríguez">
-      <div>
-        <span class="cargo">Responsable de la unidad</span>
-        <h3>Juan Manuel Jurado Rodríguez</h3>
-        <p>Profesor Titular de la Universidad de Jaén. Coordina el Living Lab andaluz de LivingSoiLL y el Espacio de Datos de Suelos, y es vicepresidente de Eurographics en España.</p>
+    <div class="unidad-panel rv">
+      <p class="up-lema">Convertimos datos multisensoriales en decisiones para un olivar más sostenible, eficiente y resiliente</p>
+      <p class="up-texto">Somos un equipo multidisciplinar del INUO que desarrolla soluciones tecnológicas para monitorizar agroecosistemas, procesar datos geoespaciales y simular cómo evolucionará cada finca.</p>
+      <ul class="up-disciplinas" aria-label="Disciplinas">
+        <li>Inteligencia artificial</li><li>Geomática</li><li>Informática gráfica</li><li>Computación ubicua</li><li>Ciencias ambientales</li>
+      </ul>
+      <div class="up-responsable">
+        <img src="assets/equipo/juan-manuel-jurado-panel.webp" width="360" height="360" alt="Juan Manuel Jurado Rodríguez">
+        <div>
+          <span>Responsable de la unidad</span>
+          <h3>Juan Manuel Jurado Rodríguez</h3>
+          <p>Profesor Titular de la Universidad de Jaén. Coordina el Living Lab andaluz de LivingSoiLL y el Espacio de Datos de Suelos, y es vicepresidente de Eurographics en España.</p>
+        </div>
         <a class="boton boton-claro" href="mailto:jjurado@ujaen.es">Contactar</a>
       </div>
-    </aside>
-    <p class="intro rv">Desarrollamos soluciones tecnológicas para monitorizar agroecosistemas, procesar datos geoespaciales y simular su evolución.</p>
-    <ul class="pastillas rv" aria-label="Disciplinas">
-      <li>Inteligencia artificial</li><li>Geomática</li><li>Informática gráfica</li><li>Computación ubicua</li><li>Ciencias ambientales</li>
-    </ul>
+    </div>
+  </section>
+
+  <section class="seccion" id="lineas">
+    <h2 class="titular rv">Líneas de investigación</h2>
+    <div class="lineas-compactas" id="lista-lineas"></div>
   </section>
 
   <section class="seccion gris" id="software">
@@ -121,11 +128,6 @@
     </article>
   </section>
 
-  <section class="seccion" id="lineas">
-    <h2 class="titular rv">Líneas de investigación</h2>
-    <div class="lineas-compactas" id="lista-lineas"></div>
-  </section>
-
   <section class="banda" aria-labelledby="titulo-metodo">
     <video data-auto muted loop playsinline preload="none" poster="assets/video/balsa.jpg" aria-hidden="true"><source src="assets/video/balsa.mp4" type="video/mp4"></video>
     <img class="hero-hoja" src="assets/hoja.svg" alt="">
@@ -141,15 +143,10 @@
     <div class="lista-proyectos" id="lista-proyectos"></div>
   </section>
 
-  <section class="seccion gris" id="publicaciones">
+  <section class="seccion" id="publicaciones">
     <h2 class="titular rv">Publicaciones</h2>
     <ol class="pubs" id="lista-publicaciones"></ol>
     <div class="centro"><button class="boton boton-claro" id="mas-pubs" type="button">Ver todas las publicaciones</button></div>
-  </section>
-
-  <section class="seccion" id="vuelos">
-    <h2 class="titular rv">Vuelos</h2>
-    <div class="galeria" id="vuelos-lista" aria-label="Vídeos de vuelos"></div>
   </section>
 
   <section class="seccion gris" id="equipo">
@@ -195,14 +192,6 @@
     </div>
   </div>
 </footer>
-
-<dialog class="dialogo" id="dialogo" aria-label="Detalle">
-  <button class="dialogo-cerrar" type="button" id="dialogo-cerrar" aria-label="Cerrar">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
-  <div id="dialogo-cuerpo"></div>
-</dialog>
-
 <script src="contenido.js"></script>
 <script src="equipos.js"></script>
 <script src="app.js"></script>

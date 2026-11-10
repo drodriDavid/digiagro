@@ -155,12 +155,6 @@ a.herramienta:hover { background: #dfe7da; }
 .vuelo span { position: absolute; left: 16px; right: 16px; bottom: 12px; z-index: 1; color: #fff; font-weight: 900; text-align: left; text-transform: uppercase; font-size: .9375rem; line-height: 1.2; }
 
 /* Personas */
-.personas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px 18px; }
-.persona { text-align: center; }
-.retrato { display: grid; place-items: center; width: 100%; aspect-ratio: 1; margin-bottom: 10px; background: var(--degradado); color: #fff; font-size: clamp(2.2rem, 4.4vw, 3.6rem); font-weight: 900; overflow: hidden; }
-.retrato img { width: 100%; height: 100%; object-fit: cover; }
-.persona b { display: block; color: var(--verde); font-weight: 900; line-height: 1.22; }
-.persona span:not(.retrato) { display: block; color: var(--marron); font-size: .875rem; font-weight: 700; }
 
 /* Pie */
 .pie { position: relative; overflow: hidden; padding: clamp(40px, 5vw, 64px) var(--margen); background: var(--degradado); color: #fff; }
@@ -253,7 +247,6 @@ a.herramienta:hover { background: #dfe7da; }
 @media (max-width: 900px) {
   .pasos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .galeria, .lista-proyectos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .personas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .zig { grid-template-columns: minmax(0, 1fr); }
   .zig-inv > div { order: 0; }
   .pubs { grid-template-columns: minmax(0, 1fr); }
@@ -272,7 +265,6 @@ a.herramienta:hover { background: #dfe7da; }
   .galeria, .lista-proyectos { grid-template-columns: minmax(0, 1fr); }
   .linea-fila, .linea-fila:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
   .linea-fila:nth-child(even) img { order: 0; }
-  .personas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
   .direccion { grid-template-columns: minmax(0, 1fr); }
   .direccion > img { height: auto; aspect-ratio: 1; }
   .equipos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -358,3 +350,18 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .direccion { grid-template-columns: minmax(280px, 5fr) minmax(0, 7fr); margin: 0 0 clamp(30px, 4vw, 48px); }
 .direccion > img { aspect-ratio: 1; height: 100%; object-position: 50% 12%; }
 @media (max-width: 760px) { .direccion { grid-template-columns: minmax(0, 1fr); } .direccion > img { height: auto; } }
+
+/* Miembros: fichas iguales, con foto redonda y aro verde, como en los cuadernos */
+.personas { display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); gap: 12px; }
+.persona { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px 14px 16px; background: #fff; border: 1px solid var(--linea); border-radius: 12px; }
+.retrato { position: relative; display: grid; place-items: center; flex: none; width: 112px; height: 112px; margin-bottom: 12px; border-radius: 50%; overflow: hidden; background: #fff; color: var(--verde); font-size: 2rem; font-weight: 900; }
+.retrato::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 0 5px var(--verde); pointer-events: none; }
+.retrato img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.persona b { display: block; color: #1f2a23; font-size: .9375rem; font-weight: 700; line-height: 1.3; overflow-wrap: anywhere; }
+.persona span:not(.retrato) { margin-top: 8px; padding: 3px 10px; border-radius: 999px; background: #e4f3e9; color: var(--verde); font-size: .78rem; font-weight: 700; line-height: 1.3; }
+@media (max-width: 600px) {
+  .personas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .persona { padding: 14px 8px 12px; }
+  .retrato { width: 92px; height: 92px; font-size: 1.65rem; }
+  .persona b { font-size: .8125rem; }
+}

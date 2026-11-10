@@ -15,9 +15,9 @@
   /* Líneas */
   LINEAS.forEach(l => {
     const a = crea("article", "linea-compacta");
-    const i = crea("img"); i.src = l.img; i.alt = ""; i.loading = "lazy";
+    const f = crea("figure", "lc-img"); const i = crea("img"); i.src = l.img; i.alt = ""; i.loading = "lazy"; f.append(i);
     const t = crea("div"); t.append(crea("h3", "", l.t), crea("p", "", l.d));
-    a.append(i, t); $("lista-lineas").append(a); revela(a);
+    a.append(f, t); $("lista-lineas").append(a); revela(a);
   });
 
   /* Muestra del equipamiento dentro de AeroLab */

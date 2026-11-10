@@ -367,3 +367,32 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .enlace-logo img { display: block; flex: 1; width: 100%; min-height: 0; max-height: 76px; object-fit: contain; }
 .enlace-logo:hover { border-color: var(--verde); }
 @media (max-width: 600px) { .enlaces { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }
+
+
+/* Ronda de mejoras: títulos con barra lima que crece, tarjetas de líneas vivas, enlaces en una fila */
+.titular { position: relative; border-bottom: 0; padding-bottom: 22px; }
+.titular::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 72px; height: 4px; margin-left: -36px; background: linear-gradient(90deg, var(--verde), var(--lima)); border-radius: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .titular.rv::after { transform: scaleX(0); transition: transform .7s .15s cubic-bezier(.2, .7, .2, 1); }
+  .js .titular.rv.visible::after { transform: scaleX(1); }
+}
+.linea-compacta { border-top: 4px solid transparent; transition: border-color .25s, box-shadow .25s; }
+.linea-compacta:hover { border-top-color: var(--lima); box-shadow: 0 10px 26px rgba(0, 60, 30, .14); }
+.lc-img { margin: 0; overflow: hidden; background: #000; }
+.lc-img img { display: block; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.linea-compacta:hover .lc-img img { transform: scale(1.05); }
+@media (min-width: 1100px) { .enlaces { grid-template-columns: repeat(7, minmax(0, 1fr)); } .enlace-logo { min-height: 128px; padding: 14px 10px; } .enlace-logo .pr-url { font-size: .75rem; } }
+@media (max-width: 600px) {
+  .enlace-logo:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .pubs li:nth-child(n + 5) { display: none; }
+}
+.enlace-logo .pr-url { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 600px) {
+  .personas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .persona { flex-direction: column; align-items: center; text-align: center; gap: 10px; padding: 16px 10px 14px; }
+  .retrato { width: 76px; height: 76px; font-size: 1.4rem; }
+  .persona b { font-size: .875rem; }
+  .persona-cargo { font-size: .78rem; }
+  .persona-area { font-size: .74rem; }
+  .persona-correo { font-size: .72rem; overflow-wrap: anywhere; }
+}

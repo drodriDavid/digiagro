@@ -120,14 +120,11 @@
   filasPub.forEach(({ li }, i) => { li.hidden = i >= VISIBLES; });
   masPubs.addEventListener("click", () => { filasPub.forEach(({ li }) => { li.hidden = false; }); masPubs.parentElement.hidden = true; });
 
-  /* Método, trayectoria y sellos */
+  /* Método y sellos */
   PASOS.forEach(p => {
     const li = crea("li", "paso");
     li.innerHTML = `<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${p.i}"/></svg>`;
     li.append(crea("h3", "", p.t), crea("p", "", p.d)); $("lista-pasos").append(li); revela(li);
-  });
-  HITOS.forEach(h => {
-    const li = crea("li", "hito"); li.append(crea("b", "", h.y), crea("h3", "", h.t), crea("p", "", h.d)); $("lista-hitos").append(li); revela(li);
   });
   [SELLOS, SELLOS].forEach((lista, vuelta) => lista.forEach(([src, alt]) => {
     const i = crea("img"); i.src = src; i.alt = vuelta ? "" : alt; i.loading = "eager"; $("sellos").append(i);

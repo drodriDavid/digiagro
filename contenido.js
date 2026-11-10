@@ -319,15 +319,6 @@ const PASOS = [
   { t: "Decidimos", d: "Recomendaciones claras para quien gestiona la finca.", i: "M9 12l2 2 4-4M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" },
 ];
 
-const HITOS = [
-  { y: 2017, t: "Armonización europea", d: "Acción COST sobre técnicas con drones en ecosistemas agrícolas." },
-  { y: 2021, t: "Riego y cosecha", d: "Tecnologías digitales para el riego y predicción temprana de la cosecha." },
-  { y: 2022, t: "Entornos rurales en 3D", d: "Digitalización multisensorial y multiescala." },
-  { y: 2023, t: "Suelos del olivar", d: "Comienza SOIL O-LIVE en el marco de Horizonte Europa." },
-  { y: 2024, t: "Living Lab andaluz", d: "Arranca LivingSoiLL y los gemelos digitales de SERGIoT." },
-  { y: 2025, t: "Nace la unidad", d: "Se crea en el INUO. Se inicia Soil DataSpace." },
-];
-
 const SELLOS = [
   ["assets/logos/inuo.svg", "INUO"], ["assets/logos/uja_h.png", "Universidad de Jaén"], ["assets/proyectos/comision-europea.svg", "Comisión Europea"],
   ["assets/proyectos/livingsoill.png", "LivingSoiLL"], ["assets/proyectos/soil-o-live.png", "SOIL O-LIVE"], ["assets/proyectos/soil-dataspace.png", "Soil DataSpace"],

@@ -238,15 +238,6 @@ a.herramienta:hover { background: #dfe7da; }
 .pr-logo img { max-height: 58px; max-width: 200px; width: auto; height: auto; object-fit: contain; aspect-ratio: auto; }
 .proyecto:has(.pr-logo) .proyecto-texto { padding-top: 12px; }
 
-/* Trayectoria */
-.hitos { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
-.hitos::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; height: 4px; background: var(--degradado); }
-.hito { position: relative; padding-top: 48px; }
-.hito::before { content: ""; position: absolute; left: 0; top: 9px; width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 5px solid var(--verde); }
-.hito b { display: block; color: var(--verde); font-size: 1.75rem; font-weight: 900; line-height: 1; }
-.hito h3 { font-size: 1.0625rem; font-weight: 900; color: var(--tinta); text-transform: uppercase; line-height: 1.2; margin: 8px 0 4px; }
-.hito p { color: var(--gris); font-size: .9375rem; line-height: 1.38; }
-
 .centro { text-align: center; margin-top: 26px; }
 
 /* Llamada final */
@@ -271,10 +262,6 @@ a.herramienta:hover { background: #dfe7da; }
 }
 @media (max-width: 900px) {
   .pasos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hitos { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-left: 40px; }
-  .hitos::before { left: 10px; right: auto; top: 6px; bottom: 6px; width: 4px; height: auto; background: linear-gradient(180deg, #007336, #8fd400); }
-  .hito { padding-top: 0; }
-  .hito::before { left: -40px; top: 2px; }
   .galeria, .lista-proyectos, .servicios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .personas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .zig { grid-template-columns: minmax(0, 1fr); }

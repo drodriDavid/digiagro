@@ -10,8 +10,8 @@ const LINEAS = [
 ];
 
 const PROYECTOS = [
-  { t: "LivingSoiLL", logo: "assets/proyectos/livingsoill.png", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/" },
-  { t: "Espacio de Datos Federado de Suelos", logo: "assets/proyectos/soil-dataspace.png", d: "Soil Data Space: infraestructura federada para compartir datos de suelo de forma soberana, liderada por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home" },
+  { t: "LivingSoiLL", logo: "assets/proyectos/livingsoill.png", d: "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.", m: "Horizonte Europa, 2024–2028", a: "europa", u: "https://livingsoill.eu/", v: "assets/video/promo-livingsoill.mp4", vp: "assets/video/promo-livingsoill.jpg" },
+  { t: "Espacio de Datos Federado de Suelos", logo: "assets/proyectos/soil-dataspace.png", d: "Soil Data Space: infraestructura federada para compartir datos de suelo de forma soberana, liderada por la Universidad de Jaén.", m: "TSI-100123-2024-72, NextGeneration EU", a: "espana", u: "https://soildataspace.es/home", v: "assets/video/promo-soildataspace-resumen.mp4", vp: "assets/video/promo-soildataspace-resumen.jpg" },
 ];
 
 

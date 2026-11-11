@@ -31,13 +31,20 @@
 
   /* Proyectos: filas con logotipo */
   PROYECTOS.forEach(p => {
-    const a = p.u ? crea("a", "fila-proyecto") : crea("article", "fila-proyecto");
-    if (p.u) { a.href = p.u; a.rel = "noopener"; }
+    const a = crea("article", "fila-proyecto" + (p.v ? " con-video" : ""));
     const l = crea("div", "fp-logo");
     if (p.logo) { const i = crea("img"); i.src = p.logo; i.alt = "Logotipo de " + p.t; i.loading = "lazy"; l.append(i); }
-    const t = crea("div", "fp-texto"); t.append(crea("h3", "", p.t)); if (p.d) t.append(crea("p", "", p.d));
-    const m = crea("div", "fp-meta"); m.append(crea("span", "fp-tipo", ETIQUETAS[p.a]), crea("span", "", p.m)); if (p.u) m.append(crea("span", "pr-url", dominio(p.u)));
-    a.append(l, t, m); $("lista-proyectos").append(a);
+    const t = crea("div", "fp-texto"), h = crea("h3");
+    if (p.u) { const e = crea("a", "", p.t); e.href = p.u; e.rel = "noopener"; h.append(e); } else h.textContent = p.t;
+    t.append(h); if (p.d) t.append(crea("p", "", p.d));
+    const m = crea("div", "fp-meta"); m.append(crea("span", "fp-tipo", ETIQUETAS[p.a]), crea("span", "", p.m));
+    if (p.u) { const e = crea("a", "pr-url", dominio(p.u)); e.href = p.u; e.rel = "noopener"; m.append(e); }
+    t.append(m); a.append(l, t);
+    if (p.v) {
+      const f = crea("figure", "fp-video"), v = crea("video"); v.controls = true; v.playsInline = true; v.preload = "none"; v.poster = p.vp;
+      const s = crea("source"); s.src = p.v; s.type = "video/mp4"; v.append(s); v.setAttribute("aria-label", "Vídeo de presentación de " + p.t); f.append(v); a.append(f);
+    }
+    $("lista-proyectos").append(a);
   });
 
   /* Publicaciones */

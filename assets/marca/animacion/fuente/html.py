@@ -1,0 +1,1 @@
+import json;open('F:/claude-tmp/logo-anim/logo-anim.html','w',encoding='utf-8').write(open('F:/claude-tmp/logo-anim/plantilla.html',encoding='utf-8').read().replace('__PIEZAS__',json.dumps(json.load(open('F:/claude-tmp/logo-anim/piezas.json')))))

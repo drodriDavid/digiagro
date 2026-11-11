@@ -429,3 +429,8 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .plataforma header.con-video { grid-template-columns: 130px minmax(0, 1fr) minmax(0, 360px); }
 @media (max-width: 1000px) { .plataforma header.con-video { grid-template-columns: 130px minmax(0, 1fr); } .plataforma header.con-video .fp-video { grid-column: 1 / -1; max-width: 560px; } }
 @media (max-width: 600px) { .plataforma header.con-video { grid-template-columns: minmax(0, 1fr); } }
+/* Logos de SAVIA y AeroLab en transparencia en la portada */
+.hero-marcas { position: absolute; inset: auto 0 0 0; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 clamp(20px, 4vw, 64px) clamp(28px, 6vh, 64px); opacity: .28; pointer-events: none; }
+.hero-marcas img:first-child { width: clamp(150px, 19vw, 330px); height: auto; }
+.hero-marcas img:last-child { width: clamp(130px, 15vw, 260px); height: auto; }
+@media (max-width: 760px) { .hero-marcas { opacity: .22; padding-bottom: 22px; } .hero-marcas img:first-child { width: 120px; } .hero-marcas img:last-child { width: 96px; } }

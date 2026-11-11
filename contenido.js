@@ -253,7 +253,7 @@ const PERSONAS = [
   {"n": "Juan Manuel Jurado Rodríguez", "f": "assets/equipo/juan-manuel-jurado.webp", "c": "Responsable de la unidad · Profesor Titular", "a": "Lenguajes y Sistemas Informáticos", "d": true, "e": "jjurado@ujaen.es"},
   {"n": "Julio Antonio Calero González", "f": "assets/equipo/julio-calero.webp", "c": "Profesor Titular", "a": "Edafología y Química Agrícola", "e": "jcalero@ujaen.es"},
   {"n": "Andressa De Sousa Cardoso", "c": "Investigadora predoctoral", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "asousa@ujaen.es"},
-  {"n": "Juan José Cubillas Mercado", "c": "Profesor", "a": "Lenguajes y Sistemas Informáticos", "e": "juanjose.cubillas@unir.net"},
+  {"n": "Juan José Cubillas Mercado", "f": "assets/equipo/juan-jose-cubillas.webp", "c": "Profesor", "a": "Lenguajes y Sistemas Informáticos", "e": "juanjose.cubillas@unir.net"},
   {"n": "Luis René Domínguez Fuentes", "f": "assets/equipo/luis-rene-dominguez.webp", "c": "Estudiante de doctorado", "a": "Lenguajes y Sistemas Informáticos", "e": "lrdoming@ujaen.es"},
   {"n": "Carlos Enríquez Turiño", "f": "assets/equipo/carlos-enriquez.webp", "c": "Profesor Titular", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "cenrique@ujaen.es"},
   {"n": "Francisco Ramón Feito Higueruela", "f": "assets/equipo/francisco-feito.webp", "c": "Catedrático de Universidad", "a": "Lenguajes y Sistemas Informáticos", "e": "ffeito@ujaen.es"},

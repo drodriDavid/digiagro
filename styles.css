@@ -440,3 +440,34 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .idioma:hover { background: var(--verde); color: #fff; }
 .idioma:focus-visible { outline: 3px solid var(--lima); outline-offset: 2px; }
 @media (max-width: 1120px) { .idioma { margin-left: auto; order: 2; } .nav-boton { order: 3; } }
+
+/* Pantallas pequeñas: escala de letra más contenida y sin inflado automático del navegador */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+@media (max-width: 600px) {
+  body { font-size: .9375rem; line-height: 1.5; }
+  .hero h1.nombre-unidad { font-size: 1.55rem; line-height: 1.15; }
+  .lema { font-size: .95rem; }
+  .titular { font-size: 1.45rem; padding-bottom: 14px; margin-bottom: 24px; }
+  .sub { font-size: 1.1rem; }
+  .cifras b { font-size: 1.75rem; }
+  .cifras span { font-size: .75rem; }
+  .unidad-panel { padding: 22px 18px; }
+  .up-lema { font-size: 1.3rem; }
+  .up-texto { font-size: .95rem; line-height: 1.45; }
+  .up-rotulo { font-size: 1.1rem; margin-top: 20px; }
+  .up-disciplinas li { font-size: .75rem; padding: 4px 10px; }
+  .up-responsable h3 { font-size: 1.05rem; }
+  .up-responsable p { font-size: .875rem; }
+  .banda h2, .llamada h2 { font-size: 1.45rem; }
+  .banda p { font-size: 1.3rem; }
+  .banda-contenido > p, .llamada p { font-size: .95rem; }
+  .plataforma h3, .zig h3 { font-size: 1.4rem; }
+  .linea-fila h3 { font-size: 1.2rem; }
+  .linea-fila p, .linea-compacta p { font-size: .9rem; }
+  .linea-compacta h3 { font-size: 1rem; }
+  .fp-texto h3 { font-size: 1.05rem; }
+  .paso h3 { font-size: 1.05rem; }
+  .paso p { font-size: .9rem; }
+  .grupo-equipo { font-size: 1.05rem; }
+  .retrato { font-size: 1.2rem; }
+}

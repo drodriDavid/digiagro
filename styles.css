@@ -403,3 +403,10 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .promo figcaption { margin-top: 10px; color: var(--verde); font-size: .9375rem; font-weight: 700; }
 .promo-proyecto { max-width: 960px; margin: 34px auto 0; }
 .promo-proyecto figcaption { text-align: center; }
+
+/* Logotipo DIGIAGRO */
+.marca img { display: block; height: 40px; width: auto; }
+.pie .marca img { height: 48px; }
+.hero h1.hero-logo { line-height: 0; }
+.hero-logo img { width: min(640px, 86vw); height: auto; filter: drop-shadow(0 4px 22px rgba(0, 0, 0, .45)); }
+@media (max-width: 600px) { .marca img { height: 32px; } }

@@ -137,5 +137,45 @@
     enlaces.forEach(a => { const s = document.querySelector(a.getAttribute("href")); if (s) io.observe(s); });
   }
 
+  /* Idioma: español por defecto, inglés con el diccionario EN de i18n.js */
+  if (typeof EN === "object") {
+    const ORIG = new WeakMap(), ATRS = ["alt", "aria-label", "title"];
+    const limpio = s => s.replace(/\s+/g, " ").trim();
+    const meta = document.querySelector('meta[name="description"]'), tituloEs = document.title, metaEs = meta ? meta.content : "";
+    const botonIdioma = $("idioma");
+    const aplica = lang => {
+      const en = lang === "en";
+      document.documentElement.lang = lang;
+      const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      for (let n = w.nextNode(); n; n = w.nextNode()) {
+        if (n.parentElement.closest("#lista-publicaciones, script, style")) continue;
+        const o = ORIG.has(n) ? ORIG.get(n) : n.nodeValue, t = EN[limpio(o)];
+        if (!t) continue;
+        ORIG.set(n, o);
+        const m = o.match(/^(\s*)[\s\S]*?(\s*)$/);
+        n.nodeValue = en ? m[1] + t + m[2] : o;
+      }
+      document.querySelectorAll("[alt], [aria-label], [title]").forEach(e => ATRS.forEach(a => {
+        if (!e.hasAttribute(a) || e.closest("#lista-publicaciones")) return;
+        const k = "es" + a.replace(/-/g, ""), o = e.dataset[k] ?? e.getAttribute(a), t = EN[limpio(o)];
+        if (!t) return;
+        e.dataset[k] = o; e.setAttribute(a, en ? t : o);
+      }));
+      document.title = en ? (EN[tituloEs] || tituloEs) : tituloEs;
+      if (meta) meta.content = en ? (EN[metaEs] || metaEs) : metaEs;
+      botonIdioma.textContent = en ? "ES" : "EN";
+      botonIdioma.setAttribute("aria-label", en ? "Ver en español" : "View in English");
+      botonIdioma.setAttribute("lang", en ? "es" : "en");
+    };
+    let guardado = null; try { guardado = localStorage.getItem("idioma"); } catch (e) {}
+    const pedido = new URLSearchParams(location.search).get("lang");
+    let actual = pedido === "en" || pedido === "es" ? pedido : guardado || ((navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en");
+    aplica(actual);
+    botonIdioma.addEventListener("click", () => {
+      actual = actual === "en" ? "es" : "en"; aplica(actual);
+      try { localStorage.setItem("idioma", actual); } catch (e) {}
+    });
+  }
+
   document.querySelectorAll(".rv").forEach(e => { if (aparece) aparece.observe(e); else e.classList.add("visible"); });
 })();

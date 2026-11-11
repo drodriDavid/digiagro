@@ -434,3 +434,9 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .hero-marcas img:first-child { width: clamp(150px, 19vw, 330px); height: auto; }
 .hero-marcas img:last-child { width: clamp(130px, 15vw, 260px); height: auto; }
 @media (max-width: 760px) { .hero-marcas { opacity: .22; padding-bottom: 22px; } .hero-marcas img:first-child { width: 120px; } .hero-marcas img:last-child { width: 96px; } }
+/* Selector de idioma */
+.nav nav { margin-left: auto; }
+.idioma { flex: none; min-width: 44px; height: 36px; padding: 0 10px; background: #fff; border: 2px solid var(--verde); color: var(--verde); font: inherit; font-size: .8125rem; font-weight: 900; letter-spacing: .06em; cursor: pointer; transition: background .2s, color .2s; }
+.idioma:hover { background: var(--verde); color: #fff; }
+.idioma:focus-visible { outline: 3px solid var(--lima); outline-offset: 2px; }
+@media (max-width: 1120px) { .idioma { margin-left: auto; order: 2; } .nav-boton { order: 3; } }

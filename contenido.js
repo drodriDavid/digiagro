@@ -2,10 +2,10 @@
 
 const LINEAS = [
   { t: "Teledetección multisensor y fusión de datos", d: "Integración de datos LiDAR, multiespectrales, hiperespectrales, térmicos y satelitales para la caracterización del olivar, la detección temprana de estrés y la estimación de la incertidumbre asociada a cada fuente.", img: "assets/lineas/teledeteccion-real.jpg" },
-  { t: "Gemelos digitales y modelado 3D/4D de cultivos leñosos", d: "Reconstrucción tridimensional y multitemporal a escala de individuo para el análisis estructural, la dasometría y la simulación de escenarios de manejo y cambio climático.", img: "assets/lineas/gemelo-3d-real.jpg" },
-  { t: "Inteligencia artificial y aprendizaje automático", d: "Modelos de aprendizaje profundo para clasificación, segmentación y predicción, con cuantificación de la incertidumbre y capacidad de generalización entre parcelas, campañas y sensores.", img: "assets/lineas/ia-ndvi-real.jpg" },
+  { t: "Gemelos digitales y modelado 3D/4D de cultivos leñosos", d: "Reconstrucción tridimensional y multitemporal a escala de individuo para el análisis estructural, la dasometría y la simulación de escenarios de manejo y cambio climático.", img: "assets/lineas/gemelo-3d-nube.jpg" },
+  { t: "Inteligencia artificial y aprendizaje automático", d: "Modelos de aprendizaje profundo para clasificación, segmentación y predicción, con cuantificación de la incertidumbre y capacidad de generalización entre parcelas, campañas y sensores.", img: "assets/lineas/ia-individuos.jpg" },
   { t: "Espacios de datos federados e interoperabilidad", d: "Arquitecturas para el intercambio soberano de datos agroambientales, basadas en estándares abiertos, principios FAIR y agentes de IA para la consulta y el análisis de información distribuida.", img: "assets/lineas/datos-capas-real.jpg" },
-  { t: "Sistemas aéreos no tripulados y computación ubicua", d: "Planificación de vuelos, integración de sensores y procesamiento embarcado en plataformas UAV y redes de sensores IoT para la monitorización agronómica a escala de finca y territorio.", img: "assets/lineas/uav-vuelo-real.jpg" },
+  { t: "Sistemas aéreos no tripulados y computación ubicua", d: "Planificación de vuelos, integración de sensores y procesamiento embarcado en plataformas UAV y redes de sensores IoT para la monitorización agronómica a escala de finca y territorio.", img: "assets/lineas/uav-territorio.jpg" },
   { t: "Salud del suelo, erosión y balance de carbono", d: "Cartografía de indicadores de calidad del suelo, modelización de la erosión hídrica y estimación del secuestro de carbono para la evaluación de la sostenibilidad del olivar.", img: "assets/lineas/suelo-carcava-real.jpg" },
 ];
 

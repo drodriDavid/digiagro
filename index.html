@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 <div class="progreso" id="progreso" aria-hidden="true"></div>
@@ -100,13 +100,16 @@
   <section class="seccion gris" id="software">
     <h2 class="titular rv">SAVIA y AeroLab</h2>
     <article class="plataforma rv">
-      <header>
+      <header class="con-video">
         <img class="plataforma-logo" src="assets/logos/savia-logo-vertical.png" alt="SAVIA">
         <div>
           <h3>SAVIA</h3>
           <p>Plataforma de procesamiento y fusión de datos multisensoriales que convierte cada vuelo en el inventario por individuo, el vigor, la erosión y el balance de carbono de la finca.</p>
           <a class="boton boton-claro" href="https://savia.ujaen.es" rel="noopener">Entrar en SAVIA</a>
         </div>
+        <figure class="fp-video">
+          <video controls playsinline preload="none" poster="assets/video/promo-savia-software.jpg" aria-label="Vídeo de presentación de SAVIA"><source src="assets/video/promo-savia-software.mp4" type="video/mp4"></video>
+        </figure>
       </header>
       <div class="savia-galeria">
         <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-sam.jpg"><source src="assets/video/f-sam.mp4" type="video/mp4"></video><figcaption>Inventario individual</figcaption></figure>
@@ -114,10 +117,6 @@
         <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-daso.jpg"><source src="assets/video/f-daso.mp4" type="video/mp4"></video><figcaption>Vigorosidad y dasometría</figcaption></figure>
         <figure><video data-auto muted loop playsinline preload="none" poster="assets/video/f-carbono.jpg"><source src="assets/video/f-carbono.mp4" type="video/mp4"></video><figcaption>Balance de carbono y erosión</figcaption></figure>
       </div>
-      <figure class="promo">
-        <video controls playsinline preload="none" poster="assets/video/promo-savia-software.jpg"><source src="assets/video/promo-savia-software.mp4" type="video/mp4"></video>
-        <figcaption>Vídeo de presentación de SAVIA</figcaption>
-      </figure>
     </article>
     <article class="plataforma rv">
       <header>

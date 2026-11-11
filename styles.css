@@ -425,3 +425,7 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 @media (max-width: 600px) { .fila-proyecto.con-video { grid-template-columns: minmax(0, 1fr); } }
 /* Logotipo en el panel de la unidad */
 .up-logo { display: block; height: clamp(40px, 5vw, 60px); width: auto; margin-bottom: clamp(18px, 2.5vw, 28px); }
+/* SAVIA: vídeo junto a la presentación */
+.plataforma header.con-video { grid-template-columns: 130px minmax(0, 1fr) minmax(0, 360px); }
+@media (max-width: 1000px) { .plataforma header.con-video { grid-template-columns: 130px minmax(0, 1fr); } .plataforma header.con-video .fp-video { grid-column: 1 / -1; max-width: 560px; } }
+@media (max-width: 600px) { .plataforma header.con-video { grid-template-columns: minmax(0, 1fr); } }

@@ -233,8 +233,9 @@ function heroTitle(){
       </video>
       <div class="hero-inner">
         <h1 class="sr-only">AEROLAB — Inventario de Drones y Sensores · Universidad de Jaén</h1>
-        <img class="hero-logo" src="assets/img/aerolab-white.png?v=27"
-             alt="AEROLAB DIGIAGRO · Spatial Intelligence and Computer Graphics" />
+        <div class="hero-logo logo-capas" role="img" aria-label="AEROLAB DIGIAGRO · Spatial Intelligence and Computer Graphics">
+          ${["a","dron","pixeles","sello","palabra","lema"].map(c=>`<span class="capa capa-${c}" aria-hidden="true"></span>`).join("")}
+        </div>
         <p class="hero-tag">Inventario de drones y sensores de teledetección de la Universidad de Jaén:
         una flota que abarca desde multirrotores ultraligeros a plataformas industriales de carga
         pesada, con sensores RGB, multiespectrales, térmicos, LiDAR e hiperespectrales.</p>

@@ -13,9 +13,14 @@ Contenido del paquete
    - Prueba en el navegador: http://150.214.178.23/
    - savia.ujaen.es no se toca: es otro sitio IIS. HTTPS por IP sigue llevando a savia.
 
-2) Actualizar la web más adelante
-   - En el PC: powershell -File despliegue\empaquetar.ps1   (dentro del repo digiagro)
-   - Copia el paquete nuevo al servidor y vuelve a ejecutar instalar-en-savia.ps1
+   INSTALADO el 12-nov-2026: sitio IIS "DIGIAGRO", contenido en F:\savia\digiagro\web.
+
+2) Actualizar la web más adelante: AUTOMÁTICO
+   - Basta con hacer push a main. La tarea "SAVIA autoupdate" (cada 5 min) ejecuta
+     savia-code\herramientas\sincronizar-digiagro.ps1: trae este repo a F:\savia\webs-src\digiagro,
+     lo empaqueta con despliegue\empaquetar.ps1 y lo copia en espejo al sitio. Queda anotado en
+     F:\savia\savia-web\logs\autoupdate.log ("digiagro: desplegada <commit>").
+   - A mano (otro servidor): empaquetar.ps1 en el PC, copiar el paquete y volver a ejecutar instalar-en-savia.ps1
 
 3) Cuando Informática dé el dominio (Murphy, como con savia)
    - Pide: alias DNS digiagro.ujaen.es -> inteliga.ujaen.es (150.214.178.23) y certificado (CSR con su script)

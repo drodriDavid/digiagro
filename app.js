@@ -125,6 +125,28 @@
     vids.forEach(v => io.observe(v));
   }
 
+  /* Logo animado: se dibuja una vez al verse. Safari/iOS no muestran la transparencia del WebM, así que allí queda el SVG */
+  const ua = navigator.userAgent;
+  const webkit = /AppleWebKit/.test(ua) && !/Chrome|Chromium|Edg|Firefox/.test(ua);
+  const prueba = document.createElement("video");
+  const conAlfa = !webkit && prueba.canPlayType && prueba.canPlayType('video/webm; codecs="vp9"') !== "";
+  const logos = [...document.querySelectorAll("[data-logo-anim]")];
+  if (!quieto && conAlfa && "IntersectionObserver" in window && logos.length) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      const caja = e.target, v = document.createElement("video");
+      v.muted = true; v.playsInline = true; v.preload = "auto";
+      v.setAttribute("aria-hidden", "true");
+      v.src = "assets/marca/animacion/digiagro-logo-web.webm";
+      v.addEventListener("playing", () => caja.classList.add("animado"), { once: true });
+      v.addEventListener("error", () => caja.classList.remove("animado"));
+      caja.appendChild(v);
+      const p = v.play(); if (p) p.catch(() => caja.classList.remove("animado"));
+    }), { threshold: 0.5 });
+    logos.forEach(l => io.observe(l));
+  }
+
   /* Navegación */
   const nav = $("nav"), menu = $("nav-menu"), botonMenu = $("nav-boton");
   botonMenu.addEventListener("click", () => { const a = nav.classList.toggle("abierto"); botonMenu.setAttribute("aria-expanded", String(a)); });

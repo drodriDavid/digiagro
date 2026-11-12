@@ -7,9 +7,10 @@
   const ETIQUETAS = { europa: "Europeo", espana: "Nacional", andalucia: "Andaluz", otros: "Otros" };
 
   const aparece = "IntersectionObserver" in window && !quieto
-    ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); aparece.unobserve(e.target); } }), { threshold: 0.06, rootMargin: "0px 0px -5% 0px" })
+    ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const t = e.target; t.classList.add("visible"); aparece.unobserve(t); setTimeout(() => { t.classList.remove("rv", "visible"); t.style.removeProperty("--rv"); }, 1400); } }), { threshold: 0.06, rootMargin: "0px 0px -5% 0px" })
     : null;
-  const revela = e => { e.classList.add("rv"); if (aparece) aparece.observe(e); else e.classList.add("visible"); };
+  /* i: posición dentro de su lista, para que los elementos entren uno tras otro */
+  const revela = (e, i) => { e.classList.add("rv"); if (i) e.style.setProperty("--rv", (i % 6) * 80 + "ms"); if (aparece) aparece.observe(e); else e.classList.add("visible"); };
 
 
   /* Líneas */
@@ -26,7 +27,7 @@
     const a = crea("a", "muestra-item"); a.href = "aerolab/"; a.rel = "noopener";
     const i = crea("img"); i.src = e.img; i.alt = ""; i.loading = "lazy";
     a.append(i, crea("b", "", e.nombre.replace(/ \(.*\)$/, "")), crea("span", "", e.lema));
-    $(dest).append(a);
+    $(dest).append(a); revela(a, $(dest).children.length - 1);
   }));
 
   /* Proyectos: filas con logotipo */
@@ -44,14 +45,14 @@
       const f = crea("figure", "fp-video"), v = crea("video"); v.controls = true; v.playsInline = true; v.preload = "none"; v.poster = p.vp;
       const s = crea("source"); s.src = p.v; s.type = "video/mp4"; v.append(s); v.setAttribute("aria-label", "Vídeo de presentación de " + p.t); f.append(v); a.append(f);
     }
-    $("lista-proyectos").append(a);
+    $("lista-proyectos").append(a); revela(a);
   });
 
   /* Publicaciones */
   const filasPub = PUBLICACIONES.map(p => {
     const li = crea("li"), a = crea("a"); a.href = "https://doi.org/" + p.doi; a.rel = "noopener";
     a.append(crea("span", "pub-ano", p.y), crea("b", "", p.t), crea("span", "pub-datos", `${p.a.replace(/\.$/, "")}. ${p.r}`));
-    li.append(a); $("lista-publicaciones").append(li);
+    li.append(a); $("lista-publicaciones").append(li); revela(li, $("lista-publicaciones").children.length - 1);
     return { li, p };
   });
 
@@ -64,7 +65,7 @@
   PASOS.forEach(p => {
     const li = crea("li", "paso");
     li.innerHTML = `<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${p.i}"/></svg>`;
-    li.append(crea("h3", "", p.t), crea("p", "", p.d)); $("lista-pasos").append(li); revela(li);
+    li.append(crea("h3", "", p.t), crea("p", "", p.d)); $("lista-pasos").append(li); revela(li, $("lista-pasos").children.length - 1);
   });
   SELLOS.forEach(([src, alt]) => { const i = crea("img"); i.src = src; i.alt = alt; i.loading = "lazy"; $("sellos").append(i); });
 
@@ -78,7 +79,7 @@
     const a = crea("a", "enlace-logo"); a.href = e.u; a.rel = "noopener"; a.setAttribute("aria-label", e.n);
     const i = crea("img"); i.src = e.l; i.alt = ""; i.loading = "lazy";
     a.append(i, crea("span", "pr-url", dominio(e.u)));
-    $("lista-enlaces").append(a);
+    $("lista-enlaces").append(a); revela(a, $("lista-enlaces").children.length - 1);
   });
 
   /* Personas */
@@ -101,7 +102,7 @@
     }
     d.append(r, tx);
     const enFormacion = /doctorado|predoctoral/i.test(p.c || "");
-    $(enFormacion ? "lista-doctorandos" : "lista-personas").append(d); revela(d);
+    const lista = $(enFormacion ? "lista-doctorandos" : "lista-personas"); lista.append(d); revela(d, lista.children.length - 1);
   });
 
   /* Cifras */
@@ -131,26 +132,58 @@
     vids.forEach(v => io.observe(v));
   }
 
-  /* Logo animado: se dibuja una vez al verse. Safari/iOS no muestran la transparencia del WebM, así que allí queda el SVG */
-  const ua = navigator.userAgent;
-  const webkit = /AppleWebKit/.test(ua) && !/Chrome|Chromium|Edg|Firefox/.test(ua);
-  const prueba = document.createElement("video");
-  const conAlfa = !webkit && prueba.canPlayType && prueba.canPlayType('video/webm; codecs="vp9"') !== "";
+  /* Logo animado: se dibuja en SVG una vez al verse (vale para todos los navegadores, también iPhone).
+     Las piezas salen de assets/marca/logo-piezas.json; la animación es la de assets/marca/animacion/fuente/plantilla.html. */
   const logos = [...document.querySelectorAll("[data-logo-anim]")];
-  if (!quieto && conAlfa && "IntersectionObserver" in window && logos.length) {
-    const io = new IntersectionObserver(es => es.forEach(e => {
-      if (!e.isIntersecting) return;
-      io.unobserve(e.target);
-      const caja = e.target, v = document.createElement("video");
-      v.muted = true; v.playsInline = true; v.preload = "auto";
-      v.setAttribute("aria-hidden", "true");
-      v.src = "assets/marca/animacion/digiagro-logo-web.webm";
-      v.addEventListener("playing", () => caja.classList.add("animado"), { once: true });
-      v.addEventListener("error", () => caja.classList.remove("animado"));
-      caja.appendChild(v);
-      const p = v.play(); if (p) p.catch(() => caja.classList.remove("animado"));
+  if (!quieto && "IntersectionObserver" in window && window.fetch && logos.length) {
+    let piezas = null;
+    const NS = "http://www.w3.org/2000/svg";
+    const nodo = (tag, at) => { const n = document.createElementNS(NS, tag); for (const k in at) n.setAttribute(k, at[k]); return n; };
+    const cl = x => Math.max(0, Math.min(1, x)), seg = (t, a, b) => cl((t - a) / (b - a));
+    const oc = x => 1 - Math.pow(1 - x, 3), oq = x => 1 - Math.pow(1 - x, 5), io3 = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+    const ob = x => { const c1 = 1.5, c3 = c1 + 1; return x <= 0 ? 0 : 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+    let n = 0;
+    const anima = caja => {
+      const id = "lg" + (++n), el = {};
+      const svg = nodo("svg", { viewBox: "42 58 4508 886", "aria-hidden": "true", focusable: "false",
+        preserveAspectRatio: caja.classList.contains("up-logo") ? "xMinYMid meet" : "xMidYMid meet" });
+      const defs = nodo("defs", {});
+      const grad = nodo("linearGradient", { id: id + "b", x1: 0, x2: 1, y1: 0, y2: 0 });
+      [[0, 0], [.5, .55], [1, 0]].forEach(([o, a]) => grad.append(nodo("stop", { offset: o, "stop-color": "#8fd400", "stop-opacity": a })));
+      const rDsup = nodo("rect", { x: 40, y: 50, width: 0, height: 700 }), rHoja = nodo("rect", { x: 40, y: 480, width: 0, height: 460 });
+      const cDsup = nodo("clipPath", { id: id + "d" }), cHoja = nodo("clipPath", { id: id + "h" }), cTodo = nodo("clipPath", { id: id + "t" });
+      cDsup.append(rDsup); cHoja.append(rHoja); defs.append(grad, cDsup, cHoja, cTodo);
+      const todo = nodo("g", {}), simbolo = nodo("g", {}), texto = nodo("g", {});
+      piezas.forEach(p => {
+        const e = nodo("path", { d: p.d, fill: "#fff", "fill-rule": "evenodd" });
+        (p.n[0] === "l" ? texto : simbolo).append(e); el[p.n] = e; e.cx = (p.x0 + p.x1) / 2;
+        cTodo.append(nodo("path", { d: p.d, "clip-rule": "evenodd" }));
+      });
+      el.dsup.setAttribute("clip-path", `url(#${id}d)`); el.hoja.setAttribute("clip-path", `url(#${id}h)`);
+      const gb = nodo("g", { "clip-path": `url(#${id}t)` });
+      const banda = nodo("rect", { x: -900, y: 0, width: 700, height: 1000, fill: `url(#${id}b)`, transform: "skewX(-20)" });
+      gb.append(banda); todo.append(simbolo, texto, gb); svg.append(defs, todo);
+      const pinta = t => {
+        let k = oc(seg(t, .15, .95)); rDsup.setAttribute("width", 800 * k); el.dsup.style.opacity = cl(k * 3);
+        k = oq(seg(t, .45, 1.15)); el.dbar.setAttribute("transform", `translate(${-260 * (1 - k)} 0)`); el.dbar.style.opacity = k;
+        k = seg(t, .7, 1.45); const a = ob(k), cx = el.a.cx;
+        el.a.setAttribute("transform", `translate(${cx} 917) scale(${.82 + .18 * a}) translate(${-cx} -917) translate(0 ${170 * (1 - a)})`); el.a.style.opacity = cl(k * 2.5);
+        k = io3(seg(t, 1.15, 1.95)); rHoja.setAttribute("width", 900 * k); el.hoja.style.opacity = cl(k * 4);
+        for (let i = 0; i < 8; i++) { const e = el["l" + i]; k = oq(seg(t, 1.75 + i * .085, 2.4 + i * .085)); e.setAttribute("transform", `translate(0 ${520 * (1 - k)})`); e.style.opacity = cl(k * 1.6); }
+        k = io3(seg(t, 3.05, 3.95)); banda.setAttribute("x", -900 + 5800 * k);
+        const z = .965 + .035 * oc(seg(t, 0, 4)); todo.setAttribute("transform", `translate(2296 501) scale(${z}) translate(-2296 -501)`);
+      };
+      pinta(0); caja.append(svg); caja.classList.add("animado");
+      const t0 = performance.now();
+      const paso = ahora => { const t = (ahora - t0) / 1000; pinta(Math.min(t, 4.1)); if (t < 4.1) requestAnimationFrame(paso); };
+      requestAnimationFrame(paso);
+    };
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting || !piezas) return;
+      obs.unobserve(e.target); anima(e.target);
     }), { threshold: 0.5 });
-    logos.forEach(l => io.observe(l));
+    fetch("assets/marca/logo-piezas.json").then(r => r.ok ? r.json() : null)
+      .then(p => { if (p && p.length) { piezas = p; logos.forEach(l => obs.observe(l)); } }).catch(() => {});
   }
 
   /* Navegación */

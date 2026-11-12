@@ -11,8 +11,8 @@ if (Test-Path $Salida) { Remove-Item $Salida -Recurse -Force }
 New-Item -ItemType Directory -Force $web | Out-Null
 
 # Ficheros de la web. Fuera: git, scripts, documentación y los vídeos de marca que la web no usa
-# (de assets\marca\animacion solo se publica digiagro-logo-web.webm).
-$fuera = '\\\.git(\\|$)|\\despliegue\\|\\README\.md$|\.nojekyll$|\.py$|\.sh$|\\assets\\marca\\animacion\\(?!digiagro-logo-web\.webm$)'
+# (assets\marca\animacion no se publica: es la fuente).
+$fuera = '\\\.git(\\|$)|\\despliegue\\|\\README\.md$|\.nojekyll$|\.py$|\.sh$|\\assets\\marca\\animacion\\'
 Get-ChildItem $repo -Recurse -File -Force | Where-Object { $_.FullName -notmatch $fuera } | ForEach-Object {
     $rel = $_.FullName.Substring($repo.Length + 1)
     $dst = Join-Path $web $rel

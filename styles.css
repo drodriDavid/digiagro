@@ -211,7 +211,7 @@ a.herramienta:hover { background: #dfe7da; }
 .pubs li { box-shadow: none; border: 1px solid var(--linea); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .js .rv { opacity: 0; transform: translateY(22px); transition: opacity .7s ease var(--rv, 0ms), transform .7s cubic-bezier(.2, .7, .2, 1) var(--rv, 0ms); }
   .js .rv.visible { opacity: 1; transform: none; }
 }
 
@@ -438,12 +438,10 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .up-logo { display: block; height: clamp(40px, 5vw, 60px); width: auto; margin-bottom: clamp(18px, 2.5vw, 28px); }
 /* Logo animado (WebM con transparencia); sin soporte se queda el SVG */
 .logo-anim { position: relative; aspect-ratio: 960 / 206; }
-.logo-anim img, .logo-anim video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-.logo-anim video { opacity: 0; }
-.logo-anim.animado video { opacity: 1; }
+.logo-anim img, .logo-anim svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; overflow: visible; }
 .logo-anim.animado img { opacity: 0; }
 .up-logo.logo-anim { height: auto; width: clamp(186px, 23.3vw, 280px); }
-.up-logo.logo-anim img, .up-logo.logo-anim video { object-position: left center; }
+.up-logo.logo-anim img { object-position: left center; }
 .hero-logo { width: clamp(220px, 34vw, 480px); margin: 0 auto clamp(18px, 2.6vw, 30px); animation: entra .9s cubic-bezier(.2, .7, .2, 1) both; }
 /* SAVIA: vídeo junto a la presentación */
 .plataforma header.con-video { grid-template-columns: 130px minmax(0, 1fr) minmax(0, 360px); }

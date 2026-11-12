@@ -7,7 +7,7 @@
 # por savia.ujaen.es sigue viendo savia. HTTPS por IP sigue yendo a savia (no hay certificado para una IP).
 param(
     [string]$Ip      = "150.214.178.23",
-    [string]$Carpeta = "C:\inetpub\digiagro",
+    [string]$Carpeta = "F:\digiagro\web",
     [string]$Sitio   = "DIGIAGRO"
 )
 $ErrorActionPreference = "Stop"

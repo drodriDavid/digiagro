@@ -13,13 +13,19 @@ Contenido del paquete
    - Prueba en el navegador: http://150.214.178.23/
    - savia.ujaen.es no se toca: es otro sitio IIS. HTTPS por IP sigue llevando a savia.
 
-   INSTALADO el 12-nov-2026: sitio IIS "DIGIAGRO", contenido en F:\savia\digiagro\web.
+   INSTALADO el 12-nov-2026 y SEPARADO DE SAVIA con separar-de-savia.ps1 (como administrador):
+   todo DIGIAGRO vive en F:\digiagro, fuera de F:\savia, y no usa nada de SAVIA:
+     F:\digiagro\web              lo que sirve el sitio IIS "DIGIAGRO" (grupo de aplicaciones propio)
+     F:\digiagro\repo, \paquete   copia de este repo y paquete generado
+     F:\digiagro\sincronizar.ps1  copia de despliegue\sincronizar.ps1 que ejecuta la tarea
+     F:\digiagro\logs\sincronizar.log
 
-2) Actualizar la web más adelante: AUTOMÁTICO
-   - Basta con hacer push a main. La tarea "SAVIA autoupdate" (cada 5 min) ejecuta
-     savia-code\herramientas\sincronizar-digiagro.ps1: trae este repo a F:\savia\webs-src\digiagro,
-     lo empaqueta con despliegue\empaquetar.ps1 y lo copia en espejo al sitio. Queda anotado en
-     F:\savia\savia-web\logs\autoupdate.log ("digiagro: desplegada <commit>").
+2) Actualizar la web: AUTOMÁTICO
+   - Basta con hacer push a main. La tarea "DIGIAGRO autoupdate" (SYSTEM, cada 5 min) trae el repo,
+     lo empaqueta con despliegue\empaquetar.ps1 y lo copia en espejo a F:\digiagro\web.
+     Queda anotado en F:\digiagro\logs\sincronizar.log ("desplegada <commit>").
+   - Si cambias despliegue\sincronizar.ps1, vuelve a ejecutar separar-de-savia.ps1 como administrador
+     (la tarea usa la copia de F:\digiagro, para que un push no cambie lo que corre como SYSTEM).
    - A mano (otro servidor): empaquetar.ps1 en el PC, copiar el paquete y volver a ejecutar instalar-en-savia.ps1
 
 3) Cuando Informática dé el dominio (Murphy, como con savia)

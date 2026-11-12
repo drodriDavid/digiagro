@@ -28,7 +28,7 @@ const EN = {
   "Computación ubicua e IoT": "Ubiquitous computing and IoT",
   "Ciencia del suelo y agronomía": "Soil science and agronomy",
   "Responsable de la unidad": "Head of the unit",
-  "Profesor Titular de la Universidad de Jaén. Coordinador del Living Lab andaluz de LivingSoiLL y del Espacio de Datos de Suelos. Vicepresidente de Eurographics en España.": "Associate Professor at the University of Jaén. Coordinator of the Andalusian Living Lab of LivingSoiLL and of the Soil Data Space. Vice-president of the Spanish chapter of Eurographics.",
+  "Profesor Titular de la Universidad de Jaén. Coordinador del Living Lab Andaluz (LivingSoiLL) y del Espacio de Datos de Suelos (SOIL DATA SPACE). Vicepresidente de Eurographics en España.": "Associate Professor at the University of Jaén. Coordinator of the Andalusian Living Lab (LivingSoiLL) and of the Soil Data Space (SOIL DATA SPACE). Vice-president of the Spanish chapter of Eurographics.",
   "Contactar": "Contact",
   "Líneas de investigación": "Research lines",
   "Teledetección multisensor y fusión de datos": "Multisensor remote sensing and data fusion",

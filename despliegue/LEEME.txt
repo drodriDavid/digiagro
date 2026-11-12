@@ -1,0 +1,25 @@
+﻿WEB DE DIGIAGRO EN EL SERVIDOR DE SAVIA (150.214.178.23, IIS)
+
+Contenido del paquete
+  web\                    la web estática con su web.config
+  instalar-en-savia.ps1   crea o actualiza el sitio IIS "DIGIAGRO", accesible en http://150.214.178.23/
+  pasar-a-dominio.ps1     cuando exista digiagro.ujaen.es: añade el dominio con HTTPS y quita la IP
+
+1) Ahora, por IP
+   - Copia esta carpeta (o el .zip, y descomprímelo) al servidor, por ejemplo en C:\despliegue\digiagro
+   - PowerShell como administrador:
+       cd C:\despliegue\digiagro
+       powershell -ExecutionPolicy Bypass -File .\instalar-en-savia.ps1
+   - Prueba en el navegador: http://150.214.178.23/
+   - savia.ujaen.es no se toca: es otro sitio IIS. HTTPS por IP sigue llevando a savia.
+
+2) Actualizar la web más adelante
+   - En el PC: powershell -File despliegue\empaquetar.ps1   (dentro del repo digiagro)
+   - Copia el paquete nuevo al servidor y vuelve a ejecutar instalar-en-savia.ps1
+
+3) Cuando Informática dé el dominio (Murphy, como con savia)
+   - Pide: alias DNS digiagro.ujaen.es -> inteliga.ujaen.es (150.214.178.23) y certificado (CSR con su script)
+   - Con el .pfx (o la huella del certificado ya importado):
+       powershell -ExecutionPolicy Bypass -File .\pasar-a-dominio.ps1 -Pfx C:\certs\digiagro.pfx
+   - Para crear el .pfx a partir de lo que mandan (.pem completo + tu .key):
+       openssl pkcs12 -export -in digiagro_ujaen_es_completo.pem -inkey digiagro.ujaen.es.key -out digiagro.pfx

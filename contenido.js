@@ -277,7 +277,7 @@ const ENLACES = [
   { n: "LivingSoiLL", l: "assets/proyectos/livingsoill.png", u: "https://livingsoill.eu/" },
   { n: "Espacio de Datos Federado de Suelos", l: "assets/proyectos/soil-dataspace.png", u: "https://soildataspace.es/home" },
   { n: "SAVIA", l: "assets/logos/savia-logo-vertical.png", u: "https://savia.ujaen.es/" },
-  { n: "AeroLab", l: "assets/logos/aerolab.svg", u: "https://drodridavid.github.io/aerolab/" },
+  { n: "AeroLab", l: "assets/logos/aerolab.svg", u: "aerolab/" },
   { n: "CEATIC", l: "assets/logos/ceatic.png", u: "https://www.ujaen.es/centros/ceatic/" },
 ];
 

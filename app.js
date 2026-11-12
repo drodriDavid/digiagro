@@ -23,7 +23,7 @@
   /* Muestra del equipamiento dentro de AeroLab */
   [["muestra-uav", ["matrice400", "m300", "mavic3m", "mavic3t"]], ["muestra-sensores", ["p1", "scoutultra", "rededgemx", "nanohyperspec"]]].forEach(([dest, ids]) => ids.forEach(id => {
     const e = EQUIPOS.find(x => x.id === id); if (!e) return;
-    const a = crea("a", "muestra-item"); a.href = "https://drodridavid.github.io/aerolab/"; a.rel = "noopener";
+    const a = crea("a", "muestra-item"); a.href = "aerolab/"; a.rel = "noopener";
     const i = crea("img"); i.src = e.img; i.alt = ""; i.loading = "lazy";
     a.append(i, crea("b", "", e.nombre.replace(/ \(.*\)$/, "")), crea("span", "", e.lema));
     $(dest).append(a);

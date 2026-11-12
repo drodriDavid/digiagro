@@ -89,7 +89,8 @@
   /* Logo de la portada animado por zonas del mismo PNG (sirve en todos los navegadores, también iPhone).
      Zonas sobre 1100x737: dron, la A con el arco, píxeles y relieve, sello DIGIAGRO, palabra y lema. */
   .logo-capas{aspect-ratio:1100/737}
-  .logo-capas .capa{position:absolute;inset:0;background:url("assets/img/aerolab-white.png?v=27") center/100% 100% no-repeat}
+  .logo-capas .capa,.logo-capas .capa i{position:absolute;inset:0}
+  .logo-capas .capa i{background:url("assets/img/aerolab-white.png?v=27") center/100% 100% no-repeat}
   .capa-dron{clip-path:inset(16.5% 65.5% 67.5% 18%)}
   .capa-a{clip-path:polygon(0 0,52.3% 0,52.3% 66.6%,0 66.6%,0 32.5%,34.5% 32.5%,34.5% 16.5%,0 16.5%)}
   .capa-pixeles{clip-path:inset(0 24.5% 33.4% 52.3%)}
@@ -102,7 +103,7 @@
     .capa-pixeles{-webkit-mask:linear-gradient(90deg,#000 47%,transparent 53%) 100% 0/300% 100% no-repeat;
       mask:linear-gradient(90deg,#000 47%,transparent 53%) 100% 0/300% 100% no-repeat;
       animation:al-pixeles 1.1s steps(9,end) 1.3s both}
-    .capa-palabra{animation:al-palabra .9s cubic-bezier(.2,.7,.2,1) 1.7s both}
+    .capa-palabra i{animation:al-palabra .9s cubic-bezier(.2,.7,.2,1) 1.7s both}
     .capa-lema{animation:al-aparece .8s ease 2.4s both}
     .capa-sello{animation:al-sello .8s cubic-bezier(.2,.7,.2,1) 2.7s both}
   }

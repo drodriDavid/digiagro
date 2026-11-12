@@ -266,8 +266,8 @@ const PERSONAS = [
   {"n": "Francisco Daniel Pérez Cano", "f": "assets/equipo/francisco-daniel-perez.webp", "c": "Profesor Ayudante Doctor", "a": "Lenguajes y Sistemas Informáticos", "e": "fdperez@ujaen.es", "o": "0000-0002-8065-8173"},
   {"n": "María Isabel Ramos Galán", "f": "assets/equipo/maria-isabel-ramos.webp", "c": "Profesora Titular", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "miramos@ujaen.es", "o": "0000-0002-3006-4166"},
   {"n": "Antonio Miguel Ruiz Armenteros", "f": "assets/equipo/antonio-miguel-ruiz.webp", "c": "Catedrático de Universidad", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "amruiz@ujaen.es", "o": "0000-0002-1798-7521"},
-  {"n": "Elena Carmona Vallecillo", "c": "Estudiante de doctorado", "a": "Informática"},
-  {"n": "Rubén Sanabria Díaz", "c": "Estudiante de doctorado", "a": "Informática", "e": "sanabria@ujaen.es", "o": "0009-0001-2687-9290"},
+  {"n": "Elena Carmona Vallecillo", "f": "assets/equipo/elena-carmona.webp", "c": "Estudiante de doctorado", "a": "Informática"},
+  {"n": "Rubén Sanabria Díaz", "f": "assets/equipo/ruben-sanabria.webp", "c": "Estudiante de doctorado", "a": "Informática", "e": "sanabria@ujaen.es", "o": "0009-0001-2687-9290"},
   {"n": "Gloria Paterna Sánchez", "f": "assets/equipo/gloria-paterna.webp", "c": "Gestión de proyectos", "a": "Sociología", "e": "gpaterna@ujaen.es", "o": "0000-0001-6813-269X"},
 ];
 

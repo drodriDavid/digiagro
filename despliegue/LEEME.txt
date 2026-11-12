@@ -34,3 +34,17 @@ Contenido del paquete
        powershell -ExecutionPolicy Bypass -File .\pasar-a-dominio.ps1 -Pfx C:\certs\digiagro.pfx
    - Para crear el .pfx a partir de lo que mandan (.pem completo + tu .key):
        openssl pkcs12 -export -in digiagro_ujaen_es_completo.pem -inkey digiagro.ujaen.es.key -out digiagro.pfx
+
+4) Panel de estado: http://150.214.178.23/estado/   (instalado el 12-nov-2026)
+   - Dice si responden SAVIA (web, /health, API interna 127.0.0.1:8010), los cuadernos (cada
+     /cuadernos/<id>/ con portada en F:\savia\savia-web\iis-site\cuadernos y /api/cuadernos/salud)
+     y esta web. Código HTTP, tiempo, hora, últimas 12 h e incidencias. Vive en el sitio DIGIAGRO,
+     no en el de SAVIA.
+   - La página es estado\index.html (llega con el despliegue normal). Los datos los escribe la tarea
+     "DIGIAGRO estado" (SYSTEM, cada 2 min) en F:\digiagro\estado\datos\estado.json, servido por el
+     directorio virtual /estado/datos (fuera de F:\digiagro\web, así el robocopy /MIR no lo borra).
+   - Caída = 2 fallos seguidos: incidencia, evento en Aplicación (origen "DIGIAGRO estado") y correo
+     a SAVIA_ADMIN_EMAIL con el SMTP de máquina (SAVIA_SMTP_*). Otro correo al recuperarse.
+   - Instalar o actualizar (si cambia despliegue\estado\comprobar.ps1), como administrador:
+       powershell -ExecutionPolicy Bypass -File despliegue\estado\instalar-estado.ps1 [-PruebaCorreo]
+   - Registro: F:\digiagro\estado\logs\comprobar.log

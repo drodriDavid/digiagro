@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light">
+<title>Estado de los servicios</title>
+<link rel="icon" id="favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23999'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --verde: #007336; --lima: #8fd400; --oscuro: #0b3d24;
+    --tinta: #2d2d2d; --gris: #5f6360; --linea: #d9dcd8; --fondo: #f4f5f3;
+    --mal: #b3261e; --mal-fondo: #fdecea; --dudoso: #b26a00; --dudoso-fondo: #fff4e0;
+    --bien-fondo: #eaf5ee;
+    --degradado: linear-gradient(90deg, #007336 0%, #8fd400 100%);
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: light; }
+  body { margin: 0; background: var(--fondo); color: var(--tinta); font: 16px/1.5 "Lato", system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .franja { height: 6px; background: var(--degradado); }
+  header, main, footer { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding-top: 24px; padding-bottom: 8px; }
+  h1 { margin: 0; font-size: 1.6rem; color: var(--verde); font-weight: 900; }
+  h1 small { display: block; font-size: .9rem; font-weight: 400; color: var(--gris); }
+  .meta { font-size: .9rem; color: var(--gris); text-align: right; }
+  .meta button { margin-left: 8px; border: 1px solid var(--verde); background: #fff; color: var(--verde); border-radius: 6px; padding: 3px 10px; font: inherit; cursor: pointer; }
+  .meta button:hover { background: var(--bien-fondo); }
+
+  .resumen { margin: 16px 0 8px; padding: 14px 18px; border-radius: 10px; border-left: 6px solid var(--verde); background: var(--bien-fondo); font-weight: 700; }
+  .resumen.mal { border-color: var(--mal); background: var(--mal-fondo); color: var(--mal); }
+  .resumen.dudoso { border-color: var(--dudoso); background: var(--dudoso-fondo); color: var(--dudoso); }
+  .resumen span { display: block; font-weight: 400; color: var(--tinta); font-size: .92rem; }
+
+  section { margin: 22px 0; }
+  h2 { font-size: 1.05rem; margin: 0 0 8px; color: var(--oscuro); text-transform: uppercase; letter-spacing: .04em; display: flex; gap: 10px; align-items: center; }
+  h2 .cuenta { font-size: .8rem; font-weight: 400; color: var(--gris); text-transform: none; letter-spacing: 0; }
+
+  .tabla { background: #fff; border: 1px solid var(--linea); border-radius: 10px; overflow: hidden; }
+  .fila { display: grid; grid-template-columns: 22px minmax(150px, 1.4fr) 64px 76px minmax(150px, 2fr) 64px; gap: 6px 12px; align-items: center; padding: 10px 14px; border-top: 1px solid var(--linea); }
+  .fila:first-child { border-top: 0; }
+  .fila.cabecera { font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--gris); padding-top: 8px; padding-bottom: 8px; background: #fafbfa; }
+  .punto { width: 14px; height: 14px; border-radius: 50%; background: var(--verde); box-shadow: 0 0 0 3px #d7eedd; }
+  .punto.mal { background: var(--mal); box-shadow: 0 0 0 3px #f6cfcb; }
+  .punto.dudoso { background: var(--dudoso); box-shadow: 0 0 0 3px #f5dfba; }
+  .nombre b { display: block; font-weight: 700; }
+  .nombre a { font-size: .8rem; color: var(--gris); text-decoration: none; word-break: break-all; }
+  .nombre a:hover { text-decoration: underline; }
+  .nombre .motivo { display: block; font-size: .82rem; color: var(--mal); }
+  .num { font-variant-numeric: tabular-nums; text-align: right; }
+  .codigo.mal { color: var(--mal); font-weight: 700; }
+  .lento { color: var(--dudoso); font-weight: 700; }
+  .barras { display: flex; gap: 1px; height: 26px; align-items: stretch; }
+  .barras i { flex: 1 1 0; min-width: 1px; border-radius: 1px; background: var(--verde); opacity: .85; }
+  .barras i.mal { background: var(--mal); opacity: 1; }
+  .barras i.vacio { background: var(--linea); }
+  .disp { font-size: .85rem; }
+  .pie-barras { display: flex; justify-content: space-between; font-size: .72rem; color: var(--gris); }
+
+  .incidencias { background: #fff; border: 1px solid var(--linea); border-radius: 10px; }
+  .incidencias table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  .incidencias th, .incidencias td { text-align: left; padding: 8px 14px; border-top: 1px solid var(--linea); vertical-align: top; }
+  .incidencias th { border-top: 0; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--gris); font-weight: 400; background: #fafbfa; }
+  .abierta { color: var(--mal); font-weight: 700; }
+  .vacia { padding: 14px; color: var(--gris); }
+
+  footer { padding-bottom: 32px; font-size: .82rem; color: var(--gris); }
+  footer p { margin: 4px 0; }
+
+  @media (max-width: 760px) {
+    .fila { grid-template-columns: 22px 1fr auto auto; }
+    .fila.cabecera { display: none; }
+    .fila .hist { grid-column: 2 / -1; }
+    .fila .disp { grid-column: 2 / -1; text-align: left; }
+    .incidencias th:nth-child(3), .incidencias td:nth-child(3) { display: none; }
+    .meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="franja"></div>
+<header>
+  <h1>Estado de los servicios <small>SAVIA, cuadernos y web de DIGIAGRO · comprobado desde el servidor</small></h1>
+  <div class="meta">
+    <span id="ultima">Cargando…</span>
+    <button type="button" id="recargar">Actualizar</button>
+  </div>
+</header>
+<main>
+  <div class="resumen" id="resumen">Cargando el estado…</div>
+  <div id="grupos"></div>
+  <section>
+    <h2>Incidencias recientes <span class="cuenta" id="cuenta-inc"></span></h2>
+    <div class="incidencias" id="incidencias"><div class="vacia">Sin datos.</div></div>
+  </section>
+</main>
+<footer>
+  <p>Una tarea del servidor comprueba cada servicio cada 2 minutos. Se considera caído tras 2 fallos seguidos; entonces se abre una incidencia<span id="nota-correo"></span>.</p>
+  <p>Las barras muestran las últimas 12 horas (verde: responde bien; rojo: fallo). Tiempos de más de 2 s se marcan como lentos. La página se actualiza sola cada minuto.</p>
+</footer>
+<script>
+(function () {
+  'use strict';
+  var URL_DATOS = 'datos/estado.json';
+  var ORDEN = ['SAVIA', 'Cuadernos', 'DIGIAGRO'];
+  var LENTO_MS = 2000;
+  var BARRAS = 72;
+  var previos = null;
+
+  var fmtHora = new Intl.DateTimeFormat('es-ES', { timeZone: 'Europe/Madrid', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  var fmtFecha = new Intl.DateTimeFormat('es-ES', { timeZone: 'Europe/Madrid', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function hace(iso) {
+    var s = Math.round((Date.now() - new Date(iso).getTime()) / 1000);
+    if (s < 60) return 'hace ' + Math.max(s, 0) + ' s';
+    if (s < 3600) return 'hace ' + Math.round(s / 60) + ' min';
+    if (s < 86400) return 'hace ' + Math.round(s / 3600) + ' h';
+    return 'hace ' + Math.round(s / 86400) + ' d';
+  }
+  function duracion(a, b) {
+    var m = Math.round(((b ? new Date(b) : new Date()) - new Date(a)) / 60000);
+    if (m < 60) return m + ' min';
+    var h = Math.floor(m / 60);
+    return h < 48 ? h + ' h ' + (m % 60) + ' min' : Math.round(h / 24) + ' d';
+  }
+  function corta(url) { return url.replace(/^https?:\/\//, ''); }
+  function favicon(color) {
+    $('favicon').href = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='" + encodeURIComponent(color) + "'/%3E%3C/svg%3E";
+  }
+  function pitido() {
+    try {
+      var C = window.AudioContext || window.webkitAudioContext; if (!C) return;
+      var ctx = new C(), o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.value = 880; g.gain.value = 0.08; o.connect(g); g.connect(ctx.destination);
+      o.start(); o.stop(ctx.currentTime + 0.35);
+    } catch (e) { /* sin sonido */ }
+  }
+
+  function fila(s) {
+    var estado = s.ok ? '' : (s.caido ? 'mal' : 'dudoso');
+    var h = s.historial || [];
+    var ok = 0; h.forEach(function (x) { if (x[1]) ok++; });
+    var disp = h.length ? (100 * ok / h.length) : null;
+    var ult = h.slice(-BARRAS);
+    var barras = '';
+    for (var i = 0; i < BARRAS - ult.length; i++) barras += '<i class="vacio"></i>';
+    ult.forEach(function (x) {
+      var t = fmtFecha.format(new Date(x[0] * 1000)) + ' · ' + (x[1] ? 'bien' : 'fallo') + ' · HTTP ' + (x[3] || '—') + ' · ' + x[2] + ' ms';
+      barras += '<i class="' + (x[1] ? '' : 'mal') + '" title="' + esc(t) + '"></i>';
+    });
+    var desde = h.length ? fmtFecha.format(new Date(h[Math.max(0, h.length - BARRAS)][0] * 1000)) : '';
+    var motivo = s.ok ? '' : '<span class="motivo">' + esc(s.motivo || 'Fallo') + (s.caido ? ' · caído desde ' + esc(fmtFecha.format(new Date(s.desde))) : ' · primer fallo, se vuelve a comprobar') + '</span>';
+    return '<div class="fila" role="row">' +
+      '<span class="punto ' + estado + '" role="img" aria-label="' + (s.ok ? 'Funciona' : (s.caido ? 'Caído' : 'Fallo puntual')) + '"></span>' +
+      '<span class="nombre"><b>' + esc(s.nombre) + '</b><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(corta(s.url)) + '</a>' + motivo + '</span>' +
+      '<span class="num codigo ' + (s.codigo === 200 ? '' : 'mal') + '" title="Código HTTP">' + (s.codigo || '—') + '</span>' +
+      '<span class="num ' + (s.ms > LENTO_MS ? 'lento' : '') + '" title="Tiempo de respuesta">' + s.ms + ' ms</span>' +
+      '<span class="hist"><span class="barras">' + barras + '</span><span class="pie-barras"><span>' + esc(desde) + '</span><span>ahora</span></span></span>' +
+      '<span class="num disp" title="Disponibilidad en el periodo">' + (disp == null ? '—' : (disp === 100 ? '100' : disp.toFixed(1)) + ' %') + '</span>' +
+      '</div>';
+  }
+
+  function pinta(d) {
+    var serv = d.servicios || [];
+    var edad = (Date.now() - new Date(d.generado).getTime()) / 1000;
+    var parado = edad > Math.max(600, (d.intervalo_s || 120) * 5);
+    var caidos = serv.filter(function (s) { return s.caido; });
+    var dudosos = serv.filter(function (s) { return !s.ok && !s.caido; });
+
+    $('ultima').textContent = 'Última comprobación: ' + fmtHora.format(new Date(d.generado)) + ' (' + hace(d.generado) + ')';
+    var r = $('resumen');
+    if (parado) {
+      r.className = 'resumen dudoso';
+      r.innerHTML = 'El comprobador no se ha ejecutado desde ' + esc(fmtFecha.format(new Date(d.generado))) + '<span>Los datos pueden no estar al día: revisa la tarea programada «DIGIAGRO estado» en el servidor.</span>';
+    } else if (caidos.length) {
+      r.className = 'resumen mal';
+      r.innerHTML = (caidos.length === 1 ? '1 servicio caído' : caidos.length + ' servicios caídos') + '<span>' + caidos.map(function (s) { return esc(s.grupo + ' · ' + s.nombre); }).join(', ') + '</span>';
+    } else if (dudosos.length) {
+      r.className = 'resumen dudoso';
+      r.innerHTML = 'Fallo puntual en ' + dudosos.length + (dudosos.length === 1 ? ' servicio' : ' servicios') + '<span>Se confirma en la siguiente comprobación: ' + dudosos.map(function (s) { return esc(s.grupo + ' · ' + s.nombre); }).join(', ') + '</span>';
+    } else {
+      r.className = 'resumen';
+      r.innerHTML = 'Todo funciona<span>' + serv.length + ' comprobaciones correctas.</span>';
+    }
+    document.title = (caidos.length ? '(' + caidos.length + ' caído) ' : '') + 'Estado de los servicios';
+    favicon(parado || dudosos.length ? '#b26a00' : (caidos.length ? '#b3261e' : '#007336'));
+
+    // Aviso en la propia página cuando algo pasa a caído mientras está abierta
+    if (previos) {
+      var nuevos = caidos.filter(function (s) { return !previos[s.id]; });
+      if (nuevos.length) pitido();
+    }
+    previos = {}; caidos.forEach(function (s) { previos[s.id] = true; });
+
+    var grupos = {};
+    serv.forEach(function (s) { (grupos[s.grupo] = grupos[s.grupo] || []).push(s); });
+    var html = '';
+    ORDEN.concat(Object.keys(grupos).filter(function (g) { return ORDEN.indexOf(g) < 0; })).forEach(function (g) {
+      var lista = grupos[g]; if (!lista) return;
+      var bien = lista.filter(function (s) { return s.ok; }).length;
+      html += '<section><h2>' + esc(g) + ' <span class="cuenta">' + bien + ' de ' + lista.length + ' bien</span></h2>' +
+        '<div class="tabla" role="table">' +
+        '<div class="fila cabecera" role="row"><span></span><span>Servicio</span><span class="num">HTTP</span><span class="num">Tiempo</span><span>Últimas 12 h</span><span class="num">Disp.</span></div>' +
+        lista.map(fila).join('') + '</div></section>';
+    });
+    $('grupos').innerHTML = html;
+
+    var inc = d.incidencias || [];
+    $('cuenta-inc').textContent = inc.length ? '(' + inc.length + ')' : '';
+    $('incidencias').innerHTML = inc.length ?
+      '<table><thead><tr><th>Servicio</th><th>Inicio</th><th>Duración</th><th>Motivo</th></tr></thead><tbody>' +
+      inc.map(function (i) {
+        return '<tr><td>' + esc(i.nombre) + '</td><td>' + esc(fmtFecha.format(new Date(i.inicio))) + '</td>' +
+          '<td>' + (i.fin ? duracion(i.inicio, i.fin) : '<span class="abierta">En curso (' + duracion(i.inicio) + ')</span>') + '</td>' +
+          '<td>' + esc(i.motivo || '') + '</td></tr>';
+      }).join('') + '</tbody></table>' :
+      '<div class="vacia">No ha habido caídas desde que se empezó a vigilar.</div>';
+    $('nota-correo').textContent = d.aviso_correo ? ', se anota en el registro de eventos del servidor y se avisa por correo (también cuando se recupera)' : ' y se anota en el registro de eventos del servidor';
+  }
+
+  function carga() {
+    fetch(URL_DATOS + '?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(pinta)
+      .catch(function (e) {
+        var r = $('resumen');
+        r.className = 'resumen dudoso';
+        r.innerHTML = 'No se pueden leer los datos del comprobador<span>' + esc(e.message) + '. Si persiste, revisa el directorio virtual /estado/datos del sitio DIGIAGRO.</span>';
+        favicon('#b26a00');
+      });
+  }
+  $('recargar').addEventListener('click', carga);
+  carga();
+  setInterval(carga, 60000);
+})();
+</script>
+</body>
+</html>

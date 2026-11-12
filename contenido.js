@@ -252,7 +252,7 @@ const PUBLICACIONES = [
 const PERSONAS = [
   {"n": "Juan Manuel Jurado Rodríguez", "f": "assets/equipo/juan-manuel-jurado.webp", "c": "Responsable de la unidad · Profesor Titular", "a": "Lenguajes y Sistemas Informáticos", "d": true, "e": "jjurado@ujaen.es", "o": "0000-0002-8009-9033"},
   {"n": "Julio Antonio Calero González", "f": "assets/equipo/julio-calero.webp", "c": "Profesor Titular", "a": "Edafología y Química Agrícola", "e": "jcalero@ujaen.es", "o": "0000-0003-2606-307X"},
-  {"n": "Andressa De Sousa Cardoso", "c": "Investigadora predoctoral", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "asousa@ujaen.es"},
+  {"n": "Andressa De Sousa Cardoso", "f": "assets/equipo/andressa-de-sousa.webp", "c": "Investigadora predoctoral", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "asousa@ujaen.es"},
   {"n": "Juan José Cubillas Mercado", "f": "assets/equipo/juan-jose-cubillas.webp", "c": "Profesor", "a": "Lenguajes y Sistemas Informáticos", "e": "juanjose.cubillas@unir.net", "o": "0000-0002-5138-8872"},
   {"n": "Luis René Domínguez Fuentes", "f": "assets/equipo/luis-rene-dominguez.webp", "c": "Estudiante de doctorado", "a": "Lenguajes y Sistemas Informáticos", "e": "lrdoming@ujaen.es", "o": "0009-0005-8726-5005"},
   {"n": "Carlos Enríquez Turiño", "f": "assets/equipo/carlos-enriquez.webp", "c": "Profesor Titular", "a": "Ingeniería Cartográfica, Geodésica y Fotogrametría", "e": "cenrique@ujaen.es", "o": "0000-0002-0070-0133"},

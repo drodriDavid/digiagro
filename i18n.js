@@ -1,6 +1,10 @@
 /* Traducción al inglés. Clave: texto en español tal y como aparece (espacios colapsados). */
 const EN = {
   "Saltar al contenido": "Skip to content",
+  "Información legal": "Legal information",
+  "Aviso legal": "Legal notice",
+  "Privacidad": "Privacy",
+  "Accesibilidad": "Accessibility",
   "Universidad de Jaén": "University of Jaén",
   "INUO, Instituto Universitario de Investigación en Olivar y Aceites de Oliva": "INUO, University Institute for Research on Olive Groves and Olive Oils",
   "Abrir menú": "Open menu",

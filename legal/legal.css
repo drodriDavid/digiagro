@@ -1,0 +1,46 @@
+/* Páginas legales de DIGIAGRO: mismas fuentes y colores que la web principal, solo modo claro */
+:root {
+  --verde: #007336;
+  --lima: #8fd400;
+  --oscuro: #0b3d24;
+  --marron: #8f5c30;
+  --tinta: #2d2d2d;
+  --gris: #5f6360;
+  --linea: #d9dcd8;
+  --degradado: linear-gradient(90deg, #007336 0%, #8fd400 100%);
+  color-scheme: light;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { font: 400 1rem/1.7 Lato, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--tinta); background: #fff; }
+a { color: var(--verde); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--marron); outline-offset: 3px; }
+.saltar { position: absolute; left: -999px; top: 8px; background: #fff; padding: 8px 14px; z-index: 10; }
+.saltar:focus { left: 8px; }
+
+.franja { height: 6px; background: var(--degradado); }
+.cabecera { border-bottom: 1px solid var(--linea); }
+.cabecera .dentro { max-width: 46rem; margin: 0 auto; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.cabecera img { display: block; height: 34px; width: auto; }
+.cabecera a.volver { font-weight: 700; text-decoration: none; }
+.cabecera a.volver:hover { text-decoration: underline; }
+
+main { max-width: 46rem; margin: 0 auto; padding: clamp(28px, 6vw, 56px) 20px clamp(36px, 6vw, 64px); }
+h1 { font-weight: 900; font-size: clamp(1.75rem, 4.2vw, 2.4rem); line-height: 1.15; color: var(--oscuro); }
+.fecha { margin-top: 10px; color: var(--gris); font-size: .9375rem; }
+h2 { margin-top: 2.2em; font-weight: 900; font-size: 1.15rem; color: var(--verde); }
+p, li { margin-top: .7em; }
+ul { padding-left: 1.3em; }
+li::marker { color: var(--verde); }
+code { font: .9em/1 ui-monospace, Consolas, monospace; background: #f1f3f0; padding: 2px 6px; border-radius: 3px; }
+dl { margin-top: .8em; display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; }
+dt { font-weight: 700; }
+@media (max-width: 560px) { dl { grid-template-columns: 1fr; gap: 0; } dd { margin-bottom: 8px; } }
+
+.pie { background: var(--degradado); color: #fff; }
+.pie .dentro { max-width: 46rem; margin: 0 auto; padding: 26px 20px; }
+.pie nav ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.pie nav li { margin: 0; }
+.pie a { color: #fff; font-weight: 700; }
+.pie a[aria-current="page"] { text-decoration-thickness: 2px; }
+.pie p { margin-top: 12px; font-size: .9375rem; }

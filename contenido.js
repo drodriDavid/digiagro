@@ -260,7 +260,7 @@ const PERSONAS = [
   {"n": "Juan Roberto Jiménez Pérez", "f": "assets/equipo/juan-roberto-jimenez.webp", "c": "Profesor Titular", "a": "Lenguajes y Sistemas Informáticos", "e": "rjimenez@ujaen.es", "o": "0000-0002-1233-2294"},
   {"n": "David Jurado Rodríguez", "f": "assets/equipo/david-jurado.webp", "c": "Investigador doctor", "a": "Lenguajes y Sistemas Informáticos", "e": "drodrigu@ujaen.es", "o": "0000-0003-2408-4926"},
   {"n": "Pablo Latorre Hortelano", "f": "assets/equipo/pablo-latorre.webp", "c": "Estudiante de doctorado", "a": "Informática", "e": "phortela@ujaen.es", "o": "0009-0000-7975-1816"},
-  {"n": "Juan Manuel Martín García", "f": "assets/equipo/juan-manuel-martin.webp", "c": "Profesor Titular", "a": "Edafología y Química Agrícola", "e": "jmmartingarcia@ugr.es"},
+  {"n": "Juan Manuel Martín García", "f": "assets/equipo/juan-manuel-martin.webp", "c": "Profesor Titular", "a": "Edafología y Química Agrícola", "e": "jmmartingarcia@ugr.es", "o": "0000-0003-0759-0640"},
   {"n": "Lidia Ortega Alvarado", "f": "assets/equipo/lidia-ortega.webp", "c": "Profesora Titular", "a": "Lenguajes y Sistemas Informáticos", "e": "lidia@ujaen.es", "o": "0000-0002-7320-7382"},
   {"n": "Gema Parra Cabrera", "f": "assets/equipo/gema-parra.webp", "c": "Profesora Ayudante Doctora", "a": "Informática · Universidad Politécnica de Madrid", "e": "gparras@ujaen.es", "o": "0000-0003-0364-8657"},
   {"n": "Francisco Daniel Pérez Cano", "f": "assets/equipo/francisco-daniel-perez.webp", "c": "Profesor Ayudante Doctor", "a": "Lenguajes y Sistemas Informáticos", "e": "fdperez@ujaen.es", "o": "0000-0002-8065-8173"},

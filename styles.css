@@ -362,6 +362,10 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .up-responsable h3 { font-size: 1.2rem; line-height: 1.2; font-weight: 900; }
 .up-responsable p { color: #dbe8df; font-size: .9375rem; line-height: 1.38; margin-top: 3px; }
 .up-responsable .boton-claro { flex: none; color: #fff; }
+.up-orcid { display: inline-flex; align-items: center; gap: 7px; margin-top: 7px; color: #fff; font-size: .875rem; font-weight: 700; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.up-orcid svg { flex: none; }
+.up-orcid span { color: inherit; font-size: inherit; font-weight: inherit; }
+@media (max-width: 600px) { .up-orcid { white-space: nowrap; overflow-wrap: normal; } .up-orcid span { display: none; } }
 @media (max-width: 760px) { .up-responsable { flex-wrap: wrap; } .up-responsable div { flex-basis: calc(100% - 110px); } }
 
 /* Enlaces: solo logotipos */

@@ -1,6 +1,7 @@
 /* Traducción al inglés. Clave: texto en español tal y como aparece (espacios colapsados). */
 const EN = {
   "Saltar al contenido": "Skip to content",
+  "Perfil ORCID de Juan Manuel Jurado Rodríguez": "ORCID profile of Juan Manuel Jurado Rodríguez",
   "Información legal": "Legal information",
   "Aviso legal": "Legal notice",
   "Privacidad": "Privacy",

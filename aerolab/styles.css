@@ -89,31 +89,31 @@
   /* Logo de la portada animado por zonas del mismo PNG (sirve en todos los navegadores, también iPhone).
      Zonas sobre 1100x737: dron, la A con el arco, píxeles y relieve, sello DIGIAGRO, palabra y lema. */
   .logo-capas{aspect-ratio:1100/737}
-  .logo-capas .capa,.logo-capas .capa i{position:absolute;inset:0}
-  .logo-capas .capa i{background:url("assets/img/aerolab-white.png?v=27") center/100% 100% no-repeat}
-  .capa-dron{clip-path:inset(16.5% 65.5% 67.5% 18%)}
-  .capa-a{clip-path:polygon(0 0,52.3% 0,52.3% 66.6%,0 66.6%,0 32.5%,34.5% 32.5%,34.5% 16.5%,0 16.5%)}
-  .capa-pixeles{clip-path:inset(0 24.5% 33.4% 52.3%)}
-  .capa-sello{clip-path:inset(0 0 33.4% 75.5%)}
-  .capa-palabra{clip-path:inset(66.6% 0 17.2% 0)}
-  .capa-lema{clip-path:inset(82.8% 0 0 0)}
+  .logo-capas .p{position:absolute;display:block;background:url("assets/img/aerolab-piezas.webp?v=2") no-repeat}
   @media (prefers-reduced-motion: no-preference){
-    .capa-a{animation:al-a 1s cubic-bezier(.2,.7,.2,1) .1s both}
-    .capa-dron{animation:al-dron 1.3s cubic-bezier(.22,.8,.25,1) .7s both, al-flota 2.4s ease-in-out 2s 2}
-    .capa-pixeles{-webkit-mask:linear-gradient(90deg,#000 47%,transparent 53%) 100% 0/300% 100% no-repeat;
-      mask:linear-gradient(90deg,#000 47%,transparent 53%) 100% 0/300% 100% no-repeat;
-      animation:al-pixeles 1.1s steps(9,end) 1.3s both}
-    .capa-palabra i{animation:al-palabra .9s cubic-bezier(.2,.7,.2,1) 1.7s both}
-    .capa-lema{animation:al-aparece .8s ease 2.4s both}
-    .capa-sello{animation:al-sello .8s cubic-bezier(.2,.7,.2,1) 2.7s both}
+    .p-a,.p-relieve{-webkit-mask:linear-gradient(to top,#000 42%,transparent 58%) 0 100%/100% 300% no-repeat;
+      mask:linear-gradient(to top,#000 42%,transparent 58%) 0 100%/100% 300% no-repeat}
+    .p-a{animation:al-sube 1.1s cubic-bezier(.3,.6,.2,1) .05s both}
+    .p-relieve{animation:al-sube .9s cubic-bezier(.3,.6,.2,1) 1.05s both}
+    .p-dron{animation:al-dron 1.4s cubic-bezier(.25,.8,.3,1) .45s both, al-flota 3.4s ease-in-out 1.9s infinite}
+    .p-pixel{animation:al-pixel .45s cubic-bezier(.3,1.5,.5,1) calc(.95s + var(--i)*45ms) both}
+    .p-barras{transform-origin:50% 100%;animation:al-barras .8s cubic-bezier(.3,1.35,.5,1) 1.45s both}
+    .p-letra{animation:al-letra .75s cubic-bezier(.2,.75,.2,1) calc(1.5s + var(--i)*75ms) both}
+    .p-sellolinea{transform-origin:0 50%;animation:al-raya .6s cubic-bezier(.2,.7,.2,1) 2.15s both}
+    .p-sello{animation:al-sello .45s cubic-bezier(.2,.7,.2,1) calc(2.25s + var(--i)*50ms) both}
+    .p-raya{transform-origin:var(--o) 50%;animation:al-raya .6s cubic-bezier(.2,.7,.2,1) 2.35s both}
+    .p-lema{animation:al-fade .5s ease calc(2.45s + var(--i)*18ms) both}
   }
-  @keyframes al-a{from{opacity:0;transform:translateY(6%) scale(.97)}}
-  @keyframes al-dron{from{opacity:0;transform:translate(-26%,22%) rotate(-10deg)}60%{opacity:1}}
-  @keyframes al-flota{50%{transform:translateY(-1.2%)}}
-  @keyframes al-pixeles{from{-webkit-mask-position:100% 0;mask-position:100% 0}to{-webkit-mask-position:0 0;mask-position:0 0}}
-  @keyframes al-palabra{from{transform:translateY(16.5%)}}
-  @keyframes al-aparece{from{opacity:0}}
-  @keyframes al-sello{from{opacity:0;transform:translateX(3%)}}
+  @keyframes al-sube{from{-webkit-mask-position:0 0;mask-position:0 0;transform:translateY(3%)}}
+  @keyframes al-dron{0%{opacity:0;transform:translate(-95%,75%) rotate(-16deg) scale(.7)}30%{opacity:1}
+    70%{transform:translate(3%,-5%) rotate(4deg) scale(1.02)}100%{transform:none}}
+  @keyframes al-flota{50%{transform:translateY(-5%) rotate(1.5deg)}}
+  @keyframes al-pixel{from{opacity:0;transform:scale(0)}}
+  @keyframes al-barras{from{transform:scaleY(0)}}
+  @keyframes al-letra{from{opacity:0;transform:translateY(40%)}}
+  @keyframes al-sello{from{opacity:0;transform:translateY(-45%)}}
+  @keyframes al-raya{from{transform:scaleX(0)}}
+  @keyframes al-fade{from{opacity:0}}
   .hero-project{position:relative;z-index:2;margin-top:18px;display:inline-flex;align-items:center;
     font-size:.82rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:#fff;
     padding:7px 18px 7px 20px;border:1px solid rgba(255,255,255,.45);border-radius:999px;
@@ -479,3 +479,16 @@
     .hero-feature::before{animation:none}
     .marquee-track{animation:none}
   }
+  /* Qué hacemos: tecnologías de captura */
+  .capas-grid{display:grid;gap:14px;grid-template-columns:repeat(5,1fr);margin:26px 0 clamp(48px,7vw,80px)}
+  @media(max-width:1100px){.capas-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:700px){.capas-grid{grid-template-columns:repeat(2,1fr);gap:10px}.capa-card{padding:16px 14px 18px}}
+  @media(max-width:340px){.capas-grid{grid-template-columns:1fr}}
+  .capa-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 18px 22px;
+    box-shadow:var(--sh-1)}
+  .capa-card:hover{border-color:#cfdcf3;box-shadow:var(--sh-2)}
+  .capa-ico{display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--accent-soft);margin-bottom:14px}
+  .capa-ico svg{width:60px;height:60px}
+  .capa-card h3{margin:0 0 6px;font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
+  .capa-card p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.5}
+  .band .hero-cta{margin-top:22px}

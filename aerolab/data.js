@@ -1,8 +1,6 @@
 /* =====================================================================
-   INVENTARIO DE EQUIPAMIENTO — Drones y Sensores
-   AEROLAB — Grupo GGGJ, Universidad de Jaén
-   Fuentes: web del grupo (gggj.ujaen.es),
-            inventario interno y tabla de pólizas (LivingSoiLL / CEATIC).
+   AEROLAB — drones y sensores de teledetección (DIGIAGRO, Universidad de Jaén)
+   Solo información pública: sin números de serie, pólizas ni estado interno.
    ===================================================================== */
 
 const EQUIPAMIENTO = [
@@ -18,9 +16,6 @@ const EQUIPAMIENTO = [
     name: "DJI Matrice 300 RTK",
     brand: "DJI",
     tagline: "Plataforma industrial de cartografía y carga útil dual",
-    status: { label: "Operativo", level: "ok" },
-    serial: "1ZDH3LO011089",
-    poliza: "Asegurado · CASER 96028176 · vto. 24/04/2027 · financiado por CEATIC",
     description:
       "Aeronave insignia del grupo para vuelos de larga duración y cargas profesionales. " +
       "Admite gimbal dual inferior más un gimbal superior, posicionamiento RTK centimétrico y " +
@@ -45,9 +40,6 @@ const EQUIPAMIENTO = [
     name: "DJI Phantom 4 RTK",
     brand: "DJI",
     tagline: "Fotogrametría de precisión en formato compacto",
-    status: { label: "En reserva", level: "warn" },
-    serial: "0V2SH7QRA30055",
-    poliza: "Asegurado · CASER 96028308 · vto. 12/05/2027 · uso reducido",
     description:
       "Cuadricóptero compacto con módulo RTK integrado para levantamientos topográficos " +
       "de alta precisión sin necesidad de gran cantidad de puntos de control en tierra.",
@@ -69,9 +61,6 @@ const EQUIPAMIENTO = [
     name: "DJI Matrice 210 (M210)",
     brand: "DJI",
     tagline: "Plataforma dual de inspección",
-    status: { label: "En reserva", level: "warn" },
-    serial: "0G0DF1B0230004",
-    poliza: "Asegurado · CASER 96028302 · vto. 12/05/2027 · uso reducido",
     description:
       "Plataforma robusta de la serie Matrice 200 preparada para configuraciones de gimbal " +
       "dual, pensada para inspección y captura simultánea de distintos sensores.",
@@ -93,9 +82,6 @@ const EQUIPAMIENTO = [
     name: "DJI Mavic 3M (Multispectral)",
     brand: "DJI",
     tagline: "RGB + multiespectral para agricultura de precisión",
-    status: { label: "Operativo", level: "ok" },
-    serial: "1581F5FKD233200D9PVN",
-    poliza: "Asegurado · CASER 96026216 · vto. 07/06/2026 · financiado por CEATIC",
     description:
       "Dron agrícola que combina una cámara RGB de 20 MP con un conjunto multiespectral de " +
       "4 bandas (verde, rojo, red-edge e infrarrojo cercano) para cálculo de índices de " +
@@ -118,9 +104,6 @@ const EQUIPAMIENTO = [
     name: "DJI Mavic 3T (Thermal)",
     brand: "DJI",
     tagline: "Cámara térmica radiométrica + zoom",
-    status: { label: "Operativo", level: "ok" },
-    serial: "1581F5FJD235X00D0G76",
-    poliza: "Asegurado · CASER 96026689 · vto. 06/08/2026 · LivingSoiLL",
     description:
       "Variante térmica de la serie Mavic 3 Enterprise. Integra una cámara térmica " +
       "radiométrica, una cámara con zoom y una gran angular, ideal para estrés hídrico, " +
@@ -143,9 +126,6 @@ const EQUIPAMIENTO = [
     name: "DJI Mavic Pro (Fly More)",
     brand: "DJI",
     tagline: "Plataforma RGB ligera y plegable",
-    status: { label: "En reserva", level: "warn" },
-    serial: "08QUE4500102DN",
-    poliza: "CASER 96026645 · vto. 09/08/2026",
     description:
       "Dron plegable ligero para captura RGB rápida, reconocimiento de zonas y vídeo. " +
       "Pack Fly More con baterías y accesorios adicionales.",
@@ -166,9 +146,6 @@ const EQUIPAMIENTO = [
     name: "DJI Mini 4 Pro",
     brand: "DJI",
     tagline: "Ultraligero para reconocimiento ágil",
-    status: { label: "Operativo", level: "ok" },
-    serial: "1581F6Z9C23B003F3HZ",
-    poliza: "Sub-250 g · sin póliza obligatoria",
     description:
       "Dron de menos de 250 g, ideal para reconocimiento rápido, divulgación y captura " +
       "ágil de vídeo/foto sin los requisitos regulatorios de las aeronaves más pesadas.",
@@ -190,9 +167,6 @@ const EQUIPAMIENTO = [
     name: "DJI Matrice 400",
     brand: "DJI",
     tagline: "Nueva plataforma industrial de largo alcance",
-    status: { label: "Operativo", level: "ok" },
-    serial: "1581F8DBW255P00A2MHA",
-    poliza: "Asegurado · CASER 96028983 · vto. 12/09/2026 · LivingSoiLL",
     description:
       "Última incorporación al parque de aeronaves del grupo. Plataforma industrial de " +
       "nueva generación con gran autonomía y capacidad de carga útil para misiones de " +
@@ -214,9 +188,6 @@ const EQUIPAMIENTO = [
     name: "LiDARdrone XL (Aeromedia)",
     brand: "Aeromedia / Phoenix",
     tagline: "Hexacóptero de carga pesada para LiDAR aerotransportado",
-    status: { label: "Revisión de póliza", level: "warn" },
-    serial: "UDATR 0014",
-    poliza: "CASER 96028197 · gestionado con LivingSoiLL",
     description:
       "Multicóptero de carga pesada (configuración X6 plegable, fibra de carbono y aluminio " +
       "6061) diseñado por Aeromedia para transportar el sistema LiDAR Phoenix Scout-Ultra y " +
@@ -248,7 +219,6 @@ const EQUIPAMIENTO = [
     name: "DJI Zenmuse P1",
     brand: "DJI",
     tagline: "Cámara full-frame de 45 MP para fotogrametría",
-    status: { label: "Operativo", level: "ok" },
     description:
       "Carga fotogramétrica de referencia: sensor full-frame de 45 MP con obturador mecánico " +
       "y objetivos intercambiables. Combinada con el Matrice 300 RTK ofrece levantamientos de " +
@@ -271,7 +241,6 @@ const EQUIPAMIENTO = [
     name: "DJI Zenmuse XT2",
     brand: "DJI / FLIR",
     tagline: "Cámara dual RGB + térmica radiométrica",
-    status: { label: "Operativo", level: "ok" },
     description:
       "Carga dual desarrollada con FLIR: combina sensor térmico radiométrico y cámara visual " +
       "de 12 MP en un mismo gimbal, con fusión de imagen para inspección y análisis térmico.",
@@ -292,7 +261,6 @@ const EQUIPAMIENTO = [
     name: "Phoenix LiDAR Scout-Ultra",
     brand: "Phoenix LiDAR",
     tagline: "Sistema LiDAR aerotransportado multisensor",
-    status: { label: "Operativo", level: "ok" },
     description:
       "Sistema LiDAR aerotransportado de alta densidad, integrable con sensores hiperespectral " +
       "y térmico para captura simultánea. Proporciona nubes de puntos 3D georreferenciadas con " +
@@ -315,7 +283,6 @@ const EQUIPAMIENTO = [
     name: "MicaSense RedEdge-MX",
     brand: "MicaSense / AgEagle",
     tagline: "Cámara multiespectral de 5 bandas",
-    status: { label: "Operativo", level: "ok" },
     description:
       "Cámara multiespectral profesional de 5 bandas (azul, verde, rojo, red-edge e infrarrojo " +
       "cercano) para teledetección agrícola, cálculo de índices de vegetación y análisis de cultivos.",
@@ -336,7 +303,6 @@ const EQUIPAMIENTO = [
     name: "MicaSense RedEdge-MX Blue",
     brand: "MicaSense / AgEagle",
     tagline: "Bandas adicionales para sistema de 10 bandas",
-    status: { label: "Operativo", level: "ok" },
     description:
       "Módulo complementario que añade bandas adicionales (incluida banda costera/azul). " +
       "Combinado con el RedEdge-MX conforma un sistema dual de 10 bandas para análisis " +
@@ -357,7 +323,6 @@ const EQUIPAMIENTO = [
     name: "Headwall Nano-Hyperspec VNIR",
     brand: "Headwall Photonics",
     tagline: "Cámara hiperespectral VNIR (400–1000 nm)",
-    status: { label: "Operativo", level: "ok" },
     description:
       "Cámara hiperespectral compacta en el rango visible–infrarrojo cercano (VNIR). Captura " +
       "cientos de bandas espectrales contiguas para firmas espectrales detalladas de vegetación, " +
@@ -379,9 +344,6 @@ const EQUIPAMIENTO = [
     name: "Specim FX10e",
     brand: "Specim",
     tagline: "Cámara hiperespectral VNIR de laboratorio (400–1000 nm)",
-    status: { label: "Operativo", level: "ok" },
-    serial: "",
-    poliza: "",
     description:
       "Cámara hiperespectral de laboratorio en el rango VNIR (400–1000 nm). Diseñada para " +
       "análisis en línea y control de calidad, captura 224 bandas espectrales con alta " +
@@ -406,7 +368,6 @@ const EQUIPAMIENTO = [
     name: "Specim AFX17",
     brand: "Specim",
     tagline: "Hiperespectral SWIR aerotransportada (900–1700 nm)",
-    status: { label: "Nueva incorporación", level: "ok" },
     description:
       "Sistema hiperespectral aerotransportado en el infrarrojo de onda corta (SWIR), última " +
       "adquisición del grupo. Amplía la capacidad espectral más allá del VNIR para detección de " +
@@ -444,14 +405,4 @@ const PROMO = [
   { file:"DJI_0107", title:"Monitorización ganadera",        util:"Localización y seguimiento de la cabaña ganadera en pastoreo extensivo." },
   { file:"DJI_0126", title:"Gestión de recursos",            util:"Inventario y planificación de recursos hídricos, agrícolas y energéticos del territorio." },
   { file:"DJI_0346", title:"Inspección de plantas solares",  util:"Revisión de instalaciones fotovoltaicas y seguimiento de su integración en el territorio." },
-];
-
-/* Resultados de vuelos — productos generados a partir de los datos capturados */
-const RESULTS = [
-  { img:"assets/img/results/sa_datafusion.jpg",        cat:"Fusión de datos",       title:"Fusión RGB + Multiespectral en nube 3D" },
-  { img:"assets/img/results/sa_pipeline.jpg",          cat:"Inventario · IA",       title:"Del vuelo al inventario árbol a árbol" },
-  { img:"assets/img/results/sa_seg_color.jpg",         cat:"Segmentación · IA",     title:"Detección individual de copas de olivar" },
-  { img:"assets/img/results/sa_sustainability_crop.jpg",cat:"Sostenibilidad",        title:"Índice de sostenibilidad por árbol" },
-  { img:"assets/img/results/sa_results_map.jpg",       cat:"Cartografía",           title:"Mapa de sostenibilidad del olivar" },
-  { img:"assets/img/results/sa_graphabs.jpg",          cat:"Teledetección",         title:"Inventario multisensorial de precisión" },
 ];

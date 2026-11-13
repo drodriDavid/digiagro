@@ -479,16 +479,3 @@
     .hero-feature::before{animation:none}
     .marquee-track{animation:none}
   }
-  /* Qué hacemos: tecnologías de captura */
-  .capas-grid{display:grid;gap:14px;grid-template-columns:repeat(5,1fr);margin:26px 0 clamp(48px,7vw,80px)}
-  @media(max-width:1100px){.capas-grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:700px){.capas-grid{grid-template-columns:repeat(2,1fr);gap:10px}.capa-card{padding:16px 14px 18px}}
-  @media(max-width:340px){.capas-grid{grid-template-columns:1fr}}
-  .capa-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 18px 22px;
-    box-shadow:var(--sh-1)}
-  .capa-card:hover{border-color:#cfdcf3;box-shadow:var(--sh-2)}
-  .capa-ico{display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--accent-soft);margin-bottom:14px}
-  .capa-ico svg{width:60px;height:60px}
-  .capa-card h3{margin:0 0 6px;font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
-  .capa-card p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.5}
-  .band .hero-cta{margin-top:22px}

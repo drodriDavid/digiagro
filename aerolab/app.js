@@ -1,5 +1,5 @@
 /* =====================================================================
-   AEROLAB — portada, qué hacemos y galería de vuelos
+   App de inventario — render (tarjetas / tabla), filtros, buscador, ficha
    Estilo institucional claro
    ===================================================================== */
 
@@ -49,14 +49,6 @@ const SUBGROUPS = {
     { key:"Sensores hiperespectrales", ids:["nanohyperspec","afx17"] },
   ],
 };
-
-const CAPACIDADES = [
-  { art:"camera",        t:"RGB y fotogrametría", d:"Ortomosaicos y modelos 3D con precisión centimétrica gracias al posicionamiento RTK." },
-  { art:"multispectral", t:"Multiespectral",      d:"Índices de vigor y estado del cultivo en bandas visibles e infrarrojas." },
-  { art:"thermal",       t:"Térmico",             d:"Estrés hídrico, eficiencia del riego y puntos calientes en instalaciones." },
-  { art:"lidar",         t:"LiDAR",               d:"Nubes de puntos densas que atraviesan la vegetación y modelos precisos del terreno." },
-  { art:"hyperspectral", t:"Hiperespectral",      d:"Cientos de bandas VNIR y SWIR para caracterizar suelo, vegetación y materiales." },
-];
 
 /* ---- Ilustraciones SVG por tipo ---- */
 function illustration(art){
@@ -116,16 +108,21 @@ function illustration(art){
   }
 }
 
-const catalogEl = document.getElementById("catalog");
+/* ---- Estado ---- */
+let activeFilter = "all";
+let query = "";
 
-/* ---- Cifras ---- */
+const catalogEl = document.getElementById("catalog");
+const softSection = document.getElementById("software-section");
+
+/* ---- Stats ---- */
 (function renderStats(){
   const mount = document.getElementById("stats");
   if(!mount) return;
   const drones = EQUIPAMIENTO.filter(e=>e.type==="drone").length;
   const sensores = EQUIPAMIENTO.filter(e=>e.type==="sensor").length;
   const data = [
-    [drones,"Drones"], [sensores,"Sensores"], [CAPACIDADES.length,"Tecnologías de captura"], [PROMO.length,"Aplicaciones"],
+    [EQUIPAMIENTO.length,"Equipos"], [drones,"Drones"], [sensores,"Sensores"],
   ];
   document.getElementById("stats").innerHTML = data.map(([n,l])=>
     `<div class="stat"><div class="n grad-text" data-target="${n}">0</div><div class="l">${l}</div></div>`).join("");
@@ -148,8 +145,80 @@ function countUp(el, target){
   setTimeout(()=>{ el.textContent = String(target); }, dur + 300);
 }
 
+/* Inclinación 3D + foco que sigue al cursor (solo ratón, respeta reduced-motion) */
+function tileTilt(el){
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if(window.matchMedia("(hover: none)").matches) return;
+  el.addEventListener("pointermove", ev=>{
+    const r = el.getBoundingClientRect();
+    const px = (ev.clientX - r.left) / r.width;
+    const py = (ev.clientY - r.top) / r.height;
+    el.style.setProperty("--ry", ((px - 0.5) * 7).toFixed(2) + "deg");
+    el.style.setProperty("--rx", ((0.5 - py) * 7).toFixed(2) + "deg");
+    el.style.setProperty("--mx", (px * 100).toFixed(1) + "%");
+    el.style.setProperty("--my", (py * 100).toFixed(1) + "%");
+    el.classList.add("tilting");
+  });
+  el.addEventListener("pointerleave", ()=>{
+    el.classList.remove("tilting");
+    el.style.removeProperty("--rx");
+    el.style.removeProperty("--ry");
+  });
+}
+
+/* ---- Búsqueda ---- */
+function matches(e,q){
+  if(!q) return true;
+  const hay = [e.name,e.brand,e.tagline,e.description,(e.features||[]).join(" "),
+    e.specs.map(s=>s.join(" ")).join(" ")].join(" ").toLowerCase();
+  return hay.includes(q);
+}
+
+/* ---- Tarjeta ---- */
+function card(e){
+  const v = visual(e);
+  return `
+    <div class="card" data-id="${e.id}">
+      <div class="thumb ${e.img?"photo":""}" style="background:${v.bg}">
+        <span class="badge-type">${TYPE_META[e.type].label}</span>
+        ${v.inner}
+      </div>
+      <div class="card-body">
+        <span class="brand">${e.brand}</span>
+        <h3>${e.name}</h3>
+        <div class="tag">${e.tagline}</div>
+        <div class="card-cta">Ver ficha técnica
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </div>
+    </div>`;
+}
+
+/* Imagen del producto para el tile (foto grande o ilustración) */
+function tileImage(e){
+  if(e.img){
+    return `<img class="tile-img" src="${e.img}" alt="${e.name}" loading="lazy"
+        onerror="this.classList.add('hidden');this.nextElementSibling.classList.remove('hidden')">` +
+      `<span class="tile-svg hidden">${illustration(e.art)}</span>`;
+  }
+  return `<span class="tile-svg">${illustration(e.art)}</span>`;
+}
+
 const ARROW = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
   stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+
+/* Tile grande estilo tienda */
+function tile(e){
+  return `
+    <div class="tile reveal" data-id="${e.id}">
+      <span class="tile-label">${e.brand} · ${TYPE_META[e.type].label}</span>
+      <h3 class="tile-name">${e.name}</h3>
+      <p class="tile-tag">${e.tagline}</p>
+      <span class="tile-cta">Ver ficha técnica ${ARROW}</span>
+      <div class="tile-img-wrap">${tileImage(e)}</div>
+    </div>`;
+}
 
 /* Logo de la portada: cada pieza del PNG (A, dron, píxeles, relieve, barras y letras) es un recorte
    de la hoja aerolab-piezas.webp (1100x587) colocado en su sitio sobre 1100x737 y animado por separado. */
@@ -165,7 +234,7 @@ function logoPiezas(){
     return `<i class="p p-${p.c}" style="${st}" aria-hidden="true"></i>`;}).join("");
 }
 
-/* Portada (vídeo del campus UJA) */
+/* Portada / header con título de equipamiento (foto del campus UJA, sin producto) */
 function heroTitle(){
   return `
     <header class="hero-feature hero-title">
@@ -174,32 +243,36 @@ function heroTitle(){
         <source src="assets/video/hero.mp4" type="video/mp4">
       </video>
       <div class="hero-inner">
-        <h1 class="sr-only">AEROLAB — Teledetección con drones · Universidad de Jaén</h1>
+        <h1 class="sr-only">AEROLAB — Inventario de Drones y Sensores · Universidad de Jaén</h1>
         <div class="hero-logo logo-capas" role="img" aria-label="AEROLAB DIGIAGRO · Spatial Intelligence and Computer Graphics">
           ${logoPiezas()}
         </div>
-        <p class="hero-tag">Volamos, medimos y modelamos el territorio. Drones y sensores RGB, multiespectrales,
-        térmicos, LiDAR e hiperespectrales al servicio de la agricultura, el medio ambiente y las infraestructuras.</p>
-        <a class="hero-cta" href="#capacidades">Qué hacemos ${ARROW}</a>
+        <p class="hero-tag">Inventario de drones y sensores de teledetección de la Universidad de Jaén:
+        una flota que abarca desde multirrotores ultraligeros a plataformas industriales de carga
+        pesada, con sensores RGB, multiespectrales, térmicos, LiDAR e hiperespectrales.</p>
+        <a class="hero-cta" href="#catalogo">Ver el catálogo ${ARROW}</a>
       </div>
     </header>`;
 }
 
-/* Qué hacemos: una tarjeta por tecnología de captura */
-function capacidades(){
-  return `<section class="cat" id="capacidades">
+/* Sección de una categoría con sus subgrupos */
+function catSection(type, items){
+  const ofType = items.filter(e=>e.type===type);
+  if(!ofType.length) return "";
+  /* Orden lógico según SUBGROUPS, pero todo en una sola rejilla (sin subcabeceras) */
+  const ordered = [], seen = new Set();
+  (SUBGROUPS[type] || []).forEach(sg => sg.ids.forEach(id => {
+    const e = ofType.find(x => x.id === id);
+    if(e && !seen.has(id)){ ordered.push(e); seen.add(id); }
+  }));
+  ofType.forEach(e => { if(!seen.has(e.id)){ ordered.push(e); seen.add(e.id); } });
+  return `<section class="cat">
     <div class="reveal">
-      <div class="eyebrow">Qué hacemos</div>
-      <h2 class="cat-head">Cada sensor, una capa de información</h2>
-      <p class="cat-sub">Una flota que va de multirrotores ultraligeros a plataformas industriales de carga pesada,
-      con la carga útil adecuada para cada pregunta sobre el territorio.</p>
+      <div class="eyebrow">${CAT_META[type].eyebrow}</div>
+      <h2 class="cat-head">${CAT_META[type].title}</h2>
+      <p class="cat-sub">${CAT_META[type].sub}</p>
     </div>
-    <div class="capas-grid">${CAPACIDADES.map((c,i)=>`
-      <article class="capa-card reveal" style="transition-delay:${i*70}ms">
-        <span class="capa-ico">${illustration(c.art)}</span>
-        <h3>${c.t}</h3>
-        <p>${c.d}</p>
-      </article>`).join("")}</div>
+    <div class="showcase">${ordered.map(tile).join("")}</div>
   </section>`;
 }
 
@@ -220,25 +293,87 @@ function band(o){
   </section>`;
 }
 
-/* ---- Render principal ---- */
-function render(){
-  document.getElementById("hero-mount").innerHTML = heroTitle();
-  catalogEl.innerHTML =
-    band({
+/* Vista showcase con texto editorial y bandas de imagen intercaladas */
+function renderGrid(items, isDefault){
+  let html = "";
+  if(isDefault){
+    html += band({
       img:"assets/img/band-aerea.jpg?v=30",
       eyebrow:"Captura aérea",
       title:"Cartografiamos el territorio desde el aire",
       text:"Vuelos propios de fotogrametría, térmica y LiDAR sobre cultivos, masas forestales e infraestructuras.",
       src:"Vuelo de dron · AEROLAB"
-    }) + capacidades() +
-    band({
+    });
+  }
+  html += catSection("drone", items);
+  if(isDefault){
+    html += band({
       video:"assets/video/band.mp4",
       poster:"assets/video/band-poster.jpg",
-      eyebrow:"En vuelo",
-      title:"Drones en acción",
-      text:"Capturamos cultivos, infraestructuras y paisaje en vídeo de alta resolución desde el aire.",
+      eyebrow:"Teledetección",
+      title:"Cada sensor, una capa de información",
+      text:"<span>RGB</span> · <span>multiespectral</span> · <span>térmico</span> · <span>LiDAR</span> · <span>hiperespectral</span>",
       src:"Vuelo de dron · AEROLAB"
     });
+  }
+  html += catSection("sensor", items);
+  return html;
+}
+
+/* Tarjeta de software (icono monograma + categoría + enlace) */
+function softCard(s){
+  const mono = (s.name.replace(/[^A-Za-z0-9]/g,"").slice(0,2) || "··").toUpperCase();
+  const link = s.url
+    ? `<span class="soft-link">Visitar sitio ${ARROW}</span>`
+    : `<span class="soft-link soft-link--muted">Herramienta interna</span>`;
+  const inner =
+    `<div class="soft-ico" style="--c:${s.color}">${mono}</div>
+     <div class="soft-body">
+       <div class="soft-top"><b>${s.name}</b><span class="soft-cat">${s.cat}</span></div>
+       <span class="soft-desc">${s.desc}</span>
+       ${link}
+     </div>`;
+  return s.url
+    ? `<a class="soft reveal" href="${s.url}" target="_blank" rel="noopener">${inner}</a>`
+    : `<div class="soft reveal">${inner}</div>`;
+}
+
+/* ---- Render principal ---- */
+function render(){
+  const q = query.trim().toLowerCase();
+
+  let items = EQUIPAMIENTO.filter(e=>{
+    if(activeFilter==="drone" && e.type!=="drone") return false;
+    if(activeFilter==="sensor" && e.type!=="sensor") return false;
+    if(activeFilter==="software") return false;
+    return matches(e,q);
+  });
+
+  /* Portada (solo en vista catálogo, sin búsqueda) */
+  const heroMount = document.getElementById("hero-mount");
+  const showHero = !query.trim();
+  heroMount.innerHTML = showHero ? heroTitle() : "";
+
+  let html = "";
+  if(activeFilter!=="software"){
+    if(!items.length){
+      html += `<div class="empty">Sin resultados para “${query}”.</div>`;
+    } else {
+      html += renderGrid(items, showHero);
+    }
+  }
+  catalogEl.innerHTML = html;
+
+  [document.getElementById("hero-mount"), catalogEl].forEach(root=>
+    root.querySelectorAll("[data-id]").forEach(el=>{
+      el.setAttribute("role","button");
+      el.setAttribute("tabindex","0");
+      el.addEventListener("click",()=>openModal(el.dataset.id));
+      el.addEventListener("keydown",ev=>{
+        if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); openModal(el.dataset.id); }
+      });
+    }));
+  catalogEl.querySelectorAll(".tile").forEach(tileTilt);
   setupReveal();
 }
 
@@ -261,6 +396,46 @@ function playVisibleVideos(){
     else if(!v.paused){ v.pause(); }
   });
 }
+
+/* ---- Modal / ficha técnica ---- */
+const overlay = document.getElementById("overlay");
+const modal = document.getElementById("modal");
+
+function openModal(id){
+  const e = EQUIPAMIENTO.find(x=>x.id===id);
+  if(!e) return;
+  const vis = visual(e, "big");
+  const rows = e.specs.map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join("");
+  const chips = (e.features||[]).map(f=>`<span class="chip">${f}</span>`).join("");
+  modal.innerHTML = `
+    <div class="modal-hero ${e.img?"photo":""}" style="background:${vis.bg}">
+      <button class="modal-close" id="closeBtn" aria-label="Cerrar">×</button>
+      ${vis.inner}
+    </div>
+    <div class="modal-body">
+      <span class="tile-label">${e.brand} · ${TYPE_META[e.type].label}</span>
+      <h2>${e.name}</h2>
+      <div class="lead">${e.tagline}</div>
+      <p class="desc">${e.description}</p>
+      <div class="chips" style="margin-bottom:18px">${chips}</div>
+      <p class="specs-title">Características técnicas</p>
+      <table class="specs">${rows}</table>
+      <a class="doc-btn" href="${e.doc}" target="_blank" rel="noopener">
+        Documentación técnica del fabricante
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"
+          stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>`;
+  overlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+  document.getElementById("closeBtn").addEventListener("click", closeModal);
+}
+function closeModal(){
+  overlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+overlay.addEventListener("click", e=>{ if(e.target===overlay) closeModal(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModal(); });
 
 /* ---- Tema fijo: siempre claro ---- */
 document.documentElement.setAttribute("data-theme", "light");

@@ -1,6 +1,8 @@
 /* =====================================================================
-   AEROLAB — drones y sensores de teledetección (DIGIAGRO, Universidad de Jaén)
-   Solo información pública: sin números de serie, pólizas ni estado interno.
+   INVENTARIO DE EQUIPAMIENTO — Drones y Sensores
+   AEROLAB — Grupo GGGJ, Universidad de Jaén
+   Fuentes: web del grupo (gggj.ujaen.es),
+            fichas de los fabricantes.
    ===================================================================== */
 
 const EQUIPAMIENTO = [

@@ -484,3 +484,8 @@
     background:linear-gradient(180deg,rgba(255,255,255,.80),rgba(244,247,252,.88)),
       url("assets/img/fondo-aereo.webp?v=1") center/cover no-repeat}
   .stats-wrap{background:rgba(255,255,255,.72);backdrop-filter:blur(6px)}
+  /* Plataformas de la unidad: DIGIAGRO y SAVIA, con enlace a su web */
+  .partners-label-2{display:block;margin-top:34px}
+  .partners-logos img.logo-digiagro{height:40px}
+  .partners-logos img.logo-savia{height:62px}
+  @media(max-width:560px){.partners-logos img.logo-digiagro{height:30px}.partners-logos img.logo-savia{height:46px}}

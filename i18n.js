@@ -13,6 +13,7 @@ const EN = {
   "La unidad": "The unit",
   "Actualidad": "News",
   "Ver todas las noticias": "See all news",
+  "Leer la noticia": "Read more",
   "Más información": "More information",
   "Ver en LinkedIn": "View on LinkedIn",
   "Líneas": "Research",

@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/iconos/favicon-32.png?v=2">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/iconos/apple-touch-icon.png?v=2">
 <link rel="stylesheet" href="assets/fuentes/lato.css">
-<link rel="stylesheet" href="styles.css?v=27">
+<link rel="stylesheet" href="styles.css?v=28">
 </head>
 <body>
 <a class="saltar" href="#actualidad">Saltar al contenido</a>
@@ -29,8 +29,12 @@
 </header>
 
 <main>
-  <section class="seccion" id="actualidad">
-    <h1 class="titular">Actualidad</h1>
+  <header class="cabecera-noticias">
+    <img class="hero-hoja" src="assets/hoja.svg" alt="">
+    <h1>Actualidad</h1>
+    <p>Lo último de la unidad: proyectos, resultados, eventos y novedades de SAVIA y AeroLab.</p>
+  </header>
+  <section class="seccion" id="actualidad" aria-label="Noticias">
     <p class="noticias-estado" id="noticias-cargando">Cargando noticias…</p>
     <p class="noticias-estado" id="noticias-vacio" hidden>Todavía no hay noticias publicadas.</p>
     <div class="noticias-completas" id="todas-noticias"></div>
@@ -59,6 +63,6 @@
     </ul>
   </nav>
 </footer>
-<script src="noticias.js?v=1"></script>
+<script src="noticias.js?v=2"></script>
 </body>
 </html>

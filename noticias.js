@@ -33,13 +33,13 @@
     const a = crea("a", "noticia"); a.href = "noticias.html#" + n.id;
     const img = imagen(n, "nt-img"); if (img) a.append(img); else a.classList.add("sin-img");
     const t = crea("div", "nt-texto");
-    t.append(crea("time", "nt-fecha", fecha(n.fecha)), crea("h3", "", n.titulo), crea("p", "", resumen(n.texto)));
+    t.append(crea("time", "nt-fecha", fecha(n.fecha)), crea("h3", "", n.titulo), crea("p", "", resumen(n.texto)), crea("span", "nt-mas", "Leer la noticia"));
     a.append(t); return a;
   };
 
   const completa = n => {
     const a = crea("article", "noticia-completa"); a.id = n.id;
-    const img = imagen(n, "nc-img"); if (img) a.append(img);
+    const img = imagen(n, "nc-img"); if (img) a.append(img); else a.classList.add("sin-img");
     const t = crea("div", "nc-texto");
     t.append(crea("time", "nt-fecha", fecha(n.fecha)), crea("h2", "", n.titulo));
     parrafos(t, n.texto);
@@ -58,6 +58,7 @@
       if (portada) {
         if (!ns.length) return;
         ns.slice(0, 3).forEach(n => portada.append(tarjeta(n)));
+        portada.classList.add("n" + Math.min(ns.length, 3));
         $("actualidad").hidden = false;
         const nav = $("nav-actualidad"); if (nav) nav.hidden = false;
         if (ns.length <= 3) { const m = $("mas-noticias"); if (m) m.hidden = true; }

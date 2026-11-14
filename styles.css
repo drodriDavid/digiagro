@@ -448,14 +448,7 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 @media (max-width: 1000px) { .plataforma header.con-video { grid-template-columns: 130px minmax(0, 1fr); } .plataforma header.con-video .fp-video { grid-column: 1 / -1; max-width: 560px; } }
 @media (max-width: 600px) { .plataforma header.con-video { grid-template-columns: minmax(0, 1fr); } }
 /* Logos de SAVIA y AeroLab en transparencia en la portada */
-.hero-marcas { position: absolute; inset: auto 0 0 0; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 clamp(20px, 4vw, 64px) clamp(28px, 6vh, 64px); opacity: .28; pointer-events: none; }
-.hero-marcas img { height: auto; }
-.hero-marcas .hm-savia { width: clamp(150px, 19vw, 330px); }
-.hero-marcas .hm-lsl { width: clamp(130px, 14vw, 250px); margin-bottom: .6vw; }
-.hero-marcas .hm-sds { width: clamp(120px, 13vw, 230px); }
-.hero-marcas .hm-aerolab { width: clamp(130px, 15vw, 260px); }
-@media (max-width: 760px) { .hero-marcas { opacity: .22; padding-bottom: 70px; gap: 12px; } .hero-marcas .hm-savia { width: 84px; } .hero-marcas .hm-lsl { width: 78px; } .hero-marcas .hm-sds { width: 70px; } .hero-marcas .hm-aerolab { width: 66px; } }
-/* Selector de idioma */
+@media (max-width: 760px) { /* Selector de idioma */
 .nav nav { margin-left: auto; }
 .idioma { flex: none; min-width: 44px; height: 36px; padding: 0 10px; background: #fff; border: 2px solid var(--verde); color: var(--verde); font: inherit; font-size: .8125rem; font-weight: 900; letter-spacing: .06em; cursor: pointer; transition: background .2s, color .2s; }
 .idioma:hover { background: var(--verde); color: #fff; }

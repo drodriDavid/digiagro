@@ -107,6 +107,7 @@ const EN = {
   "Profesor Titular": "Associate Professor",
   "Profesora Titular": "Associate Professor",
   "Edafología y Química Agrícola": "Soil Science and Agricultural Chemistry",
+  "Ingeniería Agronómica": "Agricultural Engineering",
   "Profesor": "Lecturer",
   "Ingeniería Cartográfica, Geodésica y Fotogrametría": "Cartographic, Geodetic and Photogrammetric Engineering",
   "Catedrático de Universidad": "Full Professor",

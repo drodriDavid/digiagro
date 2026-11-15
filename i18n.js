@@ -121,6 +121,8 @@ const EN = {
   "Investigadora predoctoral": "Predoctoral researcher",
   "Investigador predoctoral": "Predoctoral researcher",
   "Estudiante de doctorado": "PhD student",
+  "Estudiante de doctorado industrial": "Industrial PhD student",
+  "Doctorado en Tecnologías de la Información y la Comunicación": "PhD Programme in Information and Communication Technologies",
   "Informática": "Computer Science",
   "Enlaces": "Links",
   "Instituciones y programas": "Institutions and programmes",

@@ -8,11 +8,10 @@
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#007336">
 <link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=18">
-<link rel="stylesheet" href="natureye.css?v=1">
+<link rel="stylesheet" href="../assets/fuentes/lato.css">
+<link rel="stylesheet" href="../styles.css?v=32">
+<link rel="stylesheet" href="natureye.css?v=2">
+<link rel="preload" href="media/cabecera.jpg" as="image">
 </head>
 <body>
 <a class="saltar" href="#proyecto">Saltar al contenido</a>
@@ -27,6 +26,8 @@
   <button class="nav-boton" id="nav-boton" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   <nav id="nav-menu" aria-label="Secciones">
     <a href="#proyecto">Proyecto</a>
+    <a href="#explora">Nube 3D</a>
+    <a href="#escenario">Vídeo</a>
     <a href="#zonas">Zonas</a>
     <a href="#metodo">Método</a>
     <a href="#resultados">Resultados</a>
@@ -36,17 +37,20 @@
 </header>
 
 <section class="ne-hero" id="inicio">
-  <img class="ne-hero-img" src="img/unreal-2.jpg" alt="">
+  <video class="ne-hero-img" autoplay muted loop playsinline preload="auto" poster="media/cabecera.jpg" aria-hidden="true">
+    <source src="media/cabecera.mp4" type="video/mp4">
+  </video>
   <div class="ne-hero-velo"></div>
   <div class="ne-hero-texto">
     <p class="ne-ref">Proyecto PID2022-137938OA-I00 · 2023–2026</p>
-    <h1>NATUREYE</h1>
+    <h1 class="ne-logo">NATURE<span>EYE</span></h1>
     <p class="ne-sub">Digitalización multisensorial, modelado 3D y simulación del escenario actual y futuro de entornos naturales</p>
     <div class="acciones">
-      <a class="boton boton-luz" href="#resultados">Ver resultados</a>
-      <a class="boton boton-claro ne-claro" href="#datos">Conjuntos de datos</a>
+      <a class="boton boton-luz" href="#explora">Explorar la nube 3D</a>
+      <a class="boton boton-claro ne-claro" href="#escenario">Ver el vídeo</a>
     </div>
   </div>
+  <p class="ne-hero-pie">Nube de puntos de Puerto de la Mata (Sierra Mágina): 93,9 millones de puntos</p>
 </section>
 
 <div class="ne-financia">
@@ -79,6 +83,51 @@
         <li><b>Herramientas 3D/4D</b><span>Plataforma científica y aplicación para visitantes.</span></li>
       </ol>
     </div>
+  </section>
+
+  <section class="ne-explora" id="explora" aria-labelledby="t-explora">
+    <div class="ne-explora-cab">
+      <div>
+        <h2 id="t-explora">Explora Puerto de la Mata en 3D</h2>
+        <p>Una muestra de 700.000 puntos de la nube capturada con dron el 8 de abril de 2024: 560 × 440 metros de monte mediterráneo entre 1.600 y 1.735 metros de altitud. Arrastra para girar, usa la rueda o pellizca para acercarte.</p>
+      </div>
+      <div class="vs-modos" role="group" aria-label="Color de la nube">
+        <button type="button" data-modo="real" aria-pressed="true">Color real</button>
+        <button type="button" data-modo="altura" aria-pressed="false">Altura de la vegetación</button>
+        <button type="button" data-modo="relieve" aria-pressed="false">Relieve</button>
+      </div>
+    </div>
+    <div class="vs" id="visor">
+      <canvas aria-label="Nube de puntos 3D de Puerto de la Mata, interactiva"></canvas>
+      <img class="vs-fijo" src="img/nube-lidar.jpg" alt="Vista fija de la nube de puntos">
+      <div class="vs-carga"><span class="vs-aviso">Cargando la nube de puntos (7 MB)…</span><span class="vs-barra"><i></i></span></div>
+      <div class="vs-leyenda" data-leyenda="altura" hidden><span>Suelo</span><i class="vs-rampa vs-rampa-alt"></i><span>10 m</span></div>
+      <div class="vs-leyenda" data-leyenda="relieve" hidden><span>1.600 m</span><i class="vs-rampa vs-rampa-rel"></i><span>1.735 m</span></div>
+      <button class="vs-reinicia" id="vs-reinicia" type="button">Vista inicial</button>
+    </div>
+    <p class="ne-explora-pie">Nube RGB densificada a partir de imágenes del DJI Mavic 3M (93,9 millones de puntos en total). La altura de la vegetación se calcula sobre un modelo del suelo obtenido de la propia nube.</p>
+  </section>
+
+  <section class="seccion" id="escenario" aria-labelledby="t-escenario">
+    <h2 class="titular" id="t-escenario">De la nube al escenario virtual</h2>
+    <div class="ne-video-bloque">
+      <figure class="ne-video">
+        <video controls playsinline preload="none" poster="media/videoresumen.jpg">
+          <source src="media/videoresumen.mp4" type="video/mp4">
+        </video>
+        <figcaption>Vídeo resumen (2 min 27 s): la nube de puntos de Puerto de la Mata se convierte en terreno, se puebla con vegetación y se simula en Unreal Engine.</figcaption>
+      </figure>
+      <div class="ne-video-texto">
+        <p>La nube capturada con dron no es solo una imagen: sirve de base para construir un <b>gemelo digital</b> del monte. A partir de ella se genera el relieve, se colocan los individuos en su posición real y se recrea el paisaje en Unreal Engine.</p>
+        <p>Sobre ese escenario se pueden cambiar la luz, la atmósfera y el estado de la vegetación para ver cómo podría transformarse el lugar con más temperatura y menos lluvia.</p>
+      </div>
+    </div>
+    <div class="ne-ambientes">
+      <figure><img src="media/ambiente-1.webp" alt="Escenario de Unreal Engine con luz cálida y vegetación seca" loading="lazy" width="1100" height="860"></figure>
+      <figure><img src="media/ambiente-2.webp" alt="El mismo escenario con luz neutra" loading="lazy" width="1100" height="860"></figure>
+      <figure><img src="media/ambiente-3.webp" alt="El mismo escenario con luz fría y vegetación más densa" loading="lazy" width="1100" height="860"></figure>
+    </div>
+    <p class="ne-nota ne-centro">El mismo rincón de Puerto de la Mata con tres ambientes distintos en Unreal Engine.</p>
   </section>
 
   <section class="seccion gris" id="zonas">
@@ -280,7 +329,15 @@
   </div>
 </footer>
 
+<div class="ne-lupa" id="lupa" hidden>
+  <button type="button" class="ne-lupa-cierra" aria-label="Cerrar">×</button>
+  <button type="button" class="ne-lupa-ant" aria-label="Anterior">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button type="button" class="ne-lupa-sig" aria-label="Siguiente">›</button>
+</div>
+
 <script src="datos.js?v=1"></script>
-<script src="natureye.js?v=1"></script>
+<script src="natureye.js?v=2"></script>
+<script type="module" src="visor.js?v=4"></script>
 </body>
 </html>

@@ -10,6 +10,32 @@
     nav.querySelectorAll("nav a").forEach(a => a.addEventListener("click", () => { nav.classList.remove("abierto"); boton.setAttribute("aria-expanded", false); }));
   }
 
+  /* Visor de imágenes de las galerías */
+  const lupa = $("lupa");
+  if (lupa) {
+    const enlaces = [...document.querySelectorAll(".ne-galeria a")];
+    const img = lupa.querySelector("img"), pie = lupa.querySelector("figcaption");
+    let actual = 0, previo = null;
+    const muestra = i => {
+      actual = (i + enlaces.length) % enlaces.length;
+      const a = enlaces[actual], cap = a.closest("figure").querySelector("figcaption");
+      img.src = a.href; img.alt = cap ? cap.textContent : ""; pie.textContent = cap ? cap.textContent : "";
+    };
+    const cierra = () => { lupa.hidden = true; document.body.classList.remove("con-lupa"); if (previo) previo.focus(); };
+    enlaces.forEach((a, i) => a.addEventListener("click", e => {
+      e.preventDefault(); previo = a; muestra(i); lupa.hidden = false; document.body.classList.add("con-lupa");
+      lupa.querySelector(".ne-lupa-cierra").focus();
+    }));
+    lupa.querySelector(".ne-lupa-cierra").addEventListener("click", cierra);
+    lupa.querySelector(".ne-lupa-ant").addEventListener("click", () => muestra(actual - 1));
+    lupa.querySelector(".ne-lupa-sig").addEventListener("click", () => muestra(actual + 1));
+    lupa.addEventListener("click", e => { if (e.target === lupa) cierra(); });
+    document.addEventListener("keydown", e => {
+      if (lupa.hidden) return;
+      if (e.key === "Escape") cierra(); else if (e.key === "ArrowLeft") muestra(actual - 1); else if (e.key === "ArrowRight") muestra(actual + 1);
+    });
+  }
+
   /* Tabla de datos */
   if (typeof DATOS === "undefined") return;
   const cuerpo = $("lista-datos"), filtros = $("filtros");

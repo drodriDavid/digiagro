@@ -123,6 +123,7 @@
 .ne-hero-velo { background: linear-gradient(180deg, rgba(8, 24, 16, .15) 0%, rgba(8, 24, 16, .35) 40%, rgba(8, 24, 16, .88) 100%); }
 .ne-logo { display: flex; align-items: center; gap: clamp(10px, 2vw, 22px); margin-top: 10px; font-size: clamp(3.2rem, 9.5vw, 6.8rem); line-height: 1; font-weight: 900; letter-spacing: -.01em; }
 .ne-logo img { width: clamp(84px, 13vw, 170px); height: auto; filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .35)); }
+.ne-logo::before { content: ""; flex: none; width: clamp(34px, 5vw, 64px); height: clamp(5px, .7vw, 8px); border-radius: 4px; background: #7fd0ee; }
 .ne-logo-texto { color: #fff; text-shadow: 0 4px 24px rgba(0, 0, 0, .45); }
 .ne-logo-texto span { color: #7fd0ee; }
 .ne-hero .ne-ref { color: #7fd0ee; }

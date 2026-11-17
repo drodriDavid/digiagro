@@ -261,7 +261,7 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .fp-logo { display: flex; align-items: center; height: 64px; }
 .fp-logo img { max-height: 62px; max-width: 170px; width: auto; height: auto; object-fit: contain; }
 .fp-logo-txt { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 900; letter-spacing: -.01em; line-height: 1; color: #007a40; }
-.fp-logo-txt::before { content: ""; flex: none; width: 26px; height: 4px; border-radius: 2px; background: var(--degradado); }
+.fp-logo-txt::before { content: ""; flex: none; width: 4px; height: 1.15em; border-radius: 2px; background: linear-gradient(180deg, #00a858, #0078b0); }
 .fp-lt2 { color: #0078b0; }
 .fp-texto h3 { color: var(--verde); font-size: clamp(1.15rem, 1.7vw, 1.45rem); line-height: 1.18; font-weight: 900; text-transform: uppercase; }
 .fp-texto p { color: var(--gris); margin-top: 3px; }
@@ -296,7 +296,7 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
   .fila-proyecto { grid-template-columns: 120px minmax(0, 1fr); gap: 16px; }
   .fp-meta { grid-column: 2; }
   .fp-logo img { max-width: 112px; max-height: 50px; }
-  .fp-logo-txt { font-size: 1.05rem; gap: 6px; } .fp-logo-txt::before { width: 16px; height: 3px; }
+  .fp-logo-txt { font-size: 1.05rem; gap: 6px; } .fp-logo-txt::before { width: 3px; }
   .muestra { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 600px) {

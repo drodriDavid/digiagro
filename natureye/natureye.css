@@ -97,10 +97,18 @@
 .ne-personas b { color: var(--oscuro); }
 .ne-personas span { color: var(--gris); font-size: .93rem; }
 
-/* Pie */
-.ne-pie-financia { display: flex; flex-direction: column; gap: 10px; }
-.ne-pie-financia img { width: 100%; max-width: 360px; height: auto; background: #fff; padding: 6px; border-radius: 4px; }
-.ne-pie-financia p { font-size: .9rem; margin-top: 0; }
+/* Pie y franja de financiación (obligatoria por la AEI) */
+@media (min-width: 901px) { .pie .pie-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); } }
+.ne-fin { background: #fff; border-top: 1px solid var(--linea); padding: 22px var(--margen); }
+.ne-fin-in { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 14px 36px; }
+.ne-fin img { flex: none; height: 54px; width: auto; }
+.ne-fin p { margin: 0; max-width: 44ch; font-size: .84rem; line-height: 1.5; color: var(--gris); }
+.ne-fin b { color: var(--tinta); font-weight: 700; }
+@media (max-width: 700px) {
+  .ne-fin-in { flex-direction: column; text-align: center; }
+  .ne-fin img { height: auto; width: 100%; max-width: 330px; }
+  .ne-fin p { font-size: .8rem; }
+}
 
 /* Identidad propia de NATUREYE: verde y azul de su logotipo, fondos blancos */
 :root { --ne-verde: #00a858; --ne-verde-texto: #007a40; --ne-azul: #0078b0; --ne-azul-claro: #e6f2f8; --ne-suave: #f4f8f5; }
@@ -123,7 +131,7 @@
 .ne-hero-velo { background: linear-gradient(180deg, rgba(8, 24, 16, .15) 0%, rgba(8, 24, 16, .35) 40%, rgba(8, 24, 16, .88) 100%); }
 .ne-logo { display: flex; align-items: center; gap: clamp(10px, 2vw, 22px); margin-top: 10px; font-size: clamp(3.2rem, 9.5vw, 6.8rem); line-height: 1; font-weight: 900; letter-spacing: -.01em; }
 .ne-logo img { width: clamp(84px, 13vw, 170px); height: auto; filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .35)); }
-.ne-logo::before { content: ""; flex: none; width: clamp(34px, 5vw, 64px); height: clamp(5px, .7vw, 8px); border-radius: 4px; background: #7fd0ee; }
+.ne-logo::before { content: ""; flex: none; align-self: stretch; width: clamp(5px, .7vw, 9px); margin: .08em 0; border-radius: 4px; background: #7fd0ee; }
 .ne-logo-texto { color: #fff; text-shadow: 0 4px 24px rgba(0, 0, 0, .45); }
 .ne-logo-texto span { color: #7fd0ee; }
 .ne-hero .ne-ref { color: #7fd0ee; }
@@ -206,7 +214,7 @@ body.con-lupa { overflow: hidden; }
 .ne-zonas-mapa { margin-top: 32px; }
 
 /* Resultados */
-.ne-res-cifras { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 40px; }
+.ne-res-cifras { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin-bottom: 40px; }
 .ne-res-cifras a { display: flex; flex-direction: column; gap: 2px; padding: 18px 20px; background: #fff; border-radius: 12px; text-decoration: none; box-shadow: var(--sombra); border-top: 4px solid var(--ne-verde); transition: transform .2s; }
 .ne-res-cifras a:nth-child(even) { border-top-color: var(--ne-azul); }
 .ne-res-cifras a:hover { transform: translateY(-2px); }
@@ -238,6 +246,7 @@ body.con-lupa { overflow: hidden; }
 .ne-cong-ano b { color: var(--tinta); line-height: 1.35; }
 .ne-cong-au { font-size: .9rem; color: var(--gris); }
 .ne-cong-au a { font-weight: 700; color: var(--ne-azul); }
+.ne-formacion + .ne-res-tit { margin-top: 34px; }
 .ne-formacion { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .ne-form { display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; background: #fff; border-radius: 12px; box-shadow: var(--sombra); }
 .ne-form-cab { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
@@ -246,7 +255,7 @@ body.con-lupa { overflow: hidden; }
 .ne-form-quien { font-weight: 700; color: var(--ne-azul); font-size: .95rem; margin-top: auto; }
 .ne-form-nota { font-size: .88rem; color: var(--gris); }
 .ne-form a { font-weight: 700; color: var(--ne-azul); font-size: .92rem; }
-.ne-software { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.ne-software { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .ne-soft { display: flex; flex-direction: column; gap: 6px; padding: 22px 24px; background: linear-gradient(135deg, #fff 0%, var(--ne-azul-claro) 100%); border-radius: 12px; box-shadow: var(--sombra); }
 .ne-soft h4 { font-size: 1.6rem; font-weight: 900; color: var(--ne-azul); line-height: 1.1; }
 .ne-soft-sub { font-size: .85rem; font-weight: 700; color: var(--ne-verde-texto); text-transform: uppercase; letter-spacing: .04em; }

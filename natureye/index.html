@@ -10,8 +10,8 @@
 <link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
 <link rel="stylesheet" href="../assets/fuentes/lato.css">
 <link rel="stylesheet" href="../styles.css?v=32">
-<link rel="stylesheet" href="natureye.css?v=4">
-<link rel="preload" href="media/cabecera.jpg" as="image">
+<link rel="stylesheet" href="natureye.css?v=7">
+<link rel="preload" href="media/portada.webp" as="image">
 </head>
 <body>
 <a class="saltar" href="#proyecto">Saltar al contenido</a>
@@ -47,10 +47,8 @@
     <p class="ne-ref">Proyecto PID2022-137938OA-I00 · 2023–2026</p>
   </div>
   <figure class="ne-portada-video">
-    <video autoplay muted loop playsinline preload="auto" poster="media/cabecera.jpg" aria-hidden="true">
-      <source src="media/cabecera.mp4" type="video/mp4">
-    </video>
-    <figcaption>Nube de puntos de Puerto de la Mata: 93,9 millones de puntos</figcaption>
+    <a class="ne-amplia" href="media/portada.webp"><img src="media/portada.webp" alt="Vista cenital del encinar de Puerto de la Mata tomada desde el dron" width="1600" height="900"></a>
+    <figcaption>Puerto de la Mata desde el dron, 8 de abril de 2024</figcaption>
   </figure>
 </section>
 
@@ -239,59 +237,114 @@
   <section class="seccion gris" id="resultados">
     <h2 class="titular">Resultados</h2>
 
-    <h3 class="ne-sub3">Artículos en revistas</h3>
-    <ul class="pubs ne-pubs">
-      <li><a href="https://doi.org/10.1016/j.atech.2026.102230" rel="noopener"><span class="pub-ano">2026</span><b>A multi-scale inventory for sustainable olive farming using remote sensing and data fusion</b><span class="pub-datos">Latorre-Hortelano, P., Jurado-Rodríguez, D., Garrido-Almonacid, A., Parras-Rosa, M., Jurado, J. M. Smart Agricultural Technology, 14, 102230 · <span class="ne-oa">Acceso abierto</span></span></a></li>
-      <li><a href="https://doi.org/10.1016/j.gmod.2026.101325" rel="noopener"><span class="pub-ano">2026</span><b>Generation of synthetic labeled datasets for anomaly detection in heritage architecture</b><span class="pub-datos">Jurado-Rodríguez, D., Garrido, A., Feito, F. R., Jurado, J. M. Graphical Models, 145, 101325 · <span class="ne-oa">Acceso abierto</span></span></a></li>
-      <li><a href="https://doi.org/10.1109/TVCG.2025.3562696" rel="noopener"><span class="pub-ano">2025</span><b>Virtualized point cloud rendering</b><span class="pub-datos">Collado, J. A., López, A., Jurado, J. M., Jiménez, J. R. IEEE Transactions on Visualization and Computer Graphics, 31(10), 8026–8039 · <span class="ne-oa">Copia abierta en Zaguán</span></span></a></li>
-      <li><a href="https://doi.org/10.1016/j.cag.2024.103982" rel="noopener"><span class="pub-ano">2024</span><b>3D modeling of rural environments from multiscale aerial imagery</b><span class="pub-datos">Jurado-Rodríguez, D., Latorre-Hortelano, P., René-Domínguez, L., Ortega, L. M. Computers &amp; Graphics, 122, 103982</span></a></li>
-    </ul>
+    <div class="ne-res-cifras">
+      <a href="#r-articulos"><b>4</b><span>artículos en revistas</span></a>
+      <a href="#r-congresos"><b>11</b><span>comunicaciones en congresos</span></a>
+      <a href="#r-formacion"><b>6</b><span>tesis, TFM y TFG</span></a>
+      <a href="#r-software"><b>2</b><span>herramientas de software</span></a>
+    </div>
 
-    <h3 class="ne-sub3">Artículos en revisión</h3>
-    <ul class="ne-lista">
-      <li><span class="ne-año">2026</span><span><b>A Synthetic Hyperspectral Data Generation and Dimensionality Reduction Pipeline for Spectral Preservation and Classification.</b> Domínguez-Fuentes, L. R., Jiménez-Pérez, J. R., Jurado, J. M., Jurado-Rodríguez, D. En revisión en Applied Computing and Geosciences.</span></li>
-      <li><span class="ne-año">2026</span><span><b>A Hybrid LiDAR–Hyperspectral Workflow for Target-Driven Tree-Species Retrieval in Mediterranean Forests.</b> Sanabria, R., Carmona, E., Jurado-Rodríguez, D., Jurado, J. M. En preparación para un nuevo envío.</span></li>
-    </ul>
+    <h3 class="ne-res-tit" id="r-articulos">Artículos en revistas</h3>
+    <div class="ne-articulos">
+      <article class="ne-art">
+        <p class="ne-art-rev"><span>Smart Agricultural Technology</span><span class="ne-art-ano">2026</span></p>
+        <h4><a href="https://doi.org/10.1016/j.atech.2026.102230" rel="noopener">A multi-scale inventory for sustainable olive farming using remote sensing and data fusion</a></h4>
+        <p class="ne-art-au">Latorre-Hortelano, P., Jurado-Rodríguez, D., Garrido-Almonacid, A., Parras-Rosa, M., Jurado, J. M.</p>
+        <p class="ne-art-pie"><span>14, 102230</span><span class="ne-chip-ok">Acceso abierto</span><a href="https://doi.org/10.1016/j.atech.2026.102230" rel="noopener">Leer el artículo</a></p>
+      </article>
+      <article class="ne-art">
+        <p class="ne-art-rev"><span>Graphical Models</span><span class="ne-art-ano">2026</span></p>
+        <h4><a href="https://doi.org/10.1016/j.gmod.2026.101325" rel="noopener">Generation of synthetic labeled datasets for anomaly detection in heritage architecture</a></h4>
+        <p class="ne-art-au">Jurado-Rodríguez, D., Garrido, A., Feito, F. R., Jurado, J. M.</p>
+        <p class="ne-art-pie"><span>145, 101325</span><span class="ne-chip-ok">Acceso abierto</span><a href="https://doi.org/10.1016/j.gmod.2026.101325" rel="noopener">Leer el artículo</a></p>
+      </article>
+      <article class="ne-art">
+        <p class="ne-art-rev"><span>IEEE Transactions on Visualization and Computer Graphics</span><span class="ne-art-ano">2025</span></p>
+        <h4><a href="https://doi.org/10.1109/TVCG.2025.3562696" rel="noopener">Virtualized point cloud rendering</a></h4>
+        <p class="ne-art-au">Collado, J. A., López, A., Jurado, J. M., Jiménez, J. R.</p>
+        <p class="ne-art-pie"><span>31(10), 8026–8039</span><span class="ne-chip-ok">Copia abierta en Zaguán</span><a href="https://doi.org/10.1109/TVCG.2025.3562696" rel="noopener">Leer el artículo</a></p>
+      </article>
+      <article class="ne-art">
+        <p class="ne-art-rev"><span>Computers &amp; Graphics</span><span class="ne-art-ano">2024</span></p>
+        <h4><a href="https://doi.org/10.1016/j.cag.2024.103982" rel="noopener">3D modeling of rural environments from multiscale aerial imagery</a></h4>
+        <p class="ne-art-au">Jurado-Rodríguez, D., Latorre-Hortelano, P., René-Domínguez, L., Ortega, L. M.</p>
+        <p class="ne-art-pie"><span>122, 103982</span><a href="https://doi.org/10.1016/j.cag.2024.103982" rel="noopener">Leer el artículo</a></p>
+      </article>
+    </div>
+    <div class="ne-revision">
+      <p class="ne-revision-tit">Además, en revisión o preparación</p>
+      <p><b>A Synthetic Hyperspectral Data Generation and Dimensionality Reduction Pipeline for Spectral Preservation and Classification.</b> Domínguez-Fuentes, L. R., Jiménez-Pérez, J. R., Jurado, J. M., Jurado-Rodríguez, D. <span class="ne-chip">En revisión en Applied Computing and Geosciences</span></p>
+      <p><b>A Hybrid LiDAR–Hyperspectral Workflow for Target-Driven Tree-Species Retrieval in Mediterranean Forests.</b> Sanabria, R., Carmona, E., Jurado-Rodríguez, D., Jurado, J. M. <span class="ne-chip">En preparación para un nuevo envío</span></p>
+    </div>
 
-    <h3 class="ne-sub3">Congresos</h3>
-    <ul class="ne-lista">
-      <li><span class="ne-año">2026</span><span><b>Tree Extraction from UAV LiDAR and Hyperspectral Data.</b> Sanabria, R., Carmona, E., Jurado-Rodríguez, D., Jurado, J. M. CEIG 2026, València.</span></li>
-      <li><span class="ne-año">2025</span><span><b>Assessing Olive Tree Detection Performance in UAV Images.</b> Latorre-Hortelano, P., Pérez-Cano, F. D., Jurado-Rodríguez, D., Parra-Cabrera, G. IDEAL 2025, Jaén. LNCS 16239, 195–206. <a href="https://doi.org/10.1007/978-3-032-10489-2_17" rel="noopener">DOI</a></span></li>
-      <li><span class="ne-año">2025</span><span><b>Individual Detection of Olive Trees Under Different Olive Planting Distributions.</b> Latorre-Hortelano, P., Del Castillo, F., Jurado-Rodríguez, D., Ortega, L. M., Jurado, J. M. GEOProcessing 2025, Niza.</span></li>
-      <li><span class="ne-año">2025</span><span><b>Multisensory characterization of vegetation diversity in natural environments.</b> Sanabria, R., Carmona, E., Jurado-Rodríguez, D., Jurado, J. M. CEIG 2025, Jaén.</span></li>
-      <li><span class="ne-año">2025</span><span><b>First steps in the dimensionality reduction of hyperspectral images of real-world scenarios based on curve representation.</b> René-Domínguez, L., Jurado-Rodríguez, D., Jiménez, J. R., Jurado, J. M. CEIG 2025, Jaén.</span></li>
-      <li><span class="ne-año">2025</span><span><b>Generation of synthetic labeled datasets for anomaly detection in heritage architecture.</b> Jurado-Rodríguez, D., Garrido, A., Feito, F. R., Jurado, J. M. CEIG 2025, Jaén.</span></li>
-      <li><span class="ne-año">2025</span><span><b>A performance evaluation of olive tree identification techniques in RGB images.</b> Latorre-Hortelano, P., Jurado-Rodríguez, D., Parra, G., Pérez-Cano, F. D. CEIG 2025, Jaén.</span></li>
-      <li><span class="ne-año">2025</span><span><b>Diseño metodológico para la generación de imágenes multirresolución etiquetadas.</b> Del Castillo, F., Latorre-Hortelano, P., Jurado-Rodríguez, D., Jurado, J. M. CEIG 2025, Jaén.</span></li>
-      <li><span class="ne-año">2024</span><span><b>Portable LiDAR scanners: precision mapping at your fingertips.</b> Jurado-Rodríguez, D., Jurado, J. M., Enríquez, C., Feito, F. R. Web3D 2024, Guimarães. <a href="https://doi.org/10.1145/3665318.3677168" rel="noopener">DOI</a></span></li>
-      <li><span class="ne-año">2024</span><span><b>3D modeling of rural environments from multiscale aerial imagery.</b> Jurado-Rodríguez, D., Latorre-Hortelano, P., René-Domínguez, L., Ortega, L. M. CEIG 2024, A Coruña.</span></li>
-      <li><span class="ne-año">2024</span><span><b>SAM-based detection of structural anomalies in 3D models for preserving cultural heritage.</b> Jurado-Rodríguez, D., López, A., Jiménez, J. R., Garrido, A., Feito, F. R., Jurado, J. M. VISAPP 2024, Roma.</span></li>
-    </ul>
+    <h3 class="ne-res-tit" id="r-congresos">Congresos</h3>
+    <div class="ne-congresos">
+      <div class="ne-cong-ano"><p class="ne-cong-y">2026</p><ul>
+        <li><span class="ne-cong-ev">CEIG 2026 · València</span><b>Tree Extraction from UAV LiDAR and Hyperspectral Data</b><span class="ne-cong-au">Sanabria, R., Carmona, E., Jurado-Rodríguez, D., Jurado, J. M.</span></li>
+      </ul></div>
+      <div class="ne-cong-ano"><p class="ne-cong-y">2025</p><ul>
+        <li><span class="ne-cong-ev">IDEAL 2025 · Jaén</span><b>Assessing Olive Tree Detection Performance in UAV Images</b><span class="ne-cong-au">Latorre-Hortelano, P., Pérez-Cano, F. D., Jurado-Rodríguez, D., Parra-Cabrera, G. LNCS 16239, 195–206 <a href="https://doi.org/10.1007/978-3-032-10489-2_17" rel="noopener">DOI</a></span></li>
+        <li><span class="ne-cong-ev">GEOProcessing 2025 · Niza</span><b>Individual Detection of Olive Trees Under Different Olive Planting Distributions</b><span class="ne-cong-au">Latorre-Hortelano, P., Del Castillo, F., Jurado-Rodríguez, D., Ortega, L. M., Jurado, J. M.</span></li>
+        <li><span class="ne-cong-ev">CEIG 2025 · Jaén</span><b>Multisensory characterization of vegetation diversity in natural environments</b><span class="ne-cong-au">Sanabria, R., Carmona, E., Jurado-Rodríguez, D., Jurado, J. M.</span></li>
+        <li><span class="ne-cong-ev">CEIG 2025 · Jaén</span><b>First steps in the dimensionality reduction of hyperspectral images of real-world scenarios based on curve representation</b><span class="ne-cong-au">René-Domínguez, L., Jurado-Rodríguez, D., Jiménez, J. R., Jurado, J. M.</span></li>
+        <li><span class="ne-cong-ev">CEIG 2025 · Jaén</span><b>Generation of synthetic labeled datasets for anomaly detection in heritage architecture</b><span class="ne-cong-au">Jurado-Rodríguez, D., Garrido, A., Feito, F. R., Jurado, J. M.</span></li>
+        <li><span class="ne-cong-ev">CEIG 2025 · Jaén</span><b>A performance evaluation of olive tree identification techniques in RGB images</b><span class="ne-cong-au">Latorre-Hortelano, P., Jurado-Rodríguez, D., Parra, G., Pérez-Cano, F. D.</span></li>
+        <li><span class="ne-cong-ev">CEIG 2025 · Jaén</span><b>Diseño metodológico para la generación de imágenes multirresolución etiquetadas</b><span class="ne-cong-au">Del Castillo, F., Latorre-Hortelano, P., Jurado-Rodríguez, D., Jurado, J. M.</span></li>
+      </ul></div>
+      <div class="ne-cong-ano"><p class="ne-cong-y">2024</p><ul>
+        <li><span class="ne-cong-ev">Web3D 2024 · Guimarães</span><b>Portable LiDAR scanners: precision mapping at your fingertips</b><span class="ne-cong-au">Jurado-Rodríguez, D., Jurado, J. M., Enríquez, C., Feito, F. R. <a href="https://doi.org/10.1145/3665318.3677168" rel="noopener">DOI</a></span></li>
+        <li><span class="ne-cong-ev">CEIG 2024 · A Coruña</span><b>3D modeling of rural environments from multiscale aerial imagery</b><span class="ne-cong-au">Jurado-Rodríguez, D., Latorre-Hortelano, P., René-Domínguez, L., Ortega, L. M.</span></li>
+        <li><span class="ne-cong-ev">VISAPP 2024 · Roma</span><b>SAM-based detection of structural anomalies in 3D models for preserving cultural heritage</b><span class="ne-cong-au">Jurado-Rodríguez, D., López, A., Jiménez, J. R., Garrido, A., Feito, F. R., Jurado, J. M.</span></li>
+      </ul></div>
+    </div>
 
-    <div class="ne-tres">
-      <div>
-        <h3 class="ne-sub3">Tesis doctorales</h3>
-        <ul class="ne-mini">
-          <li><b>Gestión avanzada de datos procedentes de sensores a bordo de drones.</b> José Luis Cárdenas Donoso. Defendida en 2024, sobresaliente cum laude.</li>
-          <li><b>Detección individual de árboles y modelado multisensorial de entornos agroambientales.</b> Pablo Latorre Hortelano. En curso.</li>
-          <li><b>Reducción de dimensionalidad y análisis de imágenes hiperespectrales.</b> Luis René Domínguez Fuentes. En curso.</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="ne-sub3">Trabajos fin de máster y de grado</h3>
-        <ul class="ne-mini">
-          <li><b>Caracterización individual de especies arbóreas mediante análisis multisensorial y modelado 3D en entornos naturales.</b> TFM de Elena Carmona Vallecillo, 2025.</li>
-          <li><b>Simulación predictiva y visualización de escenarios naturales integrando información multisensorial.</b> TFG de Alberto Jiménez Expósito, 2026. <a href="#simulacion">Ver resultados</a>.</li>
-          <li><b>Visualización en realidad mixta de escenarios naturales y agrícolas amenazados por emergencias climáticas.</b> TFG en curso.</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="ne-sub3">Software</h3>
-        <ul class="ne-mini">
-          <li><b>GEU</b> (Geospatial and Environmental tools of UJA). Plataforma de fusión, análisis y visualización 3D. Protección solicitada en la Universidad de Jaén.</li>
-          <li><b>Nimbus.</b> Renderizado de nubes de puntos masivas, código abierto: <a href="https://github.com/Krixtalx/Nimbus" rel="noopener">github.com/Krixtalx/Nimbus</a>.</li>
-        </ul>
-      </div>
+    <h3 class="ne-res-tit" id="r-formacion">Tesis doctorales, TFM y TFG</h3>
+    <div class="ne-formacion">
+      <article class="ne-form">
+        <p class="ne-form-cab"><span class="ne-form-tipo">Tesis doctoral</span><span class="ne-chip ne-chip-ok">Defendida en 2024</span></p>
+        <h4>Gestión avanzada de datos procedentes de sensores a bordo de drones</h4>
+        <p class="ne-form-quien">José Luis Cárdenas Donoso</p><p class="ne-form-nota">Sobresaliente cum laude</p>
+      </article>
+      <article class="ne-form">
+        <p class="ne-form-cab"><span class="ne-form-tipo">Tesis doctoral</span><span class="ne-chip">En curso</span></p>
+        <h4>Detección individual de árboles y modelado multisensorial de entornos agroambientales</h4>
+        <p class="ne-form-quien">Pablo Latorre Hortelano</p>
+      </article>
+      <article class="ne-form">
+        <p class="ne-form-cab"><span class="ne-form-tipo">Tesis doctoral</span><span class="ne-chip">En curso</span></p>
+        <h4>Reducción de dimensionalidad y análisis de imágenes hiperespectrales</h4>
+        <p class="ne-form-quien">Luis René Domínguez Fuentes</p>
+      </article>
+      <article class="ne-form">
+        <p class="ne-form-cab"><span class="ne-form-tipo">TFM</span><span class="ne-chip ne-chip-ok">2025</span></p>
+        <h4>Caracterización individual de especies arbóreas mediante análisis multisensorial y modelado 3D en entornos naturales</h4>
+        <p class="ne-form-quien">Elena Carmona Vallecillo</p>
+      </article>
+      <article class="ne-form">
+        <p class="ne-form-cab"><span class="ne-form-tipo">TFG</span><span class="ne-chip ne-chip-ok">2026</span></p>
+        <h4>Simulación predictiva y visualización de escenarios naturales integrando información multisensorial</h4>
+        <p class="ne-form-quien">Alberto Jiménez Expósito</p><a href="#simulacion">Ver resultados</a>
+      </article>
+      <article class="ne-form">
+        <p class="ne-form-cab"><span class="ne-form-tipo">TFG</span><span class="ne-chip">En curso</span></p>
+        <h4>Visualización en realidad mixta de escenarios naturales y agrícolas amenazados por emergencias climáticas</h4>
+        
+      </article>
+    </div>
+
+    <h3 class="ne-res-tit" id="r-software">Software</h3>
+    <div class="ne-software">
+      <article class="ne-soft">
+        <h4>GEU</h4>
+        <p class="ne-soft-sub">Geospatial and Environmental tools of UJA</p>
+        <p>Plataforma de fusión, análisis y visualización 3D de datos multisensoriales. Protección solicitada en la Universidad de Jaén.</p>
+      </article>
+      <article class="ne-soft">
+        <h4>Nimbus</h4>
+        <p class="ne-soft-sub">Código abierto</p>
+        <p>Renderizado de nubes de puntos masivas en tiempo real.</p>
+        <a href="https://github.com/Krixtalx/Nimbus" rel="noopener">github.com/Krixtalx/Nimbus</a>
+      </article>
     </div>
   </section>
 

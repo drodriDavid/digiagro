@@ -10,16 +10,37 @@
     nav.querySelectorAll("nav a").forEach(a => a.addEventListener("click", () => { nav.classList.remove("abierto"); boton.setAttribute("aria-expanded", false); }));
   }
 
+  /* Pasos del método en pestañas (flechas para moverse entre ellas) */
+  const pest = [...document.querySelectorAll(".ne-pestanas [role=tab]")];
+  const activa = (b, foco) => {
+    pest.forEach(x => { const on = x === b; x.setAttribute("aria-selected", on); x.tabIndex = on ? 0 : -1; $(x.getAttribute("aria-controls")).hidden = !on; });
+    if (foco) b.focus();
+  };
+  pest.forEach((b, i) => {
+    b.tabIndex = i ? -1 : 0;
+    b.addEventListener("click", () => activa(b));
+    b.addEventListener("keydown", e => {
+      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); activa(pest[(i + d + pest.length) % pest.length], true); }
+    });
+  });
+
   /* Visor de imágenes de las galerías */
   const lupa = $("lupa");
   if (lupa) {
-    const enlaces = [...document.querySelectorAll(".ne-galeria a")];
+    const enlaces = [...document.querySelectorAll(".ne-galeria a, a.ne-amplia")];
     const img = lupa.querySelector("img"), pie = lupa.querySelector("figcaption");
     let actual = 0, previo = null;
+    const texto = a => {
+      const f = a.closest("figure"), cap = f && f.querySelector("figcaption");
+      if (cap) return cap.textContent;
+      const h = a.closest(".ne-etapa"); if (h) return h.querySelector("h3").textContent + ": " + (a.querySelector("img").alt || "");
+      return a.querySelector("img") ? a.querySelector("img").alt : "";
+    };
     const muestra = i => {
       actual = (i + enlaces.length) % enlaces.length;
-      const a = enlaces[actual], cap = a.closest("figure").querySelector("figcaption");
-      img.src = a.href; img.alt = cap ? cap.textContent : ""; pie.textContent = cap ? cap.textContent : "";
+      const a = enlaces[actual], t = texto(a);
+      img.src = a.href; img.alt = t; pie.textContent = t;
     };
     const cierra = () => { lupa.hidden = true; document.body.classList.remove("con-lupa"); if (previo) previo.focus(); };
     enlaces.forEach((a, i) => a.addEventListener("click", e => {

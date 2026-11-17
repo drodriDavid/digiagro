@@ -56,7 +56,7 @@ function iniciar(caja) {
       out[i] = ca[0] + (cb[0] - ca[0]) * t; out[i + 1] = ca[1] + (cb[1] - ca[1]) * t; out[i + 2] = ca[2] + (cb[2] - ca[2]) * t;
     };
     const hex = h => [parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255];
-    const P_ALT = [[0, hex("#e9dfc6")], [0.8, hex("#cbd98a")], [3, hex("#6aae3a")], [6, hex("#1e5631")], [10, hex("#1c8cb8")]];
+    const P_ALT = [[0, hex("#c4b28a")], [0.8, hex("#cbd98a")], [3, hex("#6aae3a")], [6, hex("#1e5631")], [10, hex("#1c8cb8")]];
     const P_REL = [[0, hex("#1d4e6b")], [0.35, hex("#4f9fb8")], [0.6, hex("#d9dcb4")], [0.85, hex("#c08a52")], [1, hex("#7a4b2a")]];
 
     function colorea(modo) {

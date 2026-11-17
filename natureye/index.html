@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
 <link rel="stylesheet" href="../assets/fuentes/lato.css">
 <link rel="stylesheet" href="../styles.css?v=32">
-<link rel="stylesheet" href="natureye.css?v=2">
+<link rel="stylesheet" href="natureye.css?v=3">
 <link rel="preload" href="media/cabecera.jpg" as="image">
 </head>
 <body>
@@ -36,27 +36,23 @@
   </nav>
 </header>
 
-<section class="ne-hero" id="inicio">
-  <video class="ne-hero-img" autoplay muted loop playsinline preload="auto" poster="media/cabecera.jpg" aria-hidden="true">
-    <source src="media/cabecera.mp4" type="video/mp4">
-  </video>
-  <div class="ne-hero-velo"></div>
-  <div class="ne-hero-texto">
-    <p class="ne-ref">Proyecto PID2022-137938OA-I00 · 2023–2026</p>
-    <h1 class="ne-logo">NATURE<span>EYE</span></h1>
-    <p class="ne-sub">Digitalización multisensorial, modelado 3D y simulación del escenario actual y futuro de entornos naturales</p>
+<section class="ne-portada" id="inicio">
+  <div class="ne-portada-texto">
+    <h1><img class="ne-portada-logo" src="../assets/proyectos/natureye-logo.webp" alt="NATUREYE: digitalización multisensorial, modelado 3D y simulación del escenario actual y futuro de entornos naturales" width="900" height="259"></h1>
+    <p class="ne-portada-lema">Drones, sensores y modelos 3D para conocer cómo está hoy el monte mediterráneo de Sierra Mágina y cómo podría cambiar mañana.</p>
     <div class="acciones">
-      <a class="boton boton-luz" href="#explora">Explorar la nube 3D</a>
-      <a class="boton boton-claro ne-claro" href="#escenario">Ver el vídeo</a>
+      <a class="boton ne-boton" href="#explora">Explorar la nube 3D</a>
+      <a class="boton ne-boton-linea" href="#escenario">Ver el vídeo</a>
     </div>
+    <p class="ne-ref">Proyecto PID2022-137938OA-I00 · 2023–2026</p>
   </div>
-  <p class="ne-hero-pie">Nube de puntos de Puerto de la Mata (Sierra Mágina): 93,9 millones de puntos</p>
+  <figure class="ne-portada-video">
+    <video autoplay muted loop playsinline preload="auto" poster="media/cabecera.jpg" aria-hidden="true">
+      <source src="media/cabecera.mp4" type="video/mp4">
+    </video>
+    <figcaption>Nube de puntos de Puerto de la Mata: 93,9 millones de puntos</figcaption>
+  </figure>
 </section>
-
-<div class="ne-financia">
-  <img src="img/financiacion.png" alt="Ministerio de Ciencia, Innovación y Universidades; Cofinanciado por la Unión Europea; Agencia Estatal de Investigación" width="1519" height="295">
-  <p>Proyecto <b>PID2022-137938OA-I00</b> financiado por MICIU/AEI/10.13039/501100011033 y por FEDER, UE.</p>
-</div>
 
 <div class="cifras ne-cifras">
   <div><b>3</b><span>zonas de estudio</span></div>
@@ -123,9 +119,9 @@
       </div>
     </div>
     <div class="ne-ambientes">
-      <figure><img src="media/ambiente-1.webp" alt="Escenario de Unreal Engine con luz cálida y vegetación seca" loading="lazy" width="1100" height="860"></figure>
-      <figure><img src="media/ambiente-2.webp" alt="El mismo escenario con luz neutra" loading="lazy" width="1100" height="860"></figure>
-      <figure><img src="media/ambiente-3.webp" alt="El mismo escenario con luz fría y vegetación más densa" loading="lazy" width="1100" height="860"></figure>
+      <figure><a class="ne-amplia" href="media/ambiente-1.webp"><img src="media/ambiente-1.webp" alt="Escenario de Unreal Engine con luz cálida y vegetación seca" loading="lazy" width="1100" height="860"></a></figure>
+      <figure><a class="ne-amplia" href="media/ambiente-2.webp"><img src="media/ambiente-2.webp" alt="El mismo escenario con luz neutra" loading="lazy" width="1100" height="860"></a></figure>
+      <figure><a class="ne-amplia" href="media/ambiente-3.webp"><img src="media/ambiente-3.webp" alt="El mismo escenario con luz fría y vegetación más densa" loading="lazy" width="1100" height="860"></a></figure>
     </div>
     <p class="ne-nota ne-centro">El mismo rincón de Puerto de la Mata con tres ambientes distintos en Unreal Engine.</p>
   </section>
@@ -133,39 +129,57 @@
   <section class="seccion gris" id="zonas">
     <h2 class="titular">Zonas de estudio</h2>
     <figure class="ne-fig ne-ancha">
-      <img src="img/zonas.jpg" alt="Mapa del Parque Natural de Sierra Mágina con las tres zonas de estudio: Puerto de la Mata, Pico Mágina y Sierra de la Cruz" loading="lazy">
+      <a class="ne-amplia" href="img/zonas.jpg"><img src="img/zonas.jpg" alt="Mapa del Parque Natural de Sierra Mágina con las tres zonas de estudio: Puerto de la Mata, Pico Mágina y Sierra de la Cruz" loading="lazy"></a>
       <figcaption>Puerto de la Mata, Pico Mágina y Sierra de la Cruz, en el Parque Natural de Sierra Mágina (Jaén).</figcaption>
     </figure>
+    <div class="ne-mapas">
+      <figure>
+        <iframe title="Sierra Mágina vista por satélite" src="https://maps.google.com/maps?q=37.7321,-3.5025&amp;t=k&amp;z=11&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <figcaption>Sierra Mágina (Jaén). El punto marca Puerto de la Mata.</figcaption>
+      </figure>
+      <figure>
+        <iframe title="Puerto de la Mata visto por satélite" src="https://maps.google.com/maps?q=37.7321,-3.5025&amp;t=k&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <figcaption>Puerto de la Mata, a unos 1.650 metros de altitud: la zona del vuelo de la nube 3D.</figcaption>
+      </figure>
+    </div>
+    <p class="ne-centro ne-earth"><a class="boton ne-boton-linea" href="https://earth.google.com/web/@37.7321,-3.5025,1650a,2200d,35y,20h,65t,0r" rel="noopener" target="_blank">Ver Puerto de la Mata en 3D en Google Earth</a></p>
     <div class="ne-pareja">
-      <figure class="ne-fig"><img src="img/majuelo.jpg" alt="Majuelo en flor" loading="lazy"><figcaption><b>Majuelo</b> (<i>Crataegus monogyna</i>), una de las especies objetivo.</figcaption></figure>
-      <figure class="ne-fig"><img src="img/quejigo.jpg" alt="Quejigo" loading="lazy"><figcaption><b>Quejigo</b> (<i>Quercus faginea</i>), otra de las especies objetivo.</figcaption></figure>
+      <figure class="ne-fig"><a class="ne-amplia" href="img/majuelo.jpg"><img src="img/majuelo.jpg" alt="Majuelo en flor" loading="lazy"></a><figcaption><b>Majuelo</b> (<i>Crataegus monogyna</i>), una de las especies objetivo.</figcaption></figure>
+      <figure class="ne-fig"><a class="ne-amplia" href="img/quejigo.jpg"><img src="img/quejigo.jpg" alt="Quejigo" loading="lazy"></a><figcaption><b>Quejigo</b> (<i>Quercus faginea</i>), otra de las especies objetivo.</figcaption></figure>
     </div>
   </section>
 
   <section class="seccion" id="metodo">
-    <h2 class="titular">Cómo se ha hecho</h2>
-    <ol class="ne-pasos">
-      <li>
-        <div class="ne-paso-img"><img src="img/m600.jpg" alt="Dron DJI Matrice 600 Pro preparado para el vuelo" loading="lazy"></div>
-        <div><h3>Adquisición</h3><p>Vuelos estacionales con LiDAR (Phoenix Scout-Ultra), cámara hiperespectral Headwall Nano-Hyperspec (270 bandas, 400–1000 nm), multiespectral, térmica y RGB. Se completan con series Sentinel-2 y datos meteorológicos.</p></div>
-      </li>
-      <li>
-        <div class="ne-paso-img"><img src="img/firmas-espectrales.jpg" alt="Firmas hiperespectrales de la vegetación" loading="lazy"></div>
-        <div><h3>Procesamiento</h3><p>Ortorrectificación de las imágenes hiperespectrales, ortomosaicos, nubes de puntos LiDAR y modelos digitales de elevación de las tres zonas.</p></div>
-      </li>
-      <li>
-        <div class="ne-paso-img"><img src="img/voxeles.jpg" alt="Nube de puntos voxelizada con información espectral" loading="lazy"></div>
-        <div><h3>Fusión en GEU</h3><p>La información hiperespectral y multiespectral se proyecta sobre la nube de puntos y se organiza en vóxeles con geometría, reflectancia y clima.</p></div>
-      </li>
-      <li>
-        <div class="ne-paso-img"><img src="img/especies.jpg" alt="Árboles individuales coloreados por especie" loading="lazy"></div>
-        <div><h3>Individuos y especies</h3><p>Filtrado de suelo y sombras, identificación de cada árbol y clasificación por firma espectral, afinada con la forma de la copa. Un flujo híbrido LiDAR-hiperespectral recupera especies objetivo a partir de pocos ejemplos.</p></div>
-      </li>
-      <li>
-        <div class="ne-paso-img"><img src="img/unreal-3.jpg" alt="Escenario 3D en Unreal Engine con un individuo resaltado" loading="lazy"></div>
-        <div><h3>Simulación</h3><p>Escenario 3D en Unreal Engine construido con los datos reales para visualizar la vegetación con más temperatura y menos precipitación.</p></div>
-      </li>
-    </ol>
+    <h2 class="titular">Del vuelo al modelo</h2>
+    <div class="ne-proceso">
+      <div class="ne-pestanas" role="tablist" aria-label="Pasos del método">
+        <button type="button" role="tab" id="paso-t1" aria-controls="paso-1" aria-selected="true"><span>1</span>Adquisición</button>
+        <button type="button" role="tab" id="paso-t2" aria-controls="paso-2" aria-selected="false"><span>2</span>Procesamiento</button>
+        <button type="button" role="tab" id="paso-t3" aria-controls="paso-3" aria-selected="false"><span>3</span>Fusión en GEU</button>
+        <button type="button" role="tab" id="paso-t4" aria-controls="paso-4" aria-selected="false"><span>4</span>Individuos y especies</button>
+        <button type="button" role="tab" id="paso-t5" aria-controls="paso-5" aria-selected="false"><span>5</span>Simulación</button>
+      </div>
+      <div class="ne-etapa" role="tabpanel" id="paso-1" aria-labelledby="paso-t1">
+        <a class="ne-amplia ne-etapa-img" href="img/m600-hiperespectral.jpg"><img src="img/m600-hiperespectral.jpg" alt="Dron DJI Matrice 600 Pro con la cámara hiperespectral" loading="lazy"></a>
+        <div class="ne-etapa-texto"><p class="ne-etapa-num">Paso 1 de 5</p><h3>Adquisición</h3><p>Vuelos en distintas estaciones con LiDAR (Phoenix Scout-Ultra), cámara hiperespectral Headwall Nano-Hyperspec (270 bandas entre 400 y 1000 nm), cámaras multiespectral, térmica y RGB. Se completan con series de imágenes Sentinel-2 y registros meteorológicos.</p></div>
+      </div>
+      <div class="ne-etapa" role="tabpanel" id="paso-2" aria-labelledby="paso-t2" hidden>
+        <a class="ne-amplia ne-etapa-img" href="img/nube-lidar.jpg"><img src="img/nube-lidar.jpg" alt="Nube de puntos LiDAR de una de las zonas" loading="lazy"></a>
+        <div class="ne-etapa-texto"><p class="ne-etapa-num">Paso 2 de 5</p><h3>Procesamiento</h3><p>Ortorrectificación de las imágenes hiperespectrales, ortomosaicos, nubes de puntos LiDAR y modelos digitales de elevación de las tres zonas de estudio.</p></div>
+      </div>
+      <div class="ne-etapa" role="tabpanel" id="paso-3" aria-labelledby="paso-t3" hidden>
+        <a class="ne-amplia ne-etapa-img" href="img/geu-fusion.jpg"><img src="img/geu-fusion.jpg" alt="Fusión de datos multisensoriales en la plataforma GEU" loading="lazy"></a>
+        <div class="ne-etapa-texto"><p class="ne-etapa-num">Paso 3 de 5</p><h3>Fusión en GEU</h3><p>La información hiperespectral y multiespectral se proyecta sobre la nube de puntos y se organiza en vóxeles: cada celda guarda su geometría, su reflectancia y las variables climáticas.</p></div>
+      </div>
+      <div class="ne-etapa" role="tabpanel" id="paso-4" aria-labelledby="paso-t4" hidden>
+        <a class="ne-amplia ne-etapa-img" href="img/individuos.jpg"><img src="img/individuos.jpg" alt="Individuos identificados en la nube, cada uno con un color" loading="lazy"></a>
+        <div class="ne-etapa-texto"><p class="ne-etapa-num">Paso 4 de 5</p><h3>Individuos y especies</h3><p>Se filtran el suelo y las sombras, se identifica cada individuo y se clasifica por su firma espectral, afinada con la forma de la copa. Un flujo híbrido LiDAR-hiperespectral recupera las especies objetivo a partir de pocos ejemplos.</p></div>
+      </div>
+      <div class="ne-etapa" role="tabpanel" id="paso-5" aria-labelledby="paso-t5" hidden>
+        <a class="ne-amplia ne-etapa-img" href="img/unreal-3.jpg"><img src="img/unreal-3.jpg" alt="Escenario 3D en Unreal Engine con un individuo resaltado" loading="lazy"></a>
+        <div class="ne-etapa-texto"><p class="ne-etapa-num">Paso 5 de 5</p><h3>Simulación</h3><p>Con los datos reales se construye un escenario 3D en Unreal Engine para ver cómo podría cambiar la vegetación con más temperatura y menos lluvia.</p></div>
+      </div>
+    </div>
   </section>
 
   <section class="seccion gris" id="simulacion" aria-labelledby="t-sim">
@@ -337,7 +351,7 @@
 </div>
 
 <script src="datos.js?v=1"></script>
-<script src="natureye.js?v=2"></script>
-<script type="module" src="visor.js?v=4"></script>
+<script src="natureye.js?v=3"></script>
+<script type="module" src="visor.js?v=5"></script>
 </body>
 </html>

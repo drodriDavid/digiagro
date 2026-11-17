@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
 <link rel="stylesheet" href="../assets/fuentes/lato.css">
 <link rel="stylesheet" href="../styles.css?v=35">
-<link rel="stylesheet" href="natureye.css?v=13">
+<link rel="stylesheet" href="natureye.css?v=16">
 <link rel="preload" href="media/portada.webp" as="image">
 </head>
 <body>
@@ -122,45 +122,102 @@
     <p class="ne-nota ne-centro">El mismo rincón de Puerto de la Mata con tres ambientes distintos en Unreal Engine.</p>
   </section>
 
-  <section class="seccion gris" id="zonas">
-    <h2 class="titular">Zonas de estudio</h2>
-    <p class="ne-intro-zonas">Tres zonas de unas 6 hectáreas cada una en el Parque Natural de Sierra Mágina (Jaén), a distinta altitud y orientación.</p>
-    <div class="ne-zonas">
-      <article class="ne-zona">
-        <iframe title="Pico Mágina vista por satélite" src="https://maps.google.com/maps?q=37.72496,-3.46669&amp;t=k&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="ne-zona-texto">
-          <h3>Pico Mágina</h3>
-          <p class="ne-zona-datos"><span>2.100 m</span><span>Ladera norte y sur</span><span>Calizas</span></p>
-          <p>La zona más alta de las tres, junto a la cumbre del parque.</p>
-          <a href="https://earth.google.com/web/@37.72496,-3.46669,2100a,1800d,35y,0h,65t,0r" rel="noopener" target="_blank">Ver en 3D en Google Earth</a>
-        </div>
-      </article>
-      <article class="ne-zona">
-        <iframe title="Puerto de la Mata vista por satélite" src="https://maps.google.com/maps?q=37.7321,-3.5025&amp;t=k&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="ne-zona-texto">
+  <section class="ne-zonas-sec" id="zonas">
+    <div class="ne-zonas-cab">
+      <img src="media/earth-magina.webp" alt="" loading="lazy">
+      <div class="ne-zonas-cab-texto">
+        <h2>Zonas de estudio</h2>
+        <p>Tres zonas de unas 6 hectáreas en el Parque Natural de Sierra Mágina (Jaén), elegidas a distinta altitud y orientación para comparar cómo cambia la vegetación.</p>
+      </div>
+      <span class="ne-zona2-cred">Sierra Mágina · Google Earth</span>
+    </div>
+    <div class="ne-zonas-lista">
+      <article class="ne-zona2">
+        <figure class="ne-zona2-3d">
+          <a class="ne-amplia" href="media/earth-puerto.webp"><img src="media/earth-puerto.webp" alt="Vista en 3D de Puerto de la Mata en Google Earth" width="1272" height="626" loading="lazy"></a>
+          <span class="ne-zona2-cred">Vista 3D · Google Earth</span>
+        </figure>
+        <div class="ne-zona2-texto">
           <h3>Puerto de la Mata</h3>
-          <p class="ne-zona-datos"><span>1.600 m</span><span>Ladera norte y sur</span><span>Calizas</span></p>
-          <p>Zona del vuelo de la nube 3D y del escenario de Unreal Engine.</p>
-          <a href="https://earth.google.com/web/@37.7321,-3.5025,1600a,1800d,35y,0h,65t,0r" rel="noopener" target="_blank">Ver en 3D en Google Earth</a>
+          <dl class="ne-zona2-datos">
+            <div><dt>Altitud</dt><dd>1.600 m</dd></div>
+            <div><dt>Ladera</dt><dd>Norte y sur</dd></div>
+            <div><dt>Sustrato</dt><dd>Calizas</dd></div>
+          </dl>
+          <p>Aquí se voló la nube 3D que se explora más arriba y se construyó el escenario de Unreal Engine.</p>
+          <div class="ne-zona2-pie">
+            <a class="ne-amplia ne-zona2-foto" href="media/foto-puerto.webp"><img src="media/foto-puerto.webp" alt="Puerto de la Mata con el pico Mágina nevado al fondo" loading="lazy"></a>
+            <div class="ne-zona2-acc">
+              <a class="boton ne-boton" href="https://earth.google.com/web/@37.7321,-3.5025,1600a,3200d,35y,200h,64t,0r" rel="noopener" target="_blank">Explorar en 3D</a>
+              <a href="https://www.google.com/maps/@37.7321,-3.5025,1200m/data=!3m1!1e3" rel="noopener" target="_blank">Mapa de satélite</a>
+            </div>
+          </div>
         </div>
       </article>
-      <article class="ne-zona">
-        <iframe title="Sierra de la Cruz vista por satélite" src="https://maps.google.com/maps?q=37.76023,-3.36196&amp;t=k&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="ne-zona-texto">
+      <article class="ne-zona2">
+        <figure class="ne-zona2-3d">
+          <a class="ne-amplia" href="media/earth-pico.webp"><img src="media/earth-pico.webp" alt="Vista en 3D de Pico Mágina en Google Earth" width="1272" height="626" loading="lazy"></a>
+          <span class="ne-zona2-cred">Vista 3D · Google Earth</span>
+        </figure>
+        <div class="ne-zona2-texto">
+          <h3>Pico Mágina</h3>
+          <dl class="ne-zona2-datos">
+            <div><dt>Altitud</dt><dd>2.100 m</dd></div>
+            <div><dt>Ladera</dt><dd>Norte y sur</dd></div>
+            <div><dt>Sustrato</dt><dd>Calizas</dd></div>
+          </dl>
+          <p>La zona más alta de las tres, junto a la cumbre del parque.</p>
+          <div class="ne-zona2-pie">
+            <a class="ne-amplia ne-zona2-foto" href="media/foto-pico.webp"><img src="media/foto-pico.webp" alt="Cumbre del pico Mágina" loading="lazy"></a>
+            <div class="ne-zona2-acc">
+              <a class="boton ne-boton" href="https://earth.google.com/web/@37.72496,-3.46669,2100a,3800d,35y,330h,64t,0r" rel="noopener" target="_blank">Explorar en 3D</a>
+              <a href="https://www.google.com/maps/@37.72496,-3.46669,1200m/data=!3m1!1e3" rel="noopener" target="_blank">Mapa de satélite</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="ne-zona2">
+        <figure class="ne-zona2-3d">
+          <a class="ne-amplia" href="media/earth-cruz.webp"><img src="media/earth-cruz.webp" alt="Vista en 3D de Sierra de la Cruz en Google Earth" width="1272" height="626" loading="lazy"></a>
+          <span class="ne-zona2-cred">Vista 3D · Google Earth</span>
+        </figure>
+        <div class="ne-zona2-texto">
           <h3>Sierra de la Cruz</h3>
-          <p class="ne-zona-datos"><span>1.225 m</span><span>Ladera sur</span><span>Calizas</span></p>
-          <p>La zona más baja y oriental de las tres.</p>
-          <a href="https://earth.google.com/web/@37.76023,-3.36196,1225a,1800d,35y,0h,65t,0r" rel="noopener" target="_blank">Ver en 3D en Google Earth</a>
+          <dl class="ne-zona2-datos">
+            <div><dt>Altitud</dt><dd>1.225 m</dd></div>
+            <div><dt>Ladera</dt><dd>Sur</dd></div>
+            <div><dt>Sustrato</dt><dd>Calizas</dd></div>
+          </dl>
+          <p>La zona más baja y oriental de las tres, en la ladera de solana.</p>
+          <div class="ne-zona2-pie">
+            <a class="ne-amplia ne-zona2-foto" href="media/foto-cruz.webp"><img src="media/foto-cruz.webp" alt="Vista desde Sierra de la Cruz" loading="lazy"></a>
+            <div class="ne-zona2-acc">
+              <a class="boton ne-boton" href="https://earth.google.com/web/@37.76023,-3.36196,1225a,3200d,35y,20h,64t,0r" rel="noopener" target="_blank">Explorar en 3D</a>
+              <a href="https://www.google.com/maps/@37.76023,-3.36196,1200m/data=!3m1!1e3" rel="noopener" target="_blank">Mapa de satélite</a>
+            </div>
+          </div>
         </div>
       </article>
     </div>
     <figure class="ne-fig ne-ancha ne-zonas-mapa">
       <a class="ne-amplia" href="img/zonas.jpg"><img src="img/zonas.jpg" alt="Vista de Google Earth del Parque Natural de Sierra Mágina con las tres zonas de estudio: Puerto de la Mata, Pico Mágina y Sierra de la Cruz" loading="lazy"></a>
-      <figcaption>Las tres zonas sobre Google Earth, con su delimitación y una foto de cada una.</figcaption>
+      <figcaption>Situación de las tres zonas en el parque.</figcaption>
     </figure>
-    <div class="ne-pareja">
-      <figure class="ne-fig"><a class="ne-amplia" href="img/majuelo.jpg"><img src="img/majuelo.jpg" alt="Majuelo en flor" loading="lazy"></a><figcaption><b>Majuelo</b> (<i>Crataegus monogyna</i>), una de las especies objetivo.</figcaption></figure>
-      <figure class="ne-fig"><a class="ne-amplia" href="img/quejigo.jpg"><img src="img/quejigo.jpg" alt="Quejigo" loading="lazy"></a><figcaption><b>Quejigo</b> (<i>Quercus faginea</i>), otra de las especies objetivo.</figcaption></figure>
+    <h3 class="ne-especies-tit">Especies fotografiadas en campo</h3>
+    <p class="ne-especies-intro">Fotografías de referencia tomadas en las zonas de estudio. Sirven para etiquetar cada individuo en las imágenes del dron y entrenar su identificación.</p>
+    <div class="ne-especies">
+      <figure><a class="ne-amplia" href="media/especies/encina.webp"><img src="media/especies/encina.webp" alt="Encina (Quercus ilex)" loading="lazy"></a><figcaption><b>Encina</b><i>Quercus ilex</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/quejigo.webp"><img src="media/especies/quejigo.webp" alt="Quejigo (Quercus faginea)" loading="lazy"></a><figcaption><b>Quejigo</b><i>Quercus faginea</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/majuelo.webp"><img src="media/especies/majuelo.webp" alt="Majuelo (Crataegus monogyna)" loading="lazy"></a><figcaption><b>Majuelo</b><i>Crataegus monogyna</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/agracejo.webp"><img src="media/especies/agracejo.webp" alt="Agracejo (Berberis hispanica)" loading="lazy"></a><figcaption><b>Agracejo</b><i>Berberis hispanica</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/pino.webp"><img src="media/especies/pino.webp" alt="Pino carrasco (Pinus halepensis)" loading="lazy"></a><figcaption><b>Pino carrasco</b><i>Pinus halepensis</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/esparto.webp"><img src="media/especies/esparto.webp" alt="Esparto (Stipa tenacissima)" loading="lazy"></a><figcaption><b>Esparto</b><i>Stipa tenacissima</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/erizo.webp"><img src="media/especies/erizo.webp" alt="Piorno azul (Erinacea anthyllis)" loading="lazy"></a><figcaption><b>Piorno azul</b><i>Erinacea anthyllis</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/piorno.webp"><img src="media/especies/piorno.webp" alt="Echinospartum boissieri" loading="lazy"></a><figcaption><b><i>Echinospartum boissieri</i></b></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/eleboro.webp"><img src="media/especies/eleboro.webp" alt="Eléboro fétido (Helleborus foetidus)" loading="lazy"></a><figcaption><b>Eléboro fétido</b><i>Helleborus foetidus</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/rosal.webp"><img src="media/especies/rosal.webp" alt="Rosal silvestre (Rosa sp.)" loading="lazy"></a><figcaption><b>Rosal silvestre</b><i>Rosa sp.</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/muerdago.webp"><img src="media/especies/muerdago.webp" alt="Muérdago sobre majuelo (Viscum album)" loading="lazy"></a><figcaption><b>Muérdago sobre majuelo</b><i>Viscum album</i></figcaption></figure>
+      <figure><a class="ne-amplia" href="media/especies/pinar.webp"><img src="media/especies/pinar.webp" alt="Pinar (Pinus sp.)" loading="lazy"></a><figcaption><b>Pinar</b><i>Pinus sp.</i></figcaption></figure>
     </div>
   </section>
 
@@ -216,19 +273,19 @@
 
   <section class="seccion" id="galeria" aria-labelledby="t-galeria">
     <h2 class="titular" id="t-galeria">Imágenes del proyecto</h2>
-    <div class="ne-galeria">
-      <figure><a href="img/sensores.jpg"><img src="img/sensores.jpg" alt="" loading="lazy"></a><figcaption>Sensores embarcados</figcaption></figure>
-      <figure><a href="img/hiperespectral-orto.jpg"><img src="img/hiperespectral-orto.jpg" alt="" loading="lazy"></a><figcaption>Hiperespectral bruta y ortorrectificada</figcaption></figure>
-      <figure><a href="img/satelite.jpg"><img src="img/satelite.jpg" alt="" loading="lazy"></a><figcaption>Imagen de satélite de la zona</figcaption></figure>
-      <figure><a href="img/ortomosaico.jpg"><img src="img/ortomosaico.jpg" alt="" loading="lazy"></a><figcaption>Ortomosaico RGB</figcaption></figure>
-      <figure><a href="img/nube-lidar.jpg"><img src="img/nube-lidar.jpg" alt="" loading="lazy"></a><figcaption>Nube de puntos LiDAR</figcaption></figure>
-      <figure><a href="img/mde.jpg"><img src="img/mde.jpg" alt="" loading="lazy"></a><figcaption>Modelo digital de elevación</figcaption></figure>
-      <figure><a href="img/geu-fusion.jpg"><img src="img/geu-fusion.jpg" alt="" loading="lazy"></a><figcaption>Fusión de datos en GEU</figcaption></figure>
-      <figure><a href="img/individuos.jpg"><img src="img/individuos.jpg" alt="" loading="lazy"></a><figcaption>Identificación de individuos</figcaption></figure>
-      <figure><a href="img/firmas-especies.jpg"><img src="img/firmas-especies.jpg" alt="" loading="lazy"></a><figcaption>Firma espectral por especie</figcaption></figure>
-      <figure><a href="img/entidad-objetivo.jpg"><img src="img/entidad-objetivo.jpg" alt="" loading="lazy"></a><figcaption>Recuperación de especies objetivo</figcaption></figure>
-      <figure><a href="img/geu-3d.jpg"><img src="img/geu-3d.jpg" alt="" loading="lazy"></a><figcaption>Visualización 3D de un individuo en GEU</figcaption></figure>
-      <figure><a href="img/unreal-4.jpg"><img src="img/unreal-4.jpg" alt="" loading="lazy"></a><figcaption>Simulación en Unreal Engine</figcaption></figure>
+    <div class="ne-galeria ne-mosaico">
+      <figure class="ne-g-grande"><a href="media/captura-1.webp"><img src="media/captura-1.webp" alt="Individuos señalados sobre la nube de puntos" loading="lazy"></a><figcaption>Individuos señalados sobre la nube de puntos</figcaption></figure>
+      <figure><a href="img/individuos.jpg"><img src="img/individuos.jpg" alt="Copas de cada individuo identificadas" loading="lazy"></a><figcaption>Copas de cada individuo identificadas</figcaption></figure>
+      <figure><a href="img/sensores.jpg"><img src="img/sensores.jpg" alt="Sensores embarcados en el dron" loading="lazy"></a><figcaption>Sensores embarcados en el dron</figcaption></figure>
+      <figure class="ne-g-ancha"><a href="img/nube-lidar.jpg"><img src="img/nube-lidar.jpg" alt="Nube de puntos LiDAR" loading="lazy"></a><figcaption>Nube de puntos LiDAR</figcaption></figure>
+      <figure><a href="img/hiperespectral-orto.jpg"><img src="img/hiperespectral-orto.jpg" alt="Hiperespectral bruta y ortorrectificada" loading="lazy"></a><figcaption>Hiperespectral bruta y ortorrectificada</figcaption></figure>
+      <figure><a href="img/ortomosaico.jpg"><img src="img/ortomosaico.jpg" alt="Ortomosaico RGB" loading="lazy"></a><figcaption>Ortomosaico RGB</figcaption></figure>
+      <figure class="ne-g-grande"><a href="img/unreal-4.jpg"><img src="img/unreal-4.jpg" alt="Simulación en Unreal Engine" loading="lazy"></a><figcaption>Simulación en Unreal Engine</figcaption></figure>
+      <figure><a href="img/firmas-especies.jpg"><img src="img/firmas-especies.jpg" alt="Firma espectral por especie" loading="lazy"></a><figcaption>Firma espectral por especie</figcaption></figure>
+      <figure><a href="img/geu-fusion.jpg"><img src="img/geu-fusion.jpg" alt="Fusión de datos en GEU" loading="lazy"></a><figcaption>Fusión de datos en GEU</figcaption></figure>
+      <figure><a href="img/mde.jpg"><img src="img/mde.jpg" alt="Modelo digital de elevación" loading="lazy"></a><figcaption>Modelo digital de elevación</figcaption></figure>
+      <figure><a href="img/entidad-objetivo.jpg"><img src="img/entidad-objetivo.jpg" alt="Recuperación de especies objetivo" loading="lazy"></a><figcaption>Recuperación de especies objetivo</figcaption></figure>
+      <figure class="ne-g-ancha"><a href="img/geu-3d.jpg"><img src="img/geu-3d.jpg" alt="Un individuo en 3D en GEU" loading="lazy"></a><figcaption>Un individuo en 3D en GEU</figcaption></figure>
     </div>
   </section>
 
@@ -433,7 +490,7 @@
 </div>
 
 <script src="datos.js?v=1"></script>
-<script src="natureye.js?v=3"></script>
+<script src="natureye.js?v=5"></script>
 <script type="module" src="visor.js?v=6"></script>
 </body>
 </html>

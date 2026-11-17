@@ -61,9 +61,22 @@
   if (typeof DATOS === "undefined") return;
   const cuerpo = $("lista-datos"), filtros = $("filtros");
   const tamaño = mb => mb >= 1024 ? (mb / 1024).toLocaleString("es-ES", { maximumFractionDigits: 1 }) + " GB" : Math.round(mb).toLocaleString("es-ES") + " MB";
+  /* Imagen y explicación de cada tipo de dato, para que se vea qué contiene antes de pedirlo */
+  const TIPOS = {
+    "MDE": ["img/mde.jpg", "Relieve del terreno en cada píxel"],
+    "RGB": ["img/ortomosaico.jpg", "Mosaico de fotos de dron en color real"],
+    "Multiespectral": ["img/sensores.jpg", "Verde, rojo, borde rojo e infrarrojo cercano"],
+    "Hiperespectral": ["img/firmas-espectrales.jpg", "Cientos de bandas por píxel", "center 70%"],
+    "Nube de puntos": ["img/nube-lidar.jpg", "Puntos 3D de LiDAR y fotogrametría"],
+    "Modelo GEU": ["img/geu-fusion.jpg", "Datos fusionados listos para GEU", "left center"],
+    "Especies": ["media/especies/quejigo.webp", "Fotos de campo de cada especie"]
+  };
   const filas = DATOS.map(d => {
     const tr = crea("tr"); tr.dataset.tipo = d.tipo;
-    const c1 = crea("td"); c1.append(crea("b", "", d.titulo)); if (d.desc) c1.append(crea("small", "", d.desc)); c1.append(crea("span", "ne-tipo", d.tipo));
+    const c1 = crea("td"), w = crea("div", "ne-celda-conjunto"); c1.append(w);
+    const t = TIPOS[d.tipo];
+    if (t) { const im = crea("img", "ne-mini"); im.src = t[0]; if (t[2]) im.style.objectPosition = t[2]; im.alt = ""; im.loading = "lazy"; w.append(im); }
+    const tx = crea("div"); tx.append(crea("b", "", d.titulo)); if (d.desc) tx.append(crea("small", "", d.desc)); tx.append(crea("span", "ne-tipo", d.tipo)); w.append(tx);
     const c2 = crea("td"); c2.append(crea("b", "", d.zona)); if (d.fecha) c2.append(crea("small", "", d.fecha + (d.sensor ? " · " + d.sensor : "")));
     const c3 = crea("td", "", d.formato);
     const c4 = crea("td", "ne-num", d.mb ? tamaño(d.mb) : "—");
@@ -73,9 +86,17 @@
     tr.append(c1, c2, c3, c4, c5); cuerpo.append(tr);
     return tr;
   });
+  const cuenta = t => DATOS.filter(d => t === "Todos" || d.tipo === t).length;
   const tipos = ["Todos", ...new Set(DATOS.map(d => d.tipo))];
   tipos.forEach((t, i) => {
-    const b = crea("button", "", t); b.type = "button"; b.setAttribute("aria-pressed", i === 0);
+    const b = crea("button", "ne-tipo-tarjeta"); b.type = "button"; b.setAttribute("aria-pressed", i === 0);
+    const info = TIPOS[t];
+    if (info) { const im = crea("img"); im.src = info[0]; if (info[2]) im.style.objectPosition = info[2]; im.alt = ""; im.loading = "lazy"; b.append(im); }
+    else b.classList.add("ne-tipo-todos");
+    const tx = crea("span", "ne-tipo-tx");
+    tx.append(crea("b", "", t), crea("small", "", info ? info[1] : "Todo el catálogo"));
+    const n = crea("span", "ne-tipo-n", String(cuenta(t)));
+    b.append(tx, n);
     b.addEventListener("click", () => {
       filtros.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
       filas.forEach(f => { f.hidden = t !== "Todos" && f.dataset.tipo !== t; });

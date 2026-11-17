@@ -92,7 +92,7 @@ const EN = {
   "Andaluz": "Andalusian",
   "Otros": "Other",
   "Horizonte Europa, 2024–2028": "Horizon Europe, 2024–2028",
-  "PID2022-137938OA-I00, MICIU/AEI/10.13039/501100011033 y FEDER, UE, 2023–2026": "PID2022-137938OA-I00, MICIU/AEI/10.13039/501100011033 and ERDF, EU, 2023–2026",
+  "Plan Estatal de I+D+i, 2023–2026": "Spanish State R&D&I Plan, 2023–2026",
   "Digitalización multisensorial, modelado 3D y simulación del escenario actual y futuro de entornos naturales. Con drones, sensores espectrales y LiDAR crea modelos 3D de espacios forestales para evaluar su estado de conservación y simular cómo responderán al cambio climático.": "Multisensory digitisation, 3D modelling and simulation of current and future scenarios in natural environments. Using drones, spectral sensors and LiDAR, it builds 3D models of forest areas to assess their conservation status and simulate how they will respond to climate change.",
   "Vídeo de presentación de LivingSoiLL": "LivingSoiLL presentation video",
   "Logotipo de Espacio de Datos Federado de Suelos": "Federated Soil Data Space logo",

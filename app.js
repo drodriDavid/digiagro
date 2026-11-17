@@ -32,7 +32,7 @@
 
   /* Proyectos: filas con logotipo */
   PROYECTOS.forEach(p => {
-    const a = crea("article", "fila-proyecto" + (p.v ? " con-video" : ""));
+    const a = crea("article", "fila-proyecto" + (p.v || p.im ? " con-video" : ""));
     const l = crea("div", "fp-logo");
     if (p.logo) { const i = crea("img"); i.src = p.logo; i.alt = "Logotipo de " + p.t; i.loading = "lazy"; l.append(i); }
     const t = crea("div", "fp-texto"), h = crea("h3");
@@ -44,6 +44,11 @@
     if (p.v) {
       const f = crea("figure", "fp-video"), v = crea("video"); v.controls = true; v.playsInline = true; v.preload = "none"; v.poster = p.vp;
       const s = crea("source"); s.src = p.v; s.type = "video/mp4"; v.append(s); v.setAttribute("aria-label", "Vídeo de presentación de " + p.t); f.append(v); a.append(f);
+    }
+    if (p.im && !p.v) {
+      const f = crea("figure", "fp-video fp-imagen"), i = crea("img"); i.src = p.im; i.alt = p.ima || ""; i.loading = "lazy";
+      if (p.u) { const e = crea("a"); e.href = p.u; e.rel = "noopener"; e.append(i); f.append(e); } else f.append(i);
+      a.append(f);
     }
     $("lista-proyectos").append(a); revela(a);
   });

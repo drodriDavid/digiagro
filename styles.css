@@ -432,6 +432,7 @@ a.fila-proyecto:hover { background: #eef6e2; padding-left: 26px; }
 .fila-proyecto .fp-texto h3 a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .fila-proyecto .fp-meta { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-top: 10px; }
 .fp-video { margin: 0; }
+.fp-imagen img { display: block; width: 100%; height: auto; }
 .fp-video video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0d1a12; border-radius: 8px; box-shadow: 0 8px 22px rgba(0, 40, 20, .16); }
 @media (max-width: 1000px) { .fila-proyecto, .fila-proyecto.con-video { grid-template-columns: 120px minmax(0, 1fr); } .fila-proyecto.con-video .fp-video { grid-column: 1 / -1; max-width: 560px; } }
 @media (max-width: 600px) { .fila-proyecto.con-video { grid-template-columns: minmax(0, 1fr); } }

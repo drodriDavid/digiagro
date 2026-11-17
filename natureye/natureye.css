@@ -123,9 +123,9 @@
 .ne-hero-velo { background: linear-gradient(180deg, rgba(8, 24, 16, .15) 0%, rgba(8, 24, 16, .35) 40%, rgba(8, 24, 16, .88) 100%); }
 .ne-logo { display: flex; align-items: center; gap: clamp(10px, 2vw, 22px); margin-top: 10px; font-size: clamp(3.2rem, 9.5vw, 6.8rem); line-height: 1; font-weight: 900; letter-spacing: -.01em; }
 .ne-logo img { width: clamp(84px, 13vw, 170px); height: auto; filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .35)); }
-.ne-logo-texto { color: #3ccf7a; text-shadow: 0 4px 24px rgba(0, 0, 0, .45); }
-.ne-logo-texto span { color: #5cbcf2; }
-.ne-hero .ne-ref { color: #bfe6ff; }
+.ne-logo-texto { color: #fff; text-shadow: 0 4px 24px rgba(0, 0, 0, .45); }
+.ne-logo-texto span { color: #7fd0ee; }
+.ne-hero .ne-ref { color: #7fd0ee; }
 .ne-hero-pie { position: absolute; right: var(--margen); bottom: 18px; margin: 0; font-size: .8rem; color: rgba(255, 255, 255, .75); text-align: right; max-width: 24em; }
 @media (max-width: 860px) { .ne-hero-pie { display: none; } }
 @media (max-width: 560px) { .ne-logo { font-size: clamp(2.2rem, 11vw, 3rem); gap: 8px; } .ne-logo img { width: 62px; } }

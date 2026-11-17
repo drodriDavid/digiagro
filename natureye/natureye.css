@@ -118,6 +118,18 @@
 .ne-portada-video video, .ne-portada-video img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; box-shadow: 0 18px 44px rgba(0, 60, 40, .18); background: #dfe7e1; }
 .ne-portada-video figcaption { margin-top: 10px; font-size: .88rem; color: var(--gris); text-align: right; }
 
+/* Cabecera a pantalla completa con la foto del dron */
+.ne-hero { min-height: min(84svh, 760px); background: #10261a; }
+.ne-hero-velo { background: linear-gradient(180deg, rgba(8, 24, 16, .15) 0%, rgba(8, 24, 16, .35) 40%, rgba(8, 24, 16, .88) 100%); }
+.ne-logo { display: flex; align-items: center; gap: clamp(10px, 2vw, 22px); margin-top: 10px; font-size: clamp(3.2rem, 9.5vw, 6.8rem); line-height: 1; font-weight: 900; letter-spacing: -.01em; }
+.ne-logo img { width: clamp(84px, 13vw, 170px); height: auto; filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .35)); }
+.ne-logo-texto { color: #3ccf7a; text-shadow: 0 4px 24px rgba(0, 0, 0, .45); }
+.ne-logo-texto span { color: #5cbcf2; }
+.ne-hero .ne-ref { color: #bfe6ff; }
+.ne-hero-pie { position: absolute; right: var(--margen); bottom: 18px; margin: 0; font-size: .8rem; color: rgba(255, 255, 255, .75); text-align: right; max-width: 24em; }
+@media (max-width: 860px) { .ne-hero-pie { display: none; } }
+@media (max-width: 560px) { .ne-logo { font-size: clamp(2.2rem, 11vw, 3rem); gap: 8px; } .ne-logo img { width: 62px; } }
+
 /* Visor 3D */
 .ne-explora { background: #fff; color: var(--tinta); padding: clamp(48px, 7vw, 88px) var(--margen) clamp(36px, 5vw, 56px); }
 .ne-explora-cab { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 32px; margin-bottom: 22px; }
@@ -127,23 +139,23 @@
 .vs-modos button { border: 0; background: transparent; color: var(--ne-azul); font: inherit; font-size: .92rem; font-weight: 700; padding: 8px 16px; border-radius: 999px; cursor: pointer; }
 .vs-modos button[aria-pressed="true"] { background: var(--ne-azul); color: #fff; }
 .vs-modos button:hover:not([aria-pressed="true"]) { background: #fff; }
-.vs { position: relative; height: clamp(420px, 68vh, 720px); border-radius: 10px; overflow: hidden; background: radial-gradient(120% 100% at 50% 20%, #ffffff 0%, #eef3ef 100%); box-shadow: 0 14px 40px rgba(0, 60, 40, .14), inset 0 0 0 1px #dfe7e1; }
+.vs { position: relative; height: clamp(420px, 68vh, 720px); border-radius: 10px; overflow: hidden; background: radial-gradient(120% 100% at 50% 0%, #1d4331 0%, #0b1a12 75%); box-shadow: 0 18px 44px rgba(0, 40, 20, .28); }
 .vs canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
 .vs canvas:active { cursor: grabbing; }
 .vs-fijo { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .vs.sin-webgl .vs-fijo { display: block; }
 .vs.sin-webgl canvas, .vs.sin-webgl .vs-barra, .vs.sin-webgl .vs-reinicia { display: none; }
-.vs-carga { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--gris); font-size: .95rem; text-align: center; transition: opacity .5s; }
+.vs-carga { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 10px; color: #cfe0d5; font-size: .95rem; text-align: center; transition: opacity .5s; }
 .vs.sin-webgl .vs-carga { top: auto; bottom: 16px; transform: translateX(-50%); background: rgba(0, 0, 0, .6); padding: 8px 14px; border-radius: 6px; }
 .vs.listo .vs-carga { opacity: 0; pointer-events: none; }
-.vs-barra { width: 220px; height: 4px; background: #dfe7e1; border-radius: 4px; overflow: hidden; }
-.vs-barra i { display: block; height: 100%; width: 0; background: var(--ne-azul); transition: width .2s; }
-.vs-leyenda { position: absolute; left: 16px; bottom: 16px; display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(255, 255, 255, .92); border-radius: 6px; font-size: .82rem; color: var(--tinta); box-shadow: 0 2px 10px rgba(0, 0, 0, .08); }
+.vs-barra { width: 220px; height: 4px; background: rgba(255, 255, 255, .15); border-radius: 4px; overflow: hidden; }
+.vs-barra i { display: block; height: 100%; width: 0; background: #5cbcf2; transition: width .2s; }
+.vs-leyenda { position: absolute; left: 16px; bottom: 16px; display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(8, 20, 14, .75); border-radius: 6px; font-size: .82rem; color: #e8efe9; }
 .vs-leyenda[hidden] { display: none; }
 .vs-rampa { display: block; width: 140px; height: 8px; border-radius: 4px; }
-.vs-rampa-alt { background: linear-gradient(90deg, #c4b28a, #cbd98a 8%, #6aae3a 30%, #1e5631 60%, #1c8cb8); }
+.vs-rampa-alt { background: linear-gradient(90deg, #e9dfc6, #cbd98a 8%, #6aae3a 30%, #1e5631 60%, #1c8cb8); }
 .vs-rampa-rel { background: linear-gradient(90deg, #1d4e6b, #4f9fb8 35%, #d9dcb4 60%, #c08a52 85%, #7a4b2a); }
-.vs-reinicia { position: absolute; right: 16px; bottom: 16px; border: 1px solid #cfdcd3; background: #fff; color: var(--ne-azul); font: inherit; font-size: .85rem; font-weight: 700; padding: 7px 14px; border-radius: 6px; cursor: pointer; opacity: 0; transition: opacity .3s; }
+.vs-reinicia { position: absolute; right: 16px; bottom: 16px; border: 1px solid rgba(255, 255, 255, .25); background: rgba(8, 20, 14, .75); color: #fff; font: inherit; font-size: .85rem; font-weight: 700; padding: 7px 14px; border-radius: 6px; cursor: pointer; opacity: 0; transition: opacity .3s; }
 .vs.listo .vs-reinicia { opacity: 1; }
 .ne-explora-pie { margin-top: 14px; font-size: .85rem; color: var(--gris); max-width: 90ch; }
 

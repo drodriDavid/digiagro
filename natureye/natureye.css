@@ -1,0 +1,118 @@
+/* NATUREYE: subpágina de DIGIAGRO. Usa las variables y componentes de ../styles.css y añade solo lo propio. */
+
+.nav nav { margin-left: auto; }
+
+/* Portada */
+.ne-hero { position: relative; display: flex; align-items: flex-end; min-height: min(78svh, 720px); padding: clamp(40px, 6vw, 80px) var(--margen); color: #fff; overflow: hidden; background: var(--oscuro); }
+.ne-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ne-hero-velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 40, 20, .15) 0%, rgba(0, 35, 18, .78) 78%); }
+.ne-hero-texto { position: relative; max-width: 860px; }
+.ne-ref { font-size: .9rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--lima); }
+.ne-hero h1 { font-size: clamp(3.2rem, 9vw, 6.4rem); line-height: 1; font-weight: 900; letter-spacing: .02em; margin-top: 6px; text-shadow: 0 3px 22px rgba(0, 0, 0, .35); }
+.ne-sub { font-size: clamp(1.15rem, 2.2vw, 1.7rem); line-height: 1.25; font-weight: 700; margin-top: 12px; text-wrap: balance; text-shadow: 0 2px 12px rgba(0, 0, 0, .45); }
+.ne-hero .acciones { justify-content: flex-start; margin-top: 24px; }
+.ne-claro { color: #fff; }
+.ne-claro:hover { color: var(--oscuro); }
+
+/* Financiación (obligatoria por la AEI) */
+.ne-financia { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 28px; padding: 16px var(--margen); background: #fff; border-bottom: 1px solid var(--linea); }
+.ne-financia img { height: 56px; width: auto; }
+.ne-financia p { font-size: .95rem; color: var(--tinta); max-width: 38em; }
+
+.ne-cifras { grid-template-columns: repeat(4, 1fr); }
+
+/* Texto y objetivos */
+.ne-dos { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.ne-prosa { display: flex; flex-direction: column; gap: 14px; max-width: 64ch; }
+.ne-prosa b { color: var(--verde); }
+.ne-objetivos { counter-reset: ob; display: flex; flex-direction: column; gap: 10px; }
+.ne-objetivos li { counter-increment: ob; display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 14px; padding: 12px 14px; background: var(--fondo); border-radius: 6px; }
+.ne-objetivos li::before { content: counter(ob); grid-row: span 2; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--verde); color: #fff; font-weight: 900; }
+.ne-objetivos b { color: var(--oscuro); line-height: 1.3; }
+.ne-objetivos span { color: var(--gris); font-size: .95rem; line-height: 1.4; }
+
+/* Figuras */
+.ne-fig { margin: 0; }
+.ne-fig img { width: 100%; height: auto; border-radius: 6px; box-shadow: var(--sombra); background: #fff; }
+.ne-fig figcaption { margin-top: 8px; font-size: .95rem; color: var(--gris); }
+.ne-ancha { max-width: 980px; margin-inline: auto; }
+.ne-pareja { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 980px; margin: 28px auto 0; }
+.ne-pareja img { aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* Pasos del método */
+.ne-pasos { display: flex; flex-direction: column; gap: 22px; max-width: 1040px; margin-inline: auto; }
+.ne-pasos li { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 24px; align-items: center; }
+.ne-paso-img img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 6px; box-shadow: var(--sombra); background: #0d1a12; }
+.ne-pasos h3 { color: var(--verde); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 6px; }
+.ne-pasos p { color: var(--tinta); max-width: 60ch; }
+
+/* Galería */
+.ne-galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.ne-galeria figure { margin: 0; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: var(--sombra); }
+.ne-galeria a { display: block; }
+.ne-galeria img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .3s; }
+.ne-galeria a:hover img { transform: scale(1.03); }
+.ne-galeria figcaption { padding: 8px 12px; font-size: .9rem; color: var(--gris); }
+
+.ne-galeria-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 560px) { .ne-galeria-2 { grid-template-columns: 1fr; } }
+
+/* Resultados */
+.ne-sub3 { color: var(--oscuro); font-size: 1.15rem; font-weight: 900; text-transform: uppercase; letter-spacing: .03em; margin: 30px 0 14px; }
+#resultados .ne-sub3:first-of-type { margin-top: 0; }
+.ne-oa { color: var(--verde); font-weight: 700; }
+.ne-lista { display: flex; flex-direction: column; border-top: 1px solid var(--linea); }
+.ne-lista li { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 6px; padding: 10px 4px; border-bottom: 1px solid var(--linea); }
+.ne-año { color: var(--verde); font-weight: 900; font-variant-numeric: tabular-nums; }
+.ne-lista a, .ne-mini a, .ne-datos-intro a { color: var(--verde); }
+.ne-tres { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.ne-mini { display: flex; flex-direction: column; gap: 10px; font-size: .97rem; color: var(--gris); }
+.ne-mini b { color: var(--tinta); font-weight: 700; }
+
+/* Datos */
+.ne-datos-intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; align-items: start; margin-bottom: 22px; }
+.ne-cita { background: #fff; border-left: 4px solid var(--lima); padding: 14px 16px; font-size: .95rem; }
+.ne-cita b { display: block; color: var(--verde); text-transform: uppercase; font-size: .85rem; letter-spacing: .06em; margin-bottom: 4px; }
+.ne-filtros { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.ne-filtros button { border: 1px solid var(--verde); background: #fff; color: var(--verde); border-radius: 999px; padding: 6px 14px; font-size: .9rem; font-weight: 700; cursor: pointer; }
+.ne-filtros button[aria-pressed="true"] { background: var(--verde); color: #fff; }
+.ne-tabla-envoltura { overflow-x: auto; background: #fff; box-shadow: var(--sombra); border-radius: 6px; }
+.ne-tabla { width: 100%; border-collapse: collapse; font-size: .95rem; min-width: 720px; }
+.ne-tabla th { text-align: left; padding: 12px 14px; background: var(--oscuro); color: #fff; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+.ne-tabla td { padding: 12px 14px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+.ne-tabla tr:last-child td { border-bottom: 0; }
+.ne-tabla td b { display: block; color: var(--tinta); }
+.ne-tabla td small { display: block; color: var(--gris); font-size: .85rem; margin-top: 2px; }
+.ne-tipo { display: inline-block; margin-top: 4px; font-size: .75rem; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; color: var(--titulo); }
+.ne-num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ne-acceso { white-space: nowrap; font-weight: 700; }
+.ne-acceso a { color: var(--verde); }
+.ne-acceso span { color: var(--marron); }
+.ne-nota { margin-top: 14px; font-size: .92rem; color: var(--gris); max-width: 80ch; }
+.ne-correo { font-weight: 700; color: var(--verde); user-select: all; }
+
+/* Equipo */
+.ne-personas { display: flex; flex-direction: column; border-top: 1px solid var(--linea); }
+.ne-personas li { display: flex; flex-direction: column; padding: 10px 0; border-bottom: 1px solid var(--linea); }
+.ne-personas b { color: var(--oscuro); }
+.ne-personas span { color: var(--gris); font-size: .93rem; }
+
+/* Pie */
+.ne-pie-financia { display: flex; flex-direction: column; gap: 10px; }
+.ne-pie-financia img { width: 100%; max-width: 360px; height: auto; background: #fff; padding: 6px; border-radius: 4px; }
+.ne-pie-financia p { font-size: .9rem; margin-top: 0; }
+
+@media (max-width: 980px) {
+  .ne-tres { grid-template-columns: 1fr; }
+  .ne-datos-intro { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .ne-dos { grid-template-columns: 1fr; }
+  .ne-pasos li { grid-template-columns: 1fr; gap: 12px; }
+  .ne-cifras { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .ne-pareja { grid-template-columns: 1fr; }
+  .ne-financia img { height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { .ne-galeria img { transition: none; } }

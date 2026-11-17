@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NATUREYE | DIGIAGRO</title>
+<meta name="description" content="NATUREYE (PID2022-137938OA-I00): digitalización multisensorial, modelado 3D y simulación del escenario actual y futuro de entornos naturales en el Parque Natural de Sierra Mágina. Resultados, publicaciones y conjuntos de datos.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#007336">
+<link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=18">
+<link rel="stylesheet" href="natureye.css?v=1">
+</head>
+<body>
+<a class="saltar" href="#proyecto">Saltar al contenido</a>
+
+<div class="franja">
+  <a href="https://www.ujaen.es/" rel="noopener"><img src="../assets/logos-blanco/uja_logo.png" alt="Universidad de Jaén"></a>
+  <a href="https://inuouja.com/" rel="noopener"><img src="../assets/logos-blanco/inuo_logo.png" alt="INUO"></a>
+</div>
+
+<header class="nav" id="nav">
+  <a class="marca" href="../"><img src="../assets/marca/digiagro-principal.svg" alt="DIGIAGRO" width="4508" height="886"></a>
+  <button class="nav-boton" id="nav-boton" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <nav id="nav-menu" aria-label="Secciones">
+    <a href="#proyecto">Proyecto</a>
+    <a href="#zonas">Zonas</a>
+    <a href="#metodo">Método</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#datos">Datos</a>
+    <a href="#equipo">Equipo</a>
+  </nav>
+</header>
+
+<section class="ne-hero" id="inicio">
+  <img class="ne-hero-img" src="img/unreal-2.jpg" alt="">
+  <div class="ne-hero-velo"></div>
+  <div class="ne-hero-texto">
+    <p class="ne-ref">Proyecto PID2022-137938OA-I00 · 2023–2026</p>
+    <h1>NATUREYE</h1>
+    <p class="ne-sub">Digitalización multisensorial, modelado 3D y simulación del escenario actual y futuro de entornos naturales</p>
+    <div class="acciones">
+      <a class="boton boton-luz" href="#resultados">Ver resultados</a>
+      <a class="boton boton-claro ne-claro" href="#datos">Conjuntos de datos</a>
+    </div>
+  </div>
+</section>
+
+<div class="ne-financia">
+  <img src="img/financiacion.png" alt="Ministerio de Ciencia, Innovación y Universidades; Cofinanciado por la Unión Europea; Agencia Estatal de Investigación" width="1519" height="295">
+  <p>Proyecto <b>PID2022-137938OA-I00</b> financiado por MICIU/AEI/10.13039/501100011033 y por FEDER, UE.</p>
+</div>
+
+<div class="cifras ne-cifras">
+  <div><b>3</b><span>zonas de estudio</span></div>
+  <div><b>4</b><span>artículos en revistas</span></div>
+  <div><b>11</b><span>comunicaciones en congresos</span></div>
+  <div><b>3</b><span>tesis doctorales</span></div>
+</div>
+
+<main>
+  <section class="seccion" id="proyecto">
+    <h2 class="titular">El proyecto</h2>
+    <div class="ne-dos">
+      <div class="ne-prosa">
+        <p>NATUREYE estudia cómo digitalizar y modelar en 3D un espacio natural a partir de datos tomados con drones y satélites, y cómo usar ese modelo para simular su evolución. El trabajo se ha hecho en el <b>Parque Natural de Sierra Mágina</b> (Jaén).</p>
+        <p>Se han hecho vuelos en distintas estaciones del año con sensores LiDAR, hiperespectrales, multiespectrales, térmicos y cámaras RGB, y se han añadido series de imágenes Sentinel-2 y registros meteorológicos. Toda la información se organiza en una estructura de vóxeles en la que cada celda guarda su geometría, su respuesta espectral y las variables climáticas.</p>
+        <p>Con esos datos se localiza cada árbol, se identifica su especie por su firma espectral y su forma, y se obtiene su estructura en 3D. Los métodos están integrados en <b>GEU</b>, la plataforma de visualización y análisis del grupo, y en un escenario de Unreal Engine que muestra cómo podría cambiar la vegetación con más temperatura y menos lluvia.</p>
+      </div>
+      <ol class="ne-objetivos">
+        <li><b>Coordinación y difusión</b><span>Planificación, seguimiento y transferencia de resultados.</span></li>
+        <li><b>Datos multiescala</b><span>Captura y procesamiento de datos multitemporales y multisensoriales en un sistema 3D.</span></li>
+        <li><b>Clasificación de especies</b><span>Identificación automática y parametrización de especies arbóreas.</span></li>
+        <li><b>Morfología 3D</b><span>Modelado guiado y caracterización volumétrica de cada individuo.</span></li>
+        <li><b>Simulación climática</b><span>Respuesta de las especies ante escenarios climáticos futuros.</span></li>
+        <li><b>Herramientas 3D/4D</b><span>Plataforma científica y aplicación para visitantes.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="seccion gris" id="zonas">
+    <h2 class="titular">Zonas de estudio</h2>
+    <figure class="ne-fig ne-ancha">
+      <img src="img/zonas.jpg" alt="Mapa del Parque Natural de Sierra Mágina con las tres zonas de estudio: Puerto de la Mata, Pico Mágina y Sierra de la Cruz" loading="lazy">
+      <figcaption>Puerto de la Mata, Pico Mágina y Sierra de la Cruz, en el Parque Natural de Sierra Mágina (Jaén).</figcaption>
+    </figure>
+    <div class="ne-pareja">
+      <figure class="ne-fig"><img src="img/majuelo.jpg" alt="Majuelo en flor" loading="lazy"><figcaption><b>Majuelo</b> (<i>Crataegus monogyna</i>), una de las especies objetivo.</figcaption></figure>
+      <figure class="ne-fig"><img src="img/quejigo.jpg" alt="Quejigo" loading="lazy"><figcaption><b>Quejigo</b> (<i>Quercus faginea</i>), otra de las especies objetivo.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="seccion" id="metodo">
+    <h2 class="titular">Cómo se ha hecho</h2>
+    <ol class="ne-pasos">
+      <li>
+        <div class="ne-paso-img"><img src="img/m600.jpg" alt="Dron DJI Matrice 600 Pro preparado para el vuelo" loading="lazy"></div>
+        <div><h3>Adquisición</h3><p>Vuelos estacionales con LiDAR (Phoenix Scout-Ultra), cámara hiperespectral Headwall Nano-Hyperspec (270 bandas, 400–1000 nm), multiespectral, térmica y RGB. Se completan con series Sentinel-2 y datos meteorológicos.</p></div>
+      </li>
+      <li>
+        <div class="ne-paso-img"><img src="img/firmas-espectrales.jpg" alt="Firmas hiperespectrales de la vegetación" loading="lazy"></div>
+        <div><h3>Procesamiento</h3><p>Ortorrectificación de las imágenes hiperespectrales, ortomosaicos, nubes de puntos LiDAR y modelos digitales de elevación de las tres zonas.</p></div>
+      </li>
+      <li>
+        <div class="ne-paso-img"><img src="img/voxeles.jpg" alt="Nube de puntos voxelizada con información espectral" loading="lazy"></div>
+        <div><h3>Fusión en GEU</h3><p>La información hiperespectral y multiespectral se proyecta sobre la nube de puntos y se organiza en vóxeles con geometría, reflectancia y clima.</p></div>
+      </li>
+      <li>
+        <div class="ne-paso-img"><img src="img/especies.jpg" alt="Árboles individuales coloreados por especie" loading="lazy"></div>
+        <div><h3>Individuos y especies</h3><p>Filtrado de suelo y sombras, identificación de cada árbol y clasificación por firma espectral, afinada con la forma de la copa. Un flujo híbrido LiDAR-hiperespectral recupera especies objetivo a partir de pocos ejemplos.</p></div>
+      </li>
+      <li>
+        <div class="ne-paso-img"><img src="img/unreal-3.jpg" alt="Escenario 3D en Unreal Engine con un individuo resaltado" loading="lazy"></div>
+        <div><h3>Simulación</h3><p>Escenario 3D en Unreal Engine construido con los datos reales para visualizar la vegetación con más temperatura y menos precipitación.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="seccion gris" id="simulacion" aria-labelledby="t-sim">
+    <h2 class="titular" id="t-sim">Simulación predictiva de especies</h2>
+    <div class="ne-dos">
+      <div class="ne-prosa">
+        <p>Dentro del proyecto se ha desarrollado un <b>módulo de simulación predictiva integrado en GEU</b>. El módulo entrena modelos de distribución de especies con Random Forest y MaxEnt a partir de registros de presencia (GBIF) y variables bioclimáticas (WorldClim), y proyecta su distribución con las proyecciones climáticas CMIP6 en distintos escenarios socioeconómicos (de SSP1 a SSP5) hasta 2070 y 2100.</p>
+        <p>Se ha aplicado a Sierra Mágina (Puerto de la Mata) y, como zona de contraste, al Parque Nacional de Ordesa y Monte Perdido. Los modelos alcanzan un AUC medio de 0,88 con Random Forest y 0,87 con MaxEnt. Los resultados se ven en GEU como nubes de puntos y mapas de calor, y en <b>TerraPredict</b>, una aplicación web con visores 2D y 3D, comparador de escenarios y descarga de resultados.</p>
+        <p class="ne-nota">Trabajo Fin de Grado de Alberto Jiménez Expósito, «Simulación predictiva y visualización de escenarios naturales integrando información multisensorial» (Universidad de Jaén, 2026). Dirigido por Juan Manuel Jurado Rodríguez y David Jurado Rodríguez.</p>
+      </div>
+      <div class="ne-galeria ne-galeria-2">
+        <figure><a href="img/tfg-geu-nube.jpg"><img src="img/tfg-geu-nube.jpg" alt="" loading="lazy"></a><figcaption>Probabilidad de presencia sobre el terreno en GEU</figcaption></figure>
+        <figure><a href="img/tfg-diferencias.jpg"><img src="img/tfg-diferencias.jpg" alt="" loading="lazy"></a><figcaption>Pérdida y ganancia de hábitat (futuro frente a actual)</figcaption></figure>
+        <figure><a href="img/tfg-terrapredict-2d.jpg"><img src="img/tfg-terrapredict-2d.jpg" alt="" loading="lazy"></a><figcaption>TerraPredict: visor 2D</figcaption></figure>
+        <figure><a href="img/tfg-terrapredict-3d.jpg"><img src="img/tfg-terrapredict-3d.jpg" alt="" loading="lazy"></a><figcaption>TerraPredict: visor 3D</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="galeria" aria-labelledby="t-galeria">
+    <h2 class="titular" id="t-galeria">Imágenes del proyecto</h2>
+    <div class="ne-galeria">
+      <figure><a href="img/sensores.jpg"><img src="img/sensores.jpg" alt="" loading="lazy"></a><figcaption>Sensores embarcados</figcaption></figure>
+      <figure><a href="img/hiperespectral-orto.jpg"><img src="img/hiperespectral-orto.jpg" alt="" loading="lazy"></a><figcaption>Hiperespectral bruta y ortorrectificada</figcaption></figure>
+      <figure><a href="img/satelite.jpg"><img src="img/satelite.jpg" alt="" loading="lazy"></a><figcaption>Imagen de satélite de la zona</figcaption></figure>
+      <figure><a href="img/ortomosaico.jpg"><img src="img/ortomosaico.jpg" alt="" loading="lazy"></a><figcaption>Ortomosaico RGB</figcaption></figure>
+      <figure><a href="img/nube-lidar.jpg"><img src="img/nube-lidar.jpg" alt="" loading="lazy"></a><figcaption>Nube de puntos LiDAR</figcaption></figure>
+      <figure><a href="img/mde.jpg"><img src="img/mde.jpg" alt="" loading="lazy"></a><figcaption>Modelo digital de elevación</figcaption></figure>
+      <figure><a href="img/geu-fusion.jpg"><img src="img/geu-fusion.jpg" alt="" loading="lazy"></a><figcaption>Fusión de datos en GEU</figcaption></figure>
+      <figure><a href="img/individuos.jpg"><img src="img/individuos.jpg" alt="" loading="lazy"></a><figcaption>Identificación de individuos</figcaption></figure>
+      <figure><a href="img/firmas-especies.jpg"><img src="img/firmas-especies.jpg" alt="" loading="lazy"></a><figcaption>Firma espectral por especie</figcaption></figure>
+      <figure><a href="img/entidad-objetivo.jpg"><img src="img/entidad-objetivo.jpg" alt="" loading="lazy"></a><figcaption>Recuperación de especies objetivo</figcaption></figure>
+      <figure><a href="img/geu-3d.jpg"><img src="img/geu-3d.jpg" alt="" loading="lazy"></a><figcaption>Visualización 3D de un individuo en GEU</figcaption></figure>
+      <figure><a href="img/unreal-4.jpg"><img src="img/unreal-4.jpg" alt="" loading="lazy"></a><figcaption>Simulación en Unreal Engine</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="seccion gris" id="resultados">
+    <h2 class="titular">Resultados</h2>
+
+    <h3 class="ne-sub3">Artículos en revistas</h3>
+    <ul class="pubs ne-pubs">
+      <li><a href="https://doi.org/10.1016/j.atech.2026.102230" rel="noopener"><span class="pub-ano">2026</span><b>A multi-scale inventory for sustainable olive farming using remote sensing and data fusion</b><span class="pub-datos">Latorre-Hortelano, P., Jurado-Rodríguez, D., Garrido-Almonacid, A., Parras-Rosa, M., Jurado, J. M. Smart Agricultural Technology, 14, 102230 · <span class="ne-oa">Acceso abierto</span></span></a></li>
+      <li><a href="https://doi.org/10.1016/j.gmod.2026.101325" rel="noopener"><span class="pub-ano">2026</span><b>Generation of synthetic labeled datasets for anomaly detection in heritage architecture</b><span class="pub-datos">Jurado-Rodríguez, D., Garrido, A., Feito, F. R., Jurado, J. M. Graphical Models, 145, 101325 · <span class="ne-oa">Acceso abierto</span></span></a></li>
+      <li><a href="https://doi.org/10.1109/TVCG.2025.3562696" rel="noopener"><span class="pub-ano">2025</span><b>Virtualized point cloud rendering</b><span class="pub-datos">Collado, J. A., López, A., Jurado, J. M., Jiménez, J. R. IEEE Transactions on Visualization and Computer Graphics, 31(10), 8026–8039 · <span class="ne-oa">Copia abierta en Zaguán</span></span></a></li>
+      <li><a href="https://doi.org/10.1016/j.cag.2024.103982" rel="noopener"><span class="pub-ano">2024</span><b>3D modeling of rural environments from multiscale aerial imagery</b><span class="pub-datos">Jurado-Rodríguez, D., Latorre-Hortelano, P., René-Domínguez, L., Ortega, L. M. Computers &amp; Graphics, 122, 103982</span></a></li>
+    </ul>
+
+    <h3 class="ne-sub3">Artículos en revisión</h3>
+    <ul class="ne-lista">
+      <li><span class="ne-año">2026</span><span><b>A Synthetic Hyperspectral Data Generation and Dimensionality Reduction Pipeline for Spectral Preservation and Classification.</b> Domínguez-Fuentes, L. R., Jiménez-Pérez, J. R., Jurado, J. M., Jurado-Rodríguez, D. En revisión en Applied Computing and Geosciences.</span></li>
+      <li><span class="ne-año">2026</span><span><b>A Hybrid LiDAR–Hyperspectral Workflow for Target-Driven Tree-Species Retrieval in Mediterranean Forests.</b> Sanabria, R., Carmona, E., Jurado-Rodríguez, D., Jurado, J. M. En preparación para un nuevo envío.</span></li>
+    </ul>
+
+    <h3 class="ne-sub3">Congresos</h3>
+    <ul class="ne-lista">
+      <li><span class="ne-año">2026</span><span><b>Tree Extraction from UAV LiDAR and Hyperspectral Data.</b> Sanabria, R., Carmona, E., Jurado-Rodríguez, D., Jurado, J. M. CEIG 2026, València.</span></li>
+      <li><span class="ne-año">2025</span><span><b>Assessing Olive Tree Detection Performance in UAV Images.</b> Latorre-Hortelano, P., Pérez-Cano, F. D., Jurado-Rodríguez, D., Parra-Cabrera, G. IDEAL 2025, Jaén. LNCS 16239, 195–206. <a href="https://doi.org/10.1007/978-3-032-10489-2_17" rel="noopener">DOI</a></span></li>
+      <li><span class="ne-año">2025</span><span><b>Individual Detection of Olive Trees Under Different Olive Planting Distributions.</b> Latorre-Hortelano, P., Del Castillo, F., Jurado-Rodríguez, D., Ortega, L. M., Jurado, J. M. GEOProcessing 2025, Niza.</span></li>
+      <li><span class="ne-año">2025</span><span><b>Multisensory characterization of vegetation diversity in natural environments.</b> Sanabria, R., Carmona, E., Jurado-Rodríguez, D., Jurado, J. M. CEIG 2025, Jaén.</span></li>
+      <li><span class="ne-año">2025</span><span><b>First steps in the dimensionality reduction of hyperspectral images of real-world scenarios based on curve representation.</b> René-Domínguez, L., Jurado-Rodríguez, D., Jiménez, J. R., Jurado, J. M. CEIG 2025, Jaén.</span></li>
+      <li><span class="ne-año">2025</span><span><b>Generation of synthetic labeled datasets for anomaly detection in heritage architecture.</b> Jurado-Rodríguez, D., Garrido, A., Feito, F. R., Jurado, J. M. CEIG 2025, Jaén.</span></li>
+      <li><span class="ne-año">2025</span><span><b>A performance evaluation of olive tree identification techniques in RGB images.</b> Latorre-Hortelano, P., Jurado-Rodríguez, D., Parra, G., Pérez-Cano, F. D. CEIG 2025, Jaén.</span></li>
+      <li><span class="ne-año">2025</span><span><b>Diseño metodológico para la generación de imágenes multirresolución etiquetadas.</b> Del Castillo, F., Latorre-Hortelano, P., Jurado-Rodríguez, D., Jurado, J. M. CEIG 2025, Jaén.</span></li>
+      <li><span class="ne-año">2024</span><span><b>Portable LiDAR scanners: precision mapping at your fingertips.</b> Jurado-Rodríguez, D., Jurado, J. M., Enríquez, C., Feito, F. R. Web3D 2024, Guimarães. <a href="https://doi.org/10.1145/3665318.3677168" rel="noopener">DOI</a></span></li>
+      <li><span class="ne-año">2024</span><span><b>3D modeling of rural environments from multiscale aerial imagery.</b> Jurado-Rodríguez, D., Latorre-Hortelano, P., René-Domínguez, L., Ortega, L. M. CEIG 2024, A Coruña.</span></li>
+      <li><span class="ne-año">2024</span><span><b>SAM-based detection of structural anomalies in 3D models for preserving cultural heritage.</b> Jurado-Rodríguez, D., López, A., Jiménez, J. R., Garrido, A., Feito, F. R., Jurado, J. M. VISAPP 2024, Roma.</span></li>
+    </ul>
+
+    <div class="ne-tres">
+      <div>
+        <h3 class="ne-sub3">Tesis doctorales</h3>
+        <ul class="ne-mini">
+          <li><b>Gestión avanzada de datos procedentes de sensores a bordo de drones.</b> José Luis Cárdenas Donoso. Defendida en 2024, sobresaliente cum laude.</li>
+          <li><b>Detección individual de árboles y modelado multisensorial de entornos agroambientales.</b> Pablo Latorre Hortelano. En curso.</li>
+          <li><b>Reducción de dimensionalidad y análisis de imágenes hiperespectrales.</b> Luis René Domínguez Fuentes. En curso.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="ne-sub3">Trabajos fin de máster y de grado</h3>
+        <ul class="ne-mini">
+          <li><b>Caracterización individual de especies arbóreas mediante análisis multisensorial y modelado 3D en entornos naturales.</b> TFM de Elena Carmona Vallecillo, 2025.</li>
+          <li><b>Simulación predictiva y visualización de escenarios naturales integrando información multisensorial.</b> TFG de Alberto Jiménez Expósito, 2026. <a href="#simulacion">Ver resultados</a>.</li>
+          <li><b>Visualización en realidad mixta de escenarios naturales y agrícolas amenazados por emergencias climáticas.</b> TFG en curso.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="ne-sub3">Software</h3>
+        <ul class="ne-mini">
+          <li><b>GEU</b> (Geospatial and Environmental tools of UJA). Plataforma de fusión, análisis y visualización 3D. Protección solicitada en la Universidad de Jaén.</li>
+          <li><b>Nimbus.</b> Renderizado de nubes de puntos masivas, código abierto: <a href="https://github.com/Krixtalx/Nimbus" rel="noopener">github.com/Krixtalx/Nimbus</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="datos">
+    <h2 class="titular">Conjuntos de datos</h2>
+    <div class="ne-datos-intro">
+      <p>Datos generados por el proyecto en el Parque Natural de Sierra Mágina. Se publican con licencia <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="noopener">CC BY 4.0</a>: se pueden reutilizar citando la fuente. Los ficheros más grandes y las coordenadas exactas de especies protegidas se facilitan bajo petición.</p>
+      <div class="ne-cita">
+        <b>Cómo citar</b>
+        <p>Grupo de Informática Gráfica y Geomática, Universidad de Jaén (2026). <i>NATUREYE: datos multisensoriales de Sierra Mágina</i> [conjunto de datos]. Proyecto PID2022-137938OA-I00, MICIU/AEI/10.13039/501100011033 y FEDER, UE.</p>
+      </div>
+    </div>
+    <div class="ne-filtros" id="filtros" role="group" aria-label="Filtrar por tipo de dato"></div>
+    <div class="ne-tabla-envoltura">
+      <table class="ne-tabla">
+        <thead><tr><th>Conjunto</th><th>Zona y fecha</th><th>Formato</th><th>Tamaño</th><th>Acceso</th></tr></thead>
+        <tbody id="lista-datos"></tbody>
+      </table>
+    </div>
+    <p class="ne-nota">Formatos abiertos, en ETRS89 / UTM 30N (EPSG:25830). Se leen con QGIS, CloudCompare, PDAL o GDAL. Para pedir un conjunto: <span class="ne-correo">inuouja@ujaen.es</span>, indicando el nombre del conjunto y el uso previsto.</p>
+  </section>
+
+  <section class="seccion gris" id="equipo">
+    <h2 class="titular">Equipo</h2>
+    <div class="ne-dos">
+      <div>
+        <h3 class="ne-sub3">Equipo de investigación</h3>
+        <ul class="ne-personas">
+          <li><b>Juan Manuel Jurado Rodríguez</b><span>Investigador principal · Universidad de Jaén</span></li>
+          <li><b>Juan Roberto Jiménez Pérez</b><span>Universidad de Jaén</span></li>
+          <li><b>Carlos Enríquez Turiño</b><span>Universidad de Jaén</span></li>
+          <li><b>Carlos Ureña Almagro</b><span>Universidad de Granada</span></li>
+          <li><b>Germán Arroyo Moreno</b><span>Universidad de Granada</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="ne-sub3">Equipo de trabajo</h3>
+        <ul class="ne-personas">
+          <li><b>David Jurado Rodríguez</b><span>Universidad de Jaén</span></li>
+          <li><b>Rubén Sanabria Díaz</b><span>Universidad de Jaén</span></li>
+          <li><b>Elena Carmona Vallecillo</b><span>Universidad de Jaén</span></li>
+          <li><b>Alfonso López Ruiz</b><span>Universidad de Zaragoza</span></li>
+          <li><b>Antonio Jesús Perea Martos</b><span>Universidad de Sevilla</span></li>
+          <li><b>Joaquim João Sousa</b><span>Universidade de Trás-os-Montes e Alto Douro</span></li>
+          <li><b>Luís Pádua</b><span>Universidade de Trás-os-Montes e Alto Douro</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie" id="contacto">
+  <img class="pie-hoja" src="../assets/hoja.svg" alt="">
+  <div class="pie-grid">
+    <div>
+      <a class="marca" href="../"><img src="../assets/marca/digiagro-principal-blanco.svg" alt="DIGIAGRO" width="4508" height="886" loading="lazy"></a>
+      <p>NATUREYE es un proyecto del Grupo de Informática Gráfica y Geomática de la Universidad de Jaén, dentro de DIGIAGRO.</p>
+    </div>
+    <div>
+      <h2>Contacto</h2>
+      <p>inuouja@ujaen.es</p>
+      <p>Universidad de Jaén, Campus Las Lagunillas<br>23071 Jaén</p>
+    </div>
+    <div class="ne-pie-financia">
+      <img src="img/financiacion.png" alt="Ministerio de Ciencia, Innovación y Universidades; Cofinanciado por la Unión Europea; Agencia Estatal de Investigación" loading="lazy">
+      <p>PID2022-137938OA-I00 financiado por MICIU/AEI/10.13039/501100011033 y por FEDER, UE.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="datos.js?v=1"></script>
+<script src="natureye.js?v=1"></script>
+</body>
+</html>

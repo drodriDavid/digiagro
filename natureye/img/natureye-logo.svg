@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="NATUREYE">
+  <g transform="translate(8 14)">
+    <path d="M4 46 Q46 0 88 46 Q46 92 4 46 Z" fill="none" stroke="#007336" stroke-width="7" stroke-linejoin="round"/>
+    <circle cx="46" cy="46" r="17" fill="#8fd400"/>
+    <path d="M46 34 C38 42 38 52 46 60 C54 52 54 42 46 34 Z" fill="#007336"/>
+  </g>
+  <text x="116" y="80" font-family="Lato, Arial, sans-serif" font-size="62" font-weight="900" letter-spacing="2" fill="#007336">NATURE<tspan fill="#4f9a00">YE</tspan></text>
+</svg>

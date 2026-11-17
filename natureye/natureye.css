@@ -179,6 +179,19 @@ body.con-lupa { overflow: hidden; }
 .ne-earth { margin-top: 20px; }
 .ne-earth .boton { display: inline-block; }
 
+/* Zonas de estudio */
+.ne-intro-zonas { text-align: center; max-width: 60ch; margin: -6px auto 26px; color: var(--gris); }
+.ne-zonas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.ne-zona { display: flex; flex-direction: column; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--sombra); }
+.ne-zona iframe { display: block; width: 100%; aspect-ratio: 4 / 3; border: 0; background: #dfe7e1; }
+.ne-zona-texto { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px 18px; flex: 1; }
+.ne-zona h3 { color: var(--ne-verde-texto); font-size: 1.3rem; font-weight: 900; line-height: 1.2; }
+.ne-zona-datos { display: flex; flex-wrap: wrap; gap: 6px; }
+.ne-zona-datos span { font-size: .8rem; font-weight: 700; color: var(--ne-azul); background: var(--ne-azul-claro); padding: 3px 9px; border-radius: 999px; }
+.ne-zona-texto p:not(.ne-zona-datos) { color: var(--tinta); font-size: .97rem; }
+.ne-zona-texto a { margin-top: auto; font-weight: 700; color: var(--ne-azul); }
+.ne-zonas-mapa { margin-top: 32px; }
+
 /* Método en pestañas */
 .ne-proceso { max-width: 1100px; margin-inline: auto; }
 .ne-pestanas { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-bottom: 18px; }
@@ -207,7 +220,7 @@ a.ne-amplia { display: block; cursor: zoom-in; }
   .ne-video-bloque { grid-template-columns: 1fr; }
   .ne-portada { grid-template-columns: 1fr; }
   .ne-portada-logo { max-width: 460px; }
-  .ne-mapas { grid-template-columns: 1fr; }
+  .ne-mapas, .ne-zonas { grid-template-columns: 1fr; }
   .ne-pestanas { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 4px; }
   .ne-pestanas button { flex: none; scroll-snap-align: start; }
   .ne-etapa { grid-template-columns: 1fr; }

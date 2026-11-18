@@ -1,5 +1,5 @@
 ﻿# ============================================================================
-#  DIGIAGRO - comprobador del panel de estado (http://150.214.178.23/estado/)
+#  DIGIAGRO - comprobador del panel de estado (https://digiagro.ujaen.es/estado/)
 #  ----------------------------------------------------------------------------
 #  Comprueba SAVIA, los cuadernos y la web de DIGIAGRO desde el propio servidor
 #  y escribe F:\digiagro\estado\datos\estado.json, que lee el panel.
@@ -111,7 +111,7 @@ function Evento($tipo, $texto) {
 }
 
 if ($PruebaCorreo) {
-    $r = Manda-Correo '[Estado DIGIAGRO/SAVIA] Prueba del aviso' "Correo de prueba del panel de estado.`r`nPanel: http://150.214.178.23/estado/`r`nEnviado: $(Get-Date -Format 'dd/MM/yyyy HH:mm')"
+    $r = Manda-Correo '[Estado DIGIAGRO/SAVIA] Prueba del aviso' "Correo de prueba del panel de estado.`r`nPanel: https://digiagro.ujaen.es/estado/`r`nEnviado: $(Get-Date -Format 'dd/MM/yyyy HH:mm')"
     Write-Host $r; Anota "prueba de correo: $r"; exit 0
 }
 
@@ -138,7 +138,7 @@ try {
 } catch { }
 foreach ($c in $ids) { Agrega "cuaderno-$c" 'Cuadernos' $c "https://savia.ujaen.es/cuadernos/$c/" 'contiene' '<html' }
 
-Agrega 'digiagro-web' 'DIGIAGRO' 'Web de DIGIAGRO' 'http://150.214.178.23/' 'contiene' 'DIGIAGRO'
+Agrega 'digiagro-web' 'DIGIAGRO' 'Web de DIGIAGRO' 'https://digiagro.ujaen.es/' 'contiene' 'DIGIAGRO'
 $n = 0; foreach ($u in $UrlPrueba) { $n++; Agrega "prueba-$n" 'Prueba' "Prueba $n" $u 'contiene' '' }
 
 # ---------------------------------------------------------------------------
@@ -279,7 +279,7 @@ try {
         if ($caidas.Count)  { $lineas += 'CAÍDO:'; $lineas += $caidas | ForEach-Object { "  - $_" } }
         if ($vueltas.Count) { $lineas += 'RECUPERADO:'; $lineas += $vueltas | ForEach-Object { "  - $_" } }
         $lineas += ''; $lineas += "Comprobado desde el servidor el $(Get-Date -Format 'dd/MM/yyyy HH:mm')."
-        $lineas += 'Panel: http://150.214.178.23/estado/'
+        $lineas += 'Panel: https://digiagro.ujaen.es/estado/'
         $texto = $lineas -join "`r`n"
         $asunto = if ($caidas.Count) { "[Estado] Caído: " + (($caidas | ForEach-Object { ($_ -split ' \(')[0] }) -join ', ') }
                   else { "[Estado] Recuperado: " + (($vueltas | ForEach-Object { ($_ -split ' \(')[0] }) -join ', ') }

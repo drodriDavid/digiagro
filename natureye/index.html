@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
 <link rel="stylesheet" href="../assets/fuentes/lato.css">
 <link rel="stylesheet" href="../styles.css?v=35">
-<link rel="stylesheet" href="natureye.css?v=18">
+<link rel="stylesheet" href="natureye.css?v=19">
 <link rel="preload" href="media/portada.webp" as="image">
 </head>
 <body>
@@ -182,6 +182,17 @@
       <figure><a class="ne-amplia" href="media/especies/eleboro.webp"><img src="media/especies/eleboro.webp" alt="Eléboro fétido (Helleborus foetidus)" loading="lazy"></a><figcaption><b>Eléboro fétido</b><i>Helleborus foetidus</i></figcaption></figure>
       <figure><a class="ne-amplia" href="media/especies/rosal.webp"><img src="media/especies/rosal.webp" alt="Rosal silvestre (Rosa sp.)" loading="lazy"></a><figcaption><b>Rosal silvestre</b><i>Rosa sp.</i></figcaption></figure>
       <figure><a class="ne-amplia" href="media/especies/muerdago.webp"><img src="media/especies/muerdago.webp" alt="Muérdago (Viscum album)" loading="lazy"></a><figcaption><b>Muérdago</b><i>Viscum album</i></figcaption></figure>
+    </div>
+    <h3 class="ne-especies-tit">Las especies en 3D</h3>
+    <p class="ne-especies-intro">Modelos 3D de las especies con los que se puebla el escenario de Unreal Engine. Gíralos con el ratón o el dedo y acerca o aleja la vista.</p>
+    <div class="ne-modelos">
+      <div class="ne-modelos-lista" role="group" aria-label="Elegir especie">
+        <button type="button" data-modelo="encina" aria-pressed="true"><b>Encina</b><i>Quercus ilex</i></button>
+        <button type="button" data-modelo="quejigo" aria-pressed="false"><b>Quejigo</b><i>Quercus faginea</i></button>
+        <button type="button" data-modelo="pino" aria-pressed="false"><b>Pino carrasco</b><i>Pinus halepensis</i></button>
+        <button type="button" data-modelo="agracejo" aria-pressed="false"><b>Agracejo</b><i>Berberis hispanica</i></button>
+      </div>
+      <div class="ne-modelo-visor" id="visor-modelos"><p class="ne-modelo-cargando">Cargando modelo 3D…</p></div>
     </div>
   </section>
 
@@ -449,6 +460,7 @@
 
 <script src="datos.js?v=1"></script>
 <script src="zonas3d.js?v=1" defer></script>
+<script src="modelos3d.js?v=1" defer></script>
 <script src="natureye.js?v=6"></script>
 <script type="module" src="visor.js?v=6"></script>
 </body>

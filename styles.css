@@ -29,6 +29,7 @@ a { color: inherit; }
 /* Franja institucional */
 .franja { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px var(--margen); background: var(--degradado); }
 .franja img { height: 46px; width: auto; }
+.franja .franja-uja img { height: 40px; }
 
 /* Navegación */
 .nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 64px; padding: 8px var(--margen); background: #fff; box-shadow: 0 2px 10px rgba(0, 0, 0, .1); }
@@ -149,6 +150,8 @@ a.herramienta:hover { background: #dfe7da; }
 .pie a { text-underline-offset: 3px; }
 .pie-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; align-content: flex-start; }
 .pie-logos img { height: 40px; width: auto; }
+.pie-uja img { display: block; height: 50px; width: auto; }
+.pie-uja p { font-size: .9375rem; line-height: 1.55; }
 .pie-legal { position: relative; margin-top: 30px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .4); }
 .pie-legal ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 0; margin: 0; }
 .pie-legal a { color: #fff; font-weight: 700; font-size: .9375rem; }

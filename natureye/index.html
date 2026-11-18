@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
 <link rel="stylesheet" href="../assets/fuentes/lato.css">
 <link rel="stylesheet" href="../styles.css?v=37">
-<link rel="stylesheet" href="natureye.css?v=21">
+<link rel="stylesheet" href="natureye.css?v=27">
 <link rel="preload" href="media/portada.webp" as="image">
 </head>
 <body>
@@ -184,7 +184,7 @@
       <figure><a class="ne-amplia" href="media/especies/muerdago.webp"><img src="media/especies/muerdago.webp" alt="Muérdago (Viscum album)" loading="lazy"></a><figcaption><b>Muérdago</b><i>Viscum album</i></figcaption></figure>
     </div>
     <h3 class="ne-especies-tit">Las especies en 3D</h3>
-    <p class="ne-especies-intro">Modelos con los que se puebla el escenario de Unreal Engine. Gíralos con el ratón o el dedo; las cotas marcan la altura, la base y el diámetro de la copa.</p>
+    <p class="ne-especies-intro">Modelos con los que se puebla el escenario de Unreal Engine. Gíralos con el ratón o el dedo. Las cotas marcan la altura total, la altura de la base de la copa y su diámetro.</p>
     <div class="ne-modelos">
       <div class="ne-modelos-lista" role="group" aria-label="Elegir especie">
         <button type="button" data-modelo="encina" data-latin="Quercus ilex" aria-pressed="true">Encina</button>
@@ -196,7 +196,7 @@
         <button type="button" data-modelo="piorno" data-latin="Echinospartum boissieri" aria-pressed="false">Echinospartum</button>
         <button type="button" data-modelo="eleboro" data-latin="Helleborus foetidus" aria-pressed="false">Eléboro fétido</button>
       </div>
-      <div class="ne-modelo-visor" id="visor-modelos"><p class="ne-modelo-cargando">Cargando modelo 3D…</p><p class="ne-modelo-rotulo"><b>Encina</b><i>Quercus ilex</i></p><button type="button" class="ne-medidas-boton" aria-pressed="true" hidden>Medidas</button><div class="ne-medidas-datos" aria-live="polite"></div></div>
+      <div class="ne-modelo-marco"><div class="ne-modelo-visor" id="visor-modelos"><p class="ne-modelo-cargando">Cargando modelo 3D…</p></div><aside class="ne-ficha" aria-live="polite"><p class="ne-modelo-rotulo"><b>Encina</b><i>Quercus ilex</i></p><div class="ne-medidas-datos"></div><label class="ne-medidas-conmuta"><input type="checkbox" checked> Mostrar cotas en el modelo</label></aside></div>
     </div>
   </section>
 
@@ -252,19 +252,11 @@
 
   <section class="seccion" id="galeria" aria-labelledby="t-galeria">
     <h2 class="titular" id="t-galeria">Imágenes del proyecto</h2>
-    <div class="ne-galeria ne-mosaico">
-      <figure class="ne-g-grande"><a href="media/captura-1.webp"><img src="media/captura-1.webp" alt="Individuos señalados sobre la nube de puntos" loading="lazy"></a><figcaption>Individuos señalados sobre la nube de puntos</figcaption></figure>
-      <figure><a href="img/individuos.jpg"><img src="img/individuos.jpg" alt="Copas de cada individuo identificadas" loading="lazy"></a><figcaption>Copas de cada individuo identificadas</figcaption></figure>
-      <figure><a href="img/sensores.jpg"><img src="img/sensores.jpg" alt="Sensores embarcados en el dron" loading="lazy"></a><figcaption>Sensores embarcados en el dron</figcaption></figure>
-      <figure class="ne-g-ancha"><a href="img/nube-lidar.jpg"><img src="img/nube-lidar.jpg" alt="Nube de puntos LiDAR" loading="lazy"></a><figcaption>Nube de puntos LiDAR</figcaption></figure>
-      <figure><a href="img/m600.jpg"><img src="img/m600.jpg" alt="Dron M600 con el sensor hiperespectral" loading="lazy"></a><figcaption>Dron M600 con el sensor hiperespectral</figcaption></figure>
-      <figure><a href="img/ortomosaico.jpg"><img src="img/ortomosaico.jpg" alt="Ortomosaico RGB" loading="lazy"></a><figcaption>Ortomosaico RGB</figcaption></figure>
-      <figure class="ne-g-grande"><a href="img/unreal-4.jpg"><img src="img/unreal-4.jpg" alt="Simulación en Unreal Engine" loading="lazy"></a><figcaption>Simulación en Unreal Engine</figcaption></figure>
-      <figure><a href="img/firmas-especies.jpg"><img src="img/firmas-especies.jpg" alt="Firma espectral por especie" loading="lazy"></a><figcaption>Firma espectral por especie</figcaption></figure>
-      <figure><a href="img/geu-fusion.jpg"><img src="img/geu-fusion.jpg" alt="Fusión de datos en GEU" loading="lazy"></a><figcaption>Fusión de datos en GEU</figcaption></figure>
-      <figure><a href="img/mde.jpg"><img src="img/mde.jpg" alt="Modelo digital de elevación" loading="lazy"></a><figcaption>Modelo digital de elevación</figcaption></figure>
-      <figure><a href="img/entidad-objetivo.jpg"><img src="img/entidad-objetivo.jpg" alt="Recuperación de especies objetivo" loading="lazy"></a><figcaption>Recuperación de especies objetivo</figcaption></figure>
-      <figure class="ne-g-ancha"><a href="img/geu-3d.jpg"><img src="img/geu-3d.jpg" alt="Un individuo en 3D en GEU" loading="lazy"></a><figcaption>Un individuo en 3D en GEU</figcaption></figure>
+    <div class="ne-album">
+      <div class="ne-album-grupo"><div class="ne-album-cab"><h3>En el campo</h3><p>Puerto de la Mata, Pico Mágina y Sierra de la Cruz, en el Parque Natural de Sierra Mágina.</p></div><div class="ne-album-fotos" style="--n: 3"><figure><a class="ne-amplia" href="media/galeria/paisaje-magina.webp"><img src="media/galeria/paisaje-magina.webp" alt="Paisaje de Sierra Mágina" loading="lazy"></a><figcaption>Paisaje de Sierra Mágina</figcaption></figure><figure><a class="ne-amplia" href="img/m600.jpg"><img src="img/m600.jpg" alt="Dron M600 con el sensor hiperespectral" loading="lazy"></a><figcaption>Dron M600 con el sensor hiperespectral</figcaption></figure><figure><a class="ne-amplia ne-encaja" href="img/sensores.jpg"><img src="img/sensores.jpg" alt="Sensores embarcados en el dron" loading="lazy"></a><figcaption>Sensores embarcados en el dron</figcaption></figure></div></div>
+      <div class="ne-album-grupo"><div class="ne-album-cab"><h3>Desde el aire</h3><p>Vuelos con dron y teledetección por satélite sobre las tres zonas.</p></div><div class="ne-album-fotos" style="--n: 4"><figure><a class="ne-amplia" href="media/galeria/plan-vuelo-lidar.webp"><img src="media/galeria/plan-vuelo-lidar.webp" alt="Plan de vuelo LiDAR sobre el relieve" loading="lazy"></a><figcaption>Plan de vuelo LiDAR sobre el relieve</figcaption></figure><figure><a class="ne-amplia ne-encaja" href="media/galeria/pasada-hiperespectral.webp"><img src="media/galeria/pasada-hiperespectral.webp" alt="Pasada hiperespectral antes de ortorrectificar" loading="lazy"></a><figcaption>Pasada hiperespectral antes de ortorrectificar</figcaption></figure><figure><a class="ne-amplia" href="img/ortomosaico.jpg"><img src="img/ortomosaico.jpg" alt="Ortomosaico RGB" loading="lazy"></a><figcaption>Ortomosaico RGB</figcaption></figure><figure><a class="ne-amplia" href="media/galeria/sentinel2.webp"><img src="media/galeria/sentinel2.webp" alt="Imagen Sentinel-2 de una zona de estudio" loading="lazy"></a><figcaption>Imagen Sentinel-2 de una zona de estudio</figcaption></figure></div></div>
+      <div class="ne-album-grupo"><div class="ne-album-cab"><h3>Procesado en GEU</h3><p>Filtrado, etiquetado e identificación de especies sobre la nube de puntos.</p></div><div class="ne-album-fotos" style="--n: 4"><figure><a class="ne-amplia" href="media/galeria/geu-filtro-suelo.webp"><img src="media/galeria/geu-filtro-suelo.webp" alt="Filtrado de suelo y sombras sobre la nube voxelizada" loading="lazy"></a><figcaption>Filtrado de suelo y sombras sobre la nube voxelizada</figcaption></figure><figure><a class="ne-amplia" href="media/galeria/etiquetado-manual.webp"><img src="media/galeria/etiquetado-manual.webp" alt="Etiquetado manual de un individuo" loading="lazy"></a><figcaption>Etiquetado manual de un individuo</figcaption></figure><figure><a class="ne-amplia" href="img/entidad-objetivo.jpg"><img src="img/entidad-objetivo.jpg" alt="Recuperación de especies objetivo" loading="lazy"></a><figcaption>Recuperación de especies objetivo</figcaption></figure><figure><a class="ne-amplia ne-encaja" href="img/firmas-especies.jpg"><img src="img/firmas-especies.jpg" alt="Firma espectral por especie" loading="lazy"></a><figcaption>Firma espectral por especie</figcaption></figure></div></div>
+      <div class="ne-album-grupo"><div class="ne-album-cab"><h3>Visualización</h3><p>Cada individuo, consultable en 3D en GEU y en el escenario de Unreal Engine.</p></div><div class="ne-album-fotos" style="--n: 3"><figure><a class="ne-amplia" href="media/captura-1.webp"><img src="media/captura-1.webp" alt="Individuos señalados sobre la nube de puntos" loading="lazy"></a><figcaption>Individuos señalados sobre la nube de puntos</figcaption></figure><figure><a class="ne-amplia" href="img/geu-3d.jpg"><img src="img/geu-3d.jpg" alt="Un individuo en 3D en GEU" loading="lazy"></a><figcaption>Un individuo en 3D en GEU</figcaption></figure><figure><a class="ne-amplia" href="img/unreal-4.jpg"><img src="img/unreal-4.jpg" alt="Simulación en Unreal Engine" loading="lazy"></a><figcaption>Simulación en Unreal Engine</figcaption></figure></div></div>
     </div>
   </section>
 
@@ -464,7 +456,7 @@
 
 <script src="datos.js?v=1"></script>
 <script src="zonas3d.js?v=1" defer></script>
-<script src="modelos3d.js?v=4" defer></script>
+<script src="modelos3d.js?v=10" defer></script>
 <script src="natureye.js?v=6"></script>
 <script type="module" src="visor.js?v=6"></script>
 </body>

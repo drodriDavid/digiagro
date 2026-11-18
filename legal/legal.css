@@ -22,7 +22,7 @@ a { color: var(--verde); text-underline-offset: 3px; }
 .cabecera { border-bottom: 1px solid var(--linea); }
 .cabecera .dentro { max-width: 46rem; margin: 0 auto; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .cabecera img { display: block; height: 34px; width: auto; }
-.cabecera .uja img { height: 40px; }
+.cabecera .uja img { height: 30px; }
 .cabecera .derecha { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .cabecera .derecha img { height: 24px; }
 .cabecera a.volver { font-weight: 700; text-decoration: none; }
@@ -48,6 +48,6 @@ dt { font-weight: 700; }
 .pie a[aria-current="page"] { text-decoration-thickness: 2px; }
 .pie p { margin-top: 12px; font-size: .9375rem; }
 .pie-uja { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid rgba(255, 255, 255, .4); }
-.pie-uja img { display: block; height: 46px; width: auto; }
+.pie-uja img { display: block; height: 34px; width: auto; }
 .pie-uja p { margin-top: 10px; }
 .pie .pie-uja a { font-weight: 400; }

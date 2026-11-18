@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
 <link rel="stylesheet" href="../assets/fuentes/lato.css">
 <link rel="stylesheet" href="../styles.css?v=37">
-<link rel="stylesheet" href="natureye.css?v=20">
+<link rel="stylesheet" href="natureye.css?v=21">
 <link rel="preload" href="media/portada.webp" as="image">
 </head>
 <body>
@@ -184,7 +184,7 @@
       <figure><a class="ne-amplia" href="media/especies/muerdago.webp"><img src="media/especies/muerdago.webp" alt="Muérdago (Viscum album)" loading="lazy"></a><figcaption><b>Muérdago</b><i>Viscum album</i></figcaption></figure>
     </div>
     <h3 class="ne-especies-tit">Las especies en 3D</h3>
-    <p class="ne-especies-intro">Modelos con los que se puebla el escenario de Unreal Engine. Gíralos con el ratón o el dedo.</p>
+    <p class="ne-especies-intro">Modelos con los que se puebla el escenario de Unreal Engine. Gíralos con el ratón o el dedo; las cotas marcan la altura, la base y el diámetro de la copa.</p>
     <div class="ne-modelos">
       <div class="ne-modelos-lista" role="group" aria-label="Elegir especie">
         <button type="button" data-modelo="encina" data-latin="Quercus ilex" aria-pressed="true">Encina</button>
@@ -196,7 +196,7 @@
         <button type="button" data-modelo="piorno" data-latin="Echinospartum boissieri" aria-pressed="false">Echinospartum</button>
         <button type="button" data-modelo="eleboro" data-latin="Helleborus foetidus" aria-pressed="false">Eléboro fétido</button>
       </div>
-      <div class="ne-modelo-visor" id="visor-modelos"><p class="ne-modelo-cargando">Cargando modelo 3D…</p><p class="ne-modelo-rotulo"><b>Encina</b><i>Quercus ilex</i></p></div>
+      <div class="ne-modelo-visor" id="visor-modelos"><p class="ne-modelo-cargando">Cargando modelo 3D…</p><p class="ne-modelo-rotulo"><b>Encina</b><i>Quercus ilex</i></p><button type="button" class="ne-medidas-boton" aria-pressed="true" hidden>Medidas</button><div class="ne-medidas-datos" aria-live="polite"></div></div>
     </div>
   </section>
 
@@ -464,7 +464,7 @@
 
 <script src="datos.js?v=1"></script>
 <script src="zonas3d.js?v=1" defer></script>
-<script src="modelos3d.js?v=2" defer></script>
+<script src="modelos3d.js?v=4" defer></script>
 <script src="natureye.js?v=6"></script>
 <script type="module" src="visor.js?v=6"></script>
 </body>

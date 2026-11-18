@@ -5,7 +5,8 @@
   const botones = document.querySelectorAll("[data-modelo]");
   const VER = "3.5.0";
   let visor = null, cargando = null;
-  const nombre = k => document.querySelector(`[data-modelo="${k}"] b`).textContent;
+  const boton = k => document.querySelector(`[data-modelo="${k}"]`);
+  const nombre = k => boton(k).textContent;
 
   const carga = () => cargando || (cargando = new Promise((ok, mal) => {
     const js = document.createElement("script");
@@ -24,10 +25,11 @@
 
   function muestra(k) {
     botones.forEach(b => b.setAttribute("aria-pressed", b.dataset.modelo === k));
+    const r = caja.querySelector(".ne-modelo-rotulo"); r.querySelector("b").textContent = nombre(k); r.querySelector("i").textContent = boton(k).dataset.latin;
     if (!visor) return carga();
     const aviso = caja.querySelector(".ne-modelo-cargando"); aviso.textContent = "Cargando modelo 3D…"; aviso.removeAttribute("hidden");
     visor.alt = `Modelo 3D de ${nombre(k)}`;
-    visor.src = `media/modelos/${k}.glb?v=1`;
+    visor.src = `media/modelos/${k}.glb?v=2`;
   }
 
   botones.forEach(b => b.addEventListener("click", () => muestra(b.dataset.modelo)));

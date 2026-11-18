@@ -63,11 +63,11 @@
   const tamaño = mb => mb >= 1024 ? (mb / 1024).toLocaleString("es-ES", { maximumFractionDigits: 1 }) + " GB" : Math.round(mb).toLocaleString("es-ES") + " MB";
   /* Imagen y explicación de cada tipo de dato, para que se vea qué contiene antes de pedirlo */
   const TIPOS = {
-    "MDE": ["img/mde.jpg", "Relieve del terreno en cada píxel"],
-    "RGB": ["img/ortomosaico.jpg", "Mosaico de fotos de dron en color real"],
-    "Multiespectral": ["img/sensores.jpg", "Verde, rojo, borde rojo e infrarrojo cercano"],
-    "Hiperespectral": ["img/firmas-espectrales.jpg", "Cientos de bandas por píxel", "center 70%"],
-    "Nube de puntos": ["img/nube-lidar.jpg", "Puntos 3D de LiDAR y fotogrametría"],
+    "MDE": ["media/datos/mde.webp", "Relieve del terreno en cada píxel"],
+    "RGB": ["media/datos/rgb.webp", "Mosaico de fotos de dron en color real"],
+    "Multiespectral": ["media/datos/multiespectral.webp", "Verde, rojo, borde rojo e infrarrojo cercano"],
+    "Hiperespectral": ["media/datos/hiperespectral.webp", "Cientos de bandas por píxel"],
+    "Nube de puntos": ["media/datos/nube.webp", "Puntos 3D de LiDAR y fotogrametría"],
     "Modelo GEU": ["img/geu-fusion.jpg", "Datos fusionados listos para GEU", "left center"],
     "Especies": ["media/especies/quejigo.webp", "Fotos de campo de cada especie"]
   };

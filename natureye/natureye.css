@@ -324,53 +324,41 @@ a.ne-amplia { display: block; cursor: zoom-in; }
 }
 @media (prefers-reduced-motion: reduce) { .ne-galeria img { transition: none; } }
 
-/* Zonas de estudio (versión 2): vistas 3D de Google Earth y fotos de campo */
-.ne-zonas-sec { padding: 0 0 clamp(48px, 7vw, 88px); background: #fff; }
-.ne-zonas-cab { position: relative; min-height: clamp(300px, 42vw, 520px); display: flex; align-items: flex-end; overflow: hidden; background: #2b3a30; }
-.ne-zonas-cab > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.ne-zonas-cab::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 24, 16, 0) 30%, rgba(8, 24, 16, .82) 100%); }
-.ne-zonas-cab-texto { position: relative; z-index: 1; max-width: 1180px; width: 100%; margin: 0 auto; padding: 0 var(--margen) clamp(26px, 4vw, 44px); color: #fff; }
-.ne-zonas-cab h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 900; line-height: 1.05; display: flex; align-items: center; gap: 14px; color: #fff; }
-.ne-zonas-cab h2::before { content: ""; flex: none; align-self: stretch; width: 6px; border-radius: 3px; background: #7fd0ee; }
-.ne-zonas-cab p { margin-top: 12px; max-width: 56ch; font-size: clamp(1rem, 1.6vw, 1.15rem); color: rgba(255, 255, 255, .92); }
-.ne-zona2-cred { position: absolute; right: 10px; bottom: 8px; z-index: 2; font-size: .72rem; color: rgba(255, 255, 255, .88); background: rgba(0, 0, 0, .38); padding: 2px 8px; border-radius: 999px; pointer-events: none; }
-.ne-zonas-lista { max-width: 1180px; margin: clamp(30px, 5vw, 60px) auto 0; padding: 0 var(--margen); display: flex; flex-direction: column; gap: clamp(36px, 6vw, 72px); }
-.ne-zona2 { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(20px, 3.4vw, 44px); align-items: center; }
-.ne-zona2:nth-child(even) .ne-zona2-3d { order: 2; }
-.ne-zona2-3d { position: relative; margin: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 18px 44px rgba(0, 50, 30, .2); }
-.ne-zona2-3d img { display: block; width: 100%; height: auto; aspect-ratio: 1272 / 626; object-fit: cover; transition: transform .6s ease; }
-.ne-zona2-3d:hover img { transform: scale(1.03); }
-.ne-zona2 h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; line-height: 1.1; color: var(--ne-verde-texto); }
-.ne-zona2-datos { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 4px 26px; margin: 14px 0 12px; }
-.ne-zona2-datos dt { font-size: .8rem; color: var(--gris); }
-.ne-zona2-datos dd { margin: 0; font-size: 1.25rem; font-weight: 900; color: var(--ne-azul); }
-.ne-zona2-texto > p { color: var(--tinta); font-size: 1.02rem; }
-.ne-zona2-pie { display: flex; align-items: center; gap: 16px; margin-top: 18px; }
-.ne-zona2-foto { flex: none; width: 128px; border-radius: 10px; overflow: hidden; box-shadow: var(--sombra); }
-.ne-zona2-foto img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.ne-zona2-acc { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
-.ne-zona2-acc a:not(.boton) { font-weight: 700; color: var(--ne-azul); }
-.ne-zonas-sec .ne-zonas-mapa { max-width: 1180px; margin: clamp(40px, 6vw, 70px) auto 0; padding: 0 var(--margen); }
-.ne-especies-tit { max-width: 1180px; margin: clamp(44px, 6vw, 72px) auto 0; padding: 0 var(--margen); font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 900; color: var(--ne-verde-texto); }
-.ne-especies-intro { max-width: 1180px; margin: 8px auto 20px; padding: 0 var(--margen); color: var(--gris); }
-.ne-especies { max-width: 1180px; margin: 0 auto; padding: 0 var(--margen); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.ne-especies figure { position: relative; margin: 0; border-radius: 12px; overflow: hidden; background: #dfe7e1; }
-.ne-especies img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .5s ease; }
+/* Zonas de estudio: una tarjeta por zona con su foto de campo */
+.ne-zonas3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); max-width: 1180px; margin: 0 auto; }
+.ne-zona3 { display: flex; flex-direction: column; }
+.ne-zona3-foto { position: relative; display: block; aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden; background: #2b3a30; box-shadow: 0 14px 34px rgba(0, 50, 30, .16); }
+.ne-zona3-foto img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.ne-zona3-foto:hover img { transform: scale(1.04); }
+.ne-zona3-foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, .72) 100%); pointer-events: none; }
+.ne-zona3-cab { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; color: #fff; }
+.ne-zona3-cab b { font-size: clamp(1.4rem, 2.2vw, 1.75rem); font-weight: 900; line-height: 1.1; }
+.ne-zona3-cab span { font-size: .95rem; font-weight: 700; color: #bfe8f6; }
+.ne-zona3-texto { padding: 14px 4px 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.ne-zona3-texto p { margin: 0; color: var(--tinta); }
+.ne-zona3-enlaces { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: auto !important; padding-top: 4px; }
+.ne-zona3-enlaces a { font-weight: 700; color: var(--ne-azul); }
+.ne-zonas3-mapa { margin-top: clamp(36px, 5vw, 56px) !important; }
+.ne-especies-tit { max-width: 1180px; margin: clamp(44px, 6vw, 72px) auto 0; font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 900; color: var(--ne-verde-texto); }
+.ne-especies-intro { max-width: 1180px; margin: 8px auto 20px; color: var(--gris); }
+.ne-especies { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; }
+.ne-especies figure { position: relative; margin: 0; border-radius: 10px; overflow: hidden; background: #dfe7e1; aspect-ratio: 1; }
+.ne-especies figure:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+.ne-especies a, .ne-especies img { display: block; width: 100%; height: 100%; }
+.ne-especies img { object-fit: cover; transition: transform .5s ease; }
 .ne-especies figure:hover img { transform: scale(1.05); }
-.ne-especies figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .72)); color: #fff; display: flex; flex-direction: column; line-height: 1.25; pointer-events: none; }
-.ne-especies figcaption b { font-size: 1rem; }
-.ne-especies figcaption i { font-size: .85rem; opacity: .88; }
+.ne-especies figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 10px 8px; background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .75)); color: #fff; display: flex; flex-direction: column; line-height: 1.2; pointer-events: none; }
+.ne-especies figcaption b { font-size: .92rem; }
+.ne-especies figcaption i { font-size: .76rem; opacity: .9; }
+.ne-especies figure:first-child figcaption b { font-size: 1.2rem; }
+.ne-especies figure:first-child figcaption i { font-size: .9rem; }
+@media (max-width: 980px) { .ne-especies { grid-template-columns: repeat(4, minmax(0, 1fr)); } .ne-especies figure:first-child { grid-row: span 1; aspect-ratio: 2 / 1; } }
 @media (max-width: 860px) {
-  .ne-zona2 { grid-template-columns: 1fr; }
-  .ne-zona2:nth-child(even) .ne-zona2-3d { order: 0; }
-  .ne-especies { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ne-zonas3 { grid-template-columns: 1fr; gap: 30px; }
+  .ne-zona3-foto { aspect-ratio: 4 / 3; }
 }
-@media (max-width: 560px) {
-  .ne-zona2-datos { gap: 4px 18px; }
-  .ne-zona2-datos dd { font-size: 1.05rem; }
-  .ne-zona2-foto { width: 104px; }
-}
-@media (prefers-reduced-motion: reduce) { .ne-zona2-3d img, .ne-especies img { transition: none; } }
+@media (max-width: 560px) { .ne-especies { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { .ne-zona3-foto img, .ne-especies img { transition: none; } }
 
 /* Conjuntos de datos: tarjetas con imagen por tipo y miniatura en cada fila */
 .ne-filtros { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }

@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
 <link rel="stylesheet" href="../assets/fuentes/lato.css">
 <link rel="stylesheet" href="../styles.css?v=35">
-<link rel="stylesheet" href="natureye.css?v=17">
+<link rel="stylesheet" href="natureye.css?v=18">
 <link rel="preload" href="media/portada.webp" as="image">
 </head>
 <body>
@@ -133,7 +133,7 @@
         </a>
         <div class="ne-zona3-texto">
           <p>Encinar con el pico Mágina al fondo. Aquí se voló la nube 3D que se explora más arriba y se construyó el escenario de Unreal Engine.</p>
-          <p class="ne-zona3-enlaces"><a href="https://earth.google.com/web/@37.7321,-3.5025,1600a,3200d,35y,200h,64t,0r" rel="noopener" target="_blank">Ver en 3D en Google Earth</a><a href="https://www.google.com/maps/@37.7321,-3.5025,1200m/data=!3m1!1e3" rel="noopener" target="_blank">Mapa de satélite</a></p>
+          <p class="ne-zona3-enlaces"><button type="button" class="ne-zona3-3d" data-zona="puerto">Ver en 3D</button></p>
         </div>
       </article>
       <article class="ne-zona3">
@@ -143,7 +143,7 @@
         </a>
         <div class="ne-zona3-texto">
           <p>La zona más alta de las tres, junto a la cumbre del parque.</p>
-          <p class="ne-zona3-enlaces"><a href="https://earth.google.com/web/@37.72496,-3.46669,2100a,3800d,35y,330h,64t,0r" rel="noopener" target="_blank">Ver en 3D en Google Earth</a><a href="https://www.google.com/maps/@37.72496,-3.46669,1200m/data=!3m1!1e3" rel="noopener" target="_blank">Mapa de satélite</a></p>
+          <p class="ne-zona3-enlaces"><button type="button" class="ne-zona3-3d" data-zona="pico">Ver en 3D</button></p>
         </div>
       </article>
       <article class="ne-zona3">
@@ -153,9 +153,19 @@
         </a>
         <div class="ne-zona3-texto">
           <p>La zona más baja y oriental de las tres, en la ladera de solana.</p>
-          <p class="ne-zona3-enlaces"><a href="https://earth.google.com/web/@37.76023,-3.36196,1225a,3200d,35y,20h,64t,0r" rel="noopener" target="_blank">Ver en 3D en Google Earth</a><a href="https://www.google.com/maps/@37.76023,-3.36196,1200m/data=!3m1!1e3" rel="noopener" target="_blank">Mapa de satélite</a></p>
+          <p class="ne-zona3-enlaces"><button type="button" class="ne-zona3-3d" data-zona="cruz">Ver en 3D</button></p>
         </div>
       </article>
+    </div>
+    <div class="ne-zonas-3d">
+      <div class="ne-mapa3d-botones" role="group" aria-label="Ir a una zona en el visor 3D">
+        <button type="button" data-zona="parque" aria-pressed="true">Todo el parque</button>
+        <button type="button" data-zona="puerto" aria-pressed="false">Puerto de la Mata</button>
+        <button type="button" data-zona="pico" aria-pressed="false">Pico Mágina</button>
+        <button type="button" data-zona="cruz" aria-pressed="false">Sierra de la Cruz</button>
+      </div>
+      <div class="ne-mapa3d" id="mapa3d" role="region" aria-label="Visor 3D del relieve de Sierra Mágina con las tres zonas"></div>
+      <p class="ne-mapa3d-ayuda">Arrastra para moverte. Para girar e inclinar la vista, arrastra con el botón derecho o con dos dedos.</p>
     </div>
     <figure class="ne-fig ne-ancha ne-zonas3-mapa">
       <a class="ne-amplia" href="img/zonas.jpg"><img src="img/zonas.jpg" alt="Vista de Google Earth del Parque Natural de Sierra Mágina con las tres zonas de estudio y la parcela de cada una: Puerto de la Mata, Pico Mágina y Sierra de la Cruz" loading="lazy"></a>
@@ -441,6 +451,7 @@
 </div>
 
 <script src="datos.js?v=1"></script>
+<script src="zonas3d.js?v=1" defer></script>
 <script src="natureye.js?v=5"></script>
 <script type="module" src="visor.js?v=6"></script>
 </body>

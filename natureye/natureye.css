@@ -337,7 +337,16 @@ a.ne-amplia { display: block; cursor: zoom-in; }
 .ne-zona3-texto { padding: 14px 4px 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .ne-zona3-texto p { margin: 0; color: var(--tinta); }
 .ne-zona3-enlaces { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: auto !important; padding-top: 4px; }
-.ne-zona3-enlaces a { font-weight: 700; color: var(--ne-azul); }
+.ne-zona3-3d { align-self: flex-start; padding: 9px 18px; border: 0; border-radius: 999px; background: var(--ne-azul); color: #fff; font: inherit; font-weight: 800; font-size: .92rem; cursor: pointer; }
+.ne-zona3-3d:hover, .ne-zona3-3d:focus-visible { filter: brightness(1.12); }
+.ne-zonas-3d { max-width: 1180px; margin: clamp(36px, 5vw, 56px) auto 0; }
+.ne-mapa3d-botones { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.ne-mapa3d-botones button { padding: 8px 16px; border: 2px solid var(--ne-azul); border-radius: 999px; background: #fff; color: var(--ne-azul); font: inherit; font-weight: 800; font-size: .9rem; cursor: pointer; }
+.ne-mapa3d-botones button[aria-pressed="true"] { background: var(--ne-azul); color: #fff; }
+.ne-mapa3d { position: relative; height: clamp(380px, 56vw, 620px); border-radius: 14px; overflow: hidden; background: #cfe3ea; box-shadow: 0 14px 34px rgba(0, 50, 30, .16); }
+.ne-mapa3d-error { display: grid; place-items: center; color: var(--gris); }
+.ne-mapa3d-marca { padding: 5px 11px; border: 2px solid #fff; border-radius: 999px; background: var(--ne-azul); color: #fff; font: inherit; font-size: .82rem; font-weight: 800; white-space: nowrap; box-shadow: 0 3px 10px rgba(0, 0, 0, .35); cursor: pointer; }
+.ne-mapa3d-ayuda { margin-top: 8px; font-size: .85rem; color: var(--gris); }
 .ne-zonas3-mapa { margin-top: clamp(36px, 5vw, 56px) !important; }
 .ne-especies-tit { max-width: 1180px; margin: clamp(44px, 6vw, 72px) auto 0; font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 900; color: var(--ne-verde-texto); }
 .ne-especies-intro { max-width: 1180px; margin: 8px auto 20px; color: var(--gris); }

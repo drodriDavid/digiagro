@@ -468,3 +468,11 @@ a.ne-amplia { display: block; cursor: zoom-in; }
   .ne-album-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) { .ne-album-fotos img { transition: none; } }
+.ne-rasgos { max-width: 1180px; margin: 18px auto 0; }
+.ne-rasgos summary { display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; color: var(--ne-verde-texto); font-weight: 800; cursor: pointer; list-style: none; }
+.ne-rasgos summary::-webkit-details-marker { display: none; }
+.ne-rasgos summary::before { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform .2s; }
+.ne-rasgos[open] summary::before { transform: rotate(45deg); }
+.ne-rasgos .ne-tabla-envoltura { margin-top: 8px; }
+.ne-rasgos .ne-tabla td:first-child { white-space: nowrap; }
+.ne-rasgos .ne-tabla th:nth-child(2), .ne-rasgos .ne-tabla th:nth-child(3) { width: 13%; }

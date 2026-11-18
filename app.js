@@ -3,7 +3,7 @@
   const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = id => document.getElementById(id);
   const crea = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-  const dominio = u => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/(home)?$/, "");
+  const dominio = u => u.replace(/\?.*$/, "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/(home)?$/, "");
   const ETIQUETAS = { europa: "Europeo", espana: "Nacional", andalucia: "Andaluz", otros: "Otros" };
 
   const aparece = "IntersectionObserver" in window && !quieto

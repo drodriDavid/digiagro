@@ -62,6 +62,11 @@ function iniciar(caja) {
     const P_ALT = [[0, hex("#e9dfc6")], [0.8, hex("#cbd98a")], [3, hex("#6aae3a")], [6, hex("#1e5631")], [10, hex("#1c8cb8")]];
     const P_NDVI = [[0.2, hex("#9a7b55")], [0.45, hex("#dccb8a")], [0.6, hex("#a9c95f")], [0.75, hex("#3f8f3a")], [0.9, hex("#0f4a26")]];
     const SIN = hex("#b8bcb6");
+    /* Estratos por altura sobre el suelo: herbáceo y suelo, matorral bajo, matorral alto, arbolado */
+    const ESTRATOS = [[0.3, hex("#e3d6b0")], [1, hex("#b9cf73")], [3, hex("#5e9e3e")], [Infinity, hex("#1f5a35")]];
+    const cuenta = [0, 0, 0, 0];
+    for (let i = 0; i < n; i++) { const h = alt[i] / 10; cuenta[h < 0.3 ? 0 : h < 1 ? 1 : h < 3 ? 2 : 3]++; }
+    document.querySelectorAll("[data-estrato]").forEach(e => { e.textContent = `${Math.round(cuenta[+e.dataset.estrato] / n * 100)} %`; });
     const P_REL = [[0, hex("#1d4e6b")], [0.35, hex("#4f9fb8")], [0.6, hex("#d9dcb4")], [0.85, hex("#c08a52")], [1, hex("#7a4b2a")]];
 
     function colorea(modo) {
@@ -69,6 +74,7 @@ function iniciar(caja) {
         const j = i * 3;
         if (modo === "real") { col[j] = (rgb[j] / 255) ** 1.6 * 1.25; col[j + 1] = (rgb[j + 1] / 255) ** 1.6 * 1.25; col[j + 2] = (rgb[j + 2] / 255) ** 1.6 * 1.25; }
         else if (modo === "altura") rampa(P_ALT, alt[i] / 10, col, j);
+        else if (modo === "estratos") { const h = alt[i] / 10, c = ESTRATOS.find(e => h < e[0])[1]; col[j] = c[0]; col[j + 1] = c[1]; col[j + 2] = c[2]; }
         else if (modo === "ndvi") { if (ndvi[i] === 255) { col[j] = SIN[0]; col[j + 1] = SIN[1]; col[j + 2] = SIN[2]; } else rampa(P_NDVI, ndvi[i] / 250 * 1.2 - 0.2, col, j); }
         else rampa(P_REL, (pos[j + 1] + ez / 2) / ez, col, j);
       }

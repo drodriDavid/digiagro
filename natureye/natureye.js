@@ -104,3 +104,10 @@
     filtros.append(b);
   });
 })();
+
+/* Comparador con cortinilla: el deslizador recorta la imagen de encima */
+document.querySelectorAll(".ne-cortina").forEach(f => {
+  const r = f.querySelector("input");
+  const pon = () => f.style.setProperty("--pos", r.value + "%");
+  r.addEventListener("input", pon); pon();
+});

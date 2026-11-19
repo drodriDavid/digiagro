@@ -4,7 +4,7 @@
   const $ = id => document.getElementById(id);
   const crea = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
   const dominio = u => u.replace(/\?.*$/, "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/(home)?$/, "");
-  const ETIQUETAS = { europa: "Europeo", espana: "Nacional", andalucia: "Andaluz", otros: "Otros" };
+  const ETIQUETAS = { europa: "Europeo", espana: "Nacional", andalucia: "Autonómico", otros: "Otros" };
 
   const aparece = "IntersectionObserver" in window && !quieto
     ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const t = e.target; t.classList.add("visible"); aparece.unobserve(t); setTimeout(() => { t.classList.remove("rv", "visible"); t.style.removeProperty("--rv"); }, 1400); } }), { threshold: 0.06, rootMargin: "0px 0px -5% 0px" })

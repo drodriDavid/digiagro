@@ -89,7 +89,7 @@ const EN = {
   "Healthy soil to permanent crops living labs. Lideramos el Living Lab andaluz, centrado en la salud del suelo en el olivar.": "Healthy soil to permanent crops living labs. We lead the Andalusian Living Lab, focused on soil health in olive groves.",
   "Europeo": "European",
   "Nacional": "National",
-  "Andaluz": "Andalusian",
+  "Autonómico": "Regional",
   "Otros": "Other",
   "Horizonte Europa, 2024–2028": "Horizon Europe, 2024–2028",
   "Plan Estatal de I+D+i, 2023–2026": "Spanish State R&D&I Plan, 2023–2026",

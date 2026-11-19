@@ -32,7 +32,7 @@
 
   /* Proyectos: filas con logotipo */
   PROYECTOS.forEach(p => {
-    const a = crea("article", "fila-proyecto" + (p.v || p.im ? " con-video" : ""));
+    const a = crea("article", "fila-proyecto" + (p.v || p.im || p.yt ? " con-video" : ""));
     const l = crea("div", "fp-logo");
     if (p.logo) { const i = crea("img"); i.src = p.logo; i.alt = "Logotipo de " + p.t; i.loading = "lazy"; l.append(i); }
     else if (p.lt) { const s = crea("span", "fp-logo-txt" + (p.lt.length > 12 ? " largo" : "")); s.setAttribute("aria-hidden", "true"); const nom = crea("span"); p.lt.split("|").forEach((x, i) => nom.append(crea("span", i ? "fp-lt2" : "", x))); s.append(nom); l.append(s); }
@@ -45,6 +45,18 @@
     if (p.v) {
       const f = crea("figure", "fp-video"), v = crea("video"); v.controls = true; v.playsInline = true; v.preload = "none"; v.poster = p.vp;
       const s = crea("source"); s.src = p.v; s.type = "video/mp4"; v.append(s); v.setAttribute("aria-label", "Vídeo de presentación de " + p.t); f.append(v); a.append(f);
+    }
+    if (p.yt) {
+      /* YouTube solo se carga al pulsar (sin cookies hasta entonces) */
+      const f = crea("figure", "fp-video fp-yt"), bt = crea("button", "fp-yt-boton"); bt.type = "button";
+      bt.setAttribute("aria-label", "Reproducir el vídeo de " + p.t + " (YouTube)");
+      const i = crea("img"); i.src = p.vp; i.alt = ""; i.loading = "lazy"; bt.append(i, crea("span", "fp-yt-play"));
+      bt.addEventListener("click", () => {
+        const fr = crea("iframe"); fr.src = "https://www.youtube-nocookie.com/embed/" + p.yt + "?autoplay=1&rel=0";
+        fr.title = "Vídeo de " + p.t; fr.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; fr.allowFullscreen = true;
+        fr.referrerPolicy = "strict-origin-when-cross-origin"; f.replaceChildren(fr);
+      });
+      f.append(bt, crea("figcaption", "fp-yt-nota", "Vídeo en YouTube")); a.append(f);
     }
     if (p.im && !p.v) {
       const f = crea("figure", "fp-video fp-imagen"), i = crea("img"); i.src = p.im; i.alt = p.ima || ""; i.loading = "lazy";

@@ -43,6 +43,7 @@ PAGINAS = [
 <h2>Datos que se tratan</h2>
 <p>Esta web no tiene formularios, no pide registro y no usa herramientas de analítica ni de publicidad. Tampoco usa cookies (ver la <a href="cookies.html">política de cookies</a>).</p>
 <p>Todo se sirve desde el servidor de la Universidad de Jaén: textos, imágenes, vídeos y tipografías. Al navegar por ella no se envía ningún dato a terceros.</p>
+<p>La única excepción es el vídeo del proyecto REGEN4ANDALUCIA, alojado en YouTube. Hasta que pulsas el botón de reproducir solo ves una imagen guardada en nuestro servidor y no se conecta con YouTube. Si lo pulsas, el vídeo se carga desde YouTube en su modo de privacidad mejorada (youtube-nocookie.com), y Google recibe tu dirección IP y los datos técnicos de la reproducción según su <a href="https://policies.google.com/privacy" rel="noopener">política de privacidad</a>.</p>
 
 <h2>Registros técnicos del servidor</h2>
 <p>Como cualquier servidor web, el de la Universidad anota cada petición que recibe: dirección IP, fecha y hora, página pedida y navegador. Esos registros se usan solo para garantizar la seguridad y el funcionamiento del servicio. No se usan para identificar ni perfilar a nadie, no se ceden a terceros y se conservan el tiempo imprescindible para esos fines.</p>
@@ -57,12 +58,13 @@ PAGINAS = [
     ('cookies', 'Política de cookies', 'Esta web no usa cookies.', '''
 <h2>¿Usa cookies esta web?</h2>
 <p>No. La web de DIGIAGRO no instala cookies propias ni de terceros: ni de análisis, ni de publicidad, ni de redes sociales. Por eso no muestra ningún aviso para aceptarlas.</p>
+<p>Solo si decides reproducir el vídeo de REGEN4ANDALUCIA, que está en YouTube, el reproductor de YouTube puede guardar datos en tu navegador. Mientras no lo pulses no se carga nada de YouTube.</p>
 
 <h2>Lo único que se guarda en tu navegador</h2>
 <p>Si cambias el idioma de la web entre español e inglés, el navegador recuerda tu elección en su almacenamiento local, con el nombre <code>idioma</code>. Es un dato técnico que no sale de tu equipo, no te identifica y no se usa para nada más. Por eso está exento de consentimiento (artículo 22.2 de la LSSI-CE).</p>
 
 <h2>Servicios de terceros</h2>
-<p>Ninguno. Las tipografías, imágenes y vídeos se sirven desde el propio servidor de la Universidad de Jaén, sin conexiones a Google ni a otras empresas.</p>
+<p>Las tipografías, imágenes y vídeos se sirven desde el propio servidor de la Universidad de Jaén, sin conexiones a Google ni a otras empresas. La excepción es el vídeo de REGEN4ANDALUCIA, que se reproduce desde YouTube (modo de privacidad mejorada) solo cuando lo pulsas.</p>
 
 <h2>Cómo borrarlo</h2>
 <p>Puedes borrar ese dato desde las opciones de tu navegador, con «Borrar datos de sitios» o equivalente. La web volverá a mostrarse en español.</p>

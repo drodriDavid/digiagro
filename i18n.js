@@ -150,6 +150,7 @@ const EN = {
   "Línea de trabajo": "Research topic",
   "Tema en definición": "Topic to be defined",
   "Leer la tesis": "Read the thesis",
+  "Evaluación de la salud del suelo en olivar mediante teledetección e inteligencia artificial": "Assessment of soil health in olive groves using remote sensing and artificial intelligence",
   "Cotutela internacional": "International joint supervision",
   "Universidad de Jaén y Universidad de San Carlos de Guatemala": "University of Jaén and University of San Carlos of Guatemala",
   "Captura y procesamiento multiescala de datos geoespaciales con sensores espectrales e inteligencia artificial para la agricultura de precisión en el olivar": "Multiscale capture and processing of geospatial data with spectral sensors and artificial intelligence for precision agriculture in olive groves",

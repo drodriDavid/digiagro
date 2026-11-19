@@ -1,1 +1,1 @@
-{"n": 700416, "extension": [562.009, 436.13, 137.155], "zmin": 1598.69, "zmax": 1735.84, "crs": "EPSG:25830", "fuente": "Puerto de la Mata, vuelo DJI Mavic 3M del 08/04/2024 (nube RGB densificada, muestra aleatoria)"}
+{"n": 700416, "extension": [562.009, 436.13, 137.155], "zmin": 1598.69, "zmax": 1735.84, "crs": "EPSG:25830", "fuente": "Puerto de la Mata, vuelo DJI Mavic 3M del 08/04/2024 (nube RGB densificada, muestra aleatoria)", "ndvi": {"min": -0.2, "max": 1.0, "fuente": "bandas roja e infrarroja cercana del DJI Mavic 3M, vuelo del 08/04/2024"}}

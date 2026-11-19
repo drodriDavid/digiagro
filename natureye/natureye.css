@@ -164,6 +164,7 @@
 .vs-rampa { display: block; width: 140px; height: 8px; border-radius: 4px; }
 .vs-rampa-alt { background: linear-gradient(90deg, #e9dfc6, #cbd98a 8%, #6aae3a 30%, #1e5631 60%, #1c8cb8); }
 .vs-rampa-rel { background: linear-gradient(90deg, #1d4e6b, #4f9fb8 35%, #d9dcb4 60%, #c08a52 85%, #7a4b2a); }
+.vs-rampa-ndvi { background: linear-gradient(90deg, #9a7b55, #dccb8a 36%, #a9c95f 57%, #3f8f3a 79%, #0f4a26); }
 .vs-reinicia { position: absolute; right: 16px; bottom: 16px; border: 1px solid rgba(255, 255, 255, .25); background: rgba(8, 20, 14, .75); color: #fff; font: inherit; font-size: .85rem; font-weight: 700; padding: 7px 14px; border-radius: 6px; cursor: pointer; opacity: 0; transition: opacity .3s; }
 .vs.listo .vs-reinicia { opacity: 1; }
 .ne-explora-pie { margin-top: 14px; font-size: .85rem; color: var(--gris); max-width: 90ch; }

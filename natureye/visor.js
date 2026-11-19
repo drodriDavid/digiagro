@@ -1,5 +1,6 @@
 /* NATUREYE: visor 3D de la nube de puntos de Puerto de la Mata (muestra de la nube RGB densificada).
-   Formato de media/puerto-mata.bin: n×3 uint16 (x, y, z cuantizados a la extensión), n×3 uint8 (RGB), n uint8 (altura sobre el suelo en dm).
+   Formato de media/puerto-mata.bin: n×3 uint16 (x, y, z cuantizados a la extensión), n×3 uint8 (RGB), n uint8 (altura sobre el suelo en dm)
+   y, si meta.ndvi existe, n uint8 de NDVI (0..250 de -0,2 a 1,0; 255 sin dato).
    Carga diferida: solo se descarga cuando la sección se acerca a la pantalla. */
 import * as THREE from "./vendor/three.module.min.js";
 import { OrbitControls } from "./vendor/OrbitControls.js";
@@ -22,8 +23,8 @@ function iniciar(caja) {
   obs.observe(caja);
 
   async function carga() {
-    const meta = await (await fetch("media/puerto-mata.json")).json();
-    const r = await fetch("media/puerto-mata.bin");
+    const meta = await (await fetch("media/puerto-mata.json?v=2")).json();
+    const r = await fetch("media/puerto-mata.bin?v=2");
     const total = +r.headers.get("content-length") || meta.n * 10;
     const lector = r.body.getReader(); const trozos = []; let leidos = 0;
     for (;;) {
@@ -37,6 +38,8 @@ function iniciar(caja) {
   function monta(meta, ab) {
     const n = meta.n, [ex, ey, ez] = meta.extension;
     const q = new Uint16Array(ab, 0, n * 3), rgb = new Uint8Array(ab, n * 6, n * 3), alt = new Uint8Array(ab, n * 9, n);
+    const ndvi = meta.ndvi && ab.byteLength >= n * 11 ? new Uint8Array(ab, n * 10, n) : null;
+    if (!ndvi) botones.filter(b => b.dataset.modo === "ndvi").forEach(b => { b.hidden = true; });
     const pos = new Float32Array(n * 3);
     const sx = ex / 65535, sy = ey / 65535, sz = ez / 65535;
     for (let i = 0; i < n; i++) {
@@ -57,6 +60,8 @@ function iniciar(caja) {
     };
     const hex = h => [parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255];
     const P_ALT = [[0, hex("#e9dfc6")], [0.8, hex("#cbd98a")], [3, hex("#6aae3a")], [6, hex("#1e5631")], [10, hex("#1c8cb8")]];
+    const P_NDVI = [[0.2, hex("#9a7b55")], [0.45, hex("#dccb8a")], [0.6, hex("#a9c95f")], [0.75, hex("#3f8f3a")], [0.9, hex("#0f4a26")]];
+    const SIN = hex("#b8bcb6");
     const P_REL = [[0, hex("#1d4e6b")], [0.35, hex("#4f9fb8")], [0.6, hex("#d9dcb4")], [0.85, hex("#c08a52")], [1, hex("#7a4b2a")]];
 
     function colorea(modo) {
@@ -64,6 +69,7 @@ function iniciar(caja) {
         const j = i * 3;
         if (modo === "real") { col[j] = (rgb[j] / 255) ** 1.6 * 1.25; col[j + 1] = (rgb[j + 1] / 255) ** 1.6 * 1.25; col[j + 2] = (rgb[j + 2] / 255) ** 1.6 * 1.25; }
         else if (modo === "altura") rampa(P_ALT, alt[i] / 10, col, j);
+        else if (modo === "ndvi") { if (ndvi[i] === 255) { col[j] = SIN[0]; col[j + 1] = SIN[1]; col[j + 2] = SIN[2]; } else rampa(P_NDVI, ndvi[i] / 250 * 1.2 - 0.2, col, j); }
         else rampa(P_REL, (pos[j + 1] + ez / 2) / ez, col, j);
       }
       geo.attributes.color.needsUpdate = true;

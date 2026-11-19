@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/marca/digiagro-simbolo.svg">
 <link rel="stylesheet" href="../assets/fuentes/lato.css">
 <link rel="stylesheet" href="../styles.css?v=37">
-<link rel="stylesheet" href="natureye.css?v=30">
+<link rel="stylesheet" href="natureye.css?v=31">
 <link rel="preload" href="media/portada.webp" as="image">
 </head>
 <body>
@@ -86,6 +86,7 @@
       <div class="vs-modos" role="group" aria-label="Color de la nube">
         <button type="button" data-modo="real" aria-pressed="true">Color real</button>
         <button type="button" data-modo="altura" aria-pressed="false">Altura de la vegetación</button>
+        <button type="button" data-modo="ndvi" aria-pressed="false">Vigor (NDVI)</button>
         <button type="button" data-modo="relieve" aria-pressed="false">Relieve</button>
       </div>
     </div>
@@ -94,10 +95,11 @@
       <img class="vs-fijo" src="img/nube-lidar.jpg" alt="Vista fija de la nube de puntos">
       <div class="vs-carga"><span class="vs-aviso">Cargando la nube de puntos (7 MB)…</span><span class="vs-barra"><i></i></span></div>
       <div class="vs-leyenda" data-leyenda="altura" hidden><span>Suelo</span><i class="vs-rampa vs-rampa-alt"></i><span>10 m</span></div>
+      <div class="vs-leyenda" data-leyenda="ndvi" hidden><span>NDVI 0,2</span><i class="vs-rampa vs-rampa-ndvi"></i><span>0,9</span></div>
       <div class="vs-leyenda" data-leyenda="relieve" hidden><span>1.600 m</span><i class="vs-rampa vs-rampa-rel"></i><span>1.735 m</span></div>
       <button class="vs-reinicia" id="vs-reinicia" type="button">Vista inicial</button>
     </div>
-    <p class="ne-explora-pie">Nube RGB densificada a partir de imágenes del DJI Mavic 3M (93,9 millones de puntos en total). La altura de la vegetación se calcula sobre un modelo del suelo obtenido de la propia nube.</p>
+    <p class="ne-explora-pie">Nube RGB densificada a partir de imágenes del DJI Mavic 3M (93,9 millones de puntos en total). La altura de la vegetación se calcula sobre un modelo del suelo obtenido de la propia nube. El vigor (NDVI) se toma de las bandas roja e infrarroja cercana del mismo vuelo.</p>
   </section>
 
   <section class="seccion" id="escenario" aria-labelledby="t-escenario">
@@ -470,6 +472,6 @@
 <script src="zonas3d.js?v=1" defer></script>
 <script src="modelos3d.js?v=10" defer></script>
 <script src="natureye.js?v=6"></script>
-<script type="module" src="visor.js?v=6"></script>
+<script type="module" src="visor.js?v=7"></script>
 </body>
 </html>

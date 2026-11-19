@@ -35,7 +35,7 @@
     const a = crea("article", "fila-proyecto" + (p.v || p.im ? " con-video" : ""));
     const l = crea("div", "fp-logo");
     if (p.logo) { const i = crea("img"); i.src = p.logo; i.alt = "Logotipo de " + p.t; i.loading = "lazy"; l.append(i); }
-    else if (p.lt) { const s = crea("span", "fp-logo-txt"); s.setAttribute("aria-hidden", "true"); const nom = crea("span"); p.lt.split("|").forEach((x, i) => nom.append(crea("span", i ? "fp-lt2" : "", x))); s.append(nom); l.append(s); }
+    else if (p.lt) { const s = crea("span", "fp-logo-txt" + (p.lt.length > 12 ? " largo" : "")); s.setAttribute("aria-hidden", "true"); const nom = crea("span"); p.lt.split("|").forEach((x, i) => nom.append(crea("span", i ? "fp-lt2" : "", x))); s.append(nom); l.append(s); }
     const t = crea("div", "fp-texto"), h = crea("h3");
     if (p.u) { const e = crea("a", "", p.t); e.href = p.u; e.rel = "noopener"; h.append(e); } else h.textContent = p.t;
     t.append(h); if (p.d) t.append(crea("p", "", p.d));

@@ -150,6 +150,8 @@ const EN = {
   "Línea de trabajo": "Research topic",
   "Tema en definición": "Topic to be defined",
   "Leer la tesis": "Read the thesis",
+  "Agricultura de conservación y regenerativa para la sostenibilidad del territorio andaluz. Living Lab del campus de excelencia ceiA3, con sus cinco universidades, que ensaya en fincas reales paquetes de prácticas regenerativas para recuperar la salud del suelo. La Universidad de Jaén aporta tres fincas de olivar con ensayos de zona tratada frente a zona control, sensores de suelo y seguimiento con dron y satélite.": "Conservation and regenerative agriculture for the sustainability of Andalusia. A Living Lab of the ceiA3 campus of excellence and its five universities that tests packages of regenerative practices on real farms to restore soil health. The University of Jaén contributes three olive farms with treated-versus-control trials, soil sensors and drone and satellite monitoring.",
+  "FEDER Andalucía 2021–2027 · ceiA3, 2026–2029": "ERDF Andalusia 2021–2027 · ceiA3, 2026–2029",
   "Evaluación de la salud del suelo en olivar mediante teledetección e inteligencia artificial": "Assessment of soil health in olive groves using remote sensing and artificial intelligence",
   "Cotutela internacional": "International joint supervision",
   "Universidad de Jaén y Universidad de San Carlos de Guatemala": "University of Jaén and University of San Carlos of Guatemala",

@@ -639,3 +639,9 @@ html.nt-abierta { overflow: hidden; }
 @media (max-width: 760px) { .tesis-lista { grid-template-columns: minmax(0, 1fr); } .tesis-ficha { padding: 16px; } }
 .tesis-ficha h4.tesis-provisional { color: var(--gris); font-weight: 400; font-style: italic; }
 .tesis-rotulo { font-weight: 700; color: var(--tinta); }
+
+/* Filas de proyecto sin vídeo ni imagen: el texto ocupa también la tercera columna; logos de texto largos en dos líneas */
+@media (min-width: 1001px) { .fila-proyecto:not(.con-video) { grid-template-columns: 170px minmax(0, 1fr); } .fila-proyecto:not(.con-video) .fp-texto { max-width: 760px; } }
+.fp-logo-txt.largo { font-size: 1.3rem; }
+.fp-logo-txt.largo > span > span { display: block; }
+.fp-logo-txt.largo::before { height: 2.2em; }

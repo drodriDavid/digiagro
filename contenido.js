@@ -294,3 +294,27 @@ const SELLOS = [
   ["assets/proyectos/livingsoill.png", "LivingSoiLL"], ["assets/proyectos/soil-dataspace.png", "Espacio de Datos Federado de Suelos"],
   ["assets/proyectos/prima.png", "PRIMA"], ["assets/proyectos/cost.svg", "COST"], ["assets/proyectos/aei.svg", "Agencia Estatal de Investigación"], ["assets/proyectos/diputacion-jaen.jpg", "Diputación de Jaén"],
 ];
+
+/* Tesis doctorales. En curso: sin "y". "l" = línea de trabajo cuando aún no hay título registrado. */
+const TESIS = [
+  { a: "Pablo Latorre Hortelano", t: "Detección individual de árboles y modelado multisensorial de entornos agroambientales", dir: "David Jurado Rodríguez y Juan M. Jurado Rodríguez", pr: "Doctorado en Tecnologías de la Información y la Comunicación · Universidad de Jaén" },
+  { a: "Luis René Domínguez Fuentes", t: "Reducción de dimensionalidad y análisis de imágenes hiperespectrales de escenarios reales", dir: "Juan M. Jurado Rodríguez y J. Roberto Jiménez Pérez", pr: "Doctorado en Tecnologías de la Información y la Comunicación · Universidad de Jaén" },
+  { a: "Rubén Sanabria Díaz", t: "Caracterización multisensorial y análisis semántico de ecosistemas aplicando modelos multiescala", dir: "Juan M. Jurado Rodríguez y David Jurado Rodríguez", pr: "Doctorado en Tecnologías de la Información y la Comunicación · Universidad de Jaén" },
+  { a: "Andressa De Sousa Cardoso", l: "Detección y seguimiento de instalaciones fotovoltaicas a partir de datos 3D de teledetección", dir: "Juan M. Jurado Rodríguez, M.ª Isabel Ramos Galán y Francisco R. Feito Higueruela", pr: "Universidad de Jaén" },
+  { a: "Antonio Gutiérrez Pola", dir: "Juan M. Jurado Rodríguez y Julio A. Calero González", pr: "Doctorado en Tecnologías de la Información y la Comunicación · Universidad de Jaén" },
+  { a: "Elena Carmona Vallecillo", l: "Reconstrucción 3D a partir de tomografía dental y planificación de implantes", m: "Doctorado industrial", pr: "Doctorado en Tecnologías de la Información y la Comunicación · Universidad de Jaén" },
+  { a: "Jesús Moreno Arjonilla", l: "Seguimiento ocular en realidad virtual", dir: "J. Roberto Jiménez Pérez, José E. Callejas y Juan M. Jurado Rodríguez", pr: "Universidad de Jaén" },
+  { a: "Ruth M.ª Córdoba Ortega", pr: "Universidad de Jaén" },
+  { a: "Carolina Collaro", pr: "Universidad de Jaén" },
+
+  { y: 2025, a: "Gustavo Francisco Ruiz-Cátedra Jerez", t: "Estudio de la calidad del suelo en olivares de Andalucía: una aproximación integral", dir: "Julio A. Calero González y Roberto García Ruiz", pr: "Universidad de Jaén", u: "https://hdl.handle.net/10953/6790" },
+  { y: 2025, a: "Fadoua Elhaddad", t: "Effect of olive grove soil cover management on soil properties and the agronomic performance of olive tree according to a North-South rainfall gradient", dir: "Julio A. Calero González y Hechmi Chehab", pr: "Doctorado en Aceites de Oliva · Universidad de Jaén", u: "https://hdl.handle.net/10953/7546" },
+  { y: 2024, a: "José Luis Cárdenas Donoso", t: "Gestión avanzada de datos procedentes de sensores a bordo de drones", m: "Sobresaliente cum laude", dir: "Francisco R. Feito Higueruela y Juan M. Jurado Rodríguez", pr: "Universidad de Jaén", u: "https://hdl.handle.net/10953/2606" },
+  { y: 2023, a: "Alfonso López Ruiz", t: "Nuevas herramientas para la modelización de datos procedentes de sensores", m: "Mención internacional", dir: "Francisco R. Feito Higueruela y Carlos J. Ogáyar Anguita", pr: "Universidad de Jaén", u: "https://hdl.handle.net/10953/4290" },
+  { y: 2023, a: "Milagros Torrús Castillo", t: "Balance y huella de carbono en olivares andaluces bajo distintas prácticas de manejo", dir: "Roberto García Ruiz y Julio A. Calero González", pr: "Universidad de Jaén", u: "https://hdl.handle.net/10953/2413" },
+  { y: 2022, a: "David Jurado Rodríguez", t: "Contributions to camera pose estimation in industrial augmented reality applications", m: "Doctorado industrial", dir: "Rafael Muñoz Salinas y Sergio Garrido Jurado", pr: "Computación Avanzada, Energía y Plasmas · Universidad de Córdoba", u: "https://hdl.handle.net/10396/24377" },
+  { y: 2020, a: "Juan Manuel Jurado Rodríguez", t: "Spectral characterization and semantic segmentation of complex 3D models in natural environments", m: "Sobresaliente cum laude", dir: "Francisco R. Feito Higueruela, Lidia Ortega Alvarado y Juan José Cubillas Mercado", pr: "Doctorado en Tecnologías de la Información y la Comunicación · Universidad de Jaén", u: "https://hdl.handle.net/10953/1046" },
+  { y: 2019, a: "Alejandro Graciano Segura", t: "Multilayer representation for geological information systems", m: "Mención internacional", dir: "Antonio J. Rueda Ruiz y Francisco R. Feito Higueruela", pr: "Universidad de Jaén", u: "https://hdl.handle.net/10953/1115" },
+  { y: 2017, a: "Iván Plaza", t: "Implicación de las interacciones en la estructura y cohesión del suelo", dir: "Alfonso Ontiveros Ortega, Julio A. Calero González y Víctor Aranda Sanjuán", pr: "Doctorado en Ciencias · Universidad de Jaén", u: "https://hdl.handle.net/10953/874" },
+  { y: 2015, a: "Juan José Cubillas Mercado", t: "Avances en sistemas de información geográfica y minería de datos para aplicaciones de e-Salud", dir: "Francisco R. Feito Higueruela y M.ª Isabel Ramos Galán", pr: "Universidad de Jaén", u: "https://hdl.handle.net/10953/670" },
+];

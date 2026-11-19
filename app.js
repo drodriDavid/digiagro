@@ -67,6 +67,21 @@
   filasPub.forEach(({ li }, i) => { li.hidden = i >= VISIBLES; });
   masPubs.addEventListener("click", () => { filasPub.forEach(({ li }) => { li.hidden = false; }); masPubs.parentElement.hidden = true; });
 
+  /* Tesis doctorales: en curso y defendidas */
+  TESIS.forEach(p => {
+    const li = crea("li", "tesis-ficha"), cab = crea("p", "tesis-estado");
+    cab.append(crea("span", "", p.y ? "Defendida" : "En curso"));
+    if (p.y) cab.append(crea("span", "tesis-ano", p.y));
+    if (p.m) cab.append(crea("span", "tesis-mencion", p.m));
+    const tit = crea("h4", p.t ? "" : "tesis-provisional", p.t || p.l || "Tema en definición");
+    if (p.l) cab.append(crea("span", "tesis-mencion", "Línea de trabajo"));
+    li.append(cab, tit, crea("p", "tesis-autor", p.a));
+    if (p.dir) { const d = crea("p", "tesis-datos"); d.append(crea("span", "tesis-rotulo", "Dirección"), " " + p.dir); li.append(d); }
+    if (p.pr) li.append(crea("p", "tesis-datos", p.pr));
+    if (p.u) { const e = crea("a", "tesis-enlace", "Leer la tesis"); e.href = p.u; e.rel = "noopener"; li.append(e); }
+    const dest = $(p.y ? "lista-tesis-defendidas" : "lista-tesis-curso"); dest.append(li); revela(li, dest.children.length - 1);
+  });
+
   /* Método y sellos */
   PASOS.forEach(p => {
     const li = crea("li", "paso");

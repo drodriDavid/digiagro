@@ -1,6 +1,7 @@
 /* NATUREYE: visor 3D de la nube de puntos de Puerto de la Mata (muestra de la nube RGB densificada).
-   Formato de media/puerto-mata.bin: n×3 uint16 (x, y, z cuantizados a la extensión), n×3 uint8 (RGB), n uint8 (altura sobre el suelo en dm)
-   y, si meta.ndvi existe, n uint8 de NDVI (0..250 de -0,2 a 1,0; 255 sin dato).
+   Formato de media/puerto-mata.bin: n×3 uint16 (x, y, z cuantizados a la extensión), n×3 uint8 (RGB), n uint8 (altura sobre
+   el suelo en dm) y, si meta.indices existe, n uint8 por índice (NDVI, NDRE, GNDVI: 0..250 de -0,2 a 1,0; 255 sin dato).
+   media/puerto-mata-2025.bin (vuelo de febrero de 2025) usa la misma malla, sin índices; se descarga solo si se pide.
    Carga diferida: solo se descarga cuando la sección se acerca a la pantalla. */
 import * as THREE from "./vendor/three.module.min.js";
 import { OrbitControls } from "./vendor/OrbitControls.js";
@@ -13,6 +14,8 @@ function iniciar(caja) {
   const aviso = caja.querySelector(".vs-aviso");
   const barra = caja.querySelector(".vs-barra i");
   const botones = [...document.querySelectorAll("[data-modo]")];
+  const fechas = [...caja.querySelectorAll("[data-fecha]")];
+  const indices = [...caja.querySelectorAll("[data-indice]")];
   const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let empezado = false;
 
@@ -22,35 +25,36 @@ function iniciar(caja) {
   const obs = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting) && !empezado) { empezado = true; obs.disconnect(); carga(); } }, { rootMargin: "400px" });
   obs.observe(caja);
 
-  async function carga() {
-    const meta = await (await fetch("media/puerto-mata.json?v=2")).json();
-    const r = await fetch("media/puerto-mata.bin?v=2");
-    const total = +r.headers.get("content-length") || meta.n * 10;
+  async function baja(url, total, progreso) {
+    const r = await fetch(url);
+    if (!r.ok) throw new Error(url);
+    total = +r.headers.get("content-length") || total;
     const lector = r.body.getReader(); const trozos = []; let leidos = 0;
     for (;;) {
       const { done, value } = await lector.read(); if (done) break;
-      trozos.push(value); leidos += value.length; barra.style.width = Math.min(100, leidos / total * 100) + "%";
+      trozos.push(value); leidos += value.length; progreso(Math.min(1, leidos / total));
     }
     const buf = new Uint8Array(leidos); let o = 0; for (const t of trozos) { buf.set(t, o); o += t.length; }
-    monta(meta, buf.buffer);
+    return buf.buffer;
   }
 
-  function monta(meta, ab) {
-    const n = meta.n, [ex, ey, ez] = meta.extension;
-    const q = new Uint16Array(ab, 0, n * 3), rgb = new Uint8Array(ab, n * 6, n * 3), alt = new Uint8Array(ab, n * 9, n);
-    const ndvi = meta.ndvi && ab.byteLength >= n * 11 ? new Uint8Array(ab, n * 10, n) : null;
-    if (!ndvi) botones.filter(b => b.dataset.modo === "ndvi").forEach(b => { b.hidden = true; });
-    const pos = new Float32Array(n * 3);
-    const sx = ex / 65535, sy = ey / 65535, sz = ez / 65535;
-    for (let i = 0; i < n; i++) {
-      pos[i * 3] = q[i * 3] * sx - ex / 2;           // este
-      pos[i * 3 + 1] = q[i * 3 + 2] * sz - ez / 2;   // altura (eje vertical de three.js)
-      pos[i * 3 + 2] = -(q[i * 3 + 1] * sy - ey / 2); // norte hacia el fondo
-    }
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-    const col = new Float32Array(n * 3);
-    geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
+  async function carga() {
+    const meta = await (await fetch("media/puerto-mata.json?v=4")).json();
+    const ab = await baja("media/puerto-mata.bin?v=4", meta.n * 13, p => { barra.style.width = p * 100 + "%"; });
+    monta(meta, ab);
+  }
+
+  function monta(meta, ab0) {
+    const [ex, ey, ez] = meta.extension;
+    const hex = h => [parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255];
+    const P_ALT = [[0, hex("#e9dfc6")], [0.8, hex("#cbd98a")], [3, hex("#6aae3a")], [6, hex("#1e5631")], [10, hex("#1c8cb8")]];
+    const C_VIGOR = ["#9a7b55", "#dccb8a", "#a9c95f", "#3f8f3a", "#0f4a26"].map(hex);
+    const P_REL = [[0, hex("#1d4e6b")], [0.35, hex("#4f9fb8")], [0.6, hex("#d9dcb4")], [0.85, hex("#c08a52")], [1, hex("#7a4b2a")]];
+    const SIN = hex("#b8bcb6");
+    /* Estratos por altura sobre el suelo: herbáceo y suelo, matorral bajo, matorral alto, arbolado */
+    const ESTRATOS = [[0.3, hex("#e3d6b0")], [1, hex("#b9cf73")], [3, hex("#5e9e3e")], [Infinity, hex("#1f5a35")]];
+    const NOMBRES = ["ndvi", "ndre", "gndvi"];
+    const fmt = v => v.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
     const rampa = (paradas, v, out, i) => {
       let k = 0; while (k < paradas.length - 2 && v > paradas[k + 1][0]) k++;
@@ -58,34 +62,58 @@ function iniciar(caja) {
       const t = Math.max(0, Math.min(1, (v - a) / (b - a)));
       out[i] = ca[0] + (cb[0] - ca[0]) * t; out[i + 1] = ca[1] + (cb[1] - ca[1]) * t; out[i + 2] = ca[2] + (cb[2] - ca[2]) * t;
     };
-    const hex = h => [parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255];
-    const P_ALT = [[0, hex("#e9dfc6")], [0.8, hex("#cbd98a")], [3, hex("#6aae3a")], [6, hex("#1e5631")], [10, hex("#1c8cb8")]];
-    const P_NDVI = [[0.2, hex("#9a7b55")], [0.45, hex("#dccb8a")], [0.6, hex("#a9c95f")], [0.75, hex("#3f8f3a")], [0.9, hex("#0f4a26")]];
-    const SIN = hex("#b8bcb6");
-    /* Estratos por altura sobre el suelo: herbáceo y suelo, matorral bajo, matorral alto, arbolado */
-    const ESTRATOS = [[0.3, hex("#e3d6b0")], [1, hex("#b9cf73")], [3, hex("#5e9e3e")], [Infinity, hex("#1f5a35")]];
-    const cuenta = [0, 0, 0, 0];
-    for (let i = 0; i < n; i++) { const h = alt[i] / 10; cuenta[h < 0.3 ? 0 : h < 1 ? 1 : h < 3 ? 2 : 3]++; }
-    document.querySelectorAll("[data-estrato]").forEach(e => { e.textContent = `${Math.round(cuenta[+e.dataset.estrato] / n * 100)} %`; });
-    const P_REL = [[0, hex("#1d4e6b")], [0.35, hex("#4f9fb8")], [0.6, hex("#d9dcb4")], [0.85, hex("#c08a52")], [1, hex("#7a4b2a")]];
 
-    function colorea(modo) {
+    /* Convierte un fichero binario en una geometría con sus atributos */
+    function prepara(n, ab, conIndices) {
+      const q = new Uint16Array(ab, 0, n * 3), rgb = new Uint8Array(ab, n * 6, n * 3), alt = new Uint8Array(ab, n * 9, n);
+      const idx = {};
+      if (conIndices && meta.indices && ab.byteLength >= n * 13) NOMBRES.forEach((k, j) => { idx[k] = new Uint8Array(ab, n * (10 + j), n); });
+      const pos = new Float32Array(n * 3);
+      const sx = ex / 65535, sy = ey / 65535, sz = ez / 65535;
+      for (let i = 0; i < n; i++) {
+        pos[i * 3] = q[i * 3] * sx - ex / 2;           // este
+        pos[i * 3 + 1] = q[i * 3 + 2] * sz - ez / 2;   // altura (eje vertical de three.js)
+        pos[i * 3 + 2] = -(q[i * 3 + 1] * sy - ey / 2); // norte hacia el fondo
+      }
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+      const col = new Float32Array(n * 3);
+      geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
+      const cuenta = [0, 0, 0, 0];
+      for (let i = 0; i < n; i++) { const h = alt[i] / 10; cuenta[h < 0.3 ? 0 : h < 1 ? 1 : h < 3 ? 2 : 3]++; }
+      return { n, pos, rgb, alt, idx, geo, col, cuenta };
+    }
+
+    const datos = { 2024: prepara(meta.n, ab0, true) };
+    let actual = datos[2024], fecha = "2024", modo = "real", indice = "ndvi";
+
+    function colorea() {
+      const { n, pos, rgb, alt, idx, col, cuenta } = actual;
+      const v = idx[indice], esc = meta.indices && meta.indices[indice] ? meta.indices[indice].escala : [0.2, 0.9];
+      const P_V = C_VIGOR.map((c, k) => [esc[0] + (esc[1] - esc[0]) * k / 4, c]);
       for (let i = 0; i < n; i++) {
         const j = i * 3;
         if (modo === "real") { col[j] = (rgb[j] / 255) ** 1.6 * 1.25; col[j + 1] = (rgb[j + 1] / 255) ** 1.6 * 1.25; col[j + 2] = (rgb[j + 2] / 255) ** 1.6 * 1.25; }
         else if (modo === "altura") rampa(P_ALT, alt[i] / 10, col, j);
         else if (modo === "estratos") { const h = alt[i] / 10, c = ESTRATOS.find(e => h < e[0])[1]; col[j] = c[0]; col[j + 1] = c[1]; col[j + 2] = c[2]; }
-        else if (modo === "ndvi") { if (ndvi[i] === 255) { col[j] = SIN[0]; col[j + 1] = SIN[1]; col[j + 2] = SIN[2]; } else rampa(P_NDVI, ndvi[i] / 250 * 1.2 - 0.2, col, j); }
+        else if (modo === "vigor") { if (v[i] === 255) { col[j] = SIN[0]; col[j + 1] = SIN[1]; col[j + 2] = SIN[2]; } else rampa(P_V, v[i] / 250 * 1.2 - 0.2, col, j); }
         else rampa(P_REL, (pos[j + 1] + ez / 2) / ez, col, j);
       }
-      geo.attributes.color.needsUpdate = true;
+      actual.geo.attributes.color.needsUpdate = true;
       document.querySelectorAll("[data-leyenda]").forEach(l => { l.hidden = l.dataset.leyenda !== modo; });
+      document.querySelectorAll("[data-estrato]").forEach(e => { e.textContent = `${Math.round(cuenta[+e.dataset.estrato] / n * 100)} %`; });
+      caja.querySelectorAll("[data-vigor-min]").forEach(e => { e.textContent = fmt(esc[0]); });
+      caja.querySelectorAll("[data-vigor-max]").forEach(e => { e.textContent = fmt(esc[1]); });
+      botones.forEach(b => { b.setAttribute("aria-pressed", b.dataset.modo === modo); });
+      const vig = botones.find(b => b.dataset.modo === "vigor");
+      if (vig) { vig.disabled = !v; vig.title = v ? "" : "Solo hay datos multiespectrales del vuelo de abril de 2024"; }
     }
-    colorea("real");
 
     const escena = new THREE.Scene();
-    const mat = new THREE.PointsMaterial({ size: 1.45, vertexColors: true, sizeAttenuation: true });
-    escena.add(new THREE.Points(geo, mat));
+    const mat = new THREE.PointsMaterial({ size: 1.05, vertexColors: true, sizeAttenuation: true });
+    const puntos = new THREE.Points(actual.geo, mat);
+    escena.add(puntos);
+    colorea();
 
     const render = new THREE.WebGLRenderer({ canvas: lienzo, antialias: false, alpha: true });
     render.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -113,10 +141,31 @@ function iniciar(caja) {
     new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(caja);
     render.setAnimationLoop(() => { if (!visible) return; ctl.update(); render.render(escena, cam); });
 
-    botones.forEach(b => b.addEventListener("click", () => {
-      botones.forEach(x => x.setAttribute("aria-pressed", x === b));
-      colorea(b.dataset.modo);
+    botones.forEach(b => b.addEventListener("click", () => { if (b.disabled) return; modo = b.dataset.modo; colorea(); }));
+    indices.forEach(b => b.addEventListener("click", () => {
+      indice = b.dataset.indice; indices.forEach(x => x.setAttribute("aria-pressed", x === b)); colorea();
     }));
+
+    /* Cambio de fecha: la nube de febrero de 2025 se descarga la primera vez que se pide */
+    async function ponFecha(f) {
+      if (f === fecha) return;
+      if (!datos[f]) {
+        const b = fechas.find(x => x.dataset.fecha === f), texto = b.textContent;
+        fechas.forEach(x => { x.disabled = true; });
+        try {
+          const m = await (await fetch(`media/puerto-mata-${f}.json?v=2`)).json();
+          const ab = await baja(`media/puerto-mata-${f}.bin?v=2`, m.n * 10, p => { b.textContent = `Cargando ${Math.round(p * 100)} %`; });
+          datos[f] = prepara(m.n, ab, false);
+        } catch (e) { b.textContent = texto; fechas.forEach(x => { x.disabled = false; }); return; }
+        b.textContent = texto; fechas.forEach(x => { x.disabled = false; });
+      }
+      fecha = f; actual = datos[f]; puntos.geometry = actual.geo;
+      fechas.forEach(x => x.setAttribute("aria-pressed", x.dataset.fecha === f));
+      if (modo === "vigor" && !actual.idx[indice]) modo = "real";
+      colorea();
+    }
+    fechas.forEach(b => b.addEventListener("click", () => ponFecha(b.dataset.fecha)));
+
     const rec = document.getElementById("vs-reinicia");
     if (rec) rec.addEventListener("click", () => { vistaInicial(); ctl.autoRotate = !quieto; });
     caja.classList.add("listo");

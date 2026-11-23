@@ -128,6 +128,7 @@
     if (p.c) tx.append(crea("span", "persona-cargo", p.c));
     if (p.a) tx.append(crea("em", "persona-area", p.a));
     if (p.p) tx.append(crea("span", "persona-programa", p.p));
+    if (p.m) tx.append(crea("span", "persona-programa", p.m));
     if (p.e) { const m = crea("a", "persona-correo", p.e); m.href = "mailto:" + p.e; tx.append(m); }
     if (p.o) {
       const o = crea("a", "persona-orcid"); o.href = "https://orcid.org/" + p.o; o.rel = "noopener";

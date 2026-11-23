@@ -271,12 +271,47 @@
         <p>Cada especie se proyecta con <b>5 modelos climáticos, 4 escenarios (SSP1-2.6 a SSP5-8.5) y 4 periodos hasta 2100</b>: 80 escenarios y 972 proyecciones regionales en 27,5 minutos. La validación espacial por bloques da un AUC medio de 0,87 con Random Forest y 0,84 con el modelo tipo MaxEnt.</p>
       </div>
     </div>
+        <div class="ne-explora-cab tt-cab">
+      <div>
+        <h3 id="t-tt3d">Explora el gemelo digital</h3>
+        <p>Gira, acércate y mueve el tiempo para ver cómo se pierde el hábitat y dónde quedan los refugios. Pasa el puntero por el relieve para ver la altitud y lo que le ocurre a cada zona.</p>
+      </div>
+      <div class="tt-grupos">
+        <div class="vs-modos" role="group" aria-label="Zona">
+          <button type="button" data-tt-zona="ordesa" aria-pressed="true">Ordesa</button>
+          <button type="button" data-tt-zona="magina" aria-pressed="false">Sierra Mágina</button>
+        </div>
+        <div class="vs-modos" role="group" aria-label="Capa">
+          <button type="button" data-tt-capa="orto" aria-pressed="false">Ortofoto</button>
+          <button type="button" data-tt-capa="idoneidad" aria-pressed="false">Idoneidad actual</button>
+          <button type="button" data-tt-capa="perdida" aria-pressed="true">Horizonte de pérdida</button>
+        </div>
+      </div>
+    </div>
+    <div class="vs tt-vs" id="visor-tt" data-capa="perdida">
+      <canvas aria-label="Gemelo digital 3D interactivo con el horizonte de pérdida de hábitat"></canvas>
+      <img class="vs-fijo" src="img/terratwin-ordesa-perdida.webp" alt="Vista fija del horizonte de pérdida en Ordesa">
+      <div class="vs-carga"><span class="vs-aviso">Cargando el gemelo digital (3 MB)…</span><span class="vs-barra"><i></i></span></div>
+      <div class="vs-fechas tt-ssp" role="group" aria-label="Escenario de emisiones">
+        <button type="button" data-tt-ssp="ssp245" aria-pressed="false" title="Emisiones intermedias">SSP2-4.5</button>
+        <button type="button" data-tt-ssp="ssp585" aria-pressed="true" title="Emisiones altas">SSP5-8.5</button>
+      </div>
+      <div class="tt-panel">
+        <div class="tt-tiempo"><button type="button" class="tt-play" aria-pressed="false" aria-label="Reproducir la pérdida de hábitat">▶</button>
+          <input type="range" min="0" max="4" step="0.01" value="4" aria-label="Periodo"><output>2081–2100</output></div>
+        <label class="tt-niebla"><input type="checkbox" checked> Niebla de extrapolación</label>
+      </div>
+      <div class="vs-leyenda vs-leyenda-clases" data-tt-leyenda="perdida"><span><i style="background:#33a052"></i>Hábitat actual</span><span><i style="background:#d6301f"></i>2021–2040</span><span><i style="background:#fc8d3b"></i>2041–2060</span><span><i style="background:#fdd959"></i>2061–2080</span><span><i style="background:#b366bf"></i>2081–2100</span><span><i style="background:#2166ab"></i>Refugio</span></div>
+      <div class="vs-leyenda" data-tt-leyenda="idoneidad" hidden><span>Baja</span><i class="vs-rampa tt-rampa-vir"></i><span>Alta</span></div>
+      <p class="tt-resumen" aria-live="polite"></p>
+      <span class="tt-dato" hidden></span>
+      <button type="button" class="vs-reinicia">Recentrar</button>
+    </div>
     <div class="ne-tt">
       <div class="ne-prosa ne-tt-prosa">
         <p>Los resultados se pintan sobre <b>gemelos digitales fotorrealistas</b> construidos con el modelo digital del terreno MDT25 y la ortofoto PNOA, y renderizados con Blender Cycles. Se proponen dos formas nuevas de mirarlos:</p>
         <p><b>Horizonte de pérdida.</b> Cada zona se colorea según el periodo en que deja de ser adecuada, y las que resisten hasta 2100 se marcan como refugios. En Ordesa, el pino negro (<i>Pinus uncinata</i>) conserva el 84&nbsp;% de su hábitat con emisiones intermedias, pero solo el 28&nbsp;% con emisiones altas, refugiado en las cumbres.</p>
         <p><b>Niebla de extrapolación.</b> Una niebla volumétrica cubre las zonas cuyo clima futuro no se parece a ningún clima actual, donde la predicción no es fiable. En Sierra Mágina cubre el 87&nbsp;% del macizo, y el enebro (<i>Juniperus communis</i>) pierde sus 59&nbsp;km² de hábitat ya en 2021–2040.</p>
-        <p>Los resultados también se consultan en <b>TerraPredict</b>, una aplicación web con visores 2D y 3D, comparador de escenarios y descarga de resultados.</p>
         <p class="ne-nota">Parte del Trabajo Fin de Grado de Alberto Jiménez Expósito, «Simulación predictiva y visualización de escenarios naturales integrando información multisensorial» (Universidad de Jaén, 2026). Dirigido por Juan Manuel Jurado Rodríguez y David Jurado Rodríguez.</p>
       </div>
       <div class="ne-galeria ne-galeria-2 ne-galeria-tt">
@@ -284,8 +319,6 @@
         <figure><a href="img/terratwin-ordesa-perdida.webp"><img src="img/terratwin-ordesa-perdida.webp" alt="Horizonte de pérdida de Pinus uncinata en Ordesa" loading="lazy" width="1600" height="1000"></a><figcaption>Horizonte de pérdida de <i>P. uncinata</i> (SSP5-8.5): del rojo (perdido en 2021–2040) al morado (2081–2100); en azul, los refugios</figcaption></figure>
         <figure><a href="img/terratwin-magina.webp"><img src="img/terratwin-magina.webp" alt="Gemelo digital de Sierra Mágina" loading="lazy" width="1600" height="1000"></a><figcaption>Gemelo digital de Sierra Mágina</figcaption></figure>
         <figure><a href="img/terratwin-magina-niebla.webp"><img src="img/terratwin-magina-niebla.webp" alt="Niebla de extrapolación sobre Sierra Mágina" loading="lazy" width="1600" height="1000"></a><figcaption>Niebla de extrapolación en Sierra Mágina (SSP5-8.5, 2081–2100)</figcaption></figure>
-        <figure><a href="img/tfg-terrapredict-2d.jpg"><img src="img/tfg-terrapredict-2d.jpg" alt="" loading="lazy"></a><figcaption>TerraPredict: visor 2D</figcaption></figure>
-        <figure><a href="img/tfg-terrapredict-3d.jpg"><img src="img/tfg-terrapredict-3d.jpg" alt="" loading="lazy"></a><figcaption>TerraPredict: visor 3D</figcaption></figure>
       </div>
     </div>
   </section>
@@ -507,5 +540,6 @@
 <script src="modelos3d.js?v=10" defer></script>
 <script src="natureye.js?v=7"></script>
 <script type="module" src="visor.js?v=9"></script>
+<script type="module" src="terratwin3d.js?v=2"></script>
 </body>
 </html>

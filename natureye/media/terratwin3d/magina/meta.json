@@ -1,0 +1,47 @@
+{
+ "name": "Sierra Mágina",
+ "species": "Juniperus communis",
+ "w": 1132,
+ "h": 628,
+ "res_m": 25.0,
+ "zmin": 509.0,
+ "zmax": 2161.0,
+ "exag": 1.6,
+ "gamma": 0.5,
+ "classes_km2": {
+  "ssp245": {
+   "lost_2030": 59.17062500000001,
+   "lost_2050": 0.0,
+   "lost_2070": 0.0,
+   "lost_2090": 0.0,
+   "refugium": 0.0
+  },
+  "ssp585": {
+   "lost_2030": 59.17062500000001,
+   "lost_2050": 0.0,
+   "lost_2070": 0.0,
+   "lost_2090": 0.0,
+   "refugium": 0.0
+  }
+ },
+ "class_mean_elev_m": {
+  "ssp245": {
+   "lost_2030": 1666.1986083984375,
+   "lost_2050": null,
+   "lost_2070": null,
+   "lost_2090": null,
+   "refugium": null
+  },
+  "ssp585": {
+   "lost_2030": 1666.1986083984375,
+   "lost_2050": null,
+   "lost_2070": null,
+   "lost_2090": null,
+   "refugium": null
+  }
+ },
+ "mess_neg_mean": {
+  "ssp245": 0.09640967100858688,
+  "ssp585": 0.8742605447769165
+ }
+}

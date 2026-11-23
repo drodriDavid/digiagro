@@ -512,3 +512,28 @@ a.ne-amplia { display: block; cursor: zoom-in; }
 .ne-grafico { display: block; width: 100%; height: auto; font-family: inherit; }
 .ne-grafico-fig figcaption { margin-top: 8px; font-size: .85rem; line-height: 1.45; color: var(--gris); }
 @media (max-width: 900px) { .ne-analisis-dos { grid-template-columns: 1fr; } }
+
+/* TerraTwin: gemelo digital interactivo */
+.tt-cab { margin-top: clamp(32px, 5vw, 56px); }
+.tt-cab h3 { margin: 0 0 6px; }
+.tt-grupos { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+.tt-vs { margin-top: 16px; }
+.tt-panel { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; padding: 8px 14px; background: rgba(8, 20, 14, .78); border-radius: 999px; color: #e8efe9; font-size: .85rem; }
+.tt-tiempo { display: flex; align-items: center; gap: 10px; }
+.tt-tiempo input { width: clamp(120px, 22vw, 260px); accent-color: #5cbcf2; }
+.tt-tiempo output { min-width: 78px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.tt-play { border: 0; width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #10301f; font-size: .8rem; cursor: pointer; }
+.tt-niebla { display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap; }
+.tt-vs[data-capa="orto"] .tt-tiempo, .tt-vs[data-capa="idoneidad"] .tt-tiempo, .tt-vs:not([data-capa="perdida"]) .tt-ssp, .tt-vs:not([data-capa="perdida"]) .tt-panel { display: none; }
+.tt-vs .vs-leyenda { bottom: 70px; }
+.tt-resumen { position: absolute; left: 16px; top: 14px; margin: 0; max-width: min(620px, calc(100% - 220px)); padding: 8px 12px; background: rgba(8, 20, 14, .75); border-radius: 6px; color: #e8efe9; font-size: .85rem; line-height: 1.4; }
+.tt-resumen:empty, .tt-vs:not(.listo) .tt-resumen, .tt-vs:not(.listo) .tt-panel, .tt-vs:not(.listo) .vs-leyenda { display: none; }
+.tt-dato { position: absolute; pointer-events: none; padding: 4px 8px; background: rgba(255, 255, 255, .92); color: #10301f; border-radius: 4px; font-size: .8rem; font-weight: 700; white-space: nowrap; }
+.tt-dato[hidden] { display: none; }
+.tt-rampa-vir { background: linear-gradient(90deg, #440154, #3b528b 25%, #21918c 50%, #5ec962 75%, #fde725); }
+@media (max-width: 720px) {
+  .tt-grupos { align-items: flex-start; }
+  .tt-panel { left: 8px; right: 8px; bottom: 58px; transform: none; border-radius: 10px; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .tt-vs .vs-leyenda { display: none; }
+  .tt-resumen { max-width: calc(100% - 32px); top: 58px; font-size: .78rem; }
+}

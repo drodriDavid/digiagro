@@ -581,6 +581,12 @@ html.nt-abierta { overflow: hidden; }
 .nt-cuerpo { overflow-y: auto; overscroll-behavior: contain; }
 .nt-dlg-img { margin: 0; background: var(--fondo); }
 .nt-dlg-img img { display: block; width: 100%; max-height: 52vh; object-fit: contain; }
+.nt-dlg-img video, .nc-img video { display: block; width: 100%; max-height: 52vh; background: #000; }
+.nc-img video { max-height: 78vh; }
+/* Noticia con vídeo en la portada: triángulo de reproducir sobre la imagen */
+.nt.con-video .nt-img { position: relative; }
+.nt.con-video .nt-img::after { content: ""; position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%;
+  background: rgba(0,0,0,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7v10l8-5z' fill='%23fff'/%3E%3C/svg%3E") center / 30px no-repeat; }
 .nt-dlg-texto { padding: clamp(18px, 3vw, 32px) clamp(18px, 3.5vw, 40px) 8px; }
 .nt-dlg-texto h2 { margin: 8px 0 14px; font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.2; font-weight: 900; }
 .nt-dlg-texto p { margin-bottom: 12px; color: #3f4240; }

@@ -38,7 +38,13 @@
     });
     dest.append(p);
   });
-  const imagen = (n, cls, perezosa = true) => {
+  const imagen = (n, cls, perezosa = true, video = false) => {
+    if (video && n.video) {                 /* noticia con vídeo: se reproduce en la ventana y en noticias.html */
+      const f = crea("figure", cls), v = crea("video");
+      v.src = BASE + n.video; v.controls = true; v.playsInline = true; v.preload = "none";
+      if (n.imagen) v.poster = BASE + n.imagen;
+      f.append(v); return f;
+    }
     if (!n.imagen) return null;
     const f = crea("figure", cls), i = crea("img"); i.src = BASE + n.imagen; i.alt = ""; if (perezosa) i.loading = "lazy"; f.append(i); return f;
   };
@@ -76,7 +82,7 @@
     d.setAttribute("aria-label", t("noticia"));
     const cerrar = d.querySelector(".nt-cerrar"); cerrar.setAttribute("aria-label", t("cerrar"));
     c.replaceChildren();
-    const img = imagen(n, "nt-dlg-img", false); if (img) c.append(img);
+    const img = imagen(n, "nt-dlg-img", false, true); if (img) c.append(img);
     const x = crea("div", "nt-dlg-texto");
     x.append(cuando(n), crea("h2", "", titulo(n))); parrafos(x, texto(n));
     const e = enlaces(n); if (e) x.append(e);
@@ -89,7 +95,7 @@
 
   /* Elemento de la portada: la tarjeta entera abre la ventana (el enlace lleva a noticias.html si no hay JS) */
   const elemento = (n, i, destacada) => {
-    const a = crea("a", "nt" + (destacada ? " nt-dest" : "") + (n.imagen ? "" : " sin-img")); a.href = "noticias.html#" + n.id;
+    const a = crea("a", "nt" + (destacada ? " nt-dest" : "") + (n.imagen ? "" : " sin-img") + (n.video ? " con-video" : "")); a.href = "noticias.html#" + n.id;
     a.onclick = e => { if (e.ctrlKey || e.metaKey || e.shiftKey) return; e.preventDefault(); abre(i); };
     const img = imagen(n, "nt-img"); if (img) a.append(img);
     const x = crea("div", "nt-texto");
@@ -98,8 +104,8 @@
     a.append(x); return a;
   };
   const completa = n => {
-    const a = crea("article", "noticia-completa" + (n.imagen ? "" : " sin-img")); a.id = n.id;
-    const img = imagen(n, "nc-img"); if (img) a.append(img);
+    const a = crea("article", "noticia-completa" + (n.imagen || n.video ? "" : " sin-img")); a.id = n.id;
+    const img = imagen(n, "nc-img", true, true); if (img) a.append(img);
     const x = crea("div", "nc-texto");
     x.append(cuando(n), crea("h2", "", titulo(n))); parrafos(x, texto(n));
     const e = enlaces(n); if (e) x.append(e);

@@ -125,6 +125,7 @@ const EN = {
   "Estudiante de doctorado": "PhD student",
   "Estudiante de doctorado industrial": "Industrial PhD student",
   "Doctorado en Tecnologías de la Información y la Comunicación": "PhD Programme in Information and Communication Technologies",
+  "Doctorado en Aceites de Oliva": "PhD Programme in Olive Oils",
   "Informática": "Computer Science",
   "Enlaces": "Links",
   "Instituciones y programas": "Institutions and programmes",

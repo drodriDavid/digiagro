@@ -155,7 +155,7 @@ function iniciar(caja) {
     async function cargaEspecies(b) {
       const texto = b.textContent; b.disabled = true;
       try {
-        const m = await (await fetch("media/puerto-mata-especies.json?v=1")).json();
+        const m = await (await fetch("media/puerto-mata-especies.json?v=2")).json();
         const ab = await baja("media/puerto-mata-especies.bin?v=1", m.n, p => { b.textContent = `Cargando ${Math.round(p * 100)} %`; });
         if (m.n !== meta.n) throw new Error("especies");
         esp.cl = new Uint8Array(ab);

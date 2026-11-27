@@ -61,7 +61,7 @@ const EN = {
   "Vídeo de presentación de SAVIA": "SAVIA presentation video",
   "Inventario individual": "Individual inventory",
   "Cálculo del índice de sostenibilidad": "Sustainability index",
-  "Vigorosidad y dasometría": "Vigour and dendrometry",
+  "Fotogrametría y reconstrucción 3D": "Photogrammetry and 3D reconstruction",
   "Balance de carbono y erosión": "Carbon balance and erosion",
   "Nuestro laboratorio de teledetección. Reúne la flota de drones, los sensores multiespectrales, térmicos, hiperespectrales y LiDAR, y la galería de vuelos.": "Our remote sensing laboratory. It brings together the drone fleet, the multispectral, thermal, hyperspectral and LiDAR sensors, and the flight gallery.",
   "Ver todo el equipamiento": "See all equipment",

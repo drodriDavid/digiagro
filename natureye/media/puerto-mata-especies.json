@@ -1,0 +1,7 @@
+{"n": 1499953, "fuente": "Clasificación por especies de la nube del 08/04/2024 (R. Sanabria, GEU), asignada a cada punto de la muestra por el vecino más próximo (hasta 1 m)",
+ "clases": [
+  {"id": 1, "nombre": "Especie 1", "color": "#2f9a55"},
+  {"id": 2, "nombre": "Especie 2", "color": "#2f7fc1"},
+  {"id": 3, "nombre": "Especie 3", "color": "#e39a1f"},
+  {"id": 4, "nombre": "Especie 4", "color": "#c8457f"}
+ ]}

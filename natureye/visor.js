@@ -1,6 +1,8 @@
 /* NATUREYE: visor 3D de la nube de puntos de Puerto de la Mata (muestra de la nube RGB densificada).
    Formato de media/puerto-mata.bin: n×3 uint16 (x, y, z cuantizados a la extensión), n×3 uint8 (RGB), n uint8 (altura sobre
    el suelo en dm) y, si meta.indices existe, n uint8 por índice (NDVI, NDRE, GNDVI: 0..250 de -0,2 a 1,0; 255 sin dato).
+   media/puerto-mata-especies.bin: n uint8 con la especie de cada punto (0 sin clasificar; nombres y colores en el .json),
+   solo para el vuelo de 2024; se descarga la primera vez que se pulsa «Especies».
    media/puerto-mata-2025.bin (vuelo de febrero de 2025) usa la misma malla, sin índices; se descarga solo si se pide.
    Carga diferida: solo se descarga cuando la sección se acerca a la pantalla. */
 import * as THREE from "./vendor/three.module.min.js";
@@ -96,6 +98,11 @@ function iniciar(caja) {
         if (modo === "real") { col[j] = (rgb[j] / 255) ** 1.6 * 1.25; col[j + 1] = (rgb[j + 1] / 255) ** 1.6 * 1.25; col[j + 2] = (rgb[j + 2] / 255) ** 1.6 * 1.25; }
         else if (modo === "altura") rampa(P_ALT, alt[i] / 10, col, j);
         else if (modo === "estratos") { const h = alt[i] / 10, c = ESTRATOS.find(e => h < e[0])[1]; col[j] = c[0]; col[j + 1] = c[1]; col[j + 2] = c[2]; }
+        else if (modo === "especies") {
+          const c = esp.col[esp.cl[i]];
+          if (c) { col[j] = c[0]; col[j + 1] = c[1]; col[j + 2] = c[2]; }
+          else { const g = ((rgb[j] + rgb[j + 1] + rgb[j + 2]) / 765) ** 1.6 * 0.9 + 0.05; col[j] = g; col[j + 1] = g; col[j + 2] = g * 0.96; } // suelo en gris
+        }
         else if (modo === "vigor") { if (v[i] === 255) { col[j] = SIN[0]; col[j + 1] = SIN[1]; col[j + 2] = SIN[2]; } else rampa(P_V, v[i] / 250 * 1.2 - 0.2, col, j); }
         else rampa(P_REL, (pos[j + 1] + ez / 2) / ez, col, j);
       }
@@ -107,6 +114,8 @@ function iniciar(caja) {
       botones.forEach(b => { b.setAttribute("aria-pressed", b.dataset.modo === modo); });
       const vig = botones.find(b => b.dataset.modo === "vigor");
       if (vig) { vig.disabled = !v; vig.title = v ? "" : "Solo hay datos multiespectrales del vuelo de abril de 2024"; }
+      const be = botones.find(b => b.dataset.modo === "especies");
+      if (be) { be.disabled = fecha !== "2024"; be.title = fecha === "2024" ? "" : "La clasificación por especies es del vuelo de abril de 2024"; }
     }
 
     const escena = new THREE.Scene();
@@ -141,7 +150,32 @@ function iniciar(caja) {
     new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(caja);
     render.setAnimationLoop(() => { if (!visible) return; ctl.update(); render.render(escena, cam); });
 
-    botones.forEach(b => b.addEventListener("click", () => { if (b.disabled) return; modo = b.dataset.modo; colorea(); }));
+    /* Especies: se descarga la primera vez que se pide (1,5 MB) */
+    const esp = { cl: null, col: [] };
+    async function cargaEspecies(b) {
+      const texto = b.textContent; b.disabled = true;
+      try {
+        const m = await (await fetch("media/puerto-mata-especies.json?v=1")).json();
+        const ab = await baja("media/puerto-mata-especies.bin?v=1", m.n, p => { b.textContent = `Cargando ${Math.round(p * 100)} %`; });
+        if (m.n !== meta.n) throw new Error("especies");
+        esp.cl = new Uint8Array(ab);
+        const cuenta = new Array(m.clases.length + 1).fill(0); for (let i = 0; i < esp.cl.length; i++) cuenta[esp.cl[i]]++;
+        const ley = caja.querySelector('[data-leyenda="especies"]');
+        ley.textContent = "";
+        m.clases.forEach(c => {
+          esp.col[c.id] = hex(c.color).map(v => v ** 2.2); // a lineal, como el resto de colores del visor
+          const s = document.createElement("span"), i = document.createElement("i"), n = document.createElement("b");
+          i.style.background = c.color; n.textContent = `${Math.round(cuenta[c.id] / m.n * 100)} %`;
+          s.append(i, c.nombre + " ", n); ley.append(s);
+        });
+        const s = document.createElement("span"), i = document.createElement("i"); i.style.background = "#8a8a86"; s.append(i, "Suelo y sin clasificar"); ley.append(s);
+      } finally { b.textContent = texto; b.disabled = false; }
+    }
+    botones.forEach(b => b.addEventListener("click", async () => {
+      if (b.disabled) return;
+      if (b.dataset.modo === "especies" && !esp.cl) { try { await cargaEspecies(b); } catch (e) { return; } }
+      modo = b.dataset.modo; colorea();
+    }));
     indices.forEach(b => b.addEventListener("click", () => {
       indice = b.dataset.indice; indices.forEach(x => x.setAttribute("aria-pressed", x === b)); colorea();
     }));
@@ -161,7 +195,7 @@ function iniciar(caja) {
       }
       fecha = f; actual = datos[f]; puntos.geometry = actual.geo;
       fechas.forEach(x => x.setAttribute("aria-pressed", x.dataset.fecha === f));
-      if (modo === "vigor" && !actual.idx[indice]) modo = "real";
+      if ((modo === "vigor" && !actual.idx[indice]) || (modo === "especies" && f !== "2024")) modo = "real";
       colorea();
     }
     fechas.forEach(b => b.addEventListener("click", () => ponFecha(b.dataset.fecha)));

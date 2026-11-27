@@ -537,3 +537,4 @@ a.ne-amplia { display: block; cursor: zoom-in; }
   .tt-vs .vs-leyenda { display: none; }
   .tt-resumen { max-width: calc(100% - 32px); top: 58px; font-size: .78rem; }
 }
+.ne-cortina + h3 { margin-top: clamp(28px, 5vw, 48px); }

@@ -45,7 +45,8 @@
     if (p.v) {
       const f = crea("figure", "fp-video"), v = crea("video"); v.controls = true; v.playsInline = true; v.preload = "none"; v.poster = p.vp;
       const s = crea("source"); s.src = p.v; s.type = "video/mp4"; v.append(s);
-      if (p.ve) { s.dataset.srcEn = p.ve; if (p.vpe) v.dataset.posterEn = p.vpe; }  // versión en inglés: la pone aplica() v.setAttribute("aria-label", "Vídeo de presentación de " + p.t); f.append(v); a.append(f);
+      if (p.ve) { s.dataset.srcEn = p.ve; if (p.vpe) v.dataset.posterEn = p.vpe; }  // versión en inglés: la pone aplica()
+      v.setAttribute("aria-label", "Vídeo de presentación de " + p.t); f.append(v); a.append(f);
     }
     if (p.yt) {
       /* YouTube solo se carga al pulsar (sin cookies hasta entonces) */

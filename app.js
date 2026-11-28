@@ -46,6 +46,7 @@
       const f = crea("figure", "fp-video"), v = crea("video"); v.controls = true; v.playsInline = true; v.preload = "none"; v.poster = p.vp;
       const s = crea("source"); s.src = p.v; s.type = "video/mp4"; v.append(s);
       if (p.ve) { s.dataset.srcEn = p.ve; if (p.vpe) v.dataset.posterEn = p.vpe; }  // versión en inglés: la pone aplica()
+      if (p.sub) { const tr = crea("track"); tr.kind = "subtitles"; tr.srclang = "en"; tr.label = "English"; tr.src = p.sub; tr.dataset.soloEn = ""; v.append(tr); }
       v.setAttribute("aria-label", "Vídeo de presentación de " + p.t); f.append(v); a.append(f);
     }
     if (p.yt) {
@@ -269,6 +270,7 @@
         const nuevo = en ? s.dataset.srcEn : s.dataset.srcEs;
         if (s.getAttribute("src") !== nuevo) { s.setAttribute("src", nuevo); s.parentElement.load(); }
       });
+      document.querySelectorAll("video track[data-solo-en]").forEach(tr => { tr.track.mode = en ? "showing" : "disabled"; });
       document.title = en ? (EN[tituloEs] || tituloEs) : tituloEs;
       if (meta) meta.content = en ? (EN[metaEs] || metaEs) : metaEs;
       botonIdioma.textContent = en ? "ES" : "EN";

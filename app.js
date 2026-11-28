@@ -44,7 +44,8 @@
     t.append(m); a.append(l, t);
     if (p.v) {
       const f = crea("figure", "fp-video"), v = crea("video"); v.controls = true; v.playsInline = true; v.preload = "none"; v.poster = p.vp;
-      const s = crea("source"); s.src = p.v; s.type = "video/mp4"; v.append(s); v.setAttribute("aria-label", "Vídeo de presentación de " + p.t); f.append(v); a.append(f);
+      const s = crea("source"); s.src = p.v; s.type = "video/mp4"; v.append(s);
+      if (p.ve) { s.dataset.srcEn = p.ve; if (p.vpe) v.dataset.posterEn = p.vpe; }  // versión en inglés: la pone aplica() v.setAttribute("aria-label", "Vídeo de presentación de " + p.t); f.append(v); a.append(f);
     }
     if (p.yt) {
       /* YouTube solo se carga al pulsar (sin cookies hasta entonces) */
@@ -257,6 +258,16 @@
         if (!t) return;
         e.dataset[k] = o; e.setAttribute(a, en ? t : o);
       }));
+      /* Vídeos con versión en inglés (data-src-en en el <source>, data-poster-en en el <video>) */
+      document.querySelectorAll("video[data-poster-en]").forEach(v => {
+        if (!v.dataset.posterEs) v.dataset.posterEs = v.getAttribute("poster") || "";
+        const nuevo = en ? v.dataset.posterEn : v.dataset.posterEs; if (v.getAttribute("poster") !== nuevo) v.setAttribute("poster", nuevo);
+      });
+      document.querySelectorAll("video source[data-src-en]").forEach(s => {
+        if (!s.dataset.srcEs) s.dataset.srcEs = s.getAttribute("src");
+        const nuevo = en ? s.dataset.srcEn : s.dataset.srcEs;
+        if (s.getAttribute("src") !== nuevo) { s.setAttribute("src", nuevo); s.parentElement.load(); }
+      });
       document.title = en ? (EN[tituloEs] || tituloEs) : tituloEs;
       if (meta) meta.content = en ? (EN[metaEs] || metaEs) : metaEs;
       botonIdioma.textContent = en ? "ES" : "EN";
